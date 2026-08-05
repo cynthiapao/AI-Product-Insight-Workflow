@@ -107,7 +107,7 @@ python -m ai_product_insight publish `
 4. 在 Actions 页面手动运行一次 `Generate AI product insight draft`。
 5. 检查生成的 Draft Pull Request；核验事实、来源和表达后再合并。
 
-GitHub Actions 当前配置为每周一北京时间 09:20 运行。每次成功运行会创建独立草稿分支和 Draft Pull Request，文章仍需人工修改与核验后才能进入发布流程。
+GitHub Actions 当前配置为每周一北京时间 09:20 运行。Scout 会按优先级保留最多 3 个候选；若首选证据不足，流程会继续研究下一候选，并在生成第一篇草稿后停止。只有实际产生 Markdown 草稿时才会创建独立草稿分支和 Draft Pull Request；文章仍需人工修改与核验后才能进入发布流程。
 
 ## 与现有网站连接
 

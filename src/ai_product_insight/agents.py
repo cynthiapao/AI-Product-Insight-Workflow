@@ -218,17 +218,28 @@ class ScoutAgent:
     def select(self, candidates: list[ProductCandidate]) -> list[ProductCandidate]:
         if not candidates:
             return []
-        payload = {"candidates": [item.model_dump(mode="json") for item in candidates[:10]]}
+        payload = {
+            "candidates": [item.model_dump(mode="json") for item in candidates[:10]],
+            "max_selected": self.config.select_count,
+        }
         raw_selection = self.llm.generate_json(SCOUT_SYSTEM, _json(payload))
         selection = CandidateSelection.model_validate(normalize_scout_response(raw_selection))
         scores = {item.candidate_id: item.score for item in selection.assessments}
         for candidate in candidates:
             if candidate.candidate_id in scores:
                 candidate.score = scores[candidate.candidate_id]
-        selected_set = set(selection.selected_ids)
-        selected = [item for item in candidates if item.candidate_id in selected_set and item.score and item.score.total >= self.config.min_score]
-        selected.sort(key=lambda item: item.score.total if item.score else 0, reverse=True)
-        return selected[: self.config.select_count]
+        eligible = [
+            item
+            for item in candidates
+            if item.score and item.score.total >= self.config.min_score
+        ]
+        eligible.sort(key=lambda item: item.score.total if item.score else 0, reverse=True)
+
+        selected_order = {candidate_id: index for index, candidate_id in enumerate(selection.selected_ids)}
+        primary = [item for item in eligible if item.candidate_id in selected_order]
+        primary.sort(key=lambda item: selected_order[item.candidate_id])
+        fallbacks = [item for item in eligible if item.candidate_id not in selected_order]
+        return (primary + fallbacks)[: self.config.select_count]
 
 
 class ResearchAgent:

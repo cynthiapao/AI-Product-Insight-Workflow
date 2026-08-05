@@ -96,3 +96,5 @@
 - GitHub Actions 调整为每周一北京时间 09:20 自动生成 Draft Pull Request。
 - 模型按阶段路由：Scout/Research 使用 DeepSeek V4 Flash，Insight/Editor 使用 DeepSeek V4 Pro。
 - 首次推送排除虚拟环境、历史运行日志、自动草稿、预览、构建缓存与压缩包。
+- 首次云端实跑虽然显示成功，但首选产品 Finyuus 的证据不足，未生成 Markdown，仍创建了仅含中间数据的 Draft PR。修复后 Scout 会保留最多 3 个有序候选，Scheduled 模式遇到证据不足时继续尝试下一项，并在第一篇成功草稿后停止。
+- CLI 现在只有在实际产生输出时才返回成功；GitHub Actions 即使失败也会保留运行 Artifact，但不会再为无草稿运行创建“假成功”PR。

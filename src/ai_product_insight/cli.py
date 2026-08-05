@@ -223,7 +223,7 @@ def main(argv: list[str] | None = None) -> int:
             fixture_evidence=fixture_evidence,
         )
     print(report.model_dump_json(indent=2))
-    return 0 if report.status in {"completed", "partial"} else 1
+    return 0 if report.outputs and report.status in {"completed", "partial"} else 1
 
 
 if __name__ == "__main__":

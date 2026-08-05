@@ -70,6 +70,8 @@ class InsightPipeline:
                 article = self.crew.editor.draft(research, insight)
                 paths = write_outputs(article, self.output_dir)
                 report.outputs.extend(str(path) for path in paths)
+                if mode == "scheduled":
+                    break
 
         except Exception as exc:  # The report is the operational failure boundary.
             report.status = "failed"

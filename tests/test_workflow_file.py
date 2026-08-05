@@ -13,6 +13,7 @@ class WorkflowFileTests(unittest.TestCase):
         self.assertIn("${{ secrets.DEEPSEEK_API_KEY }}", text)
         self.assertIn("gh pr create", text)
         self.assertIn("--draft", text)
+        self.assertIn("if: always()", text)
         self.assertNotIn("continue-on-error: true", text)
         self.assertNotRegex(text, r"sk-[A-Za-z0-9]{12,}")
 
