@@ -1,0 +1,33 @@
+{
+  "candidates": [
+    {
+      "name": "Atlas Flow",
+      "url": "https://example.com/atlas-flow",
+      "source": "offline fixture",
+      "summary": "An AI workspace that shows research, filtering and synthesis as observable task stages.",
+      "manual": false
+    },
+    {
+      "name": "Quick Answer",
+      "url": "https://example.com/quick-answer",
+      "source": "offline fixture",
+      "summary": "A lightweight question answering interface.",
+      "manual": false
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Atlas Flow product overview",
+      "url": "https://example.com/atlas-flow",
+      "excerpt": "Atlas Flow displays the research plan, visited sources and intermediate findings before composing the final result. Users can pause the workflow and revise the research direction.",
+      "source_type": "official"
+    },
+    {
+      "title": "Atlas Flow release notes",
+      "url": "https://example.com/atlas-flow/releases",
+      "excerpt": "The latest release adds checkpoints for source review and lets users restart a failed stage without rerunning the complete task.",
+      "source_type": "release"
+    }
+  ]
+}
+

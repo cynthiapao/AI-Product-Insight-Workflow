@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "name": "Hacker News Show",
+      "kind": "hackernews",
+      "url": "https://hacker-news.firebaseio.com/v0/showstories.json",
+      "limit": 12
+    },
+    {
+      "name": "Product Hunt",
+      "kind": "rss",
+      "url": "https://www.producthunt.com/feed",
+      "limit": 12
+    },
+    {
+      "name": "Hugging Face Blog",
+      "kind": "rss",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "limit": 8
+    },
+    {
+      "name": "Google AI Blog",
+      "kind": "rss",
+      "url": "https://blog.google/technology/ai/rss/",
+      "limit": 8
+    }
+  ],
+  "max_candidates": 25,
+  "select_count": 1,
+  "min_score": 3.1,
+  "min_evidence_items": 2,
+  "deepseek_base_url": "https://api.deepseek.com",
+  "deepseek_fast_model": "deepseek-v4-flash",
+  "deepseek_quality_model": "deepseek-v4-pro",
+  "request_timeout_seconds": 25
+}
