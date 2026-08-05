@@ -1,0 +1,56 @@
+[
+  {
+    "candidate_id": "5accf99abedd6ae6",
+    "name": "Glasp MCP Connector",
+    "url": "https://www.producthunt.com/products/glasp-mcp-connector",
+    "source": "Product Hunt",
+    "summary": "<p> Search your highlights and notes inside Claude and ChatGPT </p> <p> <a href=\"https://www.producthunt.com/products/glasp-mcp-connector?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1214090?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-03T11:39:20-07:00",
+    "discovered_at": "2026-08-05T04:23:56.955840Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.35,
+      "reason": "MCP connector for search in AI assistants is highly relevant, novel integration, clear mechanisms, and good evidence from Product Hunt."
+    }
+  },
+  {
+    "candidate_id": "8f8eabb6817e9626",
+    "name": "GrowthBook 5.0",
+    "url": "https://www.producthunt.com/products/growthbook",
+    "source": "Product Hunt",
+    "summary": "<p> Build, ship, and improve at scale </p> <p> <a href=\"https://www.producthunt.com/products/growthbook?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1209958?app_id=339\">Link</a> </p>",
+    "published_at": "2026-07-29T08:58:55-07:00",
+    "discovered_at": "2026-08-05T04:23:56.955990Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.0,
+      "reason": "GrowthBook 5.0 is a feature management and experimentation platform, relevant for AI PM, novel in scale, clear mechanisms, good evidence."
+    }
+  },
+  {
+    "candidate_id": "41b75ba557e8c949",
+    "name": "SpeakoFlow",
+    "url": "https://www.producthunt.com/products/speakoflow",
+    "source": "Product Hunt",
+    "summary": "<p> Open-source local voice assistant for your desktop </p> <p> <a href=\"https://www.producthunt.com/products/speakoflow?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1213586?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-03T01:34:16-07:00",
+    "discovered_at": "2026-08-05T04:23:56.956040Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Open-source local voice assistant is relevant for AI PM portfolio, shows novelty in privacy-focused AI, has clear mechanisms (voice processing, local execution), but evidence is limited to Product Hunt listing."
+    }
+  }
+]

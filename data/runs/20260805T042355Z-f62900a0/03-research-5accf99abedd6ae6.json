@@ -1,0 +1,61 @@
+{
+  "candidate": {
+    "candidate_id": "5accf99abedd6ae6",
+    "name": "Glasp MCP Connector",
+    "url": "https://www.producthunt.com/products/glasp-mcp-connector",
+    "source": "Product Hunt",
+    "summary": "<p> Search your highlights and notes inside Claude and ChatGPT </p> <p> <a href=\"https://www.producthunt.com/products/glasp-mcp-connector?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1214090?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-03T11:39:20-07:00",
+    "discovered_at": "2026-08-05T04:23:56.955840Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.35,
+      "reason": "MCP connector for search in AI assistants is highly relevant, novel integration, clear mechanisms, and good evidence from Product Hunt."
+    }
+  },
+  "evidence": [
+    {
+      "title": "Glasp MCP Connector - discovery note",
+      "url": "https://www.producthunt.com/products/glasp-mcp-connector",
+      "excerpt": "<p> Search your highlights and notes inside Claude and ChatGPT </p> <p> <a href=\"https://www.producthunt.com/products/glasp-mcp-connector?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1214090?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-05T04:24:04.601982Z"
+    },
+    {
+      "title": "Glasp MCP Connector: Search your highlights and notes inside Claude and ChatGPT | Product Hunt",
+      "url": "https://www.producthunt.com/products/glasp-mcp-connector",
+      "excerpt": "Most-loved launches by the community\nChecklists and pro tips for launching\nThe best of Product Hunt, every day\nTech news, interviews, and tips from makers\nNew Product Hunt features and releases\nAsk questions, find support, and connect\nKitty Points Leaderboard\nThe highest scoring community members\nThe most active community members\nMeet others online and in-person\nSearch your highlights and notes inside Claude and ChatGPT\nSearch your highlights and notes inside Claude and ChatGPT\nConnect Glasp to Claude and ChatGPT as an MCP server. Search your highlights and memories in natural language, right inside your AI assistant. Read-only and private to you.\nFollow Glasp MCP Connector\np/glasp-mcp-connector\nAI gave everyone the same brain, Recall gives AI yours.\nKnowledge base software\nYour AI assistant on all websites.\nThe AI workspace that thinks with you\nPieces for Developers\nOn-device AI development assistant for your entire workflow\nResurfacing your best highlights from Kindle, iBooks & more\nNote and writing apps\nTop Product Categories\nEngineering & Development\nEngineering & Development\nAI Infrastructure Tools\nPrompt Engineering Tools\nNote and writing apps\nTeam collaboration software\nAI Workflow Automation\nLead generation software\nMarketing automation platforms\nGraphic design tools\nProfessional networking platforms\nCommunity management\nFundraising resources\nSee All Categories >>\nStatic site generators\nCursor or Claude Code?\nPOLL: Domain or product first?\nYC deadline in <2 weeks; Who's applying?\nWe Got into YC, Got Kicked Out, and Fought Our Way Back\nHow Wispr Flow found PMF through pivot\nBest Vibe Coding tool so far?\nLanding page roast - 48 hours only\nFix your tagline with the PH CEO\nhello@producthunt.com\nDesign and publish professional sites with AI\nWhat do you think? …\nGlasp: Curated Content to Crafted Posts\n📌 Hi Product Hunt 👋 Glasp cofounder here! 🚀 Today, we're launching the MCP Connector for Glasp 🙌 🔌 What is the MCP Connector? It connects your Glasp account to Claude, ChatGPT, Claude Code, and any MCP-compatible AI tool. Ask \"what did I save about deep work?\" and get your own highlighted passages back, with their sources, right inside the chat you already use. It's read-only and private to you. It can read your own highlights and memories, and nothing else. 🕰️ Story behind Glasp 10 years ago, Kazuki, the co-founder of Glasp, was diagnosed with a subdural hematoma that suddenly paralyzed the left side of his body, and his doctor told him that he could go into cardiopulmonary arrest at any moment. He managed to survive through emergency surgery, but when he was confronted with the reality that he might disappear from this world, he remembers feeling an inexpressible sense of fear and frustration welling up from the bottom of his body. At the same time, he was struck by the desire to prove that he existed in this world and that his life had meaning, and the urge to leave something useful behind for the world while he was still alive to feel a sense of contribution to humanity. 📚What is Glasp? Glasp is a social web highlighter that people can use to highlight and organize quotes and thoughts from the web without switching back and forth between screens and accessing other like-minded people's learning simultaneously. Our mission is to democratize access to other people's learning and experiences that they have collected throughout their lives as a utilitarian legacy. As Glasp stands for \"Greatest Legacy Accumulated as Shared Proof\", we want to visualize your contribution to human knowledge history. Besides the MCP Connector: ✅ Talk with your AI Clone built from your highlights and notes 🧠 ✅ Sync all your highlights and notes from Kindle eBooks: 📚 ✅ Get daily highlight reviews for free! ✅ Highlight text & image on the web: 🔴 🟡 🟢 🔵 ✅ Highlight and summarize YouTube videos, web pages, and PDF files! ✅ Highlight & annotate PDF files ✍️ ✅ Discover more useful content from other curators: 🤝 ... and many more! We're excited for the Product Hunt community to check it out and would love to get any feedback to improve Glasp! 🧭 What's Coming Up Next: - More MCP tools (filters by source, date, and tags) - Support for more MCP-compatible clients - Improved AI Clone & Learning Memory - Improved UX = UI updates + bug fix Let's highlight the world's information and make it universally accessible and useful together! Happy learning, Kei\nGlasp: Curated Content to Crafted Posts\nFor the detailed guide, please check this tutorial:\nhttps://glasp.co/posts/how-to-use-glasp-mcp-connector\nThe read-only constraint is the part I would underline. Most \"connect your knowledge base to an LLM\" pitches this year have quietly meant write access too, and that is the version I would not install.\nThe honest failure mode of every highlighter I have used, including one I built myself, is that capture is frictionless and retrieval never happens. I have 400-odd saved passages I have not once gone back to. Putting them behind a question I am already as",
+      "source_type": "official",
+      "retrieved_at": "2026-08-05T04:24:05.382758Z"
+    }
+  ],
+  "verified_facts": [
+    "Glasp MCP Connector is a product launched on Product Hunt that connects Glasp to Claude, ChatGPT, Claude Code, and other MCP-compatible AI tools.",
+    "The connector allows users to search their highlights and notes in natural language within AI assistants.",
+    "The connector is read-only and private, meaning it can only read the user's own highlights and memories.",
+    "Glasp is a social web highlighter that allows users to highlight and organize quotes and thoughts from the web.",
+    "Glasp's mission is to democratize access to other people's learning and experiences.",
+    "Glasp stands for 'Greatest Legacy Accumulated as Shared Proof'.",
+    "Glasp offers features such as talking with an AI Clone built from highlights and notes, syncing Kindle eBooks highlights, daily highlight reviews, highlighting text and images on the web, highlighting and summarizing YouTube videos, web pages, and PDF files, highlighting and annotating PDF files, and discovering content from other curators.",
+    "Upcoming features for Glasp MCP Connector include more MCP tools (filters by source, date, and tags), support for more MCP-compatible clients, improved AI Clone & Learning Memory, and improved UX with UI updates and bug fixes.",
+    "A detailed guide for using Glasp MCP Connector is available at https://glasp.co/posts/how-to-use-glasp-mcp-connector.",
+    "The co-founder of Glasp, Kazuki, had a medical history of subdural hematoma that motivated him to create Glasp.",
+    "The connector is designed to retrieve highlights and notes with sources inside chat interfaces.",
+    "The Product Hunt page includes community discussion and a link to the product."
+  ],
+  "open_questions": [
+    "What specific MCP-compatible AI tools are supported besides Claude and ChatGPT?",
+    "How does the read-only constraint ensure privacy and security?",
+    "What is the pricing model for Glasp MCP Connector?",
+    "How does the connector handle large volumes of highlights and notes in terms of performance?",
+    "What are the exact steps to set up the MCP connector?",
+    "Are there any limitations on the types of highlights or notes that can be searched?",
+    "How does the AI Clone feature work and how is it different from the MCP connector?",
+    "What is the user feedback or rating for Glasp MCP Connector on Product Hunt?"
+  ],
+  "quality": "usable"
+}
