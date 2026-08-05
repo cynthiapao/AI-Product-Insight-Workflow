@@ -1,0 +1,20 @@
+[
+  {
+    "candidate_id": "89633566fa0fd2ff",
+    "name": "Finyuus",
+    "url": "https://www.producthunt.com/products/finyuus",
+    "source": "Product Hunt",
+    "summary": "<p> A code-first language for durable, governed AI workflows </p> <p> <a href=\"https://www.producthunt.com/products/finyuus?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1214070?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-03T11:14:47-07:00",
+    "discovered_at": "2026-08-05T04:16:22.190715Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "Code-first language for AI workflows, deep technical product with strong AI PM relevance."
+    }
+  }
+]

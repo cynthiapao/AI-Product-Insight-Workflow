@@ -1,0 +1,13 @@
+{
+  "run_id": "20260805T041620Z-8dfd504f",
+  "mode": "scheduled",
+  "status": "partial",
+  "candidate_count": 25,
+  "selected_count": 1,
+  "outputs": [],
+  "errors": [
+    "Insufficient evidence for Finyuus"
+  ],
+  "started_at": "2026-08-05T04:16:20.861981Z",
+  "finished_at": "2026-08-05T04:16:30.540194Z"
+}
