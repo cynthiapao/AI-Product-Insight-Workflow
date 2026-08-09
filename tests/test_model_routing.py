@@ -33,6 +33,7 @@ class ModelRoutingTests(unittest.TestCase):
         self.assertIs(crew.researcher.llm, fast_llm)
         self.assertIs(crew.analyst.llm, quality_llm)
         self.assertIs(crew.editor.llm, quality_llm)
+        self.assertIs(crew.social.llm, quality_llm)
 
     def test_defaults_to_one_model_for_offline_runs(self):
         llm = DummyLLM()
@@ -45,6 +46,7 @@ class ModelRoutingTests(unittest.TestCase):
 
         self.assertIs(crew.analyst.llm, llm)
         self.assertIs(crew.editor.llm, llm)
+        self.assertIs(crew.social.llm, llm)
 
 
 if __name__ == "__main__":

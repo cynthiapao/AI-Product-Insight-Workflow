@@ -6,7 +6,7 @@ import sys
 import webbrowser
 from pathlib import Path
 
-from .agents import AgentCrew, EditorAgent, InsightAgent, ResearchAgent, ScoutAgent
+from .agents import AgentCrew, EditorAgent, InsightAgent, ResearchAgent, ScoutAgent, SocialRepurposeAgent
 from .config import WorkflowConfig
 from .discovery import DiscoveryAgent
 from .editorial import EditorialContext
@@ -57,6 +57,11 @@ def build_parser() -> argparse.ArgumentParser:
     publish.add_argument("--site", required=True, type=Path, help="本地网站 Git 仓库目录")
     publish.add_argument("--no-open", action="store_true", help="只生成预览，不自动打开浏览器")
     publish.add_argument("--no-push", action="store_true", help="确认后只更新本地网站，不提交和推送")
+    social = sub.add_parser("render-social", help="校验人工截图并生成 X 和小红书配图")
+    social.add_argument("--bundle", required=True, type=Path, help="文章对应的 social.json")
+    social.add_argument("--assets", required=True, type=Path, help="人工截图所在目录")
+    social.add_argument("--output", required=True, type=Path, help="生成图片的输出目录")
+    social.add_argument("--font", type=Path, help="可选字体文件；默认自动查找微软雅黑或 Noto Sans CJK")
     return parser
 
 
@@ -105,6 +110,7 @@ def build_agent_crew(
         researcher=ResearchAgent(fast_llm, fetcher, config),
         analyst=InsightAgent(quality_llm, editorial_context),
         editor=EditorAgent(quality_llm, editorial_context),
+        social=SocialRepurposeAgent(quality_llm),
     )
 
 
@@ -154,6 +160,20 @@ def run_publish_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_render_social_command(args: argparse.Namespace) -> int:
+    from .social_render import MissingAssetsError, render_social_assets
+
+    try:
+        outputs = render_social_assets(args.bundle, args.assets, args.output, args.font)
+    except (OSError, ValueError, RuntimeError, MissingAssetsError) as exc:
+        print(f"错误：社交配图未生成：{exc}", file=sys.stderr)
+        return 3
+    print("社交配图已生成：")
+    for path in outputs:
+        print(f"- {path}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -162,6 +182,8 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.mode == "publish":
         return run_publish_command(args)
+    if args.mode == "render-social":
+        return run_render_social_command(args)
     config = WorkflowConfig.load(args.config)
     editorial_context = EditorialContext.load(PROJECT_ROOT)
     fetcher = HttpFetcher(timeout=config.request_timeout_seconds)
@@ -192,7 +214,14 @@ def main(argv: list[str] | None = None) -> int:
         fast_llm=fast_llm,
         quality_llm=quality_llm,
     )
-    pipeline = InsightPipeline(discovery, crew, args.output, args.runs)
+    pipeline = InsightPipeline(
+        discovery,
+        crew,
+        args.output,
+        args.runs,
+        social_output_dir=PROJECT_ROOT / "output" / "social",
+        assets_dir=PROJECT_ROOT / "inputs" / "assets",
+    )
 
     manual = None
     fixture_candidates = None

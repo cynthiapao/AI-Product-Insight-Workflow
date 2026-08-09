@@ -19,6 +19,7 @@ from .models import (
     ProductInsight,
     ResearchAnalysis,
     ResearchPack,
+    SocialBundle,
 )
 from .prompts import (
     ANALYST_SYSTEM,
@@ -28,6 +29,7 @@ from .prompts import (
     EDITOR_SYSTEM,
     RESEARCH_SYSTEM,
     SCOUT_SYSTEM,
+    SOCIAL_SYSTEM,
 )
 from .sources import FetchError, HttpFetcher, fetch_evidence
 
@@ -210,6 +212,48 @@ def normalize_clarification_response(raw: dict[str, object]) -> dict[str, object
     return normalized
 
 
+def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict[str, object]:
+    """Keep common model variation inside the strict social publishing contract."""
+    normalized = dict(raw)
+    normalized["article_slug"] = article_slug
+
+    x_post = normalized.get("x_post")
+    if isinstance(x_post, str):
+        x_post = {
+            "text": x_post,
+            "headline": "One product insight",
+            "image_recommended": True,
+            "image_brief": "Use the primary real screenshot as evidence for the post.",
+            "alt_text": "A real product screenshot related to the product insight.",
+        }
+    if isinstance(x_post, dict):
+        x_item = dict(x_post)
+        text = x_item.get("text")
+        if isinstance(text, str) and len(text.strip()) > 280:
+            clipped = text.strip()[:280]
+            last_space = clipped.rfind(" ")
+            x_item["text"] = clipped[:last_space].rstrip(" ,;:-") if last_space >= 220 else clipped.rstrip()
+        normalized["x_post"] = x_item
+
+    xiaohongshu = normalized.get("xiaohongshu")
+    if isinstance(xiaohongshu, dict):
+        xhs_item = dict(xiaohongshu)
+        hashtags = xhs_item.get("hashtags")
+        if isinstance(hashtags, str):
+            xhs_item["hashtags"] = [item for item in hashtags.replace("#", " ").split() if item][:8]
+        elif isinstance(hashtags, list):
+            xhs_item["hashtags"] = hashtags[:8]
+        normalized["xiaohongshu"] = xhs_item
+
+    carousel = normalized.get("carousel")
+    if isinstance(carousel, list):
+        normalized["carousel"] = carousel[:8]
+    screenshots = normalized.get("screenshots")
+    if isinstance(screenshots, list):
+        normalized["screenshots"] = screenshots[:6]
+    return normalized
+
+
 class ScoutAgent:
     def __init__(self, llm: JsonLLM, config: WorkflowConfig) -> None:
         self.llm = llm
@@ -372,9 +416,28 @@ class EditorAgent:
         return ArticleDraft(**content.model_dump(), sources=sources, review_status="draft")
 
 
+class SocialRepurposeAgent:
+    def __init__(self, llm: JsonLLM) -> None:
+        self.llm = llm
+
+    def draft(self, article: ArticleDraft) -> SocialBundle:
+        payload = {
+            "article": article.model_dump(mode="json"),
+            "platform_requirements": {
+                "x_language": "English",
+                "x_max_characters": 280,
+                "xiaohongshu_language": "Chinese",
+                "visual_source": "real screenshots supplied by the author",
+            },
+        }
+        raw_social = self.llm.generate_json(SOCIAL_SYSTEM, _json(payload))
+        return SocialBundle.model_validate(normalize_social_response(raw_social, article.slug))
+
+
 @dataclass
 class AgentCrew:
     scout: ScoutAgent
     researcher: ResearchAgent
     analyst: InsightAgent
     editor: EditorAgent
+    social: SocialRepurposeAgent | None = None

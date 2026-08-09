@@ -151,4 +151,40 @@ class OfflineDemoLLM:
                 "personal_judgment": "我认为这类产品的竞争点正在从模型回答能力转向任务组织能力。真正有价值的不是展示更多思考文本，而是让用户知道下一步发生什么、何时需要介入，以及结果依据来自哪里。如果这些过程信息能够对应真实动作，它会比单纯提高回答速度更能建立长期信任，也更适合进入高风险的业务流程。",
                 "transferable_methods": [{"name": "可观察的 AI 工作流", "principle": "将长耗时、多步骤的 AI 任务拆成真实且可验证的阶段，并在关键节点提供纠偏入口。", "applies_when": "适用于企业分析、深度研究、数据处理等错误成本较高的任务。"}],
             }
+        if "[SOCIAL]" in system:
+            article = data["article"]
+            return {
+                "article_slug": article["slug"],
+                "key_takeaway": "AI 可以快速生成结果，但优秀的产品还需要降低用户把模糊感受转化为明确要求的成本。",
+                "x_post": {
+                    "text": "AI can generate a polished result fast. The harder product problem is understanding what a user means before the prompt becomes precise. Speed removes execution time; it does not remove the work of translating intent.",
+                    "headline": "Generation is fast. Understanding is harder.",
+                    "image_recommended": True,
+                    "image_brief": "Use one real product or project screenshot with a restrained annotation that supports the core insight.",
+                    "alt_text": "A real screenshot showing the product experience discussed in the article.",
+                },
+                "xiaohongshu": {
+                    "title": "AI 真正省下了哪一步？",
+                    "body": "这次真正把 AI 放进项目流程以后，我发现它最明显的价值是缩短执行时间，但它没有自动消除表达和判断的成本。\n\n当目标足够明确时，生成可以很快；当我只有一种模糊感受时，仍然需要把它拆成模型能够执行的要求。对我来说，这也是判断一个 AI 产品是否好用的重要分界：它只是等待完整指令，还是能帮助用户一起定义问题。",
+                    "hashtags": ["AI产品", "产品经理", "工作流"],
+                },
+                "carousel": [
+                    {"order": 1, "kind": "cover", "title": "AI 真正省下了哪一步？", "body": "一次真实项目复盘", "screenshot_id": None},
+                    {"order": 2, "kind": "screenshot", "title": "先看真实结果", "body": "这张图用于交代项目背景，而不是装饰。", "screenshot_id": "primary-result"},
+                    {"order": 3, "kind": "insight", "title": "生成很快，理解更难", "body": "模糊感受仍需要被翻译成可以执行的要求。", "screenshot_id": None},
+                    {"order": 4, "kind": "closing", "title": "产品启示", "body": "优秀的 AI 产品不仅执行任务，也帮助用户定义任务。", "screenshot_id": None},
+                ],
+                "screenshots": [
+                    {
+                        "screenshot_id": "primary-result",
+                        "filename": "01-primary-result.png",
+                        "required": True,
+                        "source_kind": "product",
+                        "purpose": "展示文章所讨论产品或项目的真实最终效果。",
+                        "capture": "截取最能对应文章核心体验的完整界面，保留必要上下文并隐藏个人敏感信息。",
+                        "annotation": "真实项目中的结果",
+                        "used_for": ["x", "xiaohongshu"],
+                    }
+                ],
+            }
         raise LLMError("Unknown offline demo prompt")

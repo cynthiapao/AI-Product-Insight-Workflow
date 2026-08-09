@@ -175,6 +175,83 @@ class ArticleContent(StrictModel):
     )
 
 
+class XPost(StrictModel):
+    text: str = Field(min_length=20, max_length=280)
+    headline: str = Field(min_length=4, max_length=80)
+    image_recommended: bool = True
+    image_brief: str = Field(min_length=10, max_length=300)
+    alt_text: str = Field(min_length=10, max_length=300)
+
+
+class XiaohongshuDraft(StrictModel):
+    title: str = Field(min_length=6, max_length=40)
+    body: str = Field(min_length=80, max_length=2200)
+    hashtags: list[str] = Field(min_length=2, max_length=8)
+
+    @field_validator("hashtags")
+    @classmethod
+    def normalize_hashtags(cls, value: list[str]) -> list[str]:
+        cleaned: list[str] = []
+        for tag in value:
+            tag = tag.strip().lstrip("#")[:24]
+            if tag and tag not in cleaned:
+                cleaned.append(tag)
+        if len(cleaned) < 2:
+            raise ValueError("At least two distinct hashtags are required")
+        return cleaned
+
+
+class ScreenshotRequirement(StrictModel):
+    screenshot_id: str = Field(pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+    filename: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]*\.(?:png|jpg|jpeg|webp)$")
+    required: bool = True
+    source_kind: Literal["personal", "product"]
+    purpose: str = Field(min_length=10, max_length=240)
+    capture: str = Field(min_length=10, max_length=400)
+    annotation: str = Field(default="", max_length=120)
+    used_for: list[Literal["x", "xiaohongshu"]] = Field(min_length=1, max_length=2)
+
+
+class CarouselSlide(StrictModel):
+    order: int = Field(ge=1, le=8)
+    kind: Literal["cover", "screenshot", "insight", "closing"]
+    title: str = Field(min_length=2, max_length=60)
+    body: str = Field(default="", max_length=240)
+    screenshot_id: str | None = Field(
+        default=None,
+        pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$",
+    )
+
+
+class SocialBundle(StrictModel):
+    article_slug: str = Field(pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+    key_takeaway: str = Field(min_length=20, max_length=180)
+    x_post: XPost
+    xiaohongshu: XiaohongshuDraft
+    carousel: list[CarouselSlide] = Field(min_length=4, max_length=8)
+    screenshots: list[ScreenshotRequirement] = Field(min_length=1, max_length=6)
+
+    @model_validator(mode="after")
+    def references_are_consistent(self) -> "SocialBundle":
+        screenshot_ids = [item.screenshot_id for item in self.screenshots]
+        filenames = [item.filename for item in self.screenshots]
+        if len(screenshot_ids) != len(set(screenshot_ids)):
+            raise ValueError("Screenshot IDs must be unique")
+        if len(filenames) != len(set(filenames)):
+            raise ValueError("Screenshot filenames must be unique")
+        slide_orders = [item.order for item in self.carousel]
+        if len(slide_orders) != len(set(slide_orders)):
+            raise ValueError("Carousel slide orders must be unique")
+        unknown = {
+            item.screenshot_id
+            for item in self.carousel
+            if item.screenshot_id is not None and item.screenshot_id not in screenshot_ids
+        }
+        if unknown:
+            raise ValueError(f"Unknown screenshot references: {sorted(unknown)}")
+        return self
+
+
 class ClarificationPlan(StrictModel):
     questions: list[str] = Field(min_length=1, max_length=3)
 

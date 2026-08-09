@@ -1,0 +1,108 @@
+name: Render social assets after screenshot upload
+
+on:
+  push:
+    branches:
+      - "insight-draft/**"
+    paths:
+      - "inputs/assets/**"
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Article slug whose screenshots are ready"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: social-render-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install renderer and Chinese font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          python -m pip install -e .
+
+      - name: Resolve article slug
+        id: article
+        shell: bash
+        env:
+          MANUAL_SLUG: ${{ inputs.slug }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          slug="$MANUAL_SLUG"
+          if [ -z "$slug" ]; then
+            slug="$(git diff --name-only "$BEFORE_SHA" "$GITHUB_SHA" -- inputs/assets | awk -F/ 'NF >= 3 {print $3}' | sort -u | head -1)"
+          fi
+          if [ -z "$slug" ] || [[ ! "$slug" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+            echo "Unable to determine a safe article slug" >&2
+            exit 2
+          fi
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+
+      - name: Validate screenshots and render platform images
+        id: render
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLUG: ${{ steps.article.outputs.slug }}
+        run: |
+          set +e
+          python -m ai_product_insight render-social \
+            --bundle "output/social/$SLUG/social.json" \
+            --assets "inputs/assets/$SLUG" \
+            --output "output/social/$SLUG/rendered"
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ]; then
+            pr_number="$(gh pr list --head "$GITHUB_REF_NAME" --state open --json number --jq '.[0].number')"
+            if [ -n "$pr_number" ]; then
+              gh pr comment "$pr_number" --body "截图校验或配图生成未通过。请打开本次 Actions 日志，根据缺失文件名修正后再次提交截图。"
+            fi
+            exit "$status"
+          fi
+
+      - name: Commit rendered images to the draft branch
+        env:
+          SLUG: ${{ steps.article.outputs.slug }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "output/social/$SLUG/rendered"
+          git commit -m "content: render social images for $SLUG"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
+      - name: Comment on the existing Draft PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLUG: ${{ steps.article.outputs.slug }}
+        run: |
+          pr_number="$(gh pr list --head "$GITHUB_REF_NAME" --state open --json number --jq '.[0].number')"
+          if [ -n "$pr_number" ]; then
+            gh pr comment "$pr_number" --body "已收到人工截图，并生成 X 配图和小红书轮播图：\`output/social/$SLUG/rendered/\`。请继续人工审核文案、截图隐私和视觉效果。"
+          fi
+
+      - name: Upload rendered images for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-assets-${{ steps.article.outputs.slug }}-${{ github.run_id }}
+          path: output/social/${{ steps.article.outputs.slug }}/rendered/
+          if-no-files-found: error

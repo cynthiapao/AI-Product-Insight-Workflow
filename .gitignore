@@ -12,4 +12,8 @@ data/runs/
 output/drafts/*
 !output/drafts/.gitkeep
 output/previews/
+output/social/*
+!output/social/.gitkeep
+inputs/assets/*
+!inputs/assets/.gitkeep
 *.zip
