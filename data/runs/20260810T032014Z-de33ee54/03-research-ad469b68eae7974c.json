@@ -1,0 +1,61 @@
+{
+  "candidate": {
+    "candidate_id": "ad469b68eae7974c",
+    "name": "VoiceOS App Store",
+    "url": "https://www.producthunt.com/products/voiceos",
+    "source": "Product Hunt",
+    "summary": "<p> The app store for voice native apps that lives in your notch </p> <p> <a href=\"https://www.producthunt.com/products/voiceos?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1218300?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-08T15:42:33-07:00",
+    "discovered_at": "2026-08-10T03:20:15.969470Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.1,
+      "reason": "Voice-native app store in notch is highly novel and relevant, with good depth, but evidence is moderate."
+    }
+  },
+  "evidence": [
+    {
+      "title": "VoiceOS App Store - discovery note",
+      "url": "https://www.producthunt.com/products/voiceos",
+      "excerpt": "<p> The app store for voice native apps that lives in your notch </p> <p> <a href=\"https://www.producthunt.com/products/voiceos?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1218300?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-10T03:20:22.646246Z"
+    },
+    {
+      "title": "VoiceOS: Say it and it's done. Work 10x faster with your voice. | Product Hunt",
+      "url": "https://www.producthunt.com/products/voiceos",
+      "excerpt": "Most-loved launches by the community\nChecklists and pro tips for launching\nThe best of Product Hunt, every day\nTech news, interviews, and tips from makers\nNew Product Hunt features and releases\nAsk questions, find support, and connect\nKitty Points Leaderboard\nThe highest scoring community members\nThe most active community members\nMeet others online and in-person\nSay it and it's done. Work 10x faster with your voice.\nSay it and it's done. Work 10x faster with your voice.\nVoiceOS is the universal voice → action for your computer. Eliminates app-hopping, maximizes focus and productivity. Speak naturally, and VoiceOS instantly executes workflows while keeping you in control with a quick confirmation step. Works system-wide on Mac and Windows.\nThis is the 3rd launch from VoiceOS.\nThe app store for voice native apps that lives in your notch\nThe App Store for your voice, where building takes one sentence. Describe what you want \"Create an app to help me to journal\" and VoiceOS creates the app for you. Share it as a link and anyone can install it in a click.\nVoice productivity for your writing and your meetings.\nVoice Keyboard that Understands Your Personal Context\nText-to-Speech Software\nAI voice dictation that's actually intelligent\nThe AI that actually does things\nFast Voice Input for Mac and Windows\nTop Product Categories\nEngineering & Development\nEngineering & Development\nAI Infrastructure Tools\nPrompt Engineering Tools\nNote and writing apps\nTeam collaboration software\nAI Workflow Automation\nLead generation software\nMarketing automation platforms\nGraphic design tools\nProfessional networking platforms\nCommunity management\nFundraising resources\nSee All Categories >>\nStatic site generators\nCursor or Claude Code?\nPOLL: Domain or product first?\nYC deadline in <2 weeks; Who's applying?\nWe Got into YC, Got Kicked Out, and Fought Our Way Back\nHow Wispr Flow found PMF through pivot\nBest Vibe Coding tool so far?\nLanding page roast - 48 hours only\nFix your tagline with the PH CEO\nhello@producthunt.com\nSay it and it's done. JARVIS for your computer\nSay it and it's done. Work 10x faster with your voice.\nBe the first to leave a review for VoiceOS\nWhat do you think? …\nI'm Jonah, co-founder of VoiceOS.\nWhen we launched VoiceOS, the most common reply we got was some version of \"can it do [x]?\"\nUsually the answer was no. Not because it was hard, but because nobody had built that one yet.\nThat's the ceiling on every app store. You can only use what someone else decided was worth building. And the apps that would actually change your day are the ones nobody ships. Too small, too personal, too specific to you. A journal that asks the right question at 10pm. A tracker for the one number your team actually cares about.\nSo we made building the easy part.\nYou say \"create an app to help me journal.\" VoiceOS writes it, you try it by voice, and it's yours. No code, no docs, no waiting on us to build it.\nThen you share it as a link, and anyone who opens it has the same app in a click.\nThat's what we want this store to be: every app anyone needs, built by the person who needs it.\nHuge shoutout to our Japanese community. The marketplace is fully localized in Japanese from day one. You've backed us since the beginning.\nVoiceOS comes with a free 7-day Pro trial.\nNice launch congrats🙌the link-sharing model is super clever, If someone installs an app from a shared link, do they receive updates if the original creator improves the prompt?\nThank you so much for the support and kind words! Yes, we do support automatic updates\nAwesome, thanks for confirming... best of luck for launch🙌\nInstalled and playing with it now. Super snappy response times.. qq when I do share an app link with a friend, do they need a VoiceOS account to test it out or does it run in-browser instantly? huge congrats for shipping 👏👏\nHi Priya! VoiceOS apps only are able to run on VoiceOS, so the other person would have to install VoiceOS in order for the app to work.\nSuper interested in the app builder, When VoiceOS creates an app from a prompt, can we edit the underlying logic/JSON manually if we want to fine-tune it?\nthank you for your question! Yes, you have full control over everything. You can even ask Claude or Codex to make edits to the app.\nVoiceOS is awesome! It basically turned my laptop into a hands free control center, very similar to using Jarvis from Iron Man. I love that you can connect in your own custom apps, so it's not locked to only a fixed list of supported integrations. Bundling this with a great dictation layer similar to wisprflow on top makes it feel like one coherent operating system. I couldn't imaging going back to clicking and typing using my hands.\n-Written using Voice OS\nHonestly, this feels like the kind of tool you appreciate more after using it for a few days. Constantly switching between apps for small tasks breaks my flow, so being able to just say what I want and have it happen feels genuinely useful. The confirmation step is a nice touch to",
+      "source_type": "official",
+      "retrieved_at": "2026-08-10T03:20:23.580637Z"
+    }
+  ],
+  "verified_facts": [
+    "VoiceOS is a universal voice-to-action tool for computers, working system-wide on Mac and Windows.",
+    "VoiceOS includes an app store for voice-native apps that lives in the notch.",
+    "Users can create apps by describing them in natural language, e.g., 'Create an app to help me to journal'.",
+    "Created apps can be shared as links, and anyone can install them in a click.",
+    "VoiceOS supports automatic updates for apps installed from shared links if the original creator improves the prompt.",
+    "VoiceOS apps can only run on VoiceOS; the other person must install VoiceOS to use a shared app.",
+    "Users have full control over the underlying logic/JSON of created apps and can edit them manually.",
+    "Users can ask Claude or Codex to make edits to the app.",
+    "The marketplace is fully localized in Japanese from day one.",
+    "VoiceOS comes with a free 7-day Pro trial.",
+    "This is the 3rd launch from VoiceOS on Product Hunt.",
+    "VoiceOS aims to eliminate app-hopping and maximize focus and productivity."
+  ],
+  "open_questions": [
+    "What specific voice commands or workflows does VoiceOS support out of the box?",
+    "How does the confirmation step work to keep users in control?",
+    "What is the pricing after the 7-day Pro trial?",
+    "How does VoiceOS handle privacy and security of voice data?",
+    "What are the limitations of the app builder for complex apps?",
+    "How does VoiceOS compare to existing voice assistants like Siri or Alexa?",
+    "What is the performance and accuracy of voice recognition in different accents or languages?",
+    "Are there any integrations with third-party services beyond the built-in ones?"
+  ],
+  "quality": "usable"
+}
