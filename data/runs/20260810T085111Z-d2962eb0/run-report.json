@@ -1,0 +1,19 @@
+{
+  "run_id": "20260810T085111Z-d2962eb0",
+  "mode": "manual",
+  "status": "partial",
+  "candidate_count": 25,
+  "selected_count": 3,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/starspark-ai-math-tutor-productive-struggle.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/starspark-ai-math-tutor-productive-struggle.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/starspark-ai-math-tutor-productive-struggle.card.html"
+  ],
+  "errors": [
+    "Social draft failed for starspark-ai-math-tutor-productive-struggle: ValidationError: 3 validation errors for SocialBundle\nscreenshots.0.used_for.1\n  Input should be 'x' or 'xiaohongshu' [type=literal_error, input_value='carousel', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nscreenshots.1.used_for.0\n  Input should be 'x' or 'xiaohongshu' [type=literal_error, input_value='carousel', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\nscreenshots.2.used_for.0\n  Input should be 'x' or 'xiaohongshu' [type=literal_error, input_value='carousel', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error",
+    "Insufficient evidence for Prime Agent",
+    "Insufficient evidence for Remix"
+  ],
+  "started_at": "2026-08-10T08:51:11.039716Z",
+  "finished_at": "2026-08-10T08:52:24.011602Z"
+}
