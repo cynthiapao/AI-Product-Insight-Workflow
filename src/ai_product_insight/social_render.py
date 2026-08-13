@@ -7,7 +7,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-from .models import CarouselSlide, SocialBundle
+from .models import CarouselSlide, ComparisonRow, SocialBundle
 
 
 INK = "#071127"
@@ -84,8 +84,11 @@ def _wrap(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, wi
         for token in _tokens(paragraph):
             candidate = current + token
             if current and draw.textlength(candidate, font=font) > width:
-                lines.append(current.rstrip())
-                current = token.lstrip()
+                if re.fullmatch(r"[，。！？；：、,.!?;:）】》”’]+", token.strip()):
+                    current += token
+                else:
+                    lines.append(current.rstrip())
+                    current = token.lstrip()
             else:
                 current = candidate
         if current:
@@ -131,20 +134,60 @@ def _footer(draw: ImageDraw.ImageDraw, font_path: Path, index: str, width: int, 
     draw.text((width - 70 - marker_width, height - 80), index, font=_font(font_path, 24), fill=MUTED)
 
 
+def _draw_comparison_table(
+    draw: ImageDraw.ImageDraw,
+    rows: list[ComparisonRow],
+    box: tuple[int, int, int, int],
+    font_path: Path,
+    *,
+    headers: tuple[str, str, str],
+    font_size: int,
+) -> None:
+    left, top, right, bottom = box
+    widths = [int((right - left) * 0.22), int((right - left) * 0.39)]
+    widths.append((right - left) - sum(widths))
+    header_h = 76
+    row_h = (bottom - top - header_h) // max(len(rows), 1)
+    x_positions = [left, left + widths[0], left + widths[0] + widths[1], right]
+    draw.rounded_rectangle(box, radius=20, fill=WHITE, outline=LINE, width=2)
+    draw.rounded_rectangle((left, top, right, top + header_h), radius=20, fill=PALE_BLUE)
+    draw.rectangle((left, top + header_h - 20, right, top + header_h), fill=PALE_BLUE)
+    for x in x_positions[1:-1]:
+        draw.line((x, top, x, bottom), fill=LINE, width=2)
+    for index, header in enumerate(headers):
+        _draw_wrapped(draw, (x_positions[index] + 16, top + 19), header, _font(font_path, font_size), INK, widths[index] - 30, spacing=7, max_lines=2)
+    for row_index, row in enumerate(rows):
+        y = top + header_h + row_index * row_h
+        if row_index:
+            draw.line((left, y, right, y), fill=LINE, width=2)
+        values = (row.label, row.strength, row.gap)
+        for col, value in enumerate(values):
+            color = INK if col == 0 else MUTED
+            size = font_size if col else font_size + 1
+            _draw_wrapped(draw, (x_positions[col] + 16, y + 18), value, _font(font_path, size), color, widths[col] - 30, spacing=8, max_lines=4)
+
+
 def render_x_card(bundle: SocialBundle, assets: dict[str, Path], output_path: Path, font_path: Path) -> None:
     canvas = Image.new("RGB", (1600, 900), BACKGROUND)
     draw = ImageDraw.Draw(canvas)
     draw.rounded_rectangle((44, 44, 1556, 856), radius=36, fill=WHITE, outline=LINE, width=2)
     draw.text((92, 86), "AI INSIGHTS", font=_font(font_path, 28), fill=BLUE)
     _draw_wrapped(draw, (92, 160), bundle.x_post.headline, _font(font_path, 58), INK, 500, spacing=14, max_lines=4)
-    _draw_wrapped(draw, (92, 500), bundle.key_takeaway, _font(font_path, 29), MUTED, 500, spacing=13, max_lines=5)
+    caption = bundle.x_post.visual_caption or bundle.key_takeaway
+    _draw_wrapped(draw, (92, 500), caption, _font(font_path, 29), MUTED, 500, spacing=13, max_lines=5)
 
-    screenshot = next(
-        (assets[item.screenshot_id] for item in bundle.screenshots if "x" in item.used_for and item.screenshot_id in assets),
-        None,
-    )
+    screenshot = next((assets[item.screenshot_id] for item in bundle.screenshots if "x" in item.used_for and item.screenshot_id in assets), None)
     draw.rounded_rectangle((660, 100, 1500, 800), radius=28, fill=PALE_BLUE, outline=LINE, width=2)
-    if screenshot:
+    if bundle.x_post.comparison_rows:
+        _draw_comparison_table(
+            draw,
+            bundle.x_post.comparison_rows,
+            (692, 150, 1468, 750),
+            font_path,
+            headers=("Product", "Most useful move", "Still missing"),
+            font_size=21,
+        )
+    elif screenshot:
         _paste_contained(canvas, screenshot, (692, 132, 1468, 768))
     else:
         _draw_wrapped(draw, (730, 370), "Screenshot optional", _font(font_path, 38), MUTED, 700, max_lines=2)
@@ -176,11 +219,23 @@ def render_xhs_slide(
         draw.rounded_rectangle((72, 320, 1008, 1025), radius=28, fill=PALE_BLUE, outline=LINE, width=2)
         _paste_contained(canvas, assets[slide.screenshot_id], (98, 346, 982, 999))
         _draw_wrapped(draw, (85, 1070), slide.body, _font(font_path, 29), MUTED, 900, spacing=13, max_lines=6)
+    elif slide.kind == "comparison" and slide.comparison_rows:
+        draw.text((84, 190), f"0{slide.order}", font=_font(font_path, 42), fill=BLUE)
+        _draw_wrapped(draw, (84, 290), slide.title, _font(font_path, 60), INK, 850, spacing=18, max_lines=3)
+        _draw_comparison_table(
+            draw,
+            slide.comparison_rows,
+            (74, 500, 1006, 1165),
+            font_path,
+            headers=("产品", "最有价值的动作", "仍然缺少什么"),
+            font_size=25,
+        )
+        _draw_wrapped(draw, (84, 1205), slide.body, _font(font_path, 28), MUTED, 850, spacing=12, max_lines=3)
     else:
         accent = "结论" if slide.kind == "closing" else f"0{slide.order}"
         draw.text((84, 220), accent, font=_font(font_path, 42), fill=BLUE)
         y = _draw_wrapped(draw, (84, 360), slide.title, _font(font_path, 68), INK, 850, spacing=20, max_lines=5)
-        _draw_wrapped(draw, (84, y + 60), slide.body or bundle.key_takeaway, _font(font_path, 37), MUTED, 850, spacing=18, max_lines=9)
+        _draw_wrapped(draw, (84, y + 54), slide.body or bundle.key_takeaway, _font(font_path, 34), MUTED, 850, spacing=16, max_lines=13)
 
     _footer(draw, font_path, f"{slide.order:02d}/{total:02d}", 1080, 1440)
     output_path.parent.mkdir(parents=True, exist_ok=True)

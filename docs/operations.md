@@ -11,7 +11,7 @@
 7. 在 Draft PR 的 `insight-draft/...` 分支中进入对应截图目录，选择 `Add file → Upload files` 并提交。
 8. 等待 `Render social assets after screenshot upload` 完成，检查 `output/social/<slug>/rendered/` 中的 X 横图和小红书轮播图。
 9. 检查 X 英文正文不超过 280 字符，并用 2–4 个短段落形成阅读节奏；小红书正文约 300–500 字，保留真实经历、摩擦和判断过程；轮播图不能只有口号，配图与文章判断一致。
-10. 将 `review_status` 改为 `approved` 后再合并；合并本身不等于发布到网站或社交平台。
+10. 人工确认正文后运行 `approve --article ...`：系统把 `review_status` 改为 `approved`，并将 Markdown/JSON 从 `output/drafts/` 移到 `output/reviewed/`。普通 PR 合并只表示仓库变更通过；只有完成这一步的文章 PR 合并，才表示内容审核通过。网站与社交平台发布仍是独立步骤。
 
 ## 截图上传规则
 

@@ -3,7 +3,11 @@
   "title": "AI Tutor 不该只给答案，更要读懂学习过程",
   "summary": "从 StarSpark、Khanmigo 与 ChatGPT Study Mode 的真实体验出发，观察 AI Tutor 如何从每次互动中理解学习者。",
   "read_minutes": 5,
-  "tags": ["AI教育", "AI Tutor", "学习过程"],
+  "tags": [
+    "AI教育",
+    "AI Tutor",
+    "学习过程"
+  ],
   "opening": "AI Tutor 的价值不在于“知道答案”，而在于“知道学生为什么错”。我认同 StarSpark、Khanmigo 和 ChatGPT Study Mode 不急于直接给答案的理念，但这只是起点。真正有价值的 AI Tutor，需要把答错、求助、跳过、追问和修改都当作学习信号，在每轮互动后更新对学习者的判断，再选择下一步最合适的教学动作。",
   "core_experience": "在 StarSpark 学 AP Psychology 时，它解释完四种 attribution bias 后问我：“Which one feels easiest to confuse with another?” 当我说几个概念看起来都在做内部归因时，它改用“在解释谁的行为或结果”“偏差在维护什么”来区分，并用情境分类、逐题测验和分层提示继续验证；但 skip 与刷新后的历史没有进入后续诊断。Khanmigo Writing Coach 能读取 essay 框架，发现证据与推理不匹配后追问二者的关系，并提醒我把新理解写回框架。它理解的不只是上一句话，还有当前任务进展；但当我明确说总是混淆 FAE 与其他理论时，它只是再次解释 FAE。ChatGPT Study Mode 则根据我列出的概念与“容易混淆”这一信号，重新选择区分维度：解释别人、比较我和别人、解释自己的成败，并说明相近概念可能同时出现。它为我重画了概念地图，而不是再念一遍定义。",
   "why_it_works": "这些产品不是简单拒绝回答，而是把答案放到更合适的时机。先让学习者判断、解释或尝试，再根据表现提供不同强度的帮助，学习者必须参与概念提取和关系建立。更重要的是，错误本身就是数据：一次答错、连续混淆、主动要提示、选择跳过和修改后又改回去，分别反映知识边界、信心、认知负荷和理解稳定性。AI Tutor 可以据此持续更新判断，再选择解释、反问、举例、对比或测验。",
@@ -57,6 +61,6 @@
       "retrieved_at": "2026-08-13T12:00:00+08:00"
     }
   ],
-  "review_status": "draft",
+  "review_status": "approved",
   "generated_at": "2026-08-13T12:00:00+08:00"
 }

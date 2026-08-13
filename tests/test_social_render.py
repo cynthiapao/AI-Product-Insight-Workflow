@@ -33,6 +33,8 @@ class SocialRenderTests(unittest.TestCase):
             self.assertTrue(all(path.is_file() for path in outputs))
             with Image.open(outputs[0]) as image:
                 self.assertEqual(image.size, (1600, 900))
+            with Image.open(outputs[3]) as image:
+                self.assertEqual(image.size, (1080, 1440))
 
 
 if __name__ == "__main__":

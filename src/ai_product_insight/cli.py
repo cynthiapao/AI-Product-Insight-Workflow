@@ -14,6 +14,7 @@ from .llm import DeepSeekClient, JsonLLM, OfflineDemoLLM
 from .models import ComparisonBrief, EvidenceItem, ProductCandidate
 from .pipeline import InsightPipeline
 from .publishing import (
+    approve_and_archive,
     approve_markdown,
     find_git_executable,
     git_commit_and_push,
@@ -52,6 +53,8 @@ def build_parser() -> argparse.ArgumentParser:
     comparison.add_argument("--no-clarify", action="store_true", help="跳过一次性编辑追问")
     demo = sub.add_parser("offline-demo", help="使用本地固定样例验证整条链路")
     demo.add_argument("--fixture", type=Path, default=PROJECT_ROOT / "fixtures" / "demo_input.json")
+    approve = sub.add_parser("approve", help="将人工确认的文章标记为 approved 并移入 reviewed")
+    approve.add_argument("--article", required=True, type=Path, help="已经完成人工审核的 Markdown 草稿")
     publish = sub.add_parser("publish", help="预览并经人工确认后发布到静态 GitHub Pages 网站")
     publish.add_argument("--article", required=True, type=Path, help="待审核发布的 Markdown 草稿")
     publish.add_argument("--site", required=True, type=Path, help="本地网站 Git 仓库目录")
@@ -160,6 +163,18 @@ def run_publish_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_approve_command(args: argparse.Namespace) -> int:
+    try:
+        outputs = approve_and_archive(args.article, PROJECT_ROOT / "output" / "reviewed")
+    except (OSError, ValueError) as exc:
+        print(f"错误：文章审核状态未更新：{exc}", file=sys.stderr)
+        return 2
+    print("文章已人工审核通过：")
+    for path in outputs:
+        print(f"- {path}")
+    return 0
+
+
 def run_render_social_command(args: argparse.Namespace) -> int:
     from .social_render import MissingAssetsError, render_social_assets
 
@@ -180,6 +195,8 @@ def main(argv: list[str] | None = None) -> int:
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8")
     args = build_parser().parse_args(argv)
+    if args.mode == "approve":
+        return run_approve_command(args)
     if args.mode == "publish":
         return run_publish_command(args)
     if args.mode == "render-social":

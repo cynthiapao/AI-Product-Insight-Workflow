@@ -3,10 +3,16 @@
   "key_takeaway": "AI Tutor 的价值不只是不直接给答案，而是从错误、求助、跳过和修改中读懂学习过程，并决定下一步怎么教。",
   "x_post": {
     "text": "I tried 3 AI tutors.\n\nAll resisted rushing to the answer—and I agree with that philosophy.\n\nBut the real value isn’t knowing the answer. It’s knowing why a learner is wrong: every mistake, hint request, skip and revision should update the next teaching move.",
-    "headline": "Know why the learner is wrong",
+    "headline": "Read the learning process",
     "image_recommended": true,
-    "image_brief": "Use the real StarSpark AP Psychology conversation in which the tutor asks which concepts feel easiest to confuse.",
-    "alt_text": "A StarSpark AP Psychology chat asking which attribution bias feels easiest to confuse with another."
+    "image_brief": "Use a compact comparison table showing how StarSpark, Khanmigo and ChatGPT Study Mode read different parts of the learning process.",
+    "alt_text": "A comparison table of three AI tutors, showing their most useful teaching action and what each experience still lacked.",
+    "visual_caption": "A useful AI tutor should read every mistake, hint request and skip—then decide what to teach next.",
+    "comparison_rows": [
+      {"label": "StarSpark", "strength": "Surfaces concept confusion, then tests it", "gap": "Does not fully use skips, hints or history"},
+      {"label": "Khanmigo", "strength": "Tracks task progress in an essay outline", "gap": "Stops short of diagnosing why concepts blur"},
+      {"label": "ChatGPT", "strength": "Reorganizes similar concepts by relationship", "gap": "Long-term mastery remains hard to inspect"}
+    ]
   },
   "xiaohongshu": {
     "title": "我试了3个AI Tutor，最在意的不是答案",
@@ -29,9 +35,14 @@
     },
     {
       "order": 3,
-      "kind": "insight",
-      "title": "三种体验，三种上下文理解",
-      "body": "StarSpark：观察我容易混淆什么，再用测验验证。\nKhanmigo：能看见 essay 框架，知道“理解了”和“还没改”不是一回事。\nChatGPT：根据我的混淆，重新组织概念之间的关系。"
+      "kind": "comparison",
+      "title": "三个 Tutor，读到了不同过程",
+      "body": "它们都没有急着给答案，但真正的差别在于：各自能从学习过程里读到多少信息。",
+      "comparison_rows": [
+        {"label": "StarSpark", "strength": "询问混淆点，再用测验验证", "gap": "没有充分利用跳过、提示和历史"},
+        {"label": "Khanmigo", "strength": "结合 essay 框架追踪任务进展", "gap": "对“总是混淆”的原因追问不足"},
+        {"label": "ChatGPT", "strength": "重组相近概念并解释关系", "gap": "长期掌握状态仍不够显性"}
+      ]
     },
     {
       "order": 4,
@@ -50,8 +61,8 @@
     {
       "order": 6,
       "kind": "insight",
-      "title": "错误不是终点，而是数据",
-      "body": "答错：概念边界可能不清。\n要提示：反映当前信心与需要的帮助强度。\n主动跳过：可能意味着认知负荷过高。\n修改后又改回去：理解还不稳定。\n产品不该只记录最后答对了没有。"
+      "title": "每一个学习动作，都在暴露卡点",
+      "body": "答错：可能是概念边界模糊。\n需要提示：说明还不能独立完成，也反映需要多强的帮助。\n主动跳过：可能是没有把握，或当前认知负荷过高。\n修改后又改回去：说明理解还不稳定。\n只记录最后答对与否，会丢失真正有用的过程信息。"
     },
     {
       "order": 7,
@@ -62,8 +73,8 @@
     {
       "order": 8,
       "kind": "closing",
-      "title": "越学越懂你为什么会错",
-      "body": "我最想要的 AI Tutor，不只是会生成十种解释，而是持续记录独立答对、提示后答对、重复犯错、跳过和追问，在每一步选择更合适的教学动作。真正的产品壁垒，会是学科知识、学习状态与教学动作之间的决策系统。"
+      "title": "真正的个性化，是读懂学习过程",
+      "body": "AI Tutor 不应只记住最后答对了没有，而要结合答错、求助、跳过、追问和延迟复测，理解学生卡在哪里、当前需要多少帮助，再决定下一步应该解释、比较、举例，还是撤掉提示。所谓动态学习者模型，本质上就是让产品越学越能读懂这个过程。"
     }
   ],
   "screenshots": [
