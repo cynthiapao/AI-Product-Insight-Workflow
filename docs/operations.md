@@ -10,7 +10,7 @@
 6. 查看 `inputs/assets/<slug>/README.md`，按固定文件名准备真实截图并隐藏敏感信息。
 7. 在 Draft PR 的 `insight-draft/...` 分支中进入对应截图目录，选择 `Add file → Upload files` 并提交。
 8. 等待 `Render social assets after screenshot upload` 完成，检查 `output/social/<slug>/rendered/` 中的 X 横图和小红书轮播图。
-9. 检查 X 英文正文不超过 280 字符，小红书正文保留真实项目细节，配图与文章判断一致。
+9. 检查 X 英文正文不超过 280 字符，并用 2–4 个短段落形成阅读节奏；小红书正文约 300–500 字，保留真实经历、摩擦和判断过程；轮播图不能只有口号，配图与文章判断一致。
 10. 将 `review_status` 改为 `approved` 后再合并；合并本身不等于发布到网站或社交平台。
 
 ## 截图上传规则
@@ -20,6 +20,7 @@
 - 本人网站与操作过程标记为 `personal`；讨论对象产品的真实界面标记为 `product`。
 - 上传前检查头像、邮箱、账号、API Key、私人对话、客户信息和浏览器书签。
 - 截图提交后会自动续跑；不需要重新运行文章生成工作流。
+- 小红书截图页也要用简短说明指出“这张图证明什么”；观点页通常应有 60–180 字，不能为了适配模板把内容压缩成一句口号。
 - 如果只想重跑配图，可在 Actions 中选择 `Render social assets after screenshot upload`，选中当前草稿分支并输入文章 slug。
 
 ## 失败排查

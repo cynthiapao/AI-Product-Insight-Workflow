@@ -1,0 +1,27 @@
+{
+  "example_id": "approved-social-style-v2",
+  "status": "approved",
+  "rules": {
+    "x": [
+      "英文正文不超过 280 字符，换行计入字符数",
+      "正文使用 2-4 个短段落和空行形成阅读节奏，不挤成一整段",
+      "正文与配图分工：正文讲观点，图片提供证据或场景，不机械重复"
+    ],
+    "xiaohongshu": [
+      "正文约 300-500 个中文字符，像向大众讲述亲身经历和心得",
+      "保留具体时刻、真实摩擦和判断形成过程，不只输出结论",
+      "可适度结构化，但避免一句一段和过度碎片化"
+    ],
+    "carousel": [
+      "完整体验文章优先使用 6-8 页",
+      "截图页需要说明截图证明什么，观点页需要提供完整推理，不只放一句口号",
+      "cover、insight、closing 通常 60-180 字，screenshot 通常 35-100 字",
+      "图片应能独立讲清故事；内容放不下时优先调整排版，不擅自删薄文案"
+    ]
+  },
+  "approved_patterns": {
+    "x_example": "I built my personal website with AI and learned that generation wasn’t the hard part.\n\n“Make it more lively” still had to become choices about spacing, typography, color and motion.\n\nLovable helped define the direction; Codex executed it.\n\nAI speeds up making—not understanding.",
+    "xiaohongshu_shape": "具体经历开场 → 一个惊喜时刻 → 一个真实卡点 → 个人判断与产品启示",
+    "carousel_shape": "观点封面 → 真实截图证据 → 对比或机制 → 摩擦与边界 → 方法判断 → 产品结论"
+  }
+}
