@@ -31,6 +31,7 @@ class EditorialContext:
     profile: dict[str, Any]
     rubric: dict[str, Any]
     gold_examples: tuple[GoldExample, ...]
+    social_gold: dict[str, Any]
 
     @property
     def gold_input(self) -> dict[str, Any]:
@@ -70,6 +71,7 @@ class EditorialContext:
             profile=_load_json_object(project_root / "config" / "editorial_profile.json"),
             rubric=_load_json_object(project_root / "config" / "editorial_rubric.json"),
             gold_examples=tuple(examples),
+            social_gold=_load_json_object(gold_dir / "social-style.json"),
         )
 
     def _render(self, role: str, examples: list[dict[str, Any]]) -> str:
@@ -110,3 +112,6 @@ class EditorialContext:
             for example in self.gold_examples
         ]
         return self._render("editor", examples)
+
+    def social_prompt_suffix(self) -> str:
+        return self._render("social_editor", [self.social_gold])

@@ -63,12 +63,18 @@ class EditorialContextTests(unittest.TestCase):
         self.assertEqual(context.profile["version"], 1)
         self.assertEqual(context.gold_input["example_id"], "ai-website-design-alignment-v1")
         self.assertEqual(len(context.gold_examples), 2)
+        self.assertEqual(context.social_gold["example_id"], "approved-social-style-v2")
         self.assertEqual(
             context.gold_examples[1].input["example_id"],
             "ai-model-workflow-role-division-v1",
         )
         for example in context.gold_examples:
             ArticleContent.model_validate(example.output)
+
+        social_prompt = context.social_prompt_suffix()
+        self.assertIn("2-4 个短段落", social_prompt)
+        self.assertIn("300-500 个中文字符", social_prompt)
+        self.assertIn("内容放不下时优先调整排版", social_prompt)
 
     def test_injects_role_specific_guidance_into_writing_agents(self):
         context = EditorialContext.load(PROJECT_ROOT)

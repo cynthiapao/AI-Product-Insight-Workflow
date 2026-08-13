@@ -173,9 +173,9 @@ def render_xhs_slide(
         _draw_wrapped(draw, (90, y + 48), slide.body or bundle.key_takeaway, _font(font_path, 34), MUTED, 820, spacing=16, max_lines=6)
     elif slide.kind == "screenshot" and slide.screenshot_id in assets:
         _draw_wrapped(draw, (80, 170), slide.title, _font(font_path, 52), INK, 900, spacing=16, max_lines=3)
-        draw.rounded_rectangle((72, 330, 1008, 1085), radius=28, fill=PALE_BLUE, outline=LINE, width=2)
-        _paste_contained(canvas, assets[slide.screenshot_id], (98, 356, 982, 1059))
-        _draw_wrapped(draw, (85, 1130), slide.body, _font(font_path, 31), MUTED, 900, spacing=14, max_lines=4)
+        draw.rounded_rectangle((72, 320, 1008, 1025), radius=28, fill=PALE_BLUE, outline=LINE, width=2)
+        _paste_contained(canvas, assets[slide.screenshot_id], (98, 346, 982, 999))
+        _draw_wrapped(draw, (85, 1070), slide.body, _font(font_path, 29), MUTED, 900, spacing=13, max_lines=6)
     else:
         accent = "结论" if slide.kind == "closing" else f"0{slide.order}"
         draw.text((84, 220), accent, font=_font(font_path, 42), fill=BLUE)

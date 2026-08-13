@@ -436,8 +436,9 @@ class EditorAgent:
 
 
 class SocialRepurposeAgent:
-    def __init__(self, llm: JsonLLM) -> None:
+    def __init__(self, llm: JsonLLM, editorial_context: EditorialContext | None = None) -> None:
         self.llm = llm
+        self.editorial_context = editorial_context
 
     def draft(self, article: ArticleDraft) -> SocialBundle:
         payload = {
@@ -449,7 +450,10 @@ class SocialRepurposeAgent:
                 "visual_source": "real screenshots supplied by the author",
             },
         }
-        raw_social = self.llm.generate_json(SOCIAL_SYSTEM, _json(payload))
+        system_prompt = SOCIAL_SYSTEM
+        if self.editorial_context:
+            system_prompt += self.editorial_context.social_prompt_suffix()
+        raw_social = self.llm.generate_json(system_prompt, _json(payload))
         return SocialBundle.model_validate(normalize_social_response(raw_social, article.slug))
 
 

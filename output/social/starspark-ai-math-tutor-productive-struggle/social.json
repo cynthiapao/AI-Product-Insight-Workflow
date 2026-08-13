@@ -1,16 +1,16 @@
 {
   "article_slug": "starspark-ai-math-tutor-productive-struggle",
-  "key_takeaway": "AI Tutor 的价值不只是不直接给答案，而是从错误、求助、跳过和修改中读懂学习过程。",
+  "key_takeaway": "AI Tutor 的价值不只是不直接给答案，而是从错误、求助、跳过和修改中读懂学习过程，并决定下一步怎么教。",
   "x_post": {
-    "text": "I tried StarSpark, Khanmigo and ChatGPT Study Mode. I value their shared idea: don’t rush to give the answer. But an AI tutor should also read every mistake, hint request, skip and revision as evidence of how a learner thinks—then choose the next teaching move.",
-    "headline": "A tutor should read the learning process",
+    "text": "I tried 3 AI tutors.\n\nAll resisted rushing to the answer—and I agree with that philosophy.\n\nBut the real value isn’t knowing the answer. It’s knowing why a learner is wrong: every mistake, hint request, skip and revision should update the next teaching move.",
+    "headline": "Know why the learner is wrong",
     "image_recommended": true,
     "image_brief": "Use the real StarSpark AP Psychology conversation in which the tutor asks which concepts feel easiest to confuse.",
     "alt_text": "A StarSpark AP Psychology chat asking which attribution bias feels easiest to confuse with another."
   },
   "xiaohongshu": {
     "title": "我试了3个AI Tutor，最在意的不是答案",
-    "body": "这几天我用 StarSpark、Khanmigo 和 ChatGPT Study Mode 学同一类内容，慢慢发现自己很认同它们共同的理念：不要急着把答案塞给学生。\n\n在 StarSpark 学归因理论时，它解释完几个概念后问我：“哪一个最容易和其他概念混淆？”这句话让我从记定义变成主动比较。后来它会一题一题测、答错后逐步给提示。但我选择 skip 时，它并没有继续追问；刷新页面后，前面的学习过程也没有留下来。\n\nKhanmigo 的 Writing Coach 能看到我的 essay 框架，会发现证据和推理没有对上，并推动我真正修改。但当我明确说“总是把几个理论混淆”时，它又没有像 ChatGPT Study Mode 那样，把容易混淆的概念放在一起拆解。\n\n这让我觉得，AI Tutor 的关键不只是“不给答案”，而是能不能读懂每一次互动：答错、要提示、跳过、反复修改，都在说明我哪里没懂。真正好的 AI Tutor，应该越学越懂我为什么会错，再决定下一步该解释、对比、举例，还是继续测验。",
+    "body": "这几天我用 StarSpark、Khanmigo 和 ChatGPT Study Mode 学社会心理学，发现自己很认同它们共同的理念：不要急着把答案塞给学生。\n\n最打动我的一刻来自 StarSpark。它解释完几个归因偏差后问我：“哪一个最容易和其他概念混淆？”这句话让我从被动记定义，变成主动比较概念。后来它会逐题测验、答错后分步提示；但我点 skip 时，它没有判断我为什么跳过，刷新后，前面的学习过程也没有延续。\n\nKhanmigo 的 Writing Coach 能看到 essay 框架，发现证据和推理没有对上，还会提醒我把新理解写回去。它理解的不只是上一句话，还有任务进展。但当我明确说“总是把几个理论混淆”时，它又只解释了一个概念。ChatGPT Study Mode 更进一步：它把几个相近概念重新放进一张关系图里，帮我找到区别维度。\n\n这让我觉得，AI Tutor 的价值不只是“不给答案”，而是知道我为什么会错。答错、要提示、跳过、修改后又改回去，都是学习状态。真正好的 Tutor，应该持续更新判断，再决定下一步该解释、对比、举例、撤掉提示，还是隔几天重新测试。",
     "hashtags": ["AI教育", "AITutor", "AI产品", "产品经理", "学习方法"]
   },
   "carousel": [
@@ -18,46 +18,52 @@
       "order": 1,
       "kind": "cover",
       "title": "AI Tutor 不该只给答案",
-      "body": "更重要的是：它能不能读懂学生在学习过程中为什么会错。"
+      "body": "真正的价值不是“知道答案”，而是从每次互动里判断学生为什么会错，并决定下一步怎么教。"
     },
     {
       "order": 2,
       "kind": "screenshot",
       "title": "一句追问，让我开始主动比较",
-      "body": "它主动问我：哪一个概念最容易混淆？",
+      "body": "StarSpark 解释完概念后问我：哪一个最容易混淆？这一步把被动阅读变成了主动比较。",
       "screenshot_id": "starspark-confusion"
     },
     {
       "order": 3,
       "kind": "insight",
-      "title": "不直接给答案，只是起点",
-      "body": "StarSpark、Khanmigo 和 ChatGPT Study Mode 都强调分步引导。我认同这个理念，因为学习发生在尝试、修正和建立联系的过程中，而不只发生在看到正确结果的那一刻。"
+      "title": "三种体验，三种上下文理解",
+      "body": "StarSpark：观察我容易混淆什么，再用测验验证。\nKhanmigo：能看见 essay 框架，知道“理解了”和“还没改”不是一回事。\nChatGPT：根据我的混淆，重新组织概念之间的关系。"
     },
     {
       "order": 4,
       "kind": "screenshot",
-      "title": "Khanmigo：没有继续追问混淆",
-      "body": "它重新解释了 FAE，却没有确认我究竟和谁混、为什么混。",
+      "title": "Khanmigo 回应了概念，却没继续诊断",
+      "body": "当我说总是混淆 FAE 与其他理论时，它重新解释了 FAE，却没有继续确认我究竟和谁混、为什么混。",
       "screenshot_id": "khanmigo-concept"
     },
     {
       "order": 5,
       "kind": "screenshot",
-      "title": "ChatGPT：重新组织相近概念",
-      "body": "它把相近概念放回同一张关系图里。",
+      "title": "ChatGPT 重新画了一张概念地图",
+      "body": "它没有再念一次定义，而是用“解释别人”“比较我和别人”“解释自己的成败”重新区分几个相近概念。",
       "screenshot_id": "chatgpt-concepts"
     },
     {
       "order": 6,
       "kind": "insight",
-      "title": "每次互动，都是学习状态",
-      "body": "答错说明概念边界可能不清；要提示反映当前信心；跳过可能意味着负荷过高；修改后又改回去，则可能说明理解还不稳定。产品不该只记录最后答对了没有。"
+      "title": "错误不是终点，而是数据",
+      "body": "答错：概念边界可能不清。\n要提示：反映当前信心与需要的帮助强度。\n主动跳过：可能意味着认知负荷过高。\n修改后又改回去：理解还不稳定。\n产品不该只记录最后答对了没有。"
     },
     {
       "order": 7,
+      "kind": "insight",
+      "title": "答对一次，不等于真正掌握",
+      "body": "优秀的 Tutor 需要逐步撤掉提示，再安排延迟复测或迁移题。今天在提示下答对，三天后同类题又错，说明任务完成过，但掌握尚未形成。过度追问也会造成提问疲劳，什么时候解释、什么时候反问，本身就是教学决策。"
+    },
+    {
+      "order": 8,
       "kind": "closing",
       "title": "越学越懂你为什么会错",
-      "body": "这会是我最想要的 AI Tutor：不仅会生成解释，还能持续更新学习者模型，并在每一步选择更合适的教学动作。"
+      "body": "我最想要的 AI Tutor，不只是会生成十种解释，而是持续记录独立答对、提示后答对、重复犯错、跳过和追问，在每一步选择更合适的教学动作。真正的产品壁垒，会是学科知识、学习状态与教学动作之间的决策系统。"
     }
   ],
   "screenshots": [

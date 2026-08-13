@@ -110,7 +110,7 @@ def build_agent_crew(
         researcher=ResearchAgent(fast_llm, fetcher, config),
         analyst=InsightAgent(quality_llm, editorial_context),
         editor=EditorAgent(quality_llm, editorial_context),
-        social=SocialRepurposeAgent(quality_llm),
+        social=SocialRepurposeAgent(quality_llm, editorial_context),
     )
 
 
