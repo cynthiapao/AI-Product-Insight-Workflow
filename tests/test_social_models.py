@@ -15,6 +15,10 @@ def social_payload() -> dict[str, object]:
             "image_recommended": True,
             "image_brief": "Use the final website screenshot with one restrained annotation.",
             "alt_text": "A screenshot of the finished personal portfolio website.",
+            "visual_caption": "Generating is fast; understanding the user is harder.",
+            "comparison_rows": [
+                {"label": "Lovable", "strength": "Explores design direction", "gap": "Still needs taste alignment"}
+            ],
         },
         "xiaohongshu": {
             "title": "AI 建站最难的不是代码",
@@ -24,7 +28,15 @@ def social_payload() -> dict[str, object]:
         "carousel": [
             {"order": 1, "kind": "cover", "title": "AI 建站最难的不是代码"},
             {"order": 2, "kind": "screenshot", "title": "最终网站", "body": "真实完成效果", "screenshot_id": "website-home"},
-            {"order": 3, "kind": "insight", "title": "生成不等于理解", "body": "模糊偏好仍需翻译。"},
+            {
+                "order": 3,
+                "kind": "comparison",
+                "title": "生成不等于理解",
+                "body": "模糊偏好仍需翻译。",
+                "comparison_rows": [
+                    {"label": "Lovable", "strength": "探索设计方向", "gap": "仍需继续对齐偏好"}
+                ],
+            },
             {"order": 4, "kind": "closing", "title": "产品启示", "body": "降低表达成本比单纯提速更重要。"},
         ],
         "screenshots": [

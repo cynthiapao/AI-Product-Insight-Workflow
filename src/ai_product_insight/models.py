@@ -175,12 +175,20 @@ class ArticleContent(StrictModel):
     )
 
 
+class ComparisonRow(StrictModel):
+    label: str = Field(min_length=1, max_length=40)
+    strength: str = Field(min_length=4, max_length=140)
+    gap: str = Field(min_length=4, max_length=140)
+
+
 class XPost(StrictModel):
     text: str = Field(min_length=20, max_length=280)
     headline: str = Field(min_length=4, max_length=80)
     image_recommended: bool = True
     image_brief: str = Field(min_length=10, max_length=300)
     alt_text: str = Field(min_length=10, max_length=300)
+    visual_caption: str = Field(default="", max_length=180)
+    comparison_rows: list[ComparisonRow] = Field(default_factory=list, max_length=4)
 
 
 class XiaohongshuDraft(StrictModel):
@@ -214,9 +222,10 @@ class ScreenshotRequirement(StrictModel):
 
 class CarouselSlide(StrictModel):
     order: int = Field(ge=1, le=8)
-    kind: Literal["cover", "screenshot", "insight", "closing"]
+    kind: Literal["cover", "screenshot", "insight", "comparison", "closing"]
     title: str = Field(min_length=2, max_length=60)
     body: str = Field(default="", max_length=240)
+    comparison_rows: list[ComparisonRow] = Field(default_factory=list, max_length=4)
     screenshot_id: str | None = Field(
         default=None,
         pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$",

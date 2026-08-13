@@ -9,6 +9,6 @@ But the real value isn’t knowing the answer. It’s knowing why a learner is w
 ## Visual
 
 - 建议配图
-- Headline: Know why the learner is wrong
-- Brief: Use the real StarSpark AP Psychology conversation in which the tutor asks which concepts feel easiest to confuse.
-- Alt text: A StarSpark AP Psychology chat asking which attribution bias feels easiest to confuse with another.
+- Headline: Read the learning process
+- Brief: Use the three-product comparison table to show what each tutor read from the learning process and what was still missing.
+- Alt text: A comparison table of StarSpark, Khanmigo and ChatGPT Study Mode, showing their most useful teaching action and what each experience still lacked.

@@ -283,11 +283,16 @@ def _article_html(article: MarkdownArticle, preview_site_css: str | None = None)
 
 def render_preview(article: MarkdownArticle, site_dir: Path, preview_dir: Path) -> Path:
     site_css = site_dir / "style.css"
-    if not site_css.is_file():
-        raise FileNotFoundError(f"Portfolio stylesheet not found: {site_css}")
+    current_css = site_dir / "detail.css"
+    if not site_css.is_file() and not current_css.is_file():
+        raise FileNotFoundError(f"Portfolio stylesheet not found: {site_css} or {current_css}")
     preview_dir.mkdir(parents=True, exist_ok=True)
     preview_path = preview_dir / f"{article.slug}.preview.html"
-    preview_path.write_text(_article_html(article, site_css.resolve().as_uri()), encoding="utf-8")
+    if current_css.is_file():
+        content = _portfolio_article_html(article).replace("../detail.css", current_css.resolve().as_uri())
+    else:
+        content = _article_html(article, site_css.resolve().as_uri())
+    preview_path.write_text(content, encoding="utf-8")
     return preview_path
 
 
@@ -307,6 +312,21 @@ def approve_markdown(path: Path) -> None:
         data = json.loads(json_path.read_text(encoding="utf-8"))
         data["review_status"] = "approved"
         json_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def approve_and_archive(path: Path, reviewed_dir: Path) -> list[Path]:
+    """Mark a human-reviewed article approved and move its source files out of drafts."""
+    approve_markdown(path)
+    reviewed_dir.mkdir(parents=True, exist_ok=True)
+    outputs: list[Path] = []
+    for source in (path, path.with_suffix(".json")):
+        if not source.is_file():
+            continue
+        target = reviewed_dir / source.name
+        if source.resolve() != target.resolve():
+            shutil.move(str(source), str(target))
+        outputs.append(target)
+    return outputs
 
 
 def _manifest_entry(article: MarkdownArticle) -> dict[str, object]:
@@ -349,12 +369,89 @@ def _update_homepage(index_path: Path, entries: list[dict[str, object]]) -> None
     index_path.write_text(text, encoding="utf-8")
 
 
+def _portfolio_date(article: MarkdownArticle) -> str:
+    match = re.match(r"(\d{4})-(\d{2})-(\d{2})", article.generated_at)
+    return ".".join(match.groups()) if match else "2026.08.13"
+
+
+def _portfolio_header(prefix: str) -> str:
+    return f'''<header class="site-header">
+  <a class="brand" href="{prefix}index.html#hero" aria-label="返回首页"><span class="brand-mark">BX</span><span><strong>Kangxin Bao</strong><small>AI 产品经理</small></span></a>
+  <div class="status-container" aria-label="当前动态"><span class="status-dot"></span><span class="status-text">持续更新ing...</span></div>
+  <nav class="nav-links" aria-label="洞察页导航"><a href="{prefix}index.html#about">关于我</a><a href="{prefix}index.html#projects">项目经验</a><a href="{prefix}index.html#insights">产品洞察</a><a class="resume-button" href="{prefix}index.html#hero">返回首页</a></nav>
+</header>'''
+
+
+def _portfolio_article_html(article: MarkdownArticle) -> str:
+    tags = "\n".join(f"<span>{html.escape(tag)}</span>" for tag in article.tags)
+    body = "\n".join(
+        f"<h2>{html.escape(name)}</h2>\n{_render_markdown_fragment(article.sections[name])}"
+        for name in DISPLAY_SECTION_NAMES
+        if name in article.sections
+    )
+    return f'''<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="{html.escape(article.summary, quote=True)}" /><title>{html.escape(article.title)} | Kangxin Bao</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" /><link rel="stylesheet" href="../detail.css" /><script src="https://unpkg.com/lucide@latest"></script></head>
+<body class="detail-page insight-article-page">
+{_portfolio_header('../')}
+<main>
+  <section class="section insight-article-hero"><a class="secondary-cta" href="../insights.html">← 返回产品洞察</a><p class="top-tag">AI INSIGHT</p><h1>{html.escape(article.title)}</h1><p class="detail-lead">{html.escape(article.summary)}</p><p class="article-meta-line">{_portfolio_date(article)} <span aria-hidden="true">·</span> {article.read_minutes} min read</p><div class="pill-row detail-pills article-tags">{tags}</div><p class="article-note">本文基于具体使用体验做产品观察，经人工审核后发布</p></section>
+  <article class="section insight-article-body">{body}</article>
+  <section class="section detail-section detail-next"><a class="secondary-cta" href="../index.html#insights">← 返回首页洞察</a><a class="primary-cta" href="../insights.html">查看全部产品洞察 <span aria-hidden="true">→</span></a></section>
+</main>
+<footer class="detail-copyright">© 2026 Kangxin Bao. All rights reserved.</footer><script src="../main.js"></script><script>if (window.lucide) {{ lucide.createIcons(); }}</script>
+</body></html>'''
+
+
+def _portfolio_home_card(article: MarkdownArticle) -> str:
+    tag = html.escape(article.tags[0] if article.tags else "AI洞察")
+    return f'''        <a class="insight-item" href="insights/{article.slug}.html">
+          <div class="insight-main"><h3>{html.escape(article.title)}</h3><p>{html.escape(article.summary)}</p></div>
+          <div class="insight-side"><span class="keyword-tag">{tag}</span><span class="read-time">{article.read_minutes} min read</span></div>
+        </a>'''
+
+
+def _portfolio_archive_card(article: MarkdownArticle) -> str:
+    tag = html.escape(article.tags[0] if article.tags else "AI洞察")
+    return f'''        <a class="insight-archive-card" href="insights/{article.slug}.html">
+          <div><span class="keyword-tag">{tag}</span><h3>{html.escape(article.title)}</h3><p>{html.escape(article.summary)}</p></div>
+          <span class="publish-date">{_portfolio_date(article)}</span>
+        </a>'''
+
+
+def _insert_after_marker(path: Path, marker: str, card: str, slug: str) -> None:
+    text = path.read_text(encoding="utf-8")
+    if f'{slug}.html' in text:
+        return
+    if marker not in text:
+        raise ValueError(f"Could not find portfolio marker in {path.name}")
+    path.write_text(text.replace(marker, marker + "\n" + card, 1), encoding="utf-8")
+
+
+def _publish_to_portfolio(article: MarkdownArticle, site_dir: Path) -> list[Path]:
+    article_path = site_dir / "insights" / f"{article.slug}.html"
+    article_path.parent.mkdir(parents=True, exist_ok=True)
+    article_path.write_text(_portfolio_article_html(article), encoding="utf-8")
+    index_path = site_dir / "index.html"
+    archive_path = site_dir / "insights.html"
+    _insert_after_marker(index_path, "<!-- INSIGHTS_AUTO_START -->", _portfolio_home_card(article), article.slug)
+    archive_text = archive_path.read_text(encoding="utf-8")
+    archive_marker = '<section class="section insight-archive-list" aria-label="产品洞察文章列表">'
+    if f'{article.slug}.html' not in archive_text:
+        if archive_marker not in archive_text:
+            raise ValueError("Could not find portfolio insight archive list")
+        archive_path.write_text(archive_text.replace(archive_marker, archive_marker + "\n" + _portfolio_archive_card(article), 1), encoding="utf-8")
+    return [article_path, index_path, archive_path]
+
+
 def publish_to_site(article: MarkdownArticle, site_dir: Path) -> list[Path]:
     if article.review_status != "approved":
         raise ValueError("Article must be approved before publishing")
     index_path = site_dir / "index.html"
     if not index_path.is_file():
         raise FileNotFoundError(f"Portfolio index not found: {index_path}")
+    if (site_dir / "detail.css").is_file() and (site_dir / "insights.html").is_file():
+        return _publish_to_portfolio(article, site_dir)
     insights_dir = site_dir / "insights"
     insights_dir.mkdir(parents=True, exist_ok=True)
     article_path = insights_dir / f"{article.slug}.html"

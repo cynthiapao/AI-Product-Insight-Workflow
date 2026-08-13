@@ -4,7 +4,7 @@ slug: "starspark-ai-math-tutor-productive-struggle"
 summary: "从 StarSpark、Khanmigo 与 ChatGPT Study Mode 的真实体验出发，观察 AI Tutor 如何从每次互动中理解学习者。"
 read_minutes: 5
 tags: "AI教育 / AI Tutor / 学习过程"
-review_status: "draft"
+review_status: "approved"
 generated_at: "2026-08-13T12:00:00+08:00"
 ---
 
@@ -79,4 +79,4 @@ AI 教育产品的核心竞争力，不只是答案质量，而是能否从学�
 - 个人体验：StarSpark AP Psychology、Khanmigo Writing Coach 与学习模式、ChatGPT Study Mode 对话记录（2026 年 8 月）
 - 官方介绍：[StarSpark AI](https://www.starspark.ai/)、[Khanmigo](https://en.khanacademy.org/college-careers-more/khanmigo-for-students/x5443352261243283%3Aintroducing-khanmigo/x5443352261243283%3Agetting-started-with-khanmigo/v/khanmigo-for-students-what-is-khanmigo-and-how-does-it-work)、[ChatGPT Study Mode](https://openai.com/index/chatgpt-study-mode/)
 
-> 本文基于三段具体使用体验做产品观察，不构成对三个产品完整能力的横向排名；发布前仍需人工审核。
+> 本文基于三段具体使用体验做产品观察，不构成对三个产品完整能力的横向排名。

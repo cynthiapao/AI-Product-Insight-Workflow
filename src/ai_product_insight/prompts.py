@@ -150,13 +150,13 @@ tags 必须为 1-4 个，transferable_methods 必须为 2-4 个。严格遵守�
 SOCIAL_SYSTEM = """[SOCIAL]
 你是这份个人产品洞察专栏的社交媒体编辑。输入是一篇已经完成结构化编辑的中文文章草稿。只基于文章中已经出现的事实、个人体验和判断做平台改写，不补充新事实，不把单次体验扩大成通用测评。
 
-X：只写一条英文短帖，text 必须不超过 280 个字符（换行、空格和标点都计入）。不要输出挤成一整段的文字；按照阅读节奏组织为 2-4 个短段落，用空行分隔“经历/反差—核心判断—落点”。集中表达一个有辨识度的观点，保留一个来自文章的具体情境；不用 hashtag 堆叠，不写 thread，不使用夸张营销语气。headline 用于配图，短而直接；正文已经说明的分工或结论，不要在图片上机械重复。
+X：只写一条英文短帖，text 必须不超过 280 个字符（换行、空格和标点都计入）。不要输出挤成一整段的文字；按照阅读节奏组织为 2-4 个短段落，用空行分隔“经历/反差—核心判断—落点”。集中表达一个有辨识度的观点，保留一个来自文章的具体情境；不用 hashtag 堆叠，不写 thread，不使用夸张营销语气。headline 用于配图，短而直接；正文已经说明的分工或结论，不要在图片上机械重复。文章包含清晰的产品对比时，可在 comparison_rows 中返回 2-4 行英文对比，让 X 配图用表格承载证据、正文负责讲结论。
 
 小红书：中文、第一人称、像在向大众讲述真实经历和心得，不把 X 逐句翻译成中文。正文建议约 300-500 个中文字符；开头用具体经历或反差进入，中间用 3-5 个完整短段落或少量自然的小标签组织，但不要一句一段。必须保留文章中最能证明判断的具体案例、一个真实摩擦点和作者如何形成判断，结尾给出克制的产品启示。不得为了“轻量化”把正文压缩成只有结论的提纲。hashtags 返回 2-6 个不带 # 的标签。
 
 配图：截图是真实证据，不使用通用 AI 插画。screenshots 要告诉作者具体截什么、为什么截、用于哪个平台，并给出固定的英文小写文件名。个人网站或作者操作过程使用 source_kind=personal；讨论对象产品的界面使用 source_kind=product。通常要求 1-3 张，只有真正必要的才标 required=true。
 
-轮播：carousel 返回 4-8 页，信息较完整的体验文章优先使用 6-8 页。第 1 页必须是 cover，最后一页必须是 closing；中间用 screenshot 或 insight。每页只表达一个重点，但不能只有一句口号：cover/closing/insight 的 body 通常写 60-180 个中文字符，screenshot 的 body 通常写 35-100 个中文字符，说明截图证明了什么、作者如何判断。图片文字应能独立讲清故事，不能依赖读者先看正文；也不要为适配模板擅自删薄内容，应优先调整排版。只有 kind=screenshot 的页面才设置 screenshot_id，且必须引用 screenshots 中已有的 ID。
+轮播：carousel 返回 4-8 页，信息较完整的体验文章优先使用 6-8 页。第 1 页必须是 cover，最后一页必须是 closing；中间用 screenshot、insight 或 comparison。存在 3 个左右清晰比较对象时，优先用一页 comparison 标准表格，而不是连续写三段文字；comparison_rows 的三列分别是对象、最有价值的动作和仍然缺少的能力。每页只表达一个重点，但不能只有一句口号：cover/closing/insight 的 body 通常写 60-180 个中文字符，screenshot 的 body 通常写 35-100 个中文字符，说明截图证明了什么、作者如何判断。图片文字应能独立讲清故事，不能依赖读者先看正文；也不要为适配模板擅自删薄内容，应优先调整排版。只有 kind=screenshot 的页面才设置 screenshot_id，且必须引用 screenshots 中已有的 ID。
 
 必须严格返回以下 JSON，不得改名、遗漏或增加字段：
 {
@@ -167,7 +167,9 @@ X：只写一条英文短帖，text 必须不超过 280 个字符（换行、空
     "headline": "配图上的英文短标题",
     "image_recommended": true,
     "image_brief": "如何用真实截图构成 X 配图",
-    "alt_text": "英文无障碍图片说明"
+    "alt_text": "英文无障碍图片说明",
+    "visual_caption": "配图左侧的一句英文核心观点",
+    "comparison_rows": [{"label": "Product", "strength": "What it did well", "gap": "What was still missing"}]
   },
   "xiaohongshu": {
     "title": "具体、个人化的中文标题",
@@ -175,10 +177,10 @@ X：只写一条英文短帖，text 必须不超过 280 个字符（换行、空
     "hashtags": ["AI产品", "产品经理"]
   },
   "carousel": [
-    {"order": 1, "kind": "cover", "title": "封面观点", "body": "补充说明", "screenshot_id": null},
-    {"order": 2, "kind": "screenshot", "title": "这一页的发现", "body": "截图说明", "screenshot_id": "website-home"},
-    {"order": 3, "kind": "insight", "title": "中间判断", "body": "一句解释", "screenshot_id": null},
-    {"order": 4, "kind": "closing", "title": "产品启示", "body": "最终判断", "screenshot_id": null}
+    {"order": 1, "kind": "cover", "title": "封面观点", "body": "补充说明", "screenshot_id": null, "comparison_rows": []},
+    {"order": 2, "kind": "screenshot", "title": "这一页的发现", "body": "截图说明", "screenshot_id": "website-home", "comparison_rows": []},
+    {"order": 3, "kind": "comparison", "title": "产品对比", "body": "表格引导句", "screenshot_id": null, "comparison_rows": [{"label": "产品", "strength": "最有价值的动作", "gap": "仍然缺少什么"}]},
+    {"order": 4, "kind": "closing", "title": "产品启示", "body": "最终判断", "screenshot_id": null, "comparison_rows": []}
   ],
   "screenshots": [
     {

@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from ai_product_insight.publishing import (
+    approve_and_archive,
     approve_markdown,
     parse_article_markdown,
     publish_to_site,
@@ -124,6 +125,45 @@ class PublishingTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "approved"):
                 publish_to_site(article, site)
+
+    def test_approve_archives_markdown_and_json(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            drafts = root / "drafts"
+            reviewed = root / "reviewed"
+            drafts.mkdir()
+            article_path = drafts / "article.md"
+            json_path = drafts / "article.json"
+            article_path.write_text(ARTICLE, encoding="utf-8")
+            json_path.write_text(json.dumps({"review_status": "draft"}), encoding="utf-8")
+
+            outputs = approve_and_archive(article_path, reviewed)
+
+            self.assertFalse(article_path.exists())
+            self.assertEqual({path.name for path in outputs}, {"article.md", "article.json"})
+            self.assertEqual(parse_article_markdown(reviewed / "article.md").review_status, "approved")
+            self.assertEqual(
+                json.loads((reviewed / "article.json").read_text(encoding="utf-8"))["review_status"],
+                "approved",
+            )
+
+    def test_publish_supports_current_portfolio_structure(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            article_path = root / "article.md"
+            site = root / "site"
+            site.mkdir()
+            article_path.write_text(ARTICLE.replace('review_status: "draft"', 'review_status: "approved"'), encoding="utf-8")
+            (site / "detail.css").write_text(".insight-article-body{}", encoding="utf-8")
+            (site / "index.html").write_text("<div><!-- INSIGHTS_AUTO_START --><!-- INSIGHTS_AUTO_END --></div>", encoding="utf-8")
+            (site / "insights.html").write_text('<section class="section insight-archive-list" aria-label="产品洞察文章列表"></section>', encoding="utf-8")
+
+            changed = publish_to_site(parse_article_markdown(article_path), site)
+
+            self.assertEqual(len(changed), 3)
+            self.assertIn("Kangxin Bao", (site / "insights" / "ai-built-my-website.html").read_text(encoding="utf-8"))
+            self.assertIn("ai-built-my-website.html", (site / "index.html").read_text(encoding="utf-8"))
+            self.assertIn("ai-built-my-website.html", (site / "insights.html").read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":
