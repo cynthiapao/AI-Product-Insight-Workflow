@@ -1,0 +1,30 @@
+article_slug: "starspark-ai-math-tutor-productive-struggle"
+screenshots:
+  - screenshot_id: "starspark-confusion"
+    filename: "01-starspark-confusion.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 StarSpark 主动询问学习者最容易混淆哪个概念的真实界面。"
+    capture: "保留四个 attribution bias 示例、关键追问和用户随后提出的混淆问题。"
+    annotation: "它开始从解释答案转向观察我的混淆点"
+    used_for:
+      - x
+      - xiaohongshu
+  - screenshot_id: "khanmigo-concept"
+    filename: "02-khanmigo-concept.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Khanmigo 在学习者提出概念混淆后仍主要解释单个概念的真实回应。"
+    capture: "保留用户关于 fundamental attribution 的回答，以及 Khanmigo 的解释与下一步提问。"
+    annotation: "回应了当前答案，但没有继续诊断混淆关系"
+    used_for:
+      - xiaohongshu
+  - screenshot_id: "chatgpt-concepts"
+    filename: "03-chatgpt-concepts.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 ChatGPT Study Mode 主动重组相近归因概念的真实界面。"
+    capture: "保留用户列出的三个概念，以及 ChatGPT 重新整理概念地图的开头部分。"
+    annotation: "从回答问题转向重建概念关系"
+    used_for:
+      - xiaohongshu

@@ -250,7 +250,26 @@ def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict
         normalized["carousel"] = carousel[:8]
     screenshots = normalized.get("screenshots")
     if isinstance(screenshots, list):
-        normalized["screenshots"] = screenshots[:6]
+        normalized_screenshots: list[object] = []
+        for screenshot in screenshots[:6]:
+            if not isinstance(screenshot, dict):
+                normalized_screenshots.append(screenshot)
+                continue
+            item = dict(screenshot)
+            used_for = item.get("used_for")
+            if isinstance(used_for, str):
+                used_for = [used_for]
+            if isinstance(used_for, list):
+                platforms: list[str] = []
+                for platform in used_for:
+                    # DeepSeek sometimes describes a Xiaohongshu carousel by
+                    # its format rather than by the strict platform name.
+                    normalized_platform = "xiaohongshu" if platform == "carousel" else platform
+                    if normalized_platform in {"x", "xiaohongshu"} and normalized_platform not in platforms:
+                        platforms.append(normalized_platform)
+                item["used_for"] = platforms
+            normalized_screenshots.append(item)
+        normalized["screenshots"] = normalized_screenshots
     return normalized
 
 
