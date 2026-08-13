@@ -1,0 +1,62 @@
+{
+  "slug": "starspark-ai-math-tutor-productive-struggle",
+  "title": "AI Tutor 不该只给答案，更要读懂学习过程",
+  "summary": "从 StarSpark、Khanmigo 与 ChatGPT Study Mode 的真实体验出发，观察 AI Tutor 如何从每次互动中理解学习者。",
+  "read_minutes": 5,
+  "tags": ["AI教育", "AI Tutor", "学习过程"],
+  "opening": "StarSpark、Khanmigo 和 ChatGPT Study Mode 都在强调一件我很认同的事：AI Tutor 的目标不应该是尽快把答案交给学生，而是陪他完成理解答案的过程。但“不直接给答案”只是起点。真正有价值的 AI Tutor，还需要把答错、求助、跳过、追问和修改等每次互动都当作学习信号，逐渐判断学生究竟卡在哪里，以及下一步最需要什么帮助。",
+  "core_experience": "我在 StarSpark 里选择 AP Psychology。解释完四种 attribution bias 后，它问我：“Which one feels easiest to confuse with another?” 当我说几个概念看起来都在做内部归因时，它改用“在解释谁的行为或结果”“偏差在维护什么”来区分，并用情境分类、逐题测验和分层提示继续验证。不过，我跳过一道题时它只是继续，刷新后也没有延续对话。Khanmigo Writing Coach 能读取 essay 框架，发现节电证据与睡眠推理不匹配后，不替我重写，而是追问二者的关系，并提醒我更新框架。但当我明确说总是混淆 FAE 与其他理论时，它只是再次解释 FAE。ChatGPT Study Mode 则主动把 FAE、Actor–Observer Bias 和 Self-serving Bias 放进同一组关系中，解释它们是在看别人、比较我和别人，还是解释自己的成败。三段体验的差异不在于谁更会回答，而在于谁能读到互动背后的认知卡点。",
+  "why_it_works": "这几个产品共同采用的不是“拒绝回答”，而是把答案放到更合适的时机：先让学习者判断、解释或尝试，再根据表现提供不同强度的帮助。更重要的是，对话让过去难以观察的学习过程变成了数据。答错、连续混淆、主动要提示、跳过和反复修改，分别反映知识边界、信心、认知负荷和理解稳定性。AI Tutor 可以在每轮互动后更新判断，再选择解释、反问、举例、对比或测验。",
+  "boundaries": "引导式对话不天然等于有效教学。如果系统只是机械地多问一句，学生会觉得它在拖延；如果给出提示后只记录最终答对，也会把辅助完成误判为掌握。Khanmigo 在一次回答中还把“没有准备好考试”归为外部归因，说明学科判断错误会污染后续引导。StarSpark 刷新后没有接续对话，三个产品也都没有完整呈现可核对的学习者模型：哪些概念稳定掌握、哪些在提示下答对、哪些被跳过，以及系统为什么安排下一题。",
+  "personal_judgment": "我认同“不直接给答案”背后的教育理念，因为学习不是把正确结果搬进大脑，而是在尝试、修正和建立联系的过程中改变理解。这也适用于更多 AI 产品：如果只以最终产出衡量成功，就会错过用户在接受、否定、犹豫和返工时留下的信息。如果让我设计 AI Tutor，核心卖点会是“越学越懂你为什么会错”。它应区分独立答对、提示后答对、重复犯错和主动跳过，并保留判断证据。真正的壁垒会从模型回答能力，转向学科知识、学习状态与教学动作之间的决策系统。",
+  "transferable_methods": [
+    {
+      "name": "把每次互动当作状态信号",
+      "principle": "把答错、求助、跳过、反复修改和主动追问分别记录，而不是只保留最终结果；用连续行为判断卡点，再决定下一步动作。",
+      "applies_when": "适用于需要通过多轮互动理解用户状态的教育、创作和专业辅助产品。"
+    },
+    {
+      "name": "分开衡量完成任务和真正掌握",
+      "principle": "在给出提示后安排延迟复测或迁移题，区分独立完成与辅助完成，避免用一次正确答案过早结束教学。",
+      "applies_when": "适用于存在提示、纠错、练习与能力评估的学习流程。"
+    },
+    {
+      "name": "让学习者模型可见、可纠错、可延续",
+      "principle": "向学生说明系统判断出的强项、混淆点和下一步计划，并允许修正；跨对话延续时保留关键证据，而不是只保存一句笼统总结。",
+      "applies_when": "适用于需要长期个性化和跨会话连续性的 AI Tutor。"
+    }
+  ],
+  "product_takeaway": "AI 教育产品的核心竞争力，不只是答案质量，而是能否从学习过程里读懂学生，并选择下一步最合适的教学动作。",
+  "sources": [
+    {
+      "title": "个人体验：三款 AI Tutor 对话记录",
+      "url": "https://www.starspark.ai/",
+      "excerpt": "2026 年 8 月对 StarSpark AP Psychology、Khanmigo Writing Coach 与学习模式、ChatGPT Study Mode 的个人体验记录。",
+      "source_type": "manual",
+      "retrieved_at": "2026-08-13T12:00:00+08:00"
+    },
+    {
+      "title": "StarSpark AI 官方介绍",
+      "url": "https://www.starspark.ai/",
+      "excerpt": "StarSpark 官方页面介绍了逐步反馈、课程对齐，以及物理、化学、生物和心理学等学科支持。",
+      "source_type": "official",
+      "retrieved_at": "2026-08-13T12:00:00+08:00"
+    },
+    {
+      "title": "Khanmigo 官方介绍",
+      "url": "https://en.khanacademy.org/college-careers-more/khanmigo-for-students/x5443352261243283%3Aintroducing-khanmigo/x5443352261243283%3Agetting-started-with-khanmigo/v/khanmigo-for-students-what-is-khanmigo-and-how-does-it-work",
+      "excerpt": "Khan Academy 说明 Khanmigo 通过提问和分步支持引导学生完成学习，而不是直接给出答案。",
+      "source_type": "official",
+      "retrieved_at": "2026-08-13T12:00:00+08:00"
+    },
+    {
+      "title": "ChatGPT Study Mode 官方介绍",
+      "url": "https://openai.com/index/chatgpt-study-mode/",
+      "excerpt": "OpenAI 将 Study Mode 定义为通过苏格拉底式提问、分层提示、知识检查和个性化支持促进主动学习的体验。",
+      "source_type": "official",
+      "retrieved_at": "2026-08-13T12:00:00+08:00"
+    }
+  ],
+  "review_status": "draft",
+  "generated_at": "2026-08-13T12:00:00+08:00"
+}

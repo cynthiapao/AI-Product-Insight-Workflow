@@ -1,0 +1,32 @@
+{
+  "candidate": {
+    "candidate_id": "6ff88038280c96d2",
+    "name": "Prime Agent",
+    "url": "https://www.producthunt.com/products/prime-intellect",
+    "source": "Product Hunt",
+    "summary": "<p> A coding agent that can refine its own harness </p> <p> <a href=\"https://www.producthunt.com/products/prime-intellect?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1219088?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-09T21:13:06-07:00",
+    "discovered_at": "2026-08-10T08:51:12.900361Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 2,
+      "total": 3.7,
+      "reason": "编码代理自我改进机制有深度，但信息有限，且与AI PM关联度稍弱，证据不足。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Prime Agent - discovery note",
+      "url": "https://www.producthunt.com/products/prime-intellect",
+      "excerpt": "<p> A coding agent that can refine its own harness </p> <p> <a href=\"https://www.producthunt.com/products/prime-intellect?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1219088?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-10T08:52:21.397853Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [],
+  "quality": "insufficient"
+}

@@ -1,0 +1,95 @@
+{
+  "article_slug": "starspark-ai-math-tutor-productive-struggle",
+  "key_takeaway": "AI Tutor 的价值不只是不直接给答案，而是从错误、求助、跳过和修改中读懂学习过程。",
+  "x_post": {
+    "text": "I tried StarSpark, Khanmigo and ChatGPT Study Mode. I value their shared idea: don’t rush to give the answer. But an AI tutor should also read every mistake, hint request, skip and revision as evidence of how a learner thinks—then choose the next teaching move.",
+    "headline": "A tutor should read the learning process",
+    "image_recommended": true,
+    "image_brief": "Use the real StarSpark AP Psychology conversation in which the tutor asks which concepts feel easiest to confuse.",
+    "alt_text": "A StarSpark AP Psychology chat asking which attribution bias feels easiest to confuse with another."
+  },
+  "xiaohongshu": {
+    "title": "我试了3个AI Tutor，最在意的不是答案",
+    "body": "这几天我用 StarSpark、Khanmigo 和 ChatGPT Study Mode 学同一类内容，慢慢发现自己很认同它们共同的理念：不要急着把答案塞给学生。\n\n在 StarSpark 学归因理论时，它解释完几个概念后问我：“哪一个最容易和其他概念混淆？”这句话让我从记定义变成主动比较。后来它会一题一题测、答错后逐步给提示。但我选择 skip 时，它并没有继续追问；刷新页面后，前面的学习过程也没有留下来。\n\nKhanmigo 的 Writing Coach 能看到我的 essay 框架，会发现证据和推理没有对上，并推动我真正修改。但当我明确说“总是把几个理论混淆”时，它又没有像 ChatGPT Study Mode 那样，把容易混淆的概念放在一起拆解。\n\n这让我觉得，AI Tutor 的关键不只是“不给答案”，而是能不能读懂每一次互动：答错、要提示、跳过、反复修改，都在说明我哪里没懂。真正好的 AI Tutor，应该越学越懂我为什么会错，再决定下一步该解释、对比、举例，还是继续测验。",
+    "hashtags": ["AI教育", "AITutor", "AI产品", "产品经理", "学习方法"]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "AI Tutor 不该只给答案",
+      "body": "更重要的是：它能不能读懂学生在学习过程中为什么会错。"
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "一句追问，让我开始主动比较",
+      "body": "它主动问我：哪一个概念最容易混淆？",
+      "screenshot_id": "starspark-confusion"
+    },
+    {
+      "order": 3,
+      "kind": "insight",
+      "title": "不直接给答案，只是起点",
+      "body": "StarSpark、Khanmigo 和 ChatGPT Study Mode 都强调分步引导。我认同这个理念，因为学习发生在尝试、修正和建立联系的过程中，而不只发生在看到正确结果的那一刻。"
+    },
+    {
+      "order": 4,
+      "kind": "screenshot",
+      "title": "Khanmigo：没有继续追问混淆",
+      "body": "它重新解释了 FAE，却没有确认我究竟和谁混、为什么混。",
+      "screenshot_id": "khanmigo-concept"
+    },
+    {
+      "order": 5,
+      "kind": "screenshot",
+      "title": "ChatGPT：重新组织相近概念",
+      "body": "它把相近概念放回同一张关系图里。",
+      "screenshot_id": "chatgpt-concepts"
+    },
+    {
+      "order": 6,
+      "kind": "insight",
+      "title": "每次互动，都是学习状态",
+      "body": "答错说明概念边界可能不清；要提示反映当前信心；跳过可能意味着负荷过高；修改后又改回去，则可能说明理解还不稳定。产品不该只记录最后答对了没有。"
+    },
+    {
+      "order": 7,
+      "kind": "closing",
+      "title": "越学越懂你为什么会错",
+      "body": "这会是我最想要的 AI Tutor：不仅会生成解释，还能持续更新学习者模型，并在每一步选择更合适的教学动作。"
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "starspark-confusion",
+      "filename": "01-starspark-confusion.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 StarSpark 主动询问学习者最容易混淆哪个概念的真实界面。",
+      "capture": "保留四个 attribution bias 示例、关键追问和用户随后提出的混淆问题。",
+      "annotation": "它开始从解释答案转向观察我的混淆点",
+      "used_for": ["x", "xiaohongshu"]
+    },
+    {
+      "screenshot_id": "khanmigo-concept",
+      "filename": "02-khanmigo-concept.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 Khanmigo 在学习者提出概念混淆后仍主要解释单个概念的真实回应。",
+      "capture": "保留用户关于 fundamental attribution 的回答，以及 Khanmigo 的解释与下一步提问。",
+      "annotation": "回应了当前答案，但没有继续诊断混淆关系",
+      "used_for": ["xiaohongshu"]
+    },
+    {
+      "screenshot_id": "chatgpt-concepts",
+      "filename": "03-chatgpt-concepts.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 ChatGPT Study Mode 主动重组相近归因概念的真实界面。",
+      "capture": "保留用户列出的三个概念，以及 ChatGPT 重新整理概念地图的开头部分。",
+      "annotation": "从回答问题转向重建概念关系",
+      "used_for": ["xiaohongshu"]
+    }
+  ]
+}
