@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import ipaddress
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -17,24 +18,57 @@ from .models import EvidenceItem, ProductCandidate
 
 
 USER_AGENT = "AIProductInsightBot/0.1 (+human-reviewed portfolio research)"
+DEFAULT_MAX_RESPONSE_BYTES = 2_000_000
 
 
 class FetchError(RuntimeError):
     pass
 
 
+def is_safe_public_url(url: str) -> bool:
+    parts = urlsplit(url)
+    if parts.scheme not in {"http", "https"} or not parts.hostname:
+        return False
+    hostname = parts.hostname.casefold().rstrip(".")
+    if hostname == "localhost" or hostname.endswith(".localhost") or hostname.endswith(".local"):
+        return False
+    try:
+        address = ipaddress.ip_address(hostname)
+    except ValueError:
+        return True
+    return not (
+        address.is_private
+        or address.is_loopback
+        or address.is_link_local
+        or address.is_multicast
+        or address.is_reserved
+        or address.is_unspecified
+    )
+
+
 class HttpFetcher:
-    def __init__(self, timeout: int = 25, retries: int = 2) -> None:
+    def __init__(
+        self,
+        timeout: int = 25,
+        retries: int = 2,
+        max_response_bytes: int = DEFAULT_MAX_RESPONSE_BYTES,
+    ) -> None:
         self.timeout = timeout
         self.retries = retries
+        self.max_response_bytes = max_response_bytes
 
     def fetch_bytes(self, url: str) -> bytes:
+        if not is_safe_public_url(url):
+            raise FetchError(f"Refusing non-public URL: {url}")
         last_error: Exception | None = None
         for attempt in range(self.retries + 1):
             try:
                 request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"})
                 with urlopen(request, timeout=self.timeout) as response:
-                    return response.read()
+                    body = response.read(self.max_response_bytes + 1)
+                    if len(body) > self.max_response_bytes:
+                        raise FetchError(f"Response exceeded {self.max_response_bytes} bytes: {url}")
+                    return body
             except (HTTPError, URLError, TimeoutError) as exc:
                 last_error = exc
                 if attempt < self.retries:

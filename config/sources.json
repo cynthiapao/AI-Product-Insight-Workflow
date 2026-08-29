@@ -27,6 +27,7 @@
   ],
   "max_candidates": 25,
   "select_count": 3,
+  "research_candidate_limit": 8,
   "min_score": 3.1,
   "min_evidence_items": 2,
   "deepseek_base_url": "https://api.deepseek.com",

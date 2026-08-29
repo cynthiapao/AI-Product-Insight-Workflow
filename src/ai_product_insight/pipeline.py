@@ -72,11 +72,17 @@ class InsightPipeline:
 
             for candidate in selected:
                 seed = (fixture_evidence or {}).get(candidate.candidate_id)
-                research = self.crew.researcher.research(candidate, seed_evidence=seed)
+                research = self.crew.researcher.research(
+                    candidate,
+                    seed_evidence=seed,
+                    require_evidence_mix=mode == "scheduled",
+                )
                 self._write_json(checkpoint_dir / f"03-research-{candidate.candidate_id}.json", research)
                 if research.quality == EvidenceQuality.insufficient:
                     report.status = "partial"
-                    report.errors.append(f"Insufficient evidence for {candidate.name}")
+                    detail = "; ".join(research.open_questions[:3])
+                    suffix = f": {detail}" if detail else ""
+                    report.errors.append(f"Insufficient evidence for {candidate.name}{suffix}")
                     continue
                 insight = self.crew.analyst.analyze(research)
                 self._write_json(checkpoint_dir / f"04-insight-{candidate.candidate_id}.json", insight)

@@ -31,7 +31,8 @@ from .prompts import (
     SCOUT_SYSTEM,
     SOCIAL_SYSTEM,
 )
-from .sources import FetchError, HttpFetcher, fetch_evidence
+from .research import collect_research_evidence, has_required_evidence_mix, missing_evidence_requirements
+from .sources import HttpFetcher
 
 
 SCORE_FIELDS = ("relevance", "novelty", "product_depth", "evidence", "total", "reason")
@@ -281,8 +282,9 @@ class ScoutAgent:
     def select(self, candidates: list[ProductCandidate]) -> list[ProductCandidate]:
         if not candidates:
             return []
+        candidate_window = max(10, self.config.research_candidate_limit)
         payload = {
-            "candidates": [item.model_dump(mode="json") for item in candidates[:10]],
+            "candidates": [item.model_dump(mode="json") for item in candidates[:candidate_window]],
             "max_selected": self.config.select_count,
         }
         raw_selection = self.llm.generate_json(SCOUT_SYSTEM, _json(payload))
@@ -302,7 +304,8 @@ class ScoutAgent:
         primary = [item for item in eligible if item.candidate_id in selected_order]
         primary.sort(key=lambda item: selected_order[item.candidate_id])
         fallbacks = [item for item in eligible if item.candidate_id not in selected_order]
-        return (primary + fallbacks)[: self.config.select_count]
+        research_limit = max(self.config.select_count, self.config.research_candidate_limit)
+        return (primary + fallbacks)[:research_limit]
 
 
 class ResearchAgent:
@@ -316,25 +319,33 @@ class ResearchAgent:
         candidate: ProductCandidate,
         seed_evidence: list[EvidenceItem] | None = None,
         min_evidence_items: int | None = None,
+        require_evidence_mix: bool = False,
     ) -> ResearchPack:
         evidence = list(seed_evidence or [])
+        collection_errors: list[str] = []
         if not evidence:
-            if candidate.summary:
-                evidence.append(
-                    EvidenceItem(
-                        title=f"{candidate.name} - discovery note",
-                        url=candidate.url,
-                        excerpt=candidate.summary,
-                        source_type="manual" if candidate.manual else "feed",
-                    )
-                )
-            try:
-                evidence.append(fetch_evidence(candidate, self.fetcher))
-            except FetchError:
-                pass
+            collection = collect_research_evidence(candidate, self.fetcher)
+            evidence.extend(collection.items)
+            collection_errors.extend(collection.errors)
         required_evidence = self.config.min_evidence_items if min_evidence_items is None else min_evidence_items
         if len(evidence) < required_evidence:
-            return ResearchPack(candidate=candidate, evidence=evidence, quality=EvidenceQuality.insufficient)
+            questions = [f"requires at least {required_evidence} evidence items; collected {len(evidence)}"]
+            questions.extend(collection_errors[:3])
+            return ResearchPack(
+                candidate=candidate,
+                evidence=evidence,
+                open_questions=questions,
+                quality=EvidenceQuality.insufficient,
+            )
+        if require_evidence_mix and not has_required_evidence_mix(evidence):
+            questions = missing_evidence_requirements(evidence)
+            questions.extend(collection_errors[:3])
+            return ResearchPack(
+                candidate=candidate,
+                evidence=evidence,
+                open_questions=questions,
+                quality=EvidenceQuality.insufficient,
+            )
         payload = {
             "candidate": candidate.model_dump(mode="json"),
             "evidence": [item.model_dump(mode="json") for item in evidence],

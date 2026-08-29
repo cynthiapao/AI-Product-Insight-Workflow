@@ -27,7 +27,7 @@
 
 - `DEEPSEEK_API_KEY is required`：检查 GitHub Secret 名称是否完全一致。
 - `No candidate met the selection threshold`：信息源当天质量偏低，可手动指定产品或临时调低 `min_score`。
-- `Insufficient evidence`：候选页面无法访问或只有宣传文案；自动发现模式会继续尝试后续候选，手动模式则需要补充官网更新日志、测评或体验记录。
+- `Insufficient evidence`：查看错误后缀判断具体缺口。`missing official or release evidence` 表示官网、文档或更新页没有成功抓取；`missing independent community or report evidence` 表示暂未找到 Hacker News 讨论或独立报道。自动发现模式最多继续研究 `research_candidate_limit` 个达到评分阈值的候选，手动模式则需要补充官网更新日志、测评或体验记录。
 - 没有创建 Draft PR：若所有候选都证据不足，工作流会明确失败但仍上传运行 Artifact；否则检查仓库是否允许 Actions 创建 PR。
 - `缺少必需截图`：打开 `inputs/assets/<slug>/README.md`，核对文件名、扩展名和上传分支，补齐后再次提交。
 - `找不到可用字体`：GitHub 工作流应安装 `fonts-noto-cjk`；本地可给 `render-social` 增加 `--font` 指向微软雅黑或其他中文字体。
@@ -39,4 +39,14 @@
 - 检查信息源是否仍可访问。
 - 查看 DeepSeek 官方模型名与价格是否变化。
 - 抽查最近文章中“事实—来源”映射。
+- 抽查 Hacker News/新闻搜索是否匹配到同名但无关的产品；自动相关性过滤不能替代人工核对。
 - 根据实际内容质量调整评分阈值，而不是增加更多 Agent。
+
+## 自动研究的证据结构
+
+- 定时模式不会因为凑满两条链接就继续写作；至少需要一条官方/发布材料和一条社区/报道材料。
+- 官方材料包括产品主页面，以及主页面中可发现的同域文档、功能说明、更新日志或发布说明。
+- 独立材料优先使用 Hacker News 的相关讨论；没有匹配时再查询 Google News RSS。
+- Scout 仍给出最多 3 个首选产品，但研究阶段会保留达到评分阈值的后续候选，并按顺序尝试至 `research_candidate_limit`。生成第一篇可用草稿后即停止。
+- 网页摘录只作为不可信证据输入，不能改变 Agent 指令；抓取器拒绝本地/私有地址，并限制单个响应体大小。
+- 增加候选回退和外部材料后，定时任务可能比原来多运行几分钟，这是证据完整性带来的预期成本。
