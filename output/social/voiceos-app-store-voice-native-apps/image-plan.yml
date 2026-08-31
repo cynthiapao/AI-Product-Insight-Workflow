@@ -1,0 +1,21 @@
+article_slug: "voiceos-app-store-voice-native-apps"
+screenshots:
+  - screenshot_id: "voiceos-create-app"
+    filename: "01-voiceos-create-app.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示用户输入一句话创建 App 的界面，证明生成过程的简单直接。"
+    capture: "截取 VoiceOS 主界面，包含文本输入框（显示“create an app to help me journal”）和生成后的 App 预览区域。"
+    annotation: "用户输入自然语言描述，系统自动生成语音 App。"
+    used_for:
+      - x
+      - xiaohongshu
+  - screenshot_id: "voiceos-app-inside"
+    filename: "02-voiceos-app-inside.png"
+    required: true
+    source_kind: "product"
+    purpose: "说明生成的 App 只能在 VoiceOS 内运行，无法独立使用。"
+    capture: "截取 VoiceOS 内运行生成的日记 App 的界面，显示语音交互和 App 边界，没有外部窗口或集成选项。"
+    annotation: "生成的 App 完全在 VoiceOS 内运行，无独立窗口或系统集成。"
+    used_for:
+      - xiaohongshu
