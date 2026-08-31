@@ -121,6 +121,33 @@ class ResearchIdentityTests(unittest.TestCase):
         hit = {"title": "oMLX local Mac LLM server", "url": "https://different.example/"}
         self.assertFalse(_hit_matches_candidate(fetcher.candidate(), hit, "https://omlx.ai/"))
 
+    def test_cloud_blocked_redirect_can_use_product_website_from_later_hn_hit(self):
+        fetcher = IdentityFetcher()
+        website = "https://omlx.ai/"
+        fetcher.pages[website] = FetchedPage(website, fetcher.pages[fetcher.official].text)
+        fetcher.hits.append({**fetcher.hits[0], "objectID": "124", "url": website})
+        fetcher.details["124"] = fetcher.details["123"]
+        fetcher.details["123"] = {"author": "maker", "children": []}
+        result = collect_research_evidence(fetcher.candidate(), fetcher)
+        self.assertTrue(has_required_evidence_mix(result.items))
+        self.assertTrue(any(str(e.url) == website and e.source_type == "official" for e in result.items))
+
+    def test_repository_website_alias_requires_reciprocal_links(self):
+        fetcher = IdentityFetcher()
+        website = "https://omlx.ai/"
+        # Discovery points at a repo; the real independent discussion points at its website.
+        candidate = ProductCandidate(name=fetcher.name, url=fetcher.official, source="Hacker News Show", summary=fetcher.summary)
+        repo_body = fetcher.pages[fetcher.official].text + f'<a href="{website}">Website</a>'
+        fetcher.pages[fetcher.official] = FetchedPage(fetcher.official, repo_body)
+        website_body = f'<title>oMLX</title><p>oMLX {fetcher.summary}. Local inference with explicit cache controls.</p>'
+        fetcher.pages[website] = FetchedPage(website, website_body + f'<a href="{fetcher.official}">Source code</a>')
+        fetcher.hits = [{**fetcher.hits[0], "url": website}]
+        result = collect_research_evidence(candidate, fetcher)
+        self.assertTrue(has_required_evidence_mix(result.items))
+        fetcher.pages[website] = FetchedPage(website, website_body)
+        result = collect_research_evidence(candidate, fetcher)
+        self.assertFalse(has_required_evidence_mix(result.items))
+
     def test_news_requires_body_and_product_link(self):
         fetcher = IdentityFetcher()
         fetcher.details["123"]["children"] = []

@@ -105,6 +105,8 @@ def _parse_page(html_text: str) -> _ResearchPageParser:
 
 
 def _same_product_site(candidate_url: str, related_url: str) -> bool:
+    if not is_safe_public_url(candidate_url) or not is_safe_public_url(related_url):
+        return False
     candidate_host = (urlsplit(candidate_url).hostname or "").lower().removeprefix("www.")
     related_host = (urlsplit(related_url).hostname or "").lower().removeprefix("www.")
     if not candidate_host or not related_host:
@@ -234,14 +236,49 @@ def _is_listing(url: str) -> bool:
 
 
 def _official_destination(url: str) -> bool:
+    if not is_safe_public_url(url):
+        return False
     host = (urlsplit(url).hostname or "").lower()
-    if not is_safe_public_url(url) or classify_source_type(url) != "official":
+    if classify_source_type(url) != "official":
         return False
     # A news article / search result / discussion is not a product-owned page.
     if host in {"news.google.com", "hn.algolia.com"}:
         return False
     path = urlsplit(url).path.casefold()
     return not any(term in path for term in ("/newsroom/", "/news/", "/articles/", "/blog/"))
+
+
+def _page_links_to(page: FetchedPage, target: str) -> bool:
+    links = [urljoin(page.url, href) for _, href in _parse_page(page.text).links]
+    # README bodies preserve Markdown as text, including their official links.
+    links.extend(re.findall(r"https?://[^\s<>\"')\]]+", unescape(page.text)))
+    return any(is_safe_public_url(link) and _same_product_site(target, link) for link in links)
+
+
+def _verified_linked_pages(candidate: ProductCandidate, page: FetchedPage, hits: list[dict[str, object]],
+                           fetcher: HttpFetcher, errors: list[str]) -> list[FetchedPage]:
+    """Accept website/repository aliases only with reciprocal links and identity checks."""
+    verified: list[FetchedPage] = []
+    attempted: set[str] = set()
+    for hit in hits:
+        target = str(hit.get("url") or "")
+        if (not _official_destination(target) or target in attempted
+                or _same_product_site(page.url, target) or not _page_links_to(page, target)):
+            continue
+        attempted.add(target)
+        if len(attempted) > 2:
+            break
+        try:
+            linked = _product_page(fetcher, target)
+            content = _plain_text(linked.text)
+            if (_official_destination(linked.url) and _name_mentioned(candidate.name, content)
+                    and _purpose_matches(candidate, content) and _page_links_to(linked, page.url)):
+                verified.append(linked)
+            else:
+                errors.append(f"unverified website/repository alias ignored: {target}")
+        except FETCH_ERRORS as exc:
+            errors.append(f"linked official page fetch failed: {exc}")
+    return verified
 
 
 def _resolve_product_page(candidate: ProductCandidate, fetcher: HttpFetcher,
@@ -260,7 +297,9 @@ def _resolve_product_page(candidate: ProductCandidate, fetcher: HttpFetcher,
         url = urljoin(original, href)
         if anchor.strip().casefold() in {"link", "visit", "website", "visit website"} and is_safe_public_url(url):
             options.append(url)
-    for hit in hits:
+    # Prefer a product website over a code repository for user-facing workflow evidence.
+    ordered_hits = sorted(hits, key=lambda hit: str(hit.get("url") or "").startswith("https://github.com/"))
+    for hit in ordered_hits:
         if not _hit_matches_candidate(candidate, hit):
             errors.append(f"identity mismatch: ignored HN result {hit.get('objectID', '')}")
             continue
@@ -294,9 +333,9 @@ def _resolve_product_page(candidate: ProductCandidate, fetcher: HttpFetcher,
 
 def _fetch_hackernews_evidence(candidate: ProductCandidate, fetcher: HttpFetcher,
                               hits: list[dict[str, object]], official_url: str | None,
-                              errors: list[str]) -> EvidenceItem | None:
+                              errors: list[str], aliases: list[str] | None = None) -> EvidenceItem | None:
     for hit in hits:
-        if not _hit_matches_candidate(candidate, hit, official_url):
+        if not any(_hit_matches_candidate(candidate, hit, url) for url in [official_url, *(aliases or [])]):
             continue
         object_id = str(hit.get("objectID") or "")
         if not object_id.isdigit():
@@ -413,8 +452,10 @@ def collect_research_evidence(
         else:
             errors.append("primary product page contained too little readable text")
     independent: EvidenceItem | None = None
+    linked_pages = _verified_linked_pages(candidate, page, hits, fetcher, errors) if page and official_url else []
     try:
-        independent = _fetch_hackernews_evidence(candidate, fetcher, hits, official_url, errors)
+        independent = _fetch_hackernews_evidence(candidate, fetcher, hits, official_url, errors,
+                                                [linked.url for linked in linked_pages])
     except FETCH_ERRORS as exc:
         errors.append(f"Hacker News research failed: {exc}")
     if independent is None:
@@ -424,6 +465,11 @@ def collect_research_evidence(
             errors.append(f"news research failed: {exc}")
     if independent is not None:
         items.append(independent)
+
+    for linked in linked_pages:
+        linked_evidence = _evidence_from_html(candidate.name, linked.url, linked.text, "official")
+        if linked_evidence:
+            items.append(linked_evidence)
 
     if primary_parser is not None and official_url:
         for related_url in _rank_official_links(primary_parser, official_url)[:2]:

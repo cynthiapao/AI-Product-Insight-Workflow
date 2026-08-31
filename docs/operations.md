@@ -19,6 +19,7 @@
 - 该模式仍调用 DeepSeek 并生成文章 / 社交草稿，但只上传 Artifact，不推送草稿分支、不创建文章 PR、不发布网站。用于避免验证用的文章 PR 混入尚未合并的代码修复。
 - 正式生成文章时选择 `main`，不要勾选 `validation_only`。
 - 只想检查采集、不调用模型：运行 `python scripts/check_research_sources.py --archive <失败运行的zip>`。结果中的 `usable_source_mix` 仅表示来源组合满足要求，最终能否写作还需 Research 模型评估。
+- 可附加 `--name oMLX --simulate-blocked-listings`，从归档中只回放 oMLX 并模拟 Product Hunt 403，验证官网备用路径。
 - 代码 PR 会自动运行 `Test insight workflow`，无需 DeepSeek Secret。
 
 ## 截图上传规则
@@ -60,6 +61,7 @@
 - 官方材料包括产品主页面，以及主页面中可发现的同域文档、功能说明、更新日志或发布说明。
 - 独立材料优先使用指向同一产品的 Hacker News 讨论中的非作者实质评论；没有匹配时再查询 Google News RSS 并尝试抓取实际报道。RSS 标题和摘要本身不算独立报道。
 - Product Hunt RSS 外链优先解析官网；跳转失败再核实 HN 外链。官网不明或名称 / 用途不符时保留证据缺口，不猜域名。GitHub 项目优先读取 README，避免导航文字挤占证据。
+- 官网与代码仓库可能是同一个产品的不同入口：必须有双向链接且名称 / 用途均吻合，才允许把它们的社区讨论合并研究；不能仅凭品牌名一致就合并。
 - Scout 仍给出最多 3 个首选产品，但研究阶段会保留达到评分阈值的后续候选，并按顺序尝试至 `research_candidate_limit`。生成第一篇可用草稿后即停止。
 - 网页摘录只作为不可信证据输入，不能改变 Agent 指令；抓取器拒绝本地/私有地址，并限制单个响应体大小。
 - 增加候选回退和外部材料后，定时任务可能比原来多运行几分钟，这是证据完整性带来的预期成本。
