@@ -19,6 +19,11 @@ on:
         description: "Optional personal notes or observation"
         required: false
         type: string
+      validation_only:
+        description: "Generate review artifacts only; do not push a draft branch or open a PR"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -58,15 +63,18 @@ jobs:
         if: ${{ inputs.product_name != '' }}
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          PRODUCT_NAME: ${{ inputs.product_name }}
+          PRODUCT_URL: ${{ inputs.product_url }}
+          PRODUCT_NOTES: ${{ inputs.notes }}
         run: >-
           python -m ai_product_insight manual
-          --name "${{ inputs.product_name }}"
-          --url "${{ inputs.product_url }}"
-          --notes "${{ inputs.notes }}"
+          --name "$PRODUCT_NAME"
+          --url "$PRODUCT_URL"
+          --notes "$PRODUCT_NOTES"
 
       - name: Upload review files
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: insight-draft-${{ github.run_id }}
           path: |
@@ -77,6 +85,7 @@ jobs:
           if-no-files-found: error
 
       - name: Create draft branch
+        if: ${{ !inputs.validation_only }}
         id: draft_branch
         run: |
           branch="insight-draft/${GITHUB_RUN_ID}"
@@ -89,6 +98,7 @@ jobs:
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
 
       - name: Open draft pull request for human review
+        if: ${{ !inputs.validation_only }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

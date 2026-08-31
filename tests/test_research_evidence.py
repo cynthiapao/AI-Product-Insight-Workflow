@@ -1,6 +1,7 @@
 import unittest
 
 from ai_product_insight.models import EvidenceItem, ProductCandidate
+from ai_product_insight.sources import FetchedPage
 from ai_product_insight.research import (
     collect_research_evidence,
     has_required_evidence_mix,
@@ -39,12 +40,16 @@ class FakeFetcher:
             raise AssertionError(f"Unexpected URL: {url}")
         return self.texts[url]
 
+    def fetch_page(self, url: str) -> FetchedPage:
+        return FetchedPage(url, self.fetch_text(url))
+
     def fetch_json(self, url: str):
         if url.startswith("https://hn.algolia.com/api/v1/search?"):
             return {
                 "hits": [
                     {
                         "objectID": "123",
+                        "author": "maker",
                         "title": "Show HN: Demo AI for traceable research",
                         "url": "https://demo.ai/",
                         "story_text": "The maker explains how the product exposes its research steps.",
@@ -55,9 +60,10 @@ class FakeFetcher:
             }
         if url == "https://hn.algolia.com/api/v1/items/123":
             return {
+                "author": "maker",
                 "children": [
-                    {"text": "I tested the source panel and found the comparison useful."},
-                    {"text": "The workflow still needs clearer controls for correcting a source."},
+                    {"author": "reader1", "text": "I tested the source panel and found the comparison useful for checking my sources."},
+                    {"author": "reader2", "text": "The workflow still needs clearer controls for correcting a source."},
                 ]
             }
         raise AssertionError(f"Unexpected JSON URL: {url}")

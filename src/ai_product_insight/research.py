@@ -1,15 +1,15 @@
 from __future__ import annotations
 
-import json
+import base64
 import re
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
-from html import unescape
+from html import escape, unescape
 from html.parser import HTMLParser
 from urllib.parse import quote_plus, urljoin, urlsplit
 
 from .models import EvidenceItem, ProductCandidate, canonicalize_url
-from .sources import FetchError, HttpFetcher, classify_source_type, is_safe_public_url
+from .sources import FetchError, FetchedPage, HttpFetcher, classify_source_type, is_safe_public_url
 
 
 OFFICIAL_SOURCE_TYPES = {"official", "release"}
@@ -27,6 +27,15 @@ RESEARCH_LINK_TERMS = {
     "about": 4,
 }
 STOP_WORDS = {"ai", "the", "a", "an", "for", "and", "with", "app", "tool"}
+CONTEXT_STOP_WORDS = STOP_WORDS | {
+    "from", "into", "that", "this", "your", "our", "its", "you", "of", "to", "in", "on",
+    "is", "it", "by", "as", "at", "be", "are", "was", "can", "not", "only", "new", "more",
+    "than", "all", "how", "what", "get", "use", "using", "built", "build", "product", "link",
+    "discussion", "http", "https", "www", "com", "show", "hn", "first", "best", "now",
+}
+FETCH_ERRORS = (FetchError, OSError, ValueError, ET.ParseError)
+MIN_COMMENT_CHARS = 60
+MIN_REPORT_CHARS = 300
 
 
 @dataclass
@@ -100,6 +109,20 @@ def _same_product_site(candidate_url: str, related_url: str) -> bool:
     related_host = (urlsplit(related_url).hostname or "").lower().removeprefix("www.")
     if not candidate_host or not related_host:
         return False
+    # Shared hosts are not a single product. Scope GitHub/HF by owner + repo,
+    # GitHub Pages by project, and other hosted sites by exact hostname.
+    if candidate_host in {"github.com", "huggingface.co"} or related_host in {"github.com", "huggingface.co"}:
+        left = urlsplit(candidate_url).path.strip("/").split("/")[:2]
+        right = urlsplit(related_url).path.strip("/").split("/")[:2]
+        return candidate_host == related_host and len(left) == 2 and left == right
+    shared_hosts = ("github.io", "framer.website", "vercel.app", "netlify.app", "pages.dev")
+    if any(candidate_host == host or related_host == host or candidate_host.endswith(f".{host}")
+           or related_host.endswith(f".{host}") for host in shared_hosts):
+        if candidate_host != related_host:
+            return False
+        if candidate_host.endswith(".github.io"):
+            return urlsplit(candidate_url).path.strip("/").split("/")[0] == urlsplit(related_url).path.strip("/").split("/")[0]
+        return True
     return (
         candidate_host == related_host
         or related_host.endswith(f".{candidate_host}")
@@ -148,54 +171,161 @@ def _evidence_from_html(name: str, url: str, html_text: str, source_type: str) -
     )
 
 
-def _candidate_tokens(name: str) -> set[str]:
-    return {
-        token
-        for token in re.findall(r"[a-z0-9]+", name.casefold())
-        if len(token) >= 2 and token not in STOP_WORDS
-    }
+def _name_mentioned(name: str, text: str) -> bool:
+    name = re.sub(r"^show hn:\s*", "", name, flags=re.I)
+    return bool(re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", text, re.I))
 
 
-def _hit_matches_candidate(candidate: ProductCandidate, hit: dict[str, object]) -> bool:
-    title = str(hit.get("title") or hit.get("story_title") or "")
-    if candidate.name.casefold() in title.casefold():
-        return True
-    candidate_host = (urlsplit(str(candidate.url)).hostname or "").lower().removeprefix("www.")
-    hit_host = (urlsplit(str(hit.get("url") or "")).hostname or "").lower().removeprefix("www.")
-    if candidate_host and hit_host and candidate_host == hit_host:
-        return True
-    tokens = _candidate_tokens(candidate.name)
-    title_tokens = set(re.findall(r"[a-z0-9]+", title.casefold()))
-    required = 1 if len(tokens) == 1 else max(2, (len(tokens) + 1) // 2)
-    return bool(tokens) and len(tokens & title_tokens) >= required
+def _context_tokens(text: str) -> set[str]:
+    # Strip links, not just HTML tags: RSS URLs must not become identity signals.
+    text = re.sub(r"<a\b[^>]*>.*?</a>", " ", text, flags=re.I | re.S)
+    text = re.sub(r"https?://\S+", " ", _plain_text(text))
+    tokens = set(re.findall(r"[a-z][a-z0-9-]{2,}|[\u4e00-\u9fff]{2,}", text.casefold()))
+    return {token.rstrip("s") if token.endswith("s") and len(token) > 4 else token
+            for token in tokens if token not in CONTEXT_STOP_WORDS}
 
 
-def _fetch_hackernews_evidence(candidate: ProductCandidate, fetcher: HttpFetcher) -> EvidenceItem | None:
+def _purpose_matches(candidate: ProductCandidate, text: str) -> bool:
+    context = _context_tokens(candidate.summary) - _context_tokens(candidate.name)
+    return bool(context) and len(context & _context_tokens(text)) >= min(2, len(context))
+
+
+def _hit_matches_candidate(candidate: ProductCandidate, hit: dict[str, object], official_url: str | None = None) -> bool:
+    target = str(hit.get("url") or "")
+    if official_url:
+        # Once an identity is verified, do not switch brands on name similarity.
+        return bool(target) and _same_product_site(official_url, target)
+    text = f"{hit.get('title') or hit.get('story_title') or ''} {_plain_text(str(hit.get('story_text') or ''))}"
+    # A matching token alone (Maritime / Starlink Maritime) is insufficient.
+    return _name_mentioned(candidate.name, text) and _purpose_matches(candidate, text)
+
+
+def _fetch_page(fetcher: HttpFetcher, url: str) -> FetchedPage:
+    return fetcher.fetch_page(url)
+
+
+def _product_page(fetcher: HttpFetcher, url: str) -> FetchedPage:
+    parts = urlsplit(url)
+    path = parts.path.strip("/").split("/")
+    if parts.hostname == "github.com" and len(path) == 2:
+        # The repository README is more useful than GitHub's navigation chrome.
+        try:
+            readme = fetcher.fetch_json(f"https://api.github.com/repos/{path[0]}/{path[1]}/readme")
+            if isinstance(readme, dict) and readme.get("encoding") == "base64":
+                text = base64.b64decode(readme.get("content", "")).decode("utf-8", errors="replace")
+                if text.strip():
+                    return FetchedPage(url, f"<title>{escape(path[1])}</title><p>{escape(text)}</p>")
+        except FETCH_ERRORS:
+            pass
+    return _fetch_page(fetcher, url)
+
+
+def _search_hackernews(candidate: ProductCandidate, fetcher: HttpFetcher) -> list[dict[str, object]]:
     query = quote_plus(f'"{candidate.name}"')
     search_url = f"https://hn.algolia.com/api/v1/search?query={query}&tags=story&hitsPerPage=5"
     payload = fetcher.fetch_json(search_url)
     hits = payload.get("hits", []) if isinstance(payload, dict) else []
+    return [hit for hit in hits[:5] if isinstance(hit, dict)] if isinstance(hits, list) else []
+
+
+def _is_listing(url: str) -> bool:
+    host = (urlsplit(url).hostname or "").lower()
+    return host == "producthunt.com" or host.endswith(".producthunt.com")
+
+
+def _official_destination(url: str) -> bool:
+    host = (urlsplit(url).hostname or "").lower()
+    if not is_safe_public_url(url) or classify_source_type(url) != "official":
+        return False
+    # A news article / search result / discussion is not a product-owned page.
+    if host in {"news.google.com", "hn.algolia.com"}:
+        return False
+    path = urlsplit(url).path.casefold()
+    return not any(term in path for term in ("/newsroom/", "/news/", "/articles/", "/blog/"))
+
+
+def _resolve_product_page(candidate: ProductCandidate, fetcher: HttpFetcher,
+                          hits: list[dict[str, object]], errors: list[str]) -> FetchedPage | None:
+    original = str(candidate.url)
+    if not _is_listing(original):
+        try:
+            return _product_page(fetcher, original)
+        except FETCH_ERRORS as exc:
+            errors.append(f"primary product page fetch failed: {exc}")
+            return None
+
+    options: list[str] = []
+    # The RSS description contains an explicit Link, even when the listing is 403.
+    for anchor, href in _parse_page(candidate.summary).links:
+        url = urljoin(original, href)
+        if anchor.strip().casefold() in {"link", "visit", "website", "visit website"} and is_safe_public_url(url):
+            options.append(url)
     for hit in hits:
-        if not isinstance(hit, dict) or not _hit_matches_candidate(candidate, hit):
+        if not _hit_matches_candidate(candidate, hit):
+            errors.append(f"identity mismatch: ignored HN result {hit.get('objectID', '')}")
+            continue
+        url = str(hit.get("url") or "")
+        if _official_destination(url):
+            options.append(url)
+
+    seen: set[str] = set()
+    for url in list(dict.fromkeys(options))[:4]:
+        if url in seen:
+            continue
+        seen.add(url)
+        try:
+            page = _product_page(fetcher, url)
+            if page.url != url and urlsplit(page.url).hostname == "github.com":
+                page = _product_page(fetcher, page.url)
+            content = _plain_text(page.text)
+            if not _official_destination(page.url):
+                errors.append("outbound link did not resolve to a product-owned page")
+                continue
+            if not _name_mentioned(candidate.name, content) or not _purpose_matches(candidate, content):
+                errors.append(f"identity not corroborated on destination: {page.url}")
+                continue
+            # Keep evidence URL as the verified destination, not the blocked listing.
+            return page
+        except FETCH_ERRORS as exc:
+            errors.append(f"official destination fetch failed ({url}): {exc}")
+    errors.append("official URL unresolved: discovery listing is not official evidence")
+    return None
+
+
+def _fetch_hackernews_evidence(candidate: ProductCandidate, fetcher: HttpFetcher,
+                              hits: list[dict[str, object]], official_url: str | None,
+                              errors: list[str]) -> EvidenceItem | None:
+    for hit in hits:
+        if not _hit_matches_candidate(candidate, hit, official_url):
             continue
         object_id = str(hit.get("objectID") or "")
         if not object_id.isdigit():
             continue
-        parts = [_plain_text(str(hit.get("story_text") or ""))]
         try:
             details = fetcher.fetch_json(f"https://hn.algolia.com/api/v1/items/{object_id}")
-        except (FetchError, OSError, ValueError, json.JSONDecodeError):
-            details = {}
-        children = details.get("children", []) if isinstance(details, dict) else []
-        for child in children[:5]:
-            if isinstance(child, dict):
-                parts.append(_plain_text(str(child.get("text") or "")))
-        excerpt = "\n".join(part for part in parts if part)[:5000]
-        if len(excerpt) < 20:
-            excerpt = (
-                f"Hacker News discussion with {hit.get('points', 0)} points and "
-                f"{hit.get('num_comments', 0)} comments about {candidate.name}."
-            )
+        except FETCH_ERRORS as exc:
+            errors.append(f"HN discussion {object_id} fetch failed: {exc}")
+            continue
+        if not isinstance(details, dict):
+            continue
+        author = details.get("author") or hit.get("author")
+        queue = list(details.get("children") or [])
+        comments: list[str] = []
+        examined = 0
+        while queue and examined < 30 and len(comments) < 5:
+            child = queue.pop(0)
+            examined += 1
+            if not isinstance(child, dict):
+                continue
+            queue.extend(child.get("children") or [])
+            text = _plain_text(str(child.get("text") or ""))
+            if (author and child.get("author") and child["author"] != author
+                    and not child.get("dead") and not child.get("deleted") and len(text) >= MIN_COMMENT_CHARS):
+                comments.append(text)
+        if not comments:
+            errors.append(f"HN discussion {object_id}: no substantive non-author comments; metadata is not evidence")
+            continue
+        excerpt = "\n".join(comments)[:5000]
         return EvidenceItem(
             title=str(hit.get("title") or f"Hacker News discussion: {candidate.name}")[:240],
             url=f"https://news.ycombinator.com/item?id={object_id}",
@@ -205,21 +335,36 @@ def _fetch_hackernews_evidence(candidate: ProductCandidate, fetcher: HttpFetcher
     return None
 
 
-def _fetch_news_evidence(candidate: ProductCandidate, fetcher: HttpFetcher) -> EvidenceItem | None:
+def _fetch_news_evidence(candidate: ProductCandidate, fetcher: HttpFetcher,
+                         official_url: str | None, errors: list[str]) -> EvidenceItem | None:
     query = quote_plus(f'"{candidate.name}"')
     url = f"https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
     root = ET.fromstring(fetcher.fetch_text(url))
-    for item in root.iter("item"):
+    for item in list(root.iter("item"))[:3]:
         title = " ".join((item.findtext("title") or "").split())
         link = (item.findtext("link") or "").strip()
         description = _plain_text(item.findtext("description") or "")
-        hit = {"title": title, "url": link}
+        hit = {"title": title, "url": link, "story_text": description}
         if not title or not link or not is_safe_public_url(link) or not _hit_matches_candidate(candidate, hit):
             continue
-        excerpt = f"{title}. {description}".strip()[:5000]
-        if len(excerpt) < 20:
+        try:
+            page = _fetch_page(fetcher, link)
+        except FETCH_ERRORS as exc:
+            errors.append(f"news article fetch failed: {exc}")
             continue
-        return EvidenceItem(title=title[:240], url=link, excerpt=excerpt, source_type="report")
+        body = _plain_text(page.text)
+        host = urlsplit(page.url).hostname
+        links = _parse_page(page.text).links
+        links_to_product = bool(official_url) and any(
+            _same_product_site(official_url, urljoin(page.url, href)) for _, href in links
+        )
+        if (host == "news.google.com" or len(body) < MIN_REPORT_CHARS
+                or (official_url and _same_product_site(official_url, page.url))
+                or not links_to_product
+                or not _name_mentioned(candidate.name, body) or not _purpose_matches(candidate, body)):
+            errors.append("news headline/redirect or uncorroborated text is not independent article evidence")
+            continue
+        return EvidenceItem(title=title[:240], url=page.url, excerpt=body[:5000], source_type="report")
     return None
 
 
@@ -246,55 +391,60 @@ def collect_research_evidence(
     errors: list[str] = []
     candidate_url = str(candidate.url)
     primary_parser: _ResearchPageParser | None = None
-
+    hits: list[dict[str, object]] = []
     try:
-        primary_html = fetcher.fetch_text(candidate_url)
-        primary_parser = _parse_page(primary_html)
+        hits = _search_hackernews(candidate, fetcher)
+    except FETCH_ERRORS as exc:
+        errors.append(f"Hacker News research failed: {exc}")
+
+    page = _resolve_product_page(candidate, fetcher, hits, errors)
+    official_url: str | None = None
+    if page:
+        primary_parser = _parse_page(page.text)
+        official_url = page.url if classify_source_type(page.url) in OFFICIAL_SOURCE_TYPES else None
         primary = _evidence_from_html(
             candidate.name,
-            candidate_url,
-            primary_html,
-            classify_source_type(candidate_url),
+            page.url,
+            page.text,
+            classify_source_type(page.url),
         )
         if primary:
             items.append(primary)
         else:
             errors.append("primary product page contained too little readable text")
-    except (FetchError, OSError, ValueError, ET.ParseError, json.JSONDecodeError) as exc:
-        errors.append(f"primary product page fetch failed: {exc}")
-
     independent: EvidenceItem | None = None
     try:
-        independent = _fetch_hackernews_evidence(candidate, fetcher)
-    except (FetchError, OSError, ValueError, ET.ParseError, json.JSONDecodeError) as exc:
+        independent = _fetch_hackernews_evidence(candidate, fetcher, hits, official_url, errors)
+    except FETCH_ERRORS as exc:
         errors.append(f"Hacker News research failed: {exc}")
     if independent is None:
         try:
-            independent = _fetch_news_evidence(candidate, fetcher)
-        except (FetchError, OSError, ValueError, ET.ParseError, json.JSONDecodeError) as exc:
+            independent = _fetch_news_evidence(candidate, fetcher, official_url, errors)
+        except FETCH_ERRORS as exc:
             errors.append(f"news research failed: {exc}")
     if independent is not None:
         items.append(independent)
 
-    if primary_parser is not None:
-        for related_url in _rank_official_links(primary_parser, candidate_url)[:2]:
+    if primary_parser is not None and official_url:
+        for related_url in _rank_official_links(primary_parser, official_url)[:2]:
             try:
-                related_html = fetcher.fetch_text(related_url)
+                related_page = _fetch_page(fetcher, related_url)
+                if not _same_product_site(official_url, related_page.url):
+                    errors.append(f"related page redirected outside product site: {related_url}")
+                    continue
                 evidence = _evidence_from_html(
                     candidate.name,
-                    related_url,
-                    related_html,
+                    related_page.url,
+                    related_page.text,
                     _source_type_for_official_link(related_url),
                 )
                 if evidence:
                     items.append(evidence)
-            except (FetchError, OSError, ValueError, ET.ParseError, json.JSONDecodeError) as exc:
+            except FETCH_ERRORS as exc:
                 errors.append(f"official related page fetch failed ({related_url}): {exc}")
 
     if candidate.summary:
-        discovery_type = "manual" if candidate.manual else (
-            "community" if candidate.source == "Hacker News Show" else "feed"
-        )
+        discovery_type = "manual" if candidate.manual else "feed"
         items.append(
             EvidenceItem(
                 title=f"{candidate.name} - discovery note",

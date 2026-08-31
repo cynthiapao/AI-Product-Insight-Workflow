@@ -103,6 +103,7 @@ class ResearchPack(StrictModel):
     verified_facts: list[str] = Field(default_factory=list, max_length=12)
     open_questions: list[str] = Field(default_factory=list, max_length=8)
     quality: EvidenceQuality
+    collection_diagnostics: list[str] = Field(default_factory=list, max_length=20)
 
 
 class ResearchAnalysis(StrictModel):

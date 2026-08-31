@@ -118,3 +118,15 @@
 - `Insufficient evidence` 运行错误新增来源缺口和抓取失败详情，便于区分产品本身缺少外部材料与临时网络错误。
 - 抓取器新增公开 URL 校验和 2 MB 响应体上限；研究提示明确网页内容是不可信证据，不得作为指令执行。
 - 新增架构决策 `docs/adr/0001-collect-mixed-research-evidence.md`，并以固定网页、Hacker News JSON 和 Pipeline fixture 建立回归测试。
+
+## 2026-08-31：发现页与真实官网分离、同名产品核验
+
+- 复核运行 `33354685931`：PR #7 已合并且生效，但四个候选停在 Product Hunt 的 403 页面；Maritime 错收了 Starlink Maritime 的讨论。Node 20 提示不是失败原因，文件上传当时成功。
+- 使用 RSS 中明确的 `Link` 外链解析真实产品网站，保留原始发现 URL 与候选 ID；跳转失败时，从名称和用途都匹配的 HN 结果寻找候选官网 / 代码仓库，再核对落地页。Product Hunt 页面改标 `feed`，不再冒充官方来源。
+- 找到官网后，HN 讨论必须指向同一产品站点；GitHub 仓库按 owner/repo 区分，GitHub Pages 按项目区分，不能因为域名相同就视为同一个产品。
+- 社区证据必须包含非发帖作者的实质评论，不再使用作者介绍、点赞量或评论数量充数；新闻 RSS 只做线索，必须抓到足够正文且链接到已核实的产品，才作为报道证据。
+- Scout 对配置范围内全部候选评分（当前 25 个），不再只送前 10 个；仍最多研究 8 个达标候选。ResearchPack 新增 `collection_diagnostics`，避免模型调用后丢失采集诊断。
+- 抓取时检查 DNS 解析结果和每次重定向目标，拒绝内网 / 本机 / 非 HTTP 地址；4xx 拒绝访问不重复重试。此检查不是 DNS rebinding 的完整防护，部署仍应使用受限网络环境。
+- 两个上传步骤升级 `actions/upload-artifact@v7`（Node 24）；新增 PR 自动测试。手动运行新增 `validation_only`，用于分支验证，只上传产物，不提交草稿分支、不创建文章 PR、不发布网站。手动输入通过环境变量传入，避免直接拼接进 shell。
+- 本地 64 项测试通过，compileall 和 diff 检查通过。用当次五个真实候选联网回放：四个 Product Hunt 产品均找到真实官网；oMLX 获得官网与有实质内容的 HN 评论，其余候选仍因独立材料不足保留为 insufficient，不降低质量门槛。
+- 云端端到端结果须以本轮修复分支 Actions 为准，不用单元测试结果代替。

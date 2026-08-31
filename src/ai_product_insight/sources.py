@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import json
+import re
+import socket
+from dataclasses import dataclass
 import ipaddress
 import time
 import xml.etree.ElementTree as ET
@@ -10,7 +13,7 @@ from html import unescape
 from html.parser import HTMLParser
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 from urllib.parse import urlsplit
 
 from .config import SourceConfig
@@ -26,8 +29,14 @@ class FetchError(RuntimeError):
 
 
 def is_safe_public_url(url: str) -> bool:
-    parts = urlsplit(url)
-    if parts.scheme not in {"http", "https"} or not parts.hostname:
+    if re.search(r"[\x00-\x20\\]", url):
+        return False
+    try:
+        parts = urlsplit(url)
+        _ = parts.port  # Validate malformed ports before attempting a request.
+    except ValueError:
+        return False
+    if parts.scheme not in {"http", "https"} or not parts.hostname or parts.username or parts.password:
         return False
     hostname = parts.hostname.casefold().rstrip(".")
     if hostname == "localhost" or hostname.endswith(".localhost") or hostname.endswith(".local"):
@@ -35,7 +44,12 @@ def is_safe_public_url(url: str) -> bool:
     try:
         address = ipaddress.ip_address(hostname)
     except ValueError:
-        return True
+        # inet_aton accepts shortened/hexadecimal numeric hosts (e.g. 127.1).
+        try:
+            socket.inet_aton(hostname)
+        except OSError:
+            return True
+        return False
     return not (
         address.is_private
         or address.is_loopback
@@ -44,6 +58,29 @@ def is_safe_public_url(url: str) -> bool:
         or address.is_reserved
         or address.is_unspecified
     )
+
+
+def _validate_fetch_target(url: str) -> None:
+    if not is_safe_public_url(url):
+        raise FetchError(f"Refusing non-public URL: {url}")
+    parts = urlsplit(url)
+    addresses = socket.getaddrinfo(parts.hostname, parts.port or (443 if parts.scheme == "https" else 80), type=socket.SOCK_STREAM)
+    if not addresses or any(not ipaddress.ip_address(item[4][0]).is_global for item in addresses):
+        raise FetchError(f"Refusing URL resolving to a non-public address: {url}")
+
+
+class SafeRedirectHandler(HTTPRedirectHandler):
+    max_redirections = 5
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        _validate_fetch_target(newurl)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+@dataclass(frozen=True)
+class FetchedPage:
+    url: str
+    text: str
 
 
 class HttpFetcher:
@@ -58,25 +95,33 @@ class HttpFetcher:
         self.max_response_bytes = max_response_bytes
 
     def fetch_bytes(self, url: str) -> bytes:
-        if not is_safe_public_url(url):
-            raise FetchError(f"Refusing non-public URL: {url}")
+        return self._fetch(url)[0]
+
+    def _fetch(self, url: str) -> tuple[bytes, str]:
+        _validate_fetch_target(url)
         last_error: Exception | None = None
         for attempt in range(self.retries + 1):
             try:
                 request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"})
-                with urlopen(request, timeout=self.timeout) as response:
+                with build_opener(SafeRedirectHandler()).open(request, timeout=self.timeout) as response:
                     body = response.read(self.max_response_bytes + 1)
                     if len(body) > self.max_response_bytes:
                         raise FetchError(f"Response exceeded {self.max_response_bytes} bytes: {url}")
-                    return body
+                    return body, response.geturl()
             except (HTTPError, URLError, TimeoutError) as exc:
                 last_error = exc
+                if isinstance(exc, HTTPError) and 400 <= exc.code < 500 and exc.code not in {408, 429}:
+                    break
                 if attempt < self.retries:
                     time.sleep(0.4 * (attempt + 1))
         raise FetchError(f"Unable to fetch {url}: {last_error}")
 
     def fetch_text(self, url: str) -> str:
         return self.fetch_bytes(url).decode("utf-8", errors="replace")
+
+    def fetch_page(self, url: str) -> FetchedPage:
+        body, final_url = self._fetch(url)
+        return FetchedPage(final_url, body.decode("utf-8", errors="replace"))
 
     def fetch_json(self, url: str) -> Any:
         return json.loads(self.fetch_text(url))
@@ -206,6 +251,8 @@ def fetch_evidence(candidate: ProductCandidate, fetcher: HttpFetcher) -> Evidenc
 
 def classify_source_type(url: str) -> str:
     hostname = (urlsplit(url).hostname or "").lower()
+    if hostname == "producthunt.com" or hostname.endswith(".producthunt.com"):
+        return "feed"
     community_hosts = ("wikipedia.org", "reddit.com", "news.ycombinator.com")
     if any(hostname == host or hostname.endswith(f".{host}") for host in community_hosts):
         return "community"
