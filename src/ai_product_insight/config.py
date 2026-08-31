@@ -19,6 +19,7 @@ class WorkflowConfig(BaseModel):
     sources: list[SourceConfig]
     max_candidates: int = Field(default=20, ge=1, le=100)
     select_count: int = Field(default=1, ge=1, le=3)
+    research_candidate_limit: int = Field(default=8, ge=1, le=20)
     min_score: float = Field(default=3.1, ge=0, le=5)
     min_evidence_items: int = Field(default=1, ge=1, le=5)
     deepseek_base_url: str = "https://api.deepseek.com"
