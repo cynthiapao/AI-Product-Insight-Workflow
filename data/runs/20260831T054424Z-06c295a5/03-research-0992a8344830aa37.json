@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "candidate_id": "0992a8344830aa37",
+    "name": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+    "url": "https://huggingface.co/blog/gradio-workflow-guide",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-25T00:00:00Z",
+    "discovered_at": "2026-08-31T05:44:27.051494Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 3.75,
+      "reason": "Gradio workflow guide, practical and relevant, but moderate novelty."
+    }
+  },
+  "evidence": [
+    {
+      "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+      "url": "https://huggingface.co/blog/gradio-workflow-guide",
+      "excerpt": "Wire It, Run It, Deploy It: AI Workflows in Gradio\nBuild Anything with gr.Workflow\nPublished August 25, 2026\nChain real models into a media studio\nFan-out image generation in parallel\nProfile a Hugging Face dataset\nRun your own GPU model\nHow it works, in a nutshell\nMost interesting AI apps are pipelines. You generate an image, then cut out its background if you want to, or edit it into something new. You write a script, then generate a voice for it, or swap the voice while keeping the script the same. We usually wire these steps together in Python, and the moment something looks off we go back to print-debugging to find which step produced the odd value.\n, built right into Gradio, makes the pipeline\n. You describe your steps as a graph of typed nodes, and Gradio serves a drag-and-drop canvas where every node is runnable and every intermediate result is visible. The same graph is also a REST API and a one-command deploy to Hugging Face Spaces.\nThe best way to get the idea is to see a few workflows in action. Every app below is a live Huggingface Space you can open, run, and duplicate.\nUpload an image, type an edit (\"turn it into a snowy winter scene\", \"add sunglasses\", \"make the car red\"), and get the edited photo back. The whole app is a single node calling\non Hugging Face Inference Providers.\nTry the Image Editor Pipeline\nChain real models into a media studio\nOne graph, three pipelines. Start with a prompt and generate an image with\nbackground-removal Gradio Space\nto turn it into a sticker. A topic becomes a voiceover through a\ntext-to-speech Gradio Space\n, while the same topic becomes a catchy episode title through an\nThat’s one canvas, two model calls through Hugging Face\n, and two calls to Gradio Spaces.\nSince this is a workflow, each of the three outputs also gets its own REST endpoint:\n. You can call any of them directly from code without opening the UI. See\nbelow for a runnable example.\nTry the AI Media Studio\nFan-out image generation in parallel\nType in one idea, and it turns into a set of generated artwork all at once: a base image from FLUX, two AI re-imaginings of that image (a soft watercolor version and a neon cyberpunk take), and a gallery title written by an LLM.\nEach image is generated directly from the prompt by a model node using Inference Providers, while the title comes from an\nnode that calls an LLM. This is the fan-out pattern in action: one idea can feed multiple operators simultaneously, all generating in parallel.\nTry the Generative Art Lab\nProfile a Hugging Face dataset\nType in a Hugging Face dataset ID, such as\nmteb/tweet_sentiment_extraction\n, and a single input fans out to four operator nodes that analyze the dataset live using the\nYou get an overview card, a preview of the first few rows, per-column statistics, and a distribution chart, all computed independently and in parallel. That’s the power of workflows!\nRun your own GPU model\nEvery node so far reaches out to Hugging Face. But an\nnode is just Python, which means it can also run a model inside the Space on a GPU.\nDecorate the bound function with\nand, when the node runs,\ngrabs a GPU for that call, runs the model, and releases it. We don't always need to rely on Inference Providers or existing Gradio Spaces.\nCheck out this demo that animates a still image using\nLightricks/LTX-Video\nloaded through Diffusers, running entirely through one node.\ndoesn't need to know anything about your GPU setup. It simply calls the bound function.\nTry the ZeroGPU Animator\nHow it works, in a nutshell\nEvery workflow is a graph with three kinds of nodes:\n(the steps that do work), and\n(your outputs). An operator can be your own Python function, a model on Hugging Face Inference Providers, another Gradio Space, or a row from a Hub dataset. You connect them by dragging between typed ports, hit Run, and watch each result appear in place.\nEvery workflow you build is also an API, with no extra work. Each output becomes a REST endpoint named after its label, and you can call it from Python with the Gradio client. Here is a live, no-token example against the multi-endpoint demo Space, exactly as-is:\nClient client = Client(\n\"ysharma/gr-workflow-multi-endpoint-API\"\n\"hello there friend\"\nEndpoints that call a model or a Space run under a Hugging Face token, so pass one when you create the client:\nClient, handle_file client = Client(\n\"ysharma/gr-workflow-image-editor\"\n) edited = client.predict( handle_file(\n\"turn it into a snowy winter scene\"\nPrefer plain HTTP? Every endpoint is reachable over\ncurl -s https://ysharma-gr-workflow-multi-endpoint-API.hf.space/gradio_api/call/word_count \\ -H\n\"Content-Type: application/json\"\n'{\"data\": [\"hello there friend\"]}'\nThe fastest way in is to open any demo above, click\n, and start rewiring. From Python, it is as short as:\ngr.Workflow(bind=[your_function]).launch()\nFor the full walkthrough, the operator kinds, the JSON schema, and reusable patterns, see the official\nYou can even build something as involved as\n. Keep an eye o",
+      "source_type": "official",
+      "retrieved_at": "2026-08-31T05:48:18.226937Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": []
+}

@@ -1,0 +1,110 @@
+{
+  "article_slug": "microduck-train-your-own-robot-duck",
+  "key_takeaway": "Microduck 把强化学习训练从实验室带到桌面，但预设动作与自主训练之间的断层，让它更像极客玩具而非教育产品。",
+  "x_post": {
+    "text": "Microduck ships with pre-trained moves and an open RL stack.\n\nBut playing with presets and training your own policy are two different experiences.\n\nThe gap: no guided path from “play” to “train.”\n\n$399 buys a cute duck—not a teacher.",
+    "headline": "Cute duck, steep learning curve",
+    "image_recommended": true,
+    "image_brief": "Use a screenshot of the Microduck product page showing the pre-trained moves and the simulator, highlighting the gap between them.",
+    "alt_text": "Microduck product page showing pre-trained moves and simulator, with a gap between them.",
+    "visual_caption": "Presets are fun. Training is a cliff.",
+    "comparison_rows": [
+      {
+        "label": "Preset moves",
+        "strength": "Instant fun, no learning curve",
+        "gap": "No path to customization"
+      },
+      {
+        "label": "Simulator training",
+        "strength": "Safe, open, retrainable",
+        "gap": "Requires RL knowledge"
+      }
+    ]
+  },
+  "xiaohongshu": {
+    "title": "399美元的机器鸭，玩起来容易，教它新把戏难",
+    "body": "最近被一只399美元的迷你机器鸭种草了。它开箱就能用手柄控制，走路、坐下、翻身，甚至穿溜冰鞋滑行，可爱到犯规。但真正让我犹豫的是：想教它新动作，得自己训练强化学习模型。\n\n官方说，所有出厂动作都是在模拟器里训练好再部署到真机的，而且整个软件栈开源。听起来很酷，但作为一个不懂强化学习的人，我打开模拟器就懵了。预设动作和自主训练之间，隔着一道看不见的门槛。\n\n我理解产品想降低机器人学习门槛，但“玩”和“训练”是两回事。预设动作解决冷启动，模拟器隔离风险，但中间缺少引导。就像给你一架钢琴，会弹几首曲子，但想自己作曲还得先学乐理。\n\n399美元对极客不贵，对普通用户不便宜。如果官方能提供结构化教程，或者让社区分享行为像分享应用一样简单，它才可能从玩具变成教育工具。否则，它可能只是一只昂贵的电子宠物。\n\n你觉得这样的产品值得入手吗？",
+    "hashtags": [
+      "机器人",
+      "强化学习",
+      "开源硬件",
+      "AI产品"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "Microduck：玩起来容易，教它新把戏难",
+      "body": "一只399美元的机器鸭，开箱即玩，但想训练自己的行为，需要跨越强化学习的门槛。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "预设动作与模拟器训练",
+      "body": "产品页展示了出厂预设动作和模拟器训练，但两者之间缺少过渡引导。",
+      "comparison_rows": [],
+      "screenshot_id": "microduck-product-page"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "预设动作 vs 自主训练",
+      "body": "预设动作让用户快速上手，但自主训练需要额外学习强化学习知识。",
+      "comparison_rows": [
+        {
+          "label": "预设动作",
+          "strength": "开箱即用，无需学习",
+          "gap": "无法创造新行为"
+        },
+        {
+          "label": "模拟器训练",
+          "strength": "安全、开源、可复现",
+          "gap": "需要强化学习基础"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "断层在哪里",
+      "body": "从“玩”到“训练”的过渡不清晰，用户需要自己补上强化学习知识，否则只能停留在预设动作层面。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "价格定位的尴尬",
+      "body": "399美元对极客不贵，对普通用户不便宜，可能限制其作为玩具的普及，而作为教育工具又需要额外投入。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "AI硬件产品需要设计从体验到创造的过渡路径，否则只会停留在极客圈层。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "microduck-product-page",
+      "filename": "01-microduck-product-page.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示预设动作和模拟器训练之间的断层，作为文章核心论点的视觉证据。",
+      "capture": "截取 Microduck 官网产品页中展示预设动作和模拟器训练的部分，突出两者之间的空白区域。",
+      "annotation": "预设动作与模拟器训练之间缺少过渡引导",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

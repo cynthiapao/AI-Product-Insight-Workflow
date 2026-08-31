@@ -1,0 +1,21 @@
+article_slug: "quantization-aware-healing-compressed-model-outperforms-original"
+screenshots:
+  - screenshot_id: "benchmark-table"
+    filename: "01-benchmark-table.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 QAH 4-bit 模型在 9 个基准中 7 个超过 bfloat16 原版的具体数据，作为核心证据。"
+    capture: "截取博客中基准测试对比表格，包含所有基准名称和分数，突出 QAH 获胜的 7 项。"
+    annotation: "可标注“7/9 benchmarks”"
+    used_for:
+      - x
+      - xiaohongshu
+  - screenshot_id: "method-diagram"
+    filename: "02-method-diagram.png"
+    required: false
+    source_kind: "product"
+    purpose: "展示 QAH 的蒸馏流程，帮助读者理解直接向原始模型学习的关键机制。"
+    capture: "截取博客中解释 QAH 方法的示意图，显示原始模型、压缩量化模型和蒸馏路径。"
+    annotation: "可标注“Direct distillation from original”"
+    used_for:
+      - xiaohongshu

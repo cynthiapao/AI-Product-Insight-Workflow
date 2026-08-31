@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "candidate_id": "3695ac536ed0b3ce",
+    "name": "Referent",
+    "url": "https://www.producthunt.com/products/referent",
+    "source": "Product Hunt",
+    "summary": "<p> The AI-native OS for modern law firms </p> <p> <a href=\"https://www.producthunt.com/products/referent?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1232856?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-26T03:25:02-07:00",
+    "discovered_at": "2026-08-31T05:44:26.916245Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "AI-native OS for law firms is a vertical play with potential, but evidence is limited."
+    }
+  },
+  "evidence": [
+    {
+      "title": "Referent - discovery note",
+      "url": "https://www.producthunt.com/products/referent",
+      "excerpt": "<p> The AI-native OS for modern law firms </p> <p> <a href=\"https://www.producthunt.com/products/referent?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1232856?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-31T05:48:16.674426Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "identity mismatch: ignored HN result 44011961",
+    "identity mismatch: ignored HN result 11574413",
+    "identity mismatch: ignored HN result 47112440"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "identity mismatch: ignored HN result 44011961",
+    "identity mismatch: ignored HN result 11574413",
+    "identity mismatch: ignored HN result 47112440",
+    "identity mismatch: ignored HN result 3689431",
+    "identity mismatch: ignored HN result 13466422",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1232856?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1232856?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}

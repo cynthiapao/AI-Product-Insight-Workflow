@@ -1,0 +1,146 @@
+[
+  {
+    "candidate_id": "30378d41f2c1ee4f",
+    "name": "Microduck",
+    "url": "https://pollen-robotics.com/microduck",
+    "source": "manual",
+    "summary": "指定选题：Hugging Face / Pollen Robotics 的 Microduck 迷你双足机器鸭。优先生成该产品的中文待审核洞察。本轮只有公开资料，没有作者实机或模拟器使用记录，不得虚构实测、购买或训练经历。\n研究主线：可爱的机器鸭怎样让用户从看演示走向训练自己的机器人？分析预设动作降低首次体验门槛，以及训练、部署、分享能否支持持续创造。区分普通玩家、教育使用者和开发者，不预设大众化或长期留存已验证。区分手柄控制、预设动作、模拟器体验与自行训练，不把动作演示等同于理解任意自然语言或自主做家务。\n公开来源：官网 https://pollen-robotics.com/microduck/ ，发布稿 https://pollen-robotics.com/microduck/blog/introducing-microduck/ ，软件 https://github.com/pollen-robotics/microduck ，训练 https://github.com/pollen-robotics/microduck_rl ，模拟器 https://huggingface.co/spaces/pollen-robotics/microduck-simulator 。请核对发布日期、预售价格和首批交付计划，明确官方宣称与独立反馈的区别。开源不代表零训练成本，不混淆机身重量和抓取载荷。\n同类调研优先 Reachy Mini：https://pollen-robotics.com/reachy-mini/ ，比较互动表达与动作训练的定位，不做笼统能力排名。其他相近产品只在可靠来源支持时纳入，不能编造或把预售讨论当成已收货反馈。\n遵循仓库金标准与标题摘要规范：约5分钟中文文章，7板块和产品启示，段落不要太碎，每板块重点加粗1-2处。以产品机制、能力边界和PM判断为主，少堆参数，资料缺口明确保留给人工审核。同步生成X英文短帖（真实换行、完整句子、不超过280字符）、小红书300-500字正文、信息充分的轮播文字和截图清单。所有输出保持draft，创建待审核PR，不自动发布。",
+    "published_at": null,
+    "discovered_at": "2026-08-31T05:44:24.121387Z",
+    "manual": true,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.85,
+      "reason": "Manual selection with clear research brief; Microduck offers deep product mechanisms (training, simulation) and strong public evidence from official sources."
+    }
+  },
+  {
+    "candidate_id": "904590cd0d04842e",
+    "name": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
+    "url": "https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-25T11:39:24Z",
+    "discovered_at": "2026-08-31T05:44:27.051456Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.25,
+      "reason": "Quantization-aware healing is novel and technically deep, relevant for AI PMs."
+    }
+  },
+  {
+    "candidate_id": "0affc227278667c4",
+    "name": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+    "url": "https://huggingface.co/blog/train-multi-vector-encoder",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-26T00:00:00Z",
+    "discovered_at": "2026-08-31T05:44:27.051362Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.0,
+      "reason": "Technical blog on multi-vector embeddings, relevant for AI PMs, good depth and evidence."
+    }
+  },
+  {
+    "candidate_id": "72c7625e9f9bc49f",
+    "name": "Granite 4.2 LLMs: How They're Built",
+    "url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-25T15:14:14Z",
+    "discovered_at": "2026-08-31T05:44:27.051404Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.0,
+      "reason": "IBM Granite LLM technical blog, relevant and evidence-rich."
+    }
+  },
+  {
+    "candidate_id": "a83c398f6417fcb5",
+    "name": "Superagent",
+    "url": "https://www.producthunt.com/products/superagent-a-home-for-your-ai-agents",
+    "source": "Product Hunt",
+    "summary": "<p> Claude Code for the rest of us </p> <p> <a href=\"https://www.producthunt.com/products/superagent-a-home-for-your-ai-agents?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1236134?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-29T15:27:58-07:00",
+    "discovered_at": "2026-08-31T05:44:26.916523Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.95,
+      "reason": "Positioned as 'Claude Code for the rest of us' - relevant for AI PMs, but novelty is moderate and evidence is limited."
+    }
+  },
+  {
+    "candidate_id": "3695ac536ed0b3ce",
+    "name": "Referent",
+    "url": "https://www.producthunt.com/products/referent",
+    "source": "Product Hunt",
+    "summary": "<p> The AI-native OS for modern law firms </p> <p> <a href=\"https://www.producthunt.com/products/referent?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1232856?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-26T03:25:02-07:00",
+    "discovered_at": "2026-08-31T05:44:26.916245Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "AI-native OS for law firms is a vertical play with potential, but evidence is limited."
+    }
+  },
+  {
+    "candidate_id": "4d09a932af07e839",
+    "name": "Show HN: Prove your code produced your claims without making reviewers rerun it",
+    "url": "https://github.com/27-GROUP/kveritas-go",
+    "source": "Hacker News Show",
+    "summary": "Hacker News discussion score: 3",
+    "published_at": "2026-08-31T02:44:56",
+    "discovered_at": "2026-08-31T05:44:24.518038Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Proving code claims without rerunning is novel and relevant for AI PMs, but evidence is limited."
+    }
+  },
+  {
+    "candidate_id": "0992a8344830aa37",
+    "name": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+    "url": "https://huggingface.co/blog/gradio-workflow-guide",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-25T00:00:00Z",
+    "discovered_at": "2026-08-31T05:44:27.051494Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 3.75,
+      "reason": "Gradio workflow guide, practical and relevant, but moderate novelty."
+    }
+  }
+]

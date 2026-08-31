@@ -1,0 +1,22 @@
+article_slug: "granite-4-2-reasoning-modular-training"
+screenshots:
+  - screenshot_id: "sft-data-mixture"
+    filename: "01-sft-data-mixture.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 SFT 数据中智能体与非智能体数据的比例和构成，证明智能体数据的重要性。"
+    capture: "截取博客中 SFT 数据混合的饼图或表格，包含智能体数据 31.6% 和非智能体数据 68.4% 的分布。"
+    annotation: "智能体数据占比 31.6%，覆盖软件工程、工具调用等。"
+    used_for:
+      - x
+      - xiaohongshu
+  - screenshot_id: "rl-pipeline"
+    filename: "02-rl-pipeline.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示多阶段、多环境 RL 管线，说明基础 RL 和智能体 RL 的分工。"
+    capture: "截取博客中 RL 管线的流程图，突出基础 RL 和智能体 RL 阶段，以及 8B/30B 与 3B 的差异。"
+    annotation: "8B 和 30B 模型进行智能体 RL，3B 未进行。"
+    used_for:
+      - x
+      - xiaohongshu
