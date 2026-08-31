@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "candidate_id": "5b2487cec120be7c",
+    "name": "Interactive Sessions",
+    "url": "https://www.producthunt.com/products/revolte",
+    "source": "Product Hunt",
+    "summary": "<p> Drive the full SDLC with AI agents, step by step </p> <p> <a href=\"https://www.producthunt.com/products/revolte?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1225427?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-17T16:17:20-07:00",
+    "discovered_at": "2026-08-31T07:05:14.987522Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.2,
+      "reason": "AI agents driving SDLC is highly relevant for AI PMs, with clear product depth and moderate novelty."
+    }
+  },
+  "evidence": [
+    {
+      "title": "Interactive Sessions - discovery note",
+      "url": "https://www.producthunt.com/products/revolte",
+      "excerpt": "<p> Drive the full SDLC with AI agents, step by step </p> <p> <a href=\"https://www.producthunt.com/products/revolte?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1225427?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-31T07:05:29.825890Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "identity mismatch: ignored HN result 27825773",
+    "identity mismatch: ignored HN result 38108397",
+    "identity mismatch: ignored HN result 7315196"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "identity mismatch: ignored HN result 27825773",
+    "identity mismatch: ignored HN result 38108397",
+    "identity mismatch: ignored HN result 7315196",
+    "identity mismatch: ignored HN result 39535009",
+    "identity mismatch: ignored HN result 1710391",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1225427?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1225427?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}
