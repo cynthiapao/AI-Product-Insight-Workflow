@@ -5,6 +5,17 @@ from ai_product_insight.models import ProductInsight
 
 
 class InsightResponseTests(unittest.TestCase):
+    def test_merges_excess_limitations_without_losing_caveats(self):
+        caveats = [f"Limitation {i}: evidence remains limited for this product scenario." for i in range(5)]
+        detail = "This is a sufficiently detailed explanation of the product mechanism and its observed boundaries."
+        raw = {"one_line": detail, "core_mechanism": detail, "why_it_works": detail,
+               "personal_judgment": detail, "limitations": caveats,
+               "patterns": [{"name": "Review evidence", "principle": detail, "applies_when": detail}]}
+        result = ProductInsight.model_validate(normalize_insight_response(raw))
+        self.assertEqual(len(result.limitations), 4)
+        for caveat in caveats:
+            self.assertIn(caveat, " ".join(result.limitations))
+
     def test_normalizes_observed_alternate_layout(self):
         raw = {
             "core_mechanism": "The product turns arbitrary web pages into structured data designed for downstream AI agents and tool calls.",
