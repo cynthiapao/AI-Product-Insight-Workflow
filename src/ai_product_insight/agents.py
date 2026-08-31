@@ -130,6 +130,9 @@ def normalize_insight_response(raw: dict[str, object], max_patterns: int = 2) ->
     limitations = normalized.get("limitations")
     if isinstance(limitations, str):
         normalized["limitations"] = [limitations]
+    elif isinstance(limitations, list) and len(limitations) > 4 and all(isinstance(item, str) for item in limitations):
+        # Preserve every caveat rather than deleting evidence to satisfy a count limit.
+        normalized["limitations"] = limitations[:3] + ["；".join(limitations[3:])]
 
     if "patterns" not in normalized and isinstance(takeaways, list):
         patterns: list[dict[str, str]] = []
@@ -282,7 +285,7 @@ class ScoutAgent:
     def select(self, candidates: list[ProductCandidate]) -> list[ProductCandidate]:
         if not candidates:
             return []
-        candidate_window = max(10, self.config.research_candidate_limit)
+        candidate_window = self.config.max_candidates
         payload = {
             "candidates": [item.model_dump(mode="json") for item in candidates[:candidate_window]],
             "max_selected": self.config.select_count,
@@ -335,6 +338,7 @@ class ResearchAgent:
                 candidate=candidate,
                 evidence=evidence,
                 open_questions=questions,
+                collection_diagnostics=collection_errors[:20],
                 quality=EvidenceQuality.insufficient,
             )
         if require_evidence_mix and not has_required_evidence_mix(evidence):
@@ -344,6 +348,7 @@ class ResearchAgent:
                 candidate=candidate,
                 evidence=evidence,
                 open_questions=questions,
+                collection_diagnostics=collection_errors[:20],
                 quality=EvidenceQuality.insufficient,
             )
         payload = {
@@ -352,7 +357,8 @@ class ResearchAgent:
         }
         raw_analysis = self.llm.generate_json(RESEARCH_SYSTEM, _json(payload))
         analysis = ResearchAnalysis.model_validate(normalize_research_response(raw_analysis))
-        return ResearchPack(candidate=candidate, evidence=evidence, **analysis.model_dump())
+        return ResearchPack(candidate=candidate, evidence=evidence,
+                            collection_diagnostics=collection_errors[:20], **analysis.model_dump())
 
 
 class InsightAgent:

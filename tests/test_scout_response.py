@@ -32,6 +32,13 @@ class FixedScoutLLM:
 
 
 class ScoutResponseTests(unittest.TestCase):
+    def test_assesses_candidates_after_the_first_ten(self):
+        candidates = [ProductCandidate(name=f"Product {i}", url=f"https://example.com/{i}", source="fixture")
+                      for i in range(25)]
+        config = WorkflowConfig(sources=[], max_candidates=25, research_candidate_limit=8)
+        ScoutAgent(FixedScoutLLM(), config).select(candidates)
+        self.assertTrue(all(candidate.score is not None for candidate in candidates))
+
     def test_keeps_eligible_fallbacks_beyond_three_model_choices(self):
         config = WorkflowConfig(
             sources=[],
