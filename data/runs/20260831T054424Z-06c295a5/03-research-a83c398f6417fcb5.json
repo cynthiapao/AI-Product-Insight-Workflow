@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "candidate_id": "a83c398f6417fcb5",
+    "name": "Superagent",
+    "url": "https://www.producthunt.com/products/superagent-a-home-for-your-ai-agents",
+    "source": "Product Hunt",
+    "summary": "<p> Claude Code for the rest of us </p> <p> <a href=\"https://www.producthunt.com/products/superagent-a-home-for-your-ai-agents?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1236134?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-29T15:27:58-07:00",
+    "discovered_at": "2026-08-31T05:44:26.916523Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.95,
+      "reason": "Positioned as 'Claude Code for the rest of us' - relevant for AI PMs, but novelty is moderate and evidence is limited."
+    }
+  },
+  "evidence": [
+    {
+      "title": "Superagent - discovery note",
+      "url": "https://www.producthunt.com/products/superagent-a-home-for-your-ai-agents",
+      "excerpt": "<p> Claude Code for the rest of us </p> <p> <a href=\"https://www.producthunt.com/products/superagent-a-home-for-your-ai-agents?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1236134?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-31T05:48:15.820931Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "identity mismatch: ignored HN result 46883487",
+    "identity mismatch: ignored HN result 38076193",
+    "identity mismatch: ignored HN result 37291753"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "identity mismatch: ignored HN result 46883487",
+    "identity mismatch: ignored HN result 38076193",
+    "identity mismatch: ignored HN result 37291753",
+    "identity mismatch: ignored HN result 47045028",
+    "identity mismatch: ignored HN result 47383760",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1236134?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1236134?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}

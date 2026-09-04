@@ -1,0 +1,132 @@
+{
+  "article_slug": "quantization-aware-healing-compressed-model-outperforms-original",
+  "key_takeaway": "QAH 通过直接向原始全精度模型蒸馏，让压缩后的 4-bit 模型在多数基准上反超原版，但泛化性仍待验证。",
+  "x_post": {
+    "text": "A 4-bit model beat its full-precision original on 7/9 benchmarks.\n\nQuantization-Aware Healing distills directly from the original model, skipping the recovered checkpoint that usually caps accuracy.\n\nIt reframes quantization as a second distillation pass.\n\nBut evidence is from",
+    "headline": "4-bit beats 16-bit",
+    "image_recommended": true,
+    "image_brief": "Use a screenshot of the benchmark comparison table from the blog post, showing the 4-bit model outperforming bfloat16 on 7 of 9 benchmarks.",
+    "alt_text": "Benchmark table comparing 4-bit QAH model against bfloat16 original, showing wins on 7 of 9 benchmarks.",
+    "visual_caption": "The 4-bit model wins on 7/9 benchmarks.",
+    "comparison_rows": [
+      {
+        "label": "QAH",
+        "strength": "Distills directly from original model",
+        "gap": "Only tested on one model"
+      },
+      {
+        "label": "QAT",
+        "strength": "Standard quantization-aware training",
+        "gap": "Can become unstable with long training"
+      },
+      {
+        "label": "QAD",
+        "strength": "Distills from full-precision teacher",
+        "gap": "Teacher is a degraded recovered checkpoint"
+      }
+    ]
+  },
+  "xiaohongshu": {
+    "title": "4-bit 模型反超原版？我看到的量化新思路",
+    "body": "最近看到一篇关于模型压缩的博客，讲的是 Quantization-Aware Healing（QAH），一个让 4-bit 模型反超原版的方法。\n\n通常我们压缩模型，都是先砍结构再量化，然后想办法恢复性能。但恢复的时候，往往只能从压缩后的近似模型去蒸馏，所以能力上限就被锁死了。QAH 的思路很直接：跳过中间那个恢复后的模型，直接向原始全精度模型学习。\n\n博客里说，他们拿 GPT-OSS 120B 压缩到 60B 再量化到 MXFP4，结果在 9 个基准里 7 个超过了 bfloat16 原版。这听起来有点反直觉，但仔细想想，量化阶段其实变成了对原始模型的第二次蒸馏，学生模型能拿到之前没传过来的信息。\n\n不过我也有些疑问：目前只在一个模型上验证过，没有跨模型、跨架构的证据，而且博客没给具体分数和训练细节，很难独立评估。另外，这个方法需要原始全精度模型当老师，有些场景可能拿不到。\n\n作为产品经理，我觉得这个思路挺有启发的：部署压缩模型时，别默认接受性能损失，可以想想恢复方法能不能突破上限。但真要落地，还得看更多验证和成本效益。",
+    "hashtags": [
+      "模型压缩",
+      "知识蒸馏",
+      "量化",
+      "AI产品"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "4-bit 模型反超原版？",
+      "body": "Quantization-Aware Healing 让压缩后的 4-bit 模型在 7/9 基准上超过 bfloat16 原版。核心是直接向原始模型蒸馏，跳过恢复后的近似模型。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "基准对比",
+      "body": "博客中的基准测试表显示，QAH 4-bit 模型在多数任务上优于 bfloat16 原版，证明直接蒸馏原始模型能突破能力上限。",
+      "comparison_rows": [],
+      "screenshot_id": "benchmark-table"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "三种恢复方法对比",
+      "body": "QAH 与 QAT、QAD 的核心区别在于教师模型的选择，这决定了学生模型的能力天花板。",
+      "comparison_rows": [
+        {
+          "label": "QAH",
+          "strength": "直接蒸馏原始模型",
+          "gap": "仅单一模型验证"
+        },
+        {
+          "label": "QAT",
+          "strength": "标准量化感知训练",
+          "gap": "训练过长可能不稳定"
+        },
+        {
+          "label": "QAD",
+          "strength": "从全精度教师蒸馏",
+          "gap": "教师是降级的恢复模型"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "为什么有效",
+      "body": "QAH 将量化重新定义为对原始模型的第二次蒸馏，学生模型获得之前恢复阶段未能传递的信息。KL 散度损失提供稳定目标，避免过拟合。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "screenshot",
+      "title": "方法示意",
+      "body": "博客中的示意图展示了 QAH 的流程：原始模型作为教师，直接蒸馏到压缩量化后的学生模型，绕过恢复后的中间模型。",
+      "comparison_rows": [],
+      "screenshot_id": "method-diagram"
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "部署压缩模型时，不应默认接受性能损失。QAH 提示通过改变学习目标可能突破上限，但需要更多跨模型验证和成本效益分析。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "benchmark-table",
+      "filename": "01-benchmark-table.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 QAH 4-bit 模型在 9 个基准中 7 个超过 bfloat16 原版的具体数据，作为核心证据。",
+      "capture": "截取博客中基准测试对比表格，包含所有基准名称和分数，突出 QAH 获胜的 7 项。",
+      "annotation": "可标注“7/9 benchmarks”",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    },
+    {
+      "screenshot_id": "method-diagram",
+      "filename": "02-method-diagram.png",
+      "required": false,
+      "source_kind": "product",
+      "purpose": "展示 QAH 的蒸馏流程，帮助读者理解直接向原始模型学习的关键机制。",
+      "capture": "截取博客中解释 QAH 方法的示意图，显示原始模型、压缩量化模型和蒸馏路径。",
+      "annotation": "可标注“Direct distillation from original”",
+      "used_for": [
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

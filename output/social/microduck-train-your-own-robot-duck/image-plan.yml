@@ -1,0 +1,12 @@
+article_slug: "microduck-train-your-own-robot-duck"
+screenshots:
+  - screenshot_id: "microduck-product-page"
+    filename: "01-microduck-product-page.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示预设动作和模拟器训练之间的断层，作为文章核心论点的视觉证据。"
+    capture: "截取 Microduck 官网产品页中展示预设动作和模拟器训练的部分，突出两者之间的空白区域。"
+    annotation: "预设动作与模拟器训练之间缺少过渡引导"
+    used_for:
+      - x
+      - xiaohongshu
