@@ -462,6 +462,8 @@ class SocialRepurposeAgent:
             "article": article.model_dump(mode="json"),
             "platform_requirements": {
                 "x_language": "English",
+                "x_format": "thread",
+                "x_posts": "3-8",
                 "x_max_characters": 280,
                 "xiaohongshu_language": "Chinese",
                 "visual_source": "real screenshots supplied by the author",
@@ -471,7 +473,10 @@ class SocialRepurposeAgent:
         if self.editorial_context:
             system_prompt += self.editorial_context.social_prompt_suffix()
         raw_social = self.llm.generate_json(system_prompt, _json(payload))
-        return SocialBundle.model_validate(normalize_social_response(raw_social, article.slug))
+        bundle = SocialBundle.model_validate(normalize_social_response(raw_social, article.slug))
+        if not bundle.x_post.thread:
+            raise ValueError("New X drafts must contain a 3-8 post thread")
+        return bundle
 
 
 @dataclass

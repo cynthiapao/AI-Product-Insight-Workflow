@@ -159,6 +159,11 @@ class OfflineDemoLLM:
                 "x_post": {
                     "text": "AI can generate a polished result fast. The harder product problem is understanding what a user means before the prompt becomes precise. Speed removes execution time; it does not remove the work of translating intent.",
                     "headline": "Generation is fast. Understanding is harder.",
+                    "thread": [
+                        {"text": "AI can generate a polished result fast.\n\nUnderstanding what the user means is a different product challenge.", "image_kind": "cover", "alt_text": "An overview of generation speed and intent alignment."},
+                        {"text": "A real screenshot gives us something concrete to discuss.\n\nThe question is which design choices need clarification before another revision.", "image_kind": "screenshot", "screenshot_id": "primary-result", "alt_text": "The product result discussed in the article."},
+                        {"text": "A better workflow helps define the task before executing it.\n\nWhere do you spend more time: expressing the idea, generating a draft, or refining the result?", "image_kind": "none"}
+                    ],
                     "image_recommended": True,
                     "image_brief": "Use one real product or project screenshot with a restrained annotation that supports the core insight.",
                     "alt_text": "A real screenshot showing the product experience discussed in the article.",

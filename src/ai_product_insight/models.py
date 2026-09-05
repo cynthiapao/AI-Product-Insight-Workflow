@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+
 from datetime import datetime, timezone
 from enum import Enum
 from hashlib import sha256
@@ -182,6 +184,29 @@ class ComparisonRow(StrictModel):
     gap: str = Field(min_length=4, max_length=140)
 
 
+def x_preflight_length(text: str) -> int:
+    """Conservative budget, not a replacement for X's own weighted counter."""
+    size = sum(1 if ord(char) < 128 else 2 for char in text)
+    for url in re.findall(r"https?://\S+", text):
+        size += max(0, 23 - sum(1 if ord(char) < 128 else 2 for char in url))
+    return size
+
+
+class XThreadPost(StrictModel):
+    text: str = Field(min_length=20, max_length=280)
+    image_kind: Literal["cover", "screenshot", "none"] = "none"
+    screenshot_id: str | None = Field(default=None, pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+    alt_text: str = Field(default="", max_length=500)
+
+    @model_validator(mode="after")
+    def image_reference(self) -> "XThreadPost":
+        if (self.image_kind == "screenshot") != (self.screenshot_id is not None):
+            raise ValueError("Only screenshot posts must supply screenshot_id")
+        if self.image_kind != "none" and not self.alt_text.strip():
+            raise ValueError("Image posts require alt_text")
+        return self
+
+
 class XPost(StrictModel):
     text: str = Field(min_length=20, max_length=280)
     headline: str = Field(min_length=4, max_length=80)
@@ -190,6 +215,16 @@ class XPost(StrictModel):
     alt_text: str = Field(min_length=10, max_length=300)
     visual_caption: str = Field(default="", max_length=180)
     comparison_rows: list[ComparisonRow] = Field(default_factory=list, max_length=4)
+    thread: list[XThreadPost] = Field(default_factory=list, max_length=8)
+
+    @model_validator(mode="after")
+    def validate_thread(self) -> "XPost":
+        if self.thread and len(self.thread) < 3:
+            raise ValueError("X threads require 3-8 posts")
+        for index, post in enumerate(self.thread, 1):
+            if x_preflight_length(f"{index}/{len(self.thread)}\n{post.text}") > 280:
+                raise ValueError(f"X thread post {index} exceeds the 280 preflight budget; shorten it")
+        return self
 
 
 class XiaohongshuDraft(StrictModel):
@@ -244,6 +279,9 @@ class SocialBundle(StrictModel):
     @model_validator(mode="after")
     def references_are_consistent(self) -> "SocialBundle":
         screenshot_ids = [item.screenshot_id for item in self.screenshots]
+        for post in self.x_post.thread:
+            if post.screenshot_id is not None and post.screenshot_id not in screenshot_ids:
+                raise ValueError(f"Unknown X thread screenshot: {post.screenshot_id}")
         filenames = [item.filename for item in self.screenshots]
         if len(screenshot_ids) != len(set(screenshot_ids)):
             raise ValueError("Screenshot IDs must be unique")

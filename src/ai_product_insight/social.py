@@ -3,10 +3,27 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from .models import SocialBundle
+from .models import SocialBundle, x_preflight_length
 
 
 def render_x_markdown(bundle: SocialBundle) -> str:
+    if bundle.x_post.thread:
+        screenshots = {item.screenshot_id: item for item in bundle.screenshots}
+        parts = ["# X thread draft", "按顺序连续回复上一条；只复制代码框内的文字。配图和 Alt text 分别上传/填写。字符数为保守预检，发布前以 X 编辑器为准。"]
+        total = len(bundle.x_post.thread)
+        for index, post in enumerate(bundle.x_post.thread, 1):
+            text = f"{index}/{total}\n{post.text}"
+            parts.append(f"## {index}/{total}\n\n```text\n{text}\n```\n\n预检长度：{x_preflight_length(text)}/280")
+            if post.image_kind == "cover":
+                parts.append("配图：[16:9 总览卡片](rendered/x-card.png)")
+            elif post.image_kind == "screenshot":
+                shot = screenshots[post.screenshot_id]
+                parts.append(f"配图：[{shot.filename}](../../../inputs/assets/{bundle.article_slug}/{shot.filename})")
+            else:
+                parts.append("配图：无需配图")
+            if post.image_kind != "none":
+                parts.append(f"Alt text: {post.alt_text}")
+        return "\n\n".join(parts) + "\n"
     image_note = "建议配图" if bundle.x_post.image_recommended else "无需配图"
     return f"""# X draft
 
