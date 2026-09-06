@@ -219,6 +219,8 @@ def normalize_clarification_response(raw: dict[str, object]) -> dict[str, object
 def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict[str, object]:
     """Keep common model variation inside the strict social publishing contract."""
     normalized = dict(raw)
+    normalized["social_standard"] = "v5"
+    normalized.setdefault("content_track", "deep_insight")
     normalized["article_slug"] = article_slug
 
     x_post = normalized.get("x_post")
@@ -453,17 +455,33 @@ class EditorAgent:
 
 
 class SocialRepurposeAgent:
-    def __init__(self, llm: JsonLLM, editorial_context: EditorialContext | None = None) -> None:
+    def __init__(
+        self,
+        llm: JsonLLM,
+        editorial_context: EditorialContext | None = None,
+        *,
+        x_format: str = "thread",
+        content_track: str = "deep_insight",
+    ) -> None:
+        if x_format not in {"thread", "single"}:
+            raise ValueError("x_format must be thread or single")
+        if content_track not in {"deep_insight", "standalone_engagement"}:
+            raise ValueError("content_track must be deep_insight or standalone_engagement")
         self.llm = llm
         self.editorial_context = editorial_context
+        self.x_format = x_format
+        self.content_track = content_track
 
     def draft(self, article: ArticleDraft) -> SocialBundle:
         payload = {
             "article": article.model_dump(mode="json"),
             "platform_requirements": {
                 "x_language": "English",
+                "x_format": self.x_format,
+                "x_posts": "3-8",
                 "x_max_characters": 280,
                 "xiaohongshu_language": "Chinese",
+                "content_track": self.content_track,
                 "visual_source": "real screenshots supplied by the author",
             },
         }
@@ -471,7 +489,14 @@ class SocialRepurposeAgent:
         if self.editorial_context:
             system_prompt += self.editorial_context.social_prompt_suffix()
         raw_social = self.llm.generate_json(system_prompt, _json(payload))
-        return SocialBundle.model_validate(normalize_social_response(raw_social, article.slug))
+        bundle = SocialBundle.model_validate(normalize_social_response(raw_social, article.slug))
+        if bundle.x_post.format != self.x_format:
+            raise ValueError(f"X draft format must be {self.x_format}")
+        if self.x_format == "thread" and not bundle.x_post.thread:
+            raise ValueError("New X drafts must contain a 3-8 post thread")
+        if bundle.content_track != self.content_track:
+            raise ValueError(f"Social content track must be {self.content_track}")
+        return bundle
 
 
 @dataclass

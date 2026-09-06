@@ -33,8 +33,12 @@ class SocialRenderTests(unittest.TestCase):
             self.assertTrue(all(path.is_file() for path in outputs))
             with Image.open(outputs[0]) as image:
                 self.assertEqual(image.size, (1600, 900))
+                # X comparisons use pale independent cards instead of the previous blue table panel.
+                self.assertEqual(image.getpixel((700, 100)), (248, 250, 252))
             with Image.open(outputs[3]) as image:
                 self.assertEqual(image.size, (1080, 1440))
+                self.assertEqual(image.getpixel((0, 0)), (255, 255, 255))
+                self.assertEqual(image.getpixel((84, 102)), (235, 243, 255))
 
 
 if __name__ == "__main__":
