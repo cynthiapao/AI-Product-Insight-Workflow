@@ -195,39 +195,6 @@ def _footer(draw: ImageDraw.ImageDraw, font_path: Path, index: str, width: int, 
     draw.text((width - 70 - marker_width, height - 86), index, font=_font(font_path, 24), fill=SECONDARY)
 
 
-def _draw_comparison_table(
-    draw: ImageDraw.ImageDraw,
-    rows: list[ComparisonRow],
-    box: tuple[int, int, int, int],
-    font_path: Path,
-    *,
-    headers: tuple[str, str, str],
-    font_size: int,
-) -> None:
-    left, top, right, bottom = box
-    widths = [int((right - left) * 0.22), int((right - left) * 0.39)]
-    widths.append((right - left) - sum(widths))
-    header_h = 76
-    row_h = (bottom - top - header_h) // max(len(rows), 1)
-    x_positions = [left, left + widths[0], left + widths[0] + widths[1], right]
-    draw.rounded_rectangle(box, radius=24, fill=WHITE, outline=LINE, width=2)
-    draw.rounded_rectangle((left, top, right, top + header_h), radius=20, fill=PALE_BLUE)
-    draw.rectangle((left, top + header_h - 20, right, top + header_h), fill=PALE_BLUE)
-    for x in x_positions[1:-1]:
-        draw.line((x, top, x, bottom), fill=LINE, width=2)
-    for index, header in enumerate(headers):
-        _draw_wrapped(draw, (x_positions[index] + 16, top + 19), header, _font(font_path, font_size, bold=True), INK, widths[index] - 30, spacing=7, max_lines=2)
-    for row_index, row in enumerate(rows):
-        y = top + header_h + row_index * row_h
-        if row_index:
-            draw.line((left, y, right, y), fill=LINE, width=2)
-        values = (row.label, row.strength, row.gap)
-        for col, value in enumerate(values):
-            color = INK if col == 0 else MUTED
-            size = font_size if col else font_size + 1
-            _draw_wrapped(draw, (x_positions[col] + 16, y + 18), value, _font(font_path, size, bold=col == 0), color, widths[col] - 30, spacing=8, max_lines=4)
-
-
 def _draw_x_comparison_cards(
     draw: ImageDraw.ImageDraw,
     rows: list[ComparisonRow],

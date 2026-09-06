@@ -5,8 +5,9 @@ from pathlib import Path
 
 from ai_product_insight.agents import SocialRepurposeAgent
 from ai_product_insight.llm import OfflineDemoLLM
-from ai_product_insight.models import ArticleDraft, DesignPattern, EvidenceItem
-from ai_product_insight.social import write_social_outputs
+from ai_product_insight.models import ArticleDraft, DesignPattern, EvidenceItem, SocialBundle
+from ai_product_insight.social import render_social_cards_html, write_social_outputs
+from test_social_models import social_payload
 
 
 def article() -> ArticleDraft:
@@ -26,17 +27,29 @@ def article() -> ArticleDraft:
 
 
 class SocialGenerationTests(unittest.TestCase):
+    def test_html_preview_escapes_generated_copy(self):
+        data = social_payload()
+        data["x_post"]["headline"] = "<script>alert(1)</script>"
+        html = render_social_cards_html(SocialBundle.model_validate(data))
+        self.assertNotIn("<script>", html)
+        self.assertIn("&lt;script&gt;", html)
+
     def test_agent_and_writer_create_review_files(self):
         bundle = SocialRepurposeAgent(OfflineDemoLLM()).draft(article())
         self.assertLessEqual(len(bundle.x_post.text), 280)
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             paths = write_social_outputs(bundle, root / "social", root / "assets")
-            self.assertEqual(len(paths), 6)
+            self.assertEqual(len(paths), 8)
             saved = json.loads((root / "social" / bundle.article_slug / "social.json").read_text(encoding="utf-8"))
             self.assertEqual(saved["article_slug"], bundle.article_slug)
             readme = (root / "assets" / bundle.article_slug / "README.md").read_text(encoding="utf-8")
             self.assertIn("01-primary-result.png", readme)
+            html = (root / "social" / bundle.article_slug / "social-cards.html").read_text(encoding="utf-8")
+            css = (root / "social" / bundle.article_slug / "social-cards.css").read_text(encoding="utf-8")
+            self.assertNotIn("<table", html)
+            self.assertIn("x-summary-card", html)
+            self.assertIn("aspect-ratio: 3 / 4", css)
 
 
 if __name__ == "__main__":

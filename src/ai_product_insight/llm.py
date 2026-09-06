@@ -153,31 +153,44 @@ class OfflineDemoLLM:
             }
         if "[SOCIAL]" in system:
             article = data["article"]
+            requirements = data.get("platform_requirements", {})
+            x_format = requirements.get("x_format", "thread")
+            content_track = requirements.get("content_track", "deep_insight")
+            lead_text = "AI can generate a polished result fast.\n\nUnderstanding what the user means is a different product challenge."
+            thread = [
+                {"text": lead_text, "image_kind": "cover", "alt_text": "An overview of generation speed and intent alignment."},
+                {"text": "A real screenshot gives us something concrete to discuss.\n\nThe question is which design choices need clarification before another revision.", "image_kind": "screenshot", "screenshot_id": "primary-result", "alt_text": "The product result discussed in the article."},
+                {"text": "A better workflow helps define the task before executing it.\n\nWhere do you spend more time: expressing the idea, generating a draft, or refining the result?", "image_kind": "none"}
+            ] if x_format == "thread" else []
             return {
+                "social_standard": "v5",
+                "content_track": content_track,
                 "article_slug": article["slug"],
                 "key_takeaway": "AI 可以快速生成结果，但优秀的产品还需要降低用户把模糊感受转化为明确要求的成本。",
                 "x_post": {
-                    "text": "AI can generate a polished result fast. The harder product problem is understanding what a user means before the prompt becomes precise. Speed removes execution time; it does not remove the work of translating intent.",
+                    "format": x_format,
+                    "text": lead_text if x_format == "thread" else "AI can generate a polished result fast.\n\nThe harder product problem is understanding what a user means before the prompt becomes precise. Speed removes execution time; it does not remove the work of translating intent.",
                     "headline": "Generation is fast. Understanding is harder.",
-                    "thread": [
-                        {"text": "AI can generate a polished result fast.\n\nUnderstanding what the user means is a different product challenge.", "image_kind": "cover", "alt_text": "An overview of generation speed and intent alignment."},
-                        {"text": "A real screenshot gives us something concrete to discuss.\n\nThe question is which design choices need clarification before another revision.", "image_kind": "screenshot", "screenshot_id": "primary-result", "alt_text": "The product result discussed in the article."},
-                        {"text": "A better workflow helps define the task before executing it.\n\nWhere do you spend more time: expressing the idea, generating a draft, or refining the result?", "image_kind": "none"}
-                    ],
+                    "thread": thread,
                     "image_recommended": True,
                     "image_brief": "Use one real product or project screenshot with a restrained annotation that supports the core insight.",
                     "alt_text": "A real screenshot showing the product experience discussed in the article.",
+                    "mentions_applicable": False,
+                    "official_mentions": [],
+                    "unresolved_product_mentions": [],
                 },
                 "xiaohongshu": {
-                    "title": "AI 真正省下了哪一步？",
-                    "body": "这次真正把 AI 放进项目流程以后，我发现它最明显的价值是缩短执行时间，但它没有自动消除表达和判断的成本。\n\n当目标足够明确时，生成可以很快；当我只有一种模糊感受时，仍然需要把它拆成模型能够执行的要求。对我来说，这也是判断一个 AI 产品是否好用的重要分界：它只是等待完整指令，还是能帮助用户一起定义问题。",
+                    "title": "AI省下了哪一步？",
+                    "body": "这次真正把 AI 放进项目流程以后，我发现它最明显的价值是缩短执行时间，但它没有自动消除表达和判断的成本。\n\n当目标足够明确时，生成可以很快；当我只有一种模糊感受时，仍然需要把它拆成模型能够执行的要求。对我来说，这也是判断一个 AI 产品是否好用的重要分界：它只是等待完整指令，还是能帮助用户一起定义问题。\n\n如果让你选择，你更希望 AI 帮你加快生成，还是先帮你把模糊想法说清楚？",
                     "hashtags": ["AI产品", "产品经理", "工作流"],
                 },
                 "carousel": [
                     {"order": 1, "kind": "cover", "title": "AI 真正省下了哪一步？", "body": "一次真实项目复盘", "screenshot_id": None},
                     {"order": 2, "kind": "screenshot", "title": "先看真实结果", "body": "这张图用于交代项目背景，而不是装饰。", "screenshot_id": "primary-result"},
                     {"order": 3, "kind": "insight", "title": "生成很快，理解更难", "body": "模糊感受仍需要被翻译成可以执行的要求。", "screenshot_id": None},
-                    {"order": 4, "kind": "closing", "title": "产品启示", "body": "优秀的 AI 产品不仅执行任务，也帮助用户定义任务。", "screenshot_id": None},
+                    {"order": 4, "kind": "insight", "title": "表达成本仍然存在", "body": "模糊感受还需要被拆成色彩、排版、间距和交互。", "screenshot_id": None},
+                    {"order": 5, "kind": "insight", "title": "产品应该参与定义任务", "body": "让用户先看见可选择的方向，再把确定的要求交给生成环节。", "screenshot_id": None},
+                    {"order": 6, "kind": "closing", "title": "产品启示", "body": "优秀的 AI 产品不仅执行任务，也帮助用户定义任务。", "screenshot_id": None},
                 ],
                 "screenshots": [
                     {

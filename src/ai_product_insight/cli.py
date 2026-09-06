@@ -34,12 +34,29 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output", type=Path, default=PROJECT_ROOT / "output" / "drafts")
     parser.add_argument("--runs", type=Path, default=PROJECT_ROOT / "data" / "runs")
     sub = parser.add_subparsers(dest="mode", required=True)
-    sub.add_parser("scheduled", help="从公开来源自动发现并生成一篇草稿")
+    def add_social_options(command: argparse.ArgumentParser) -> None:
+        command.add_argument(
+            "--x-format",
+            choices=("thread", "single"),
+            default="thread",
+            help="X 默认生成 thread；冷启动期可显式选择 single",
+        )
+        command.add_argument(
+            "--social-track",
+            choices=("deep_insight", "standalone_engagement"),
+            default="deep_insight",
+            help="小红书默认进入深度洞察主线；互动/痛点内容使用 standalone_engagement",
+        )
+
+    scheduled = sub.add_parser("scheduled", help="从公开来源自动发现并生成一篇草稿")
+    add_social_options(scheduled)
     manual = sub.add_parser("manual", help="手动指定产品，同时保留自动研究与写作")
+    add_social_options(manual)
     manual.add_argument("--name", required=True)
     manual.add_argument("--url", required=True)
     manual.add_argument("--notes", default="")
     comparison = sub.add_parser("compare", help="研究多个指定产品并生成一篇对比草稿")
+    add_social_options(comparison)
     comparison.add_argument("--name", required=True, help="对比文章的主题")
     comparison.add_argument(
         "--product",
@@ -52,6 +69,7 @@ def build_parser() -> argparse.ArgumentParser:
     comparison.add_argument("--notes-file", required=True, type=Path, help="UTF-8 编码的个人体验记录")
     comparison.add_argument("--no-clarify", action="store_true", help="跳过一次性编辑追问")
     demo = sub.add_parser("offline-demo", help="使用本地固定样例验证整条链路")
+    add_social_options(demo)
     demo.add_argument("--fixture", type=Path, default=PROJECT_ROOT / "fixtures" / "demo_input.json")
     approve = sub.add_parser("approve", help="将人工确认的文章标记为 approved 并移入 reviewed")
     approve.add_argument("--article", required=True, type=Path, help="已经完成人工审核的 Markdown 草稿")
@@ -105,6 +123,8 @@ def build_agent_crew(
     editorial_context: EditorialContext,
     fast_llm: JsonLLM,
     quality_llm: JsonLLM | None = None,
+    x_format: str = "thread",
+    content_track: str = "deep_insight",
 ) -> AgentCrew:
     """Route high-volume research to Flash and editorial judgment to Pro."""
     quality_llm = quality_llm or fast_llm
@@ -113,7 +133,12 @@ def build_agent_crew(
         researcher=ResearchAgent(fast_llm, fetcher, config),
         analyst=InsightAgent(quality_llm, editorial_context),
         editor=EditorAgent(quality_llm, editorial_context),
-        social=SocialRepurposeAgent(quality_llm, editorial_context),
+        social=SocialRepurposeAgent(
+            quality_llm,
+            editorial_context,
+            x_format=x_format,
+            content_track=content_track,
+        ),
     )
 
 
@@ -230,6 +255,8 @@ def main(argv: list[str] | None = None) -> int:
         editorial_context=editorial_context,
         fast_llm=fast_llm,
         quality_llm=quality_llm,
+        x_format=args.x_format,
+        content_track=args.social_track,
     )
     pipeline = InsightPipeline(
         discovery,

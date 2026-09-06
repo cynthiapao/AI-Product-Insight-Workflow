@@ -207,7 +207,25 @@ class XThreadPost(StrictModel):
         return self
 
 
+class OfficialMention(StrictModel):
+    product_name: str = Field(min_length=1, max_length=80)
+    handle: str = Field(pattern=r"^@[A-Za-z0-9_]{1,15}$")
+    profile_url: HttpUrl
+    verification_status: Literal["verified_from_evidence", "needs_review"] = "needs_review"
+
+    @model_validator(mode="after")
+    def profile_matches_handle(self) -> "OfficialMention":
+        parsed = urlsplit(str(self.profile_url))
+        if (parsed.hostname or "").lower() not in {"x.com", "www.x.com", "twitter.com", "www.twitter.com"}:
+            raise ValueError("Official account profile must use x.com or twitter.com")
+        profile_name = parsed.path.strip("/").split("/", 1)[0]
+        if profile_name.casefold() != self.handle[1:].casefold():
+            raise ValueError("Official account profile path must match the handle")
+        return self
+
+
 class XPost(StrictModel):
+    format: Literal["thread", "single"] = "thread"
     text: str = Field(min_length=20, max_length=280)
     headline: str = Field(min_length=4, max_length=80)
     image_recommended: bool = True
@@ -216,14 +234,27 @@ class XPost(StrictModel):
     visual_caption: str = Field(default="", max_length=180)
     comparison_rows: list[ComparisonRow] = Field(default_factory=list, max_length=4)
     thread: list[XThreadPost] = Field(default_factory=list, max_length=8)
+    mentions_applicable: bool = False
+    official_mentions: list[OfficialMention] = Field(default_factory=list, max_length=8)
+    unresolved_product_mentions: list[str] = Field(default_factory=list, max_length=8)
 
     @model_validator(mode="after")
     def validate_thread(self) -> "XPost":
+        if self.format == "single" and self.thread:
+            raise ValueError("Single-post mode must not include thread posts")
         if self.thread and len(self.thread) < 3:
             raise ValueError("X threads require 3-8 posts")
+        if self.thread and self.thread[0].image_kind != "cover":
+            raise ValueError("The first post must use the 16:9 cover")
         for index, post in enumerate(self.thread, 1):
             if x_preflight_length(f"{index}/{len(self.thread)}\n{post.text}") > 280:
                 raise ValueError(f"X thread post {index} exceeds the 280 preflight budget; shorten it")
+        if self.mentions_applicable and not (self.official_mentions or self.unresolved_product_mentions):
+            raise ValueError("Product mentions must include an official handle or an unresolved review item")
+        content = "\n".join([self.text, *(post.text for post in self.thread)]).casefold()
+        for mention in self.official_mentions:
+            if mention.handle.casefold() not in content:
+                raise ValueError(f"Official handle {mention.handle} must appear in the X copy")
         return self
 
 
@@ -269,6 +300,8 @@ class CarouselSlide(StrictModel):
 
 
 class SocialBundle(StrictModel):
+    social_standard: Literal["legacy", "v5"] = "legacy"
+    content_track: Literal["deep_insight", "standalone_engagement"] = "deep_insight"
     article_slug: str = Field(pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
     key_takeaway: str = Field(min_length=20, max_length=180)
     x_post: XPost
@@ -278,6 +311,13 @@ class SocialBundle(StrictModel):
 
     @model_validator(mode="after")
     def references_are_consistent(self) -> "SocialBundle":
+        if self.social_standard == "v5":
+            if self.x_post.format == "thread" and not self.x_post.thread:
+                raise ValueError("The v5 thread format requires 3-8 posts")
+            if len(self.xiaohongshu.title) > 20:
+                raise ValueError("The v5 Xiaohongshu title must be at most 20 characters")
+            if not self.xiaohongshu.body.rstrip().endswith(("?", "？")):
+                raise ValueError("The v5 Xiaohongshu body must end with a discussion question")
         screenshot_ids = [item.screenshot_id for item in self.screenshots]
         for post in self.x_post.thread:
             if post.screenshot_id is not None and post.screenshot_id not in screenshot_ids:

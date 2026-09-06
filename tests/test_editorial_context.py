@@ -63,7 +63,7 @@ class EditorialContextTests(unittest.TestCase):
         self.assertEqual(context.profile["version"], 1)
         self.assertEqual(context.gold_input["example_id"], "ai-website-design-alignment-v1")
         self.assertEqual(len(context.gold_examples), 2)
-        self.assertEqual(context.social_gold["example_id"], "approved-social-style-v4-x-thread")
+        self.assertEqual(context.social_gold["example_id"], "approved-social-style-v5-publishing")
         self.assertIn("thread", context.social_gold["rules"]["x"][0])
         self.assertEqual(
             context.gold_examples[1].input["example_id"],
