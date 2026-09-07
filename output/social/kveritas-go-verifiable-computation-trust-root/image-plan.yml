@@ -1,0 +1,12 @@
+article_slug: "kveritas-go-verifiable-computation-trust-root"
+screenshots:
+  - screenshot_id: "report-pdf"
+    filename: "01-report-pdf.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 K-Veritas Go 生成的签名 PDF 报告，作为产品输出的真实证据。"
+    capture: "截取报告 PDF 的首页，包含 HMCA 评分、计算成本证明和签名面板。"
+    annotation: "HMCA 评分和计算成本证明是核心机制。"
+    used_for:
+      - x
+      - xiaohongshu

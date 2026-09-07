@@ -1,0 +1,43 @@
+{
+  "candidate": {
+    "candidate_id": "1b1d3ee75826cbf3",
+    "name": "BrandJet",
+    "url": "https://www.producthunt.com/products/brandjet-ai",
+    "source": "Product Hunt",
+    "summary": "<p> Turn public buying signals into sales pipeline </p> <p> <a href=\"https://www.producthunt.com/products/brandjet-ai?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1226002?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-18T07:52:07-07:00",
+    "discovered_at": "2026-08-31T07:05:14.987567Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Turning buying signals into pipeline is relevant for AI sales tools, with good novelty and depth."
+    }
+  },
+  "evidence": [
+    {
+      "title": "BrandJet - discovery note",
+      "url": "https://www.producthunt.com/products/brandjet-ai",
+      "excerpt": "<p> Turn public buying signals into sales pipeline </p> <p> <a href=\"https://www.producthunt.com/products/brandjet-ai?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1226002?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-31T07:05:33.428073Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "identity mismatch: ignored HN result 46023147",
+    "identity mismatch: ignored HN result 47486534",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1226002?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1226002?app_id=339: HTTP Error 403: Forbidden"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "identity mismatch: ignored HN result 46023147",
+    "identity mismatch: ignored HN result 47486534",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1226002?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1226002?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}

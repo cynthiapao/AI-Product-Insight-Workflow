@@ -1,0 +1,42 @@
+{
+  "candidate": {
+    "candidate_id": "20a9d2c799c638a8",
+    "name": "Orato",
+    "url": "https://www.producthunt.com/products/orato-speech-coach",
+    "source": "Product Hunt",
+    "summary": "<p> Practice speaking. Your voice never leaves your phone. </p> <p> <a href=\"https://www.producthunt.com/products/orato-speech-coach?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1235917?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-29T10:02:44-07:00",
+    "discovered_at": "2026-08-31T07:05:14.987854Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "On-device speech coaching is relevant for AI PMs, with privacy angle and clear depth."
+    }
+  },
+  "evidence": [
+    {
+      "title": "Orato - discovery note",
+      "url": "https://www.producthunt.com/products/orato-speech-coach",
+      "excerpt": "<p> Practice speaking. Your voice never leaves your phone. </p> <p> <a href=\"https://www.producthunt.com/products/orato-speech-coach?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1235917?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-08-31T07:05:33.908807Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "identity mismatch: ignored HN result 43187281",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1235917?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1235917?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "identity mismatch: ignored HN result 43187281",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1235917?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1235917?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}
