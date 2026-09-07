@@ -1,0 +1,17 @@
+{
+  "run_id": "20260907T061129Z-7dac15fa",
+  "mode": "scheduled",
+  "status": "partial",
+  "candidate_count": 25,
+  "selected_count": 8,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/termy-deterministic-terminal-assistant.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/termy-deterministic-terminal-assistant.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/termy-deterministic-terminal-assistant.card.html"
+  ],
+  "errors": [
+    "Social draft failed for termy-deterministic-terminal-assistant: ValidationError: 2 validation errors for SocialBundle\nx_post.thread.1.text\n  String should have at most 280 characters [type=string_too_long, input_value='The developer tried trai...ecuted in milliseconds.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nx_post.thread.2.text\n  String should have at most 280 characters [type=string_too_long, input_value='The trade-off is clear: ...r daily terminal tasks?', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+  ],
+  "started_at": "2026-09-07T06:11:29.903354Z",
+  "finished_at": "2026-09-07T06:12:54.512184Z"
+}
