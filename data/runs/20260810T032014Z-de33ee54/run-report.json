@@ -1,0 +1,21 @@
+{
+  "run_id": "20260810T032014Z-de33ee54",
+  "mode": "scheduled",
+  "status": "completed",
+  "candidate_count": 25,
+  "selected_count": 3,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/voiceos-app-store-voice-native-apps.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/voiceos-app-store-voice-native-apps.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/voiceos-app-store-voice-native-apps.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/voiceos-app-store-voice-native-apps/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/voiceos-app-store-voice-native-apps/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/voiceos-app-store-voice-native-apps/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/voiceos-app-store-voice-native-apps/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/voiceos-app-store-voice-native-apps/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/voiceos-app-store-voice-native-apps/README.md"
+  ],
+  "errors": [],
+  "started_at": "2026-08-10T03:20:14.153961Z",
+  "finished_at": "2026-08-10T03:21:27.171361Z"
+}
