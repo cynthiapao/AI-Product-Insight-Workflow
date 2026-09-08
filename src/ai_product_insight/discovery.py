@@ -41,7 +41,13 @@ class DiscoveryAgent:
         self.fetcher = fetcher
 
     def discover(self, manual: ProductCandidate | None = None) -> tuple[list[ProductCandidate], list[str]]:
-        candidates: list[ProductCandidate] = [manual] if manual else []
+        # A manual run is an explicit editorial choice. Do not silently append
+        # unrelated feed candidates, otherwise one requested article can turn
+        # into several drafts and make the review PR ambiguous.
+        if manual is not None:
+            return [manual], []
+
+        candidates: list[ProductCandidate] = []
         errors: list[str] = []
         for source in self.config.sources:
             if not source.enabled:

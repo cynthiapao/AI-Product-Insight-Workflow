@@ -1,7 +1,7 @@
 import unittest
 
-from ai_product_insight.config import SourceConfig
-from ai_product_insight.discovery import deduplicate
+from ai_product_insight.config import SourceConfig, WorkflowConfig
+from ai_product_insight.discovery import DiscoveryAgent, deduplicate
 from ai_product_insight.models import ProductCandidate
 from ai_product_insight.sources import parse_feed
 
@@ -20,6 +20,26 @@ class DiscoveryTests(unittest.TestCase):
             ProductCandidate(name="One duplicate", url="https://example.com/a", source="b"),
         ]
         self.assertEqual(len(deduplicate(items)), 1)
+
+    def test_manual_discovery_returns_only_the_requested_product(self):
+        class FailIfFetched:
+            def fetch_text(self, url):
+                raise AssertionError(f"Manual discovery must not fetch {url}")
+
+        config = WorkflowConfig(
+            sources=[SourceConfig(name="Demo", kind="rss", url="https://example.com/feed")]
+        )
+        manual = ProductCandidate(
+            name="Chosen AI",
+            url="https://example.com/chosen",
+            source="manual",
+            manual=True,
+        )
+
+        candidates, errors = DiscoveryAgent(config, FailIfFetched()).discover(manual=manual)
+
+        self.assertEqual(candidates, [manual])
+        self.assertEqual(errors, [])
 
 
 if __name__ == "__main__":
