@@ -10,10 +10,10 @@ With @Google:
 
 Google AI Mode now lets you track flight prices, see points rates, and book hotels in one conversation.
 
-Convenient? Yes. But when search, recommendations, and transactions sit this close together, how do you know what's best for you vs.
+Convenient? Yes. But when search, recommendations, and transactions merge, can users tell what is best for them—and what is best for Google?
 ```
 
-预检长度：256/280
+预检长度：269/280
 
 配图：[16:9 总览卡片](rendered/x-card.png)
 
