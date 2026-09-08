@@ -1,0 +1,128 @@
+[
+  {
+    "candidate_id": "b6f451c10265d7a6",
+    "name": "Google Search AI Mode travel planning",
+    "url": "https://blog.google/products-and-platforms/products/search/book-travel-ai-mode",
+    "source": "manual",
+    "summary": "这是一项面向普通消费者的应用层 AI 功能：Google 把旅行灵感、行程规划、价格信息与预订入口放进 Search 的 AI Mode。请重点分析它是否真正减少了用户在多个旅行网站之间反复搜索和比较的成本，以及当搜索、推荐和交易越来越接近时，平台如何处理信任、商业排序与用户决策权。文章需要比较传统旅行搜索或 OTA 的使用方式，避免只复述功能；同时生成待人工审核的小红书 6–8 页轮播草稿和英文 X Thread，不自动发布。",
+    "published_at": null,
+    "discovered_at": "2026-09-08T13:48:29.829900Z",
+    "manual": true,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.6,
+      "reason": "面向消费者的搜索集成功能，直接解决旅行规划中的信息过载问题，有明确的用户任务和可体验的界面。产品机制涉及搜索、推荐与交易的整合，对AI PM有深入分析价值。证据充分，来自Google官方博客。"
+    }
+  },
+  {
+    "candidate_id": "5ab37ecc2f86e302",
+    "name": "OpenMarket",
+    "url": "https://www.producthunt.com/products/openmarket",
+    "source": "Product Hunt",
+    "summary": "<p> Multi-agent marketplace where proof decides who wins </p> <p> <a href=\"https://www.producthunt.com/products/openmarket?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1237958?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-31T16:28:17-07:00",
+    "discovered_at": "2026-09-08T13:48:33.156066Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 2,
+      "total": 3.95,
+      "reason": "多智能体市场概念新颖，但证据不足，仅Product Hunt简介，缺乏详细机制和用户反馈。作为AI PM作品集可能有趣，但需更多信息。"
+    }
+  },
+  {
+    "candidate_id": "46cfda65df56523d",
+    "name": "Relaticle",
+    "url": "https://www.producthunt.com/products/relaticle",
+    "source": "Product Hunt",
+    "summary": "<p> Open-source CRM with approval-gated AI writes </p> <p> <a href=\"https://www.producthunt.com/products/relaticle?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1238864?app_id=339\">Link</a> </p>",
+    "published_at": "2026-09-01T14:12:23-07:00",
+    "discovered_at": "2026-09-08T13:48:33.156187Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 2,
+      "total": 3.7,
+      "reason": "开源CRM带审批门控AI写入，有独特机制，但证据不足。"
+    }
+  },
+  {
+    "candidate_id": "c9434bfd2d6a8ef4",
+    "name": "Switch",
+    "url": "https://www.producthunt.com/products/switch-11",
+    "source": "Product Hunt",
+    "summary": "<p> Bring any AI agent into Slack, Teams & Discord </p> <p> <a href=\"https://www.producthunt.com/products/switch-11?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1233670?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-26T21:57:54-07:00",
+    "discovered_at": "2026-09-08T13:48:33.156108Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "将AI代理集成到协作平台，有明确应用场景，但产品深度一般，证据不足。可能适合作为工具介绍，但缺乏独特机制。"
+    }
+  },
+  {
+    "candidate_id": "22db5e299740e766",
+    "name": "AppGacha",
+    "url": "https://www.producthunt.com/products/appgacha",
+    "source": "Product Hunt",
+    "summary": "<p> Turn a sentence into a tiny desktop app </p> <p> <a href=\"https://www.producthunt.com/products/appgacha?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1236545?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-30T06:08:58-07:00",
+    "discovered_at": "2026-09-08T13:48:33.155980Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "将句子转为桌面应用，有创意，但产品深度可能有限，证据不足。"
+    }
+  },
+  {
+    "candidate_id": "cff9a11aa8a4d598",
+    "name": "Show HN: Jigsaw Haiku",
+    "url": "https://jigsawhaiku.com/",
+    "source": "Hacker News Show",
+    "summary": "Hacker News discussion score: 107",
+    "published_at": "2026-09-04T18:14:44",
+    "discovered_at": "2026-09-08T13:48:31.113588Z",
+    "manual": false,
+    "score": {
+      "relevance": 3,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 4,
+      "total": 3.4,
+      "reason": "拼图游戏，有创意，但产品深度有限，证据来自HN高分。"
+    }
+  },
+  {
+    "candidate_id": "0879240e935a4eab",
+    "name": "GoodLads",
+    "url": "https://www.producthunt.com/products/good-lads-1-0",
+    "source": "Product Hunt",
+    "summary": "<p> AI growth manager for your Google Ads account </p> <p> <a href=\"https://www.producthunt.com/products/good-lads-1-0?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1242766?app_id=339\">Link</a> </p>",
+    "published_at": "2026-09-06T04:11:39-07:00",
+    "discovered_at": "2026-09-08T13:48:33.155880Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.2,
+      "reason": "AI广告管理工具，面向营销人员，有明确任务，但产品机制可能不深，证据不足。"
+    }
+  }
+]

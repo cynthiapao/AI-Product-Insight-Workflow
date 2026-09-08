@@ -1,0 +1,126 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "jigsaw-haiku-puzzle-text-conflict",
+  "key_takeaway": "Jigsaw Haiku 把俳句做成拼图，自动吸附降低了操作成本，但拼块边框遮挡文字细节，让玩家难以判断文字是否完整，反而增加了匹配难度。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @jigsawhaiku:\n\nA useful AI tutor should read the learning process, not just check the final answer.\n\nJigsaw Haiku turns haiku into a jigsaw puzzle. Auto-snapping lowers the effort, but thick borders hide letter details—making it harder to tell if a piece is complete.",
+    "headline": "When puzzle pieces hide the poem",
+    "image_recommended": true,
+    "image_brief": "Use a real screenshot of the Jigsaw Haiku interface showing unconnected pieces with thick borders obscuring text. Overlay the headline and a short caption on the left side.",
+    "alt_text": "Jigsaw Haiku gameplay screenshot with thick borders on unconnected pieces obscuring text details, illustrating the readability conflict.",
+    "visual_caption": "Auto-snap helps, but thick borders hide the letters you need to match.",
+    "comparison_rows": [
+      {
+        "label": "Jigsaw Haiku",
+        "strength": "Auto-snapping reduces precise alignment effort",
+        "gap": "Thick borders obscure text details, making matching harder"
+      },
+      {
+        "label": "Traditional jigsaw",
+        "strength": "Visual pieces are self-contained",
+        "gap": "No semantic clues from text"
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @jigsawhaiku:\n\nA useful AI tutor should read the learning process, not just check the final answer.\n\nJigsaw Haiku turns haiku into a jigsaw puzzle. Auto-snapping lowers the effort, but thick borders hide letter details—making it harder to tell if a piece is complete.",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview card showing a haiku puzzle piece with thick border obscuring text, and the core tension between puzzle and readability."
+      },
+      {
+        "text": "On iPhone 15 Pro, dragging was mostly smooth but occasionally laggy.\n\nAuto-snap worked: pieces connected when near the right spot, and borders got thinner after connecting.\n\nBut unconnected pieces had thick borders that covered thin letters like 'i' or 'l'.",
+        "image_kind": "screenshot",
+        "screenshot_id": "website-home",
+        "alt_text": "Screenshot of Jigsaw Haiku gameplay showing unconnected pieces with thick borders obscuring text details."
+      },
+      {
+        "text": "The core conflict: jigsaw needs visual fragmentation, text needs visual integrity.\n\nAuto-snap and semantic clues help, but if they fight readability, the product feels torn between two goals.\n\nWould you prioritize the puzzle or the poem?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Jigsaw Haiku",
+        "handle": "@jigsawhaiku",
+        "profile_url": "https://x.com/jigsawhaiku",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "拼图还是俳句？这个游戏让我纠结",
+    "body": "最近玩了一个叫 Jigsaw Haiku 的网页游戏，它把俳句拆成拼图块，拖拽组合成完整的诗。自动吸附的设计挺贴心，不用精确对齐，拖到大致位置就自动连接，连接后边框变细，文字也清晰了。\n\n但问题来了：没连接的拼块边框很粗，会挡住文字边缘。特别是像“i”或“l”这种细笔画字母，几乎被边框盖住，我根本看不清这个拼块上的字是不是完整的。有一次我因为看不清，把一块拼图放错了位置，结果它没吸附，我才发现不对。\n\n这个体验让我意识到，拼图需要把画面切碎，而文字需要保持完整，这两者天然冲突。自动吸附降低了操作难度，但边框遮挡让文字可读性变差，游戏在“拼图”和“文字”之间摇摆。\n\n如果目标是让人欣赏俳句，拼块就不该破坏文字；如果目标是挑战拼图，文字只是背景。目前的设计更偏向拼图，但文字线索反而增加了挫败感。\n\n你觉得这类游戏应该优先保护拼图乐趣，还是文字可读性？",
+    "hashtags": [
+      "游戏设计",
+      "拼图机制",
+      "文字可读性"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "拼图与俳句的冲突",
+      "body": "Jigsaw Haiku 把俳句做成拼图，自动吸附降低了操作成本，但拼块边框遮挡文字细节，让玩家难以判断文字是否完整，反而增加了匹配难度。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "边框遮挡文字",
+      "body": "未连接的拼块边框较粗，会遮挡文字边缘，尤其是笔画较细的字母，导致玩家难以判断文字是否完整。",
+      "comparison_rows": [],
+      "screenshot_id": "website-home"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "机制对比",
+      "body": "自动吸附和语义线索是有效的辅助机制，但如果它们与内容的可读性发生冲突，产品就会陷入两难。",
+      "comparison_rows": [
+        {
+          "label": "Jigsaw Haiku",
+          "strength": "自动吸附降低操作门槛",
+          "gap": "边框遮挡文字，增加匹配难度"
+        },
+        {
+          "label": "传统拼图",
+          "strength": "视觉碎片自包含",
+          "gap": "缺少语义线索"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "当产品将两种不同认知模式结合时，必须明确核心体验的优先级。辅助机制应服务于主要任务，而不是让机制本身成为障碍。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "website-home",
+      "filename": "01-website-home.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示未连接拼块的粗边框如何遮挡文字细节，作为核心摩擦点的视觉证据。",
+      "capture": "截取 Jigsaw Haiku 游戏界面，包含多个未连接的拼块，突出显示边框遮挡文字（如细笔画字母）的情况。",
+      "annotation": "可标注一个被边框遮挡的字母，说明玩家难以判断文字是否完整。",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

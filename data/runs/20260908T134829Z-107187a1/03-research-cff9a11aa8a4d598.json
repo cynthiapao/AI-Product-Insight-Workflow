@@ -1,0 +1,59 @@
+{
+  "candidate": {
+    "candidate_id": "cff9a11aa8a4d598",
+    "name": "Show HN: Jigsaw Haiku",
+    "url": "https://jigsawhaiku.com/",
+    "source": "Hacker News Show",
+    "summary": "Hacker News discussion score: 107",
+    "published_at": "2026-09-04T18:14:44",
+    "discovered_at": "2026-09-08T13:48:31.113588Z",
+    "manual": false,
+    "score": {
+      "relevance": 3,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 4,
+      "total": 3.4,
+      "reason": "拼图游戏，有创意，但产品深度有限，证据来自HN高分。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Show HN: Jigsaw Haiku",
+      "url": "https://news.ycombinator.com/item?id=49568162",
+      "excerpt": "The borders on the pieces obscure the edge details that you need to help match the pieces up. Often there were pieces with letters that looked like they were needed another piece to complete them but actually they were whole but the border covered the edges. It would also be nice if I could position pieces freely outside of the board so I could test out potential matches. In the end, it became easier to just keep trying to place pieces on the board until they stuck together automatically.\nThat was a lot of fun! It would be cool if I could kind of place things \"wherever I want\" because sometimes I want to test if this fits here or not, and the easiest way is to place the piece there and drop it. Because the borders are less distracting/smaller after dropping it. But if I do that in a place that is not valid, it snaps back to the original position. I once had to drag two completed chunks sequentially to one side of the puzzle area before I could test a piece I was looking at and discover it was wrong.\nVery nice. Challenging and fun. I was able to drop the pieces anywhere to test alignment. When I then moved them around got them next to the right neighbor, they glommed onto each other. No changed needed to have fun!\nPlaying this on an iPhone 15 Pro, I was wondering — did the frame rate of dragging have to be so painfully low?\nThe end state is aesthetically pleasing. The game, not so much, I found the cuts on the tiles unpleasant to deal with (especially the ones that shaved ~2 points of ~20 point text) although I solved it in the end. I did like that once you had connected two or more pieces correctly they stayed connected, but I think it would be better to mix the jigsaw aspect with individual monospace font letters and make it into more of a word game than one about trying to match font ligatures.",
+      "source_type": "community",
+      "retrieved_at": "2026-09-08T13:49:55.920560Z"
+    },
+    {
+      "title": "Show HN: Jigsaw Haiku - discovery note",
+      "url": "https://jigsawhaiku.com/",
+      "excerpt": "Hacker News discussion score: 107",
+      "source_type": "feed",
+      "retrieved_at": "2026-09-08T13:49:55.920600Z"
+    }
+  ],
+  "verified_facts": [
+    "Jigsaw Haiku is a puzzle game that combines jigsaw puzzles with haiku text.",
+    "The game was showcased on Hacker News as a 'Show HN' post.",
+    "The Hacker News discussion had a score of 107.",
+    "The game automatically connects pieces when they are correctly placed next to each other.",
+    "Users can drag pieces anywhere on the board to test alignment, but invalid placements snap back.",
+    "The game is playable on iPhone 15 Pro, but some users experienced low frame rates when dragging.",
+    "The game's end state is aesthetically pleasing.",
+    "Some users found the tile cuts unpleasant, especially when they obscured text.",
+    "One user suggested making it more of a word game by mixing jigsaw with individual monospace font letters."
+  ],
+  "open_questions": [
+    "What is the exact gameplay mechanism of Jigsaw Haiku?",
+    "Who is the developer of Jigsaw Haiku?",
+    "What is the pricing model or is it free to play?",
+    "What platforms is Jigsaw Haiku available on?",
+    "Are there any official descriptions or documentation from the developer?",
+    "What is the user base or popularity beyond the Hacker News post?"
+  ],
+  "quality": "usable",
+  "collection_diagnostics": [
+    "primary product page contained too little readable text"
+  ]
+}

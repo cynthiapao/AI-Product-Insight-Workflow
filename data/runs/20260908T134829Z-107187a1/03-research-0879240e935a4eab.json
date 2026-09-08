@@ -1,0 +1,40 @@
+{
+  "candidate": {
+    "candidate_id": "0879240e935a4eab",
+    "name": "GoodLads",
+    "url": "https://www.producthunt.com/products/good-lads-1-0",
+    "source": "Product Hunt",
+    "summary": "<p> AI growth manager for your Google Ads account </p> <p> <a href=\"https://www.producthunt.com/products/good-lads-1-0?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1242766?app_id=339\">Link</a> </p>",
+    "published_at": "2026-09-06T04:11:39-07:00",
+    "discovered_at": "2026-09-08T13:48:33.155880Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.2,
+      "reason": "AI广告管理工具，面向营销人员，有明确任务，但产品机制可能不深，证据不足。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "GoodLads - discovery note",
+      "url": "https://www.producthunt.com/products/good-lads-1-0",
+      "excerpt": "<p> AI growth manager for your Google Ads account </p> <p> <a href=\"https://www.producthunt.com/products/good-lads-1-0?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1242766?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-09-08T13:50:58.080352Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1242766?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1242766?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "official destination fetch failed (https://www.producthunt.com/r/p/1242766?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1242766?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}

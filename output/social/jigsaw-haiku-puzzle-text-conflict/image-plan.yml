@@ -1,0 +1,12 @@
+article_slug: "jigsaw-haiku-puzzle-text-conflict"
+screenshots:
+  - screenshot_id: "website-home"
+    filename: "01-website-home.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示未连接拼块的粗边框如何遮挡文字细节，作为核心摩擦点的视觉证据。"
+    capture: "截取 Jigsaw Haiku 游戏界面，包含多个未连接的拼块，突出显示边框遮挡文字（如细笔画字母）的情况。"
+    annotation: "可标注一个被边框遮挡的字母，说明玩家难以判断文字是否完整。"
+    used_for:
+      - x
+      - xiaohongshu

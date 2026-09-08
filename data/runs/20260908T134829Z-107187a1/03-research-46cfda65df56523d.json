@@ -1,0 +1,42 @@
+{
+  "candidate": {
+    "candidate_id": "46cfda65df56523d",
+    "name": "Relaticle",
+    "url": "https://www.producthunt.com/products/relaticle",
+    "source": "Product Hunt",
+    "summary": "<p> Open-source CRM with approval-gated AI writes </p> <p> <a href=\"https://www.producthunt.com/products/relaticle?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1238864?app_id=339\">Link</a> </p>",
+    "published_at": "2026-09-01T14:12:23-07:00",
+    "discovered_at": "2026-09-08T13:48:33.156187Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 2,
+      "total": 3.7,
+      "reason": "开源CRM带审批门控AI写入，有独特机制，但证据不足。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Relaticle - discovery note",
+      "url": "https://www.producthunt.com/products/relaticle",
+      "excerpt": "<p> Open-source CRM with approval-gated AI writes </p> <p> <a href=\"https://www.producthunt.com/products/relaticle?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1238864?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-09-08T13:49:53.598420Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "identity mismatch: ignored HN result 46140263",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1238864?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1238864?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "identity mismatch: ignored HN result 46140263",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1238864?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1238864?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}

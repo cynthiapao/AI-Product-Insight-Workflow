@@ -1,0 +1,12 @@
+article_slug: "google-ai-mode-travel-planning-search-to-transaction"
+screenshots:
+  - screenshot_id: "ai-mode-travel"
+    filename: "01-ai-mode-travel.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Google AI Mode 旅行功能界面，证明搜索、推荐和交易在同一对话中完成。"
+    capture: "截取 AI Mode 对话界面，显示酒店选项列表、价格追踪或积分兑换选项，以及预订按钮。"
+    annotation: "可标注合作方标识或排序依据缺失。"
+    used_for:
+      - x
+      - xiaohongshu

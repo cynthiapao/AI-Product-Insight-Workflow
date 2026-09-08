@@ -1,0 +1,46 @@
+{
+  "candidate": {
+    "candidate_id": "c9434bfd2d6a8ef4",
+    "name": "Switch",
+    "url": "https://www.producthunt.com/products/switch-11",
+    "source": "Product Hunt",
+    "summary": "<p> Bring any AI agent into Slack, Teams & Discord </p> <p> <a href=\"https://www.producthunt.com/products/switch-11?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1233670?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-26T21:57:54-07:00",
+    "discovered_at": "2026-09-08T13:48:33.156108Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "将AI代理集成到协作平台，有明确应用场景，但产品深度一般，证据不足。可能适合作为工具介绍，但缺乏独特机制。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Switch - discovery note",
+      "url": "https://www.producthunt.com/products/switch-11",
+      "excerpt": "<p> Bring any AI agent into Slack, Teams & Discord </p> <p> <a href=\"https://www.producthunt.com/products/switch-11?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1233670?app_id=339\">Link</a> </p>",
+      "source_type": "feed",
+      "retrieved_at": "2026-09-08T13:49:54.419555Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "identity mismatch: ignored HN result 20052623",
+    "identity mismatch: ignored HN result 41386319",
+    "identity mismatch: ignored HN result 46795864"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "identity mismatch: ignored HN result 20052623",
+    "identity mismatch: ignored HN result 41386319",
+    "identity mismatch: ignored HN result 46795864",
+    "identity mismatch: ignored HN result 23603866",
+    "identity mismatch: ignored HN result 38806270",
+    "official destination fetch failed (https://www.producthunt.com/r/p/1233670?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1233670?app_id=339: HTTP Error 403: Forbidden",
+    "official URL unresolved: discovery listing is not official evidence"
+  ]
+}
