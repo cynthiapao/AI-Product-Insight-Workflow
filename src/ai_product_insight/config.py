@@ -22,6 +22,24 @@ class WorkflowConfig(BaseModel):
     research_candidate_limit: int = Field(default=8, ge=1, le=20)
     min_score: float = Field(default=3.1, ge=0, le=5)
     min_evidence_items: int = Field(default=1, ge=1, le=5)
+    application_product_only: bool = True
+    application_categories: list[str] = Field(
+        default_factory=lambda: [
+            "education",
+            "healthcare",
+            "legal",
+            "marketing",
+            "ecommerce",
+            "aigc",
+            "productivity",
+            "design_and_coding",
+            "consumer",
+            "robotics",
+            "enterprise_application",
+        ],
+        min_length=1,
+        max_length=20,
+    )
     deepseek_base_url: str = "https://api.deepseek.com"
     deepseek_fast_model: str = "deepseek-v4-flash"
     deepseek_quality_model: str = "deepseek-v4-pro"

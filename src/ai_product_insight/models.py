@@ -77,6 +77,8 @@ class ProductCandidate(StrictModel):
 
 class CandidateAssessment(StrictModel):
     candidate_id: str
+    application_fit: bool = False
+    application_category: str = Field(default="non_application", min_length=2, max_length=60)
     score: CandidateScore
 
 

@@ -296,7 +296,8 @@ def main(argv: list[str] | None = None) -> int:
             fixture_evidence=fixture_evidence,
         )
     print(report.model_dump_json(indent=2))
-    return 0 if report.outputs and report.status in {"completed", "partial"} else 1
+    social_generated = any(Path(path).name == "social.json" for path in report.outputs)
+    return 0 if report.outputs and social_generated and report.status in {"completed", "partial"} else 1
 
 
 if __name__ == "__main__":
