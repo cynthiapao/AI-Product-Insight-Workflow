@@ -13,7 +13,7 @@ Google AI Mode now lets you track flight prices, see points rates, and book hote
 Convenient? Yes. But when search, recommendations, and transactions merge, can users tell what is best for them—and what is best for Google?
 ```
 
-预检长度：269/280
+预检长度：265/280
 
 配图：[16:9 总览卡片](rendered/x-card.png)
 
