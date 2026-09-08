@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 
 from .application_scope import is_clear_non_application
@@ -247,6 +248,70 @@ def normalize_clarification_response(raw: dict[str, object]) -> dict[str, object
     return normalized
 
 
+def _fit_xiaohongshu_title(value: str, max_length: int = 20) -> str:
+    """Shorten at a complete clause before falling back to hard clipping."""
+    title = " ".join(value.split()).strip()
+    if len(title) <= max_length:
+        return title
+    for separator in ("，", "：", "；", "—", "。", ":", " - "):
+        clause = title.split(separator, 1)[0].strip()
+        if 6 <= len(clause) <= max_length:
+            return clause
+    return title[:max_length].rstrip("，：；—。,.!?！？ ")
+
+
+def _expand_carousel(slides: list[object], normalized: dict[str, object]) -> list[object]:
+    """Keep v5 deep-insight carousels at the default six-page minimum."""
+    if len(slides) >= 6:
+        return slides[:8]
+
+    closing: object | None = None
+    body_slides = list(slides)
+    if body_slides and isinstance(body_slides[-1], dict) and body_slides[-1].get("kind") == "closing":
+        closing = body_slides.pop()
+
+    xhs = normalized.get("xiaohongshu")
+    paragraphs: list[str] = []
+    if isinstance(xhs, dict) and isinstance(xhs.get("body"), str):
+        paragraphs = [
+            " ".join(part.split())[:240]
+            for part in re.split(r"\n\s*\n", str(xhs["body"]))
+            if 40 <= len(" ".join(part.split())) <= 300 and not part.rstrip().endswith(("?", "？"))
+        ]
+    takeaway = str(normalized.get("key_takeaway", "")).strip()[:240]
+    candidates = paragraphs[1:] + paragraphs[:1] + ([takeaway] if takeaway else [])
+    titles = ("体验发生了什么", "真正的摩擦在哪里", "为什么值得关注", "产品启示")
+    used_bodies = {
+        str(item.get("body", "")).strip() for item in body_slides if isinstance(item, dict)
+    }
+    candidate_index = 0
+    while len(body_slides) + (1 if closing is not None else 0) < 6:
+        body = ""
+        while candidate_index < len(candidates):
+            proposed = candidates[candidate_index]
+            candidate_index += 1
+            if proposed and proposed not in used_bodies:
+                body = proposed
+                break
+        if not body:
+            body = takeaway or "这一页用于补充说明体验变化、实际摩擦与最终产品判断之间的关系。"
+        used_bodies.add(body)
+        body_slides.append({
+            "order": 0,
+            "kind": "insight",
+            "title": titles[min(len(body_slides), len(titles) - 1)],
+            "body": body,
+            "comparison_rows": [],
+            "screenshot_id": None,
+        })
+    if closing is not None:
+        body_slides.append(closing)
+    for index, slide in enumerate(body_slides, 1):
+        if isinstance(slide, dict):
+            slide["order"] = index
+    return body_slides[:8]
+
+
 def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict[str, object]:
     """Keep common model variation inside the strict social publishing contract."""
     normalized = dict(raw)
@@ -329,7 +394,7 @@ def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict
         xhs_item = dict(xiaohongshu)
         title = xhs_item.get("title")
         if isinstance(title, str):
-            xhs_item["title"] = title.strip()[:20]
+            xhs_item["title"] = _fit_xiaohongshu_title(title)
         body = xhs_item.get("body")
         if isinstance(body, str):
             body = body.strip()
@@ -357,7 +422,7 @@ def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict
             if isinstance(item.get("body"), str):
                 item["body"] = item["body"].strip()[:240]
             normalized_carousel.append(item)
-        normalized["carousel"] = normalized_carousel
+        normalized["carousel"] = _expand_carousel(normalized_carousel, normalized)
     screenshots = normalized.get("screenshots")
     if isinstance(screenshots, list):
         normalized_screenshots: list[object] = []
@@ -597,6 +662,8 @@ class SocialRepurposeAgent:
                 "x_posts": "3-8",
                 "x_max_characters": 280,
                 "xiaohongshu_language": "Chinese",
+                "xiaohongshu_characters": "300-500",
+                "carousel_pages": "6-8",
                 "content_track": self.content_track,
                 "visual_source": "real screenshots supplied by the author",
             },

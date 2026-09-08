@@ -160,11 +160,11 @@ X：严格遵守输入的 platform_requirements.x_format。默认是 thread：�
 
 X 关系链：文章涉及具体产品时，mentions_applicable=true，并在相应正文中自然写入官方产品或团队 Handle。official_mentions 必须列出产品名、Handle、对应 x.com/twitter.com 主页及核验状态；文章来源直接支持时用 verified_from_evidence，否则用 needs_review 并在发布前人工核验。无法判断账号时不得猜测，写入 unresolved_product_mentions。没有具体产品时 mentions_applicable=false。避免 hashtag 堆叠和夸张营销，不把一次体验说成产品普遍能力。
 
-小红书：默认 content_track=deep_insight，聚焦一条由真实体验和证据推出的高价值判断；互动或痛点型内容只有输入明确要求 standalone_engagement 时才作为独立内容处理。中文、第一人称、像在向大众讲述真实经历和心得，不把 X 逐句翻译。标题严格不超过 20 个字符，采用“灵活视角 + 强观点/反直觉判断”，可从产品对比、单品拆解、痛点或行业洞察切入，不使用空泛标题。正文约 300-500 个中文字符；开头用具体经历或反差进入，中间用 3-5 个完整短段落或少量自然小标签组织，但不要一句一段。必须保留最能证明判断的具体案例、一个真实摩擦点和作者如何形成判断。最后一个正文段落固定为闭合式选择题或明确的观点提问，并以问号结尾。不得为了轻量化把正文压缩成提纲。hashtags 返回 2-6 个不带 # 的标签。
+小红书：默认 content_track=deep_insight，聚焦一条由真实体验和证据推出的高价值判断；互动或痛点型内容只有输入明确要求 standalone_engagement 时才作为独立内容处理。中文、第一人称、像在向大众讲述真实经历和心得，不把 X 逐句翻译。第一人称只用于表达作者确实提供过的经历和判断；如果文章没有明确写作者亲自使用、测试或购买过产品，严禁虚构“我试了”“我用了”“我设置了”等亲测情节，应明确写成“我看到”“从官方介绍来看”或直接陈述产品机制。标题严格不超过 20 个字符，采用“灵活视角 + 强观点/反直觉判断”，可从产品对比、单品拆解、痛点或行业洞察切入，不使用空泛标题，也不得靠截断半句话满足长度。正文约 300-500 个中文字符；开头用具体经历或反差进入，中间用 3-5 个完整短段落或少量自然小标签组织，但不要一句一段。必须保留最能证明判断的具体案例、一个真实摩擦点和作者如何形成判断。最后一个正文段落固定为闭合式选择题或明确的观点提问，并以问号结尾。不得为了轻量化把正文压缩成提纲。hashtags 返回 2-6 个不带 # 的标签。
 
 配图：截图是真实证据，不使用通用 AI 插画。screenshots 要告诉作者具体截什么、为什么截、用于哪个平台，并给出固定的英文小写文件名。个人网站或作者操作过程使用 source_kind=personal；讨论对象产品的界面使用 source_kind=product。通常要求 1-3 张，只有真正必要的才标 required=true。
 
-轮播：carousel 返回 4-8 页，通常使用 6-8 页。第 1 页必须是 cover，最后一页必须是 closing；中间用 screenshot、insight 或 comparison。所有产品对比与矩阵彻底去表格化，comparison 必须设计成纵向或横向圆角卡片；comparison_rows 分别记录对象、最有价值的动作和仍然缺少的能力。每页只表达一个重点，但不能只有一句口号：cover/closing/insight 的 body 通常写 60-180 个中文字符，screenshot 的 body 通常写 35-100 个中文字符，说明截图证明了什么、作者如何判断。图片文字应能独立讲清故事，不能依赖读者先看正文；也不要为适配模板擅自删薄内容，应优先调整排版。只有 kind=screenshot 的页面才设置 screenshot_id，且必须引用 screenshots 中已有的 ID。closing 必须回到文章核心思想；涉及作者背景时，不得写成自我介绍或履历罗列，应先提炼作品集设计或产品方法，再把经历作为能力证据。流程页不得重复写“输出可交接”等抽象状态，要写清每一步实际产生的设计方案、页面、建议或文案。涉及箭头、位置、遮挡、路径等精修案例时，要区分“模型没有检查整体合理性”和“产品缺少选中、拖拽、路径调整、局部锁定等直接控制”；不要把两者都笼统概括成结构问题。视觉样式统一为白底、深蓝标题、深灰正文、淡蓝模块和圆环页脚，必要时使用深色收尾卡。系统同时输出可直接渲染和修改的 HTML/CSS；严禁生成 HTML table。所有内容仅为待审核草稿，不得自动发布。
+轮播：carousel 返回 6-8 页，默认生成 6 页。第 1 页必须是 cover，最后一页必须是 closing；中间用 screenshot、insight 或 comparison。所有产品对比与矩阵彻底去表格化，comparison 必须设计成纵向或横向圆角卡片；comparison_rows 分别记录对象、最有价值的动作和仍然缺少的能力。每页只表达一个重点，但不能只有一句口号：cover/closing/insight 的 body 通常写 60-180 个中文字符，screenshot 的 body 通常写 35-100 个中文字符，说明截图证明了什么、作者如何判断。图片文字应能独立讲清故事，不能依赖读者先看正文；也不要为适配模板擅自删薄内容，应优先调整排版。只有 kind=screenshot 的页面才设置 screenshot_id，且必须引用 screenshots 中已有的 ID。closing 必须回到文章核心思想；涉及作者背景时，不得写成自我介绍或履历罗列，应先提炼作品集设计或产品方法，再把经历作为能力证据。流程页不得重复写“输出可交接”等抽象状态，要写清每一步实际产生的设计方案、页面、建议或文案。涉及箭头、位置、遮挡、路径等精修案例时，要区分“模型没有检查整体合理性”和“产品缺少选中、拖拽、路径调整、局部锁定等直接控制”；不要把两者都笼统概括成结构问题。视觉样式统一为白底、深蓝标题、深灰正文、淡蓝模块和圆环页脚，必要时使用深色收尾卡。系统同时输出可直接渲染和修改的 HTML/CSS；严禁生成 HTML table。所有内容仅为待审核草稿，不得自动发布。
 
 必须严格返回以下 JSON，不得改名、遗漏或增加字段：
 {
@@ -199,7 +199,9 @@ X 关系链：文章涉及具体产品时，mentions_applicable=true，并在相
     {"order": 1, "kind": "cover", "title": "封面观点", "body": "补充说明", "screenshot_id": null, "comparison_rows": []},
     {"order": 2, "kind": "screenshot", "title": "这一页的发现", "body": "截图说明", "screenshot_id": "website-home", "comparison_rows": []},
     {"order": 3, "kind": "comparison", "title": "产品对比", "body": "卡片对比的总结句", "screenshot_id": null, "comparison_rows": [{"label": "产品", "strength": "最有价值的动作", "gap": "仍然缺少什么"}]},
-    {"order": 4, "kind": "closing", "title": "产品启示", "body": "最终判断", "screenshot_id": null, "comparison_rows": []}
+    {"order": 4, "kind": "insight", "title": "体验变化", "body": "体验中具体发生了什么变化", "screenshot_id": null, "comparison_rows": []},
+    {"order": 5, "kind": "insight", "title": "问题与边界", "body": "仍然需要人工判断的摩擦点", "screenshot_id": null, "comparison_rows": []},
+    {"order": 6, "kind": "closing", "title": "产品启示", "body": "最终判断", "screenshot_id": null, "comparison_rows": []}
   ],
   "screenshots": [
     {
