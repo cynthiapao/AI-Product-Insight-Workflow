@@ -3,6 +3,7 @@ from pydantic import ValidationError
 from ai_product_insight.models import SocialBundle, x_preflight_length
 from ai_product_insight.social import render_x_markdown
 from ai_product_insight.agents import SocialRepurposeAgent
+from ai_product_insight.agents import normalize_social_response
 from ai_product_insight.llm import OfflineDemoLLM
 from test_social_models import social_payload
 from test_social_generation import article
@@ -121,6 +122,19 @@ class XThreadTests(unittest.TestCase):
         rendered = render_x_markdown(SocialBundle.model_validate(payload()))
         self.assertIn("官方账号核验", rendered)
         self.assertIn("[@OpenAI](https://x.com/OpenAI)", rendered)
+
+    def test_normalizer_inserts_missing_official_handle_into_lead_post(self):
+        data = payload()
+        for post in data["x_post"]["thread"]:
+            post["text"] = post["text"].replace("@OpenAI", "OpenAI")
+        data["x_post"]["text"] = data["x_post"]["text"].replace("@OpenAI", "OpenAI")
+
+        normalized = normalize_social_response(data, "ai-design-intent")
+        bundle = SocialBundle.model_validate(normalized)
+
+        self.assertIn("@OpenAI", bundle.x_post.thread[0].text)
+        self.assertEqual(bundle.x_post.text, bundle.x_post.thread[0].text)
+        self.assertLessEqual(x_preflight_length(f"1/3\n{bundle.x_post.thread[0].text}"), 280)
 
     def test_v5_xiaohongshu_title_and_question_are_enforced(self):
         data = payload()
