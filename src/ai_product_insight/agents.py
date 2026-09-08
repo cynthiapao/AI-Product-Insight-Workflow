@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 
+from .application_scope import is_clear_non_application
 from .config import WorkflowConfig
 from .editorial import EditorialContext
 from .llm import JsonLLM
@@ -20,6 +21,7 @@ from .models import (
     ResearchAnalysis,
     ResearchPack,
     SocialBundle,
+    x_preflight_length,
 )
 from .prompts import (
     ANALYST_SYSTEM,
@@ -65,6 +67,33 @@ def _truncate_text(value: str, max_length: int) -> str:
     return clipped
 
 
+def _fit_x_text(value: str, prefix: str = "") -> str:
+    """Shorten generated X copy without cutting through a word when possible."""
+
+    value = value.strip()
+    if x_preflight_length(f"{prefix}{value}") <= 280:
+        return value
+
+    suffix = "…"
+    low, high = 20, len(value)
+    while low < high:
+        middle = (low + high + 1) // 2
+        if x_preflight_length(f"{prefix}{value[:middle].rstrip()}{suffix}") <= 280:
+            low = middle
+        else:
+            high = middle - 1
+    clipped = value[:low].rstrip()
+
+    sentence_end = max(clipped.rfind(mark) for mark in (".", "!", "?")) + 1
+    if sentence_end >= max(20, int(len(clipped) * 0.58)):
+        return clipped[:sentence_end].rstrip()
+
+    word_end = max(clipped.rfind(" "), clipped.rfind("\n"))
+    if word_end >= 20:
+        clipped = clipped[:word_end].rstrip(" ,;:-")
+    return f"{clipped}{suffix}"
+
+
 def normalize_scout_response(raw: dict[str, object]) -> dict[str, object]:
     """Accept the two common score layouts while keeping strict downstream models.
 
@@ -89,6 +118,8 @@ def normalize_scout_response(raw: dict[str, object]) -> dict[str, object]:
         else:
             score = dict(score)
         score.setdefault("reason", "模型未返回评分说明，已按各维度分数完成结构兼容。")
+        item.setdefault("application_fit", False)
+        item.setdefault("application_category", "non_application")
         item["score"] = score
         normalized_assessments.append(item)
 
@@ -234,16 +265,42 @@ def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict
         }
     if isinstance(x_post, dict):
         x_item = dict(x_post)
+        thread = x_item.get("thread")
+        if isinstance(thread, list):
+            total = len(thread)
+            normalized_thread: list[object] = []
+            for index, post in enumerate(thread, 1):
+                if not isinstance(post, dict):
+                    normalized_thread.append(post)
+                    continue
+                post_item = dict(post)
+                post_text = post_item.get("text")
+                if isinstance(post_text, str):
+                    post_item["text"] = _fit_x_text(post_text, prefix=f"{index}/{total}\n")
+                normalized_thread.append(post_item)
+            x_item["thread"] = normalized_thread
+            if normalized_thread and isinstance(normalized_thread[0], dict):
+                lead_text = normalized_thread[0].get("text")
+                if isinstance(lead_text, str):
+                    x_item["text"] = lead_text
         text = x_item.get("text")
-        if isinstance(text, str) and len(text.strip()) > 280:
-            clipped = text.strip()[:280]
-            last_space = clipped.rfind(" ")
-            x_item["text"] = clipped[:last_space].rstrip(" ,;:-") if last_space >= 220 else clipped.rstrip()
+        if isinstance(text, str):
+            x_item["text"] = _fit_x_text(text)
         normalized["x_post"] = x_item
 
     xiaohongshu = normalized.get("xiaohongshu")
     if isinstance(xiaohongshu, dict):
         xhs_item = dict(xiaohongshu)
+        title = xhs_item.get("title")
+        if isinstance(title, str):
+            xhs_item["title"] = title.strip()[:20]
+        body = xhs_item.get("body")
+        if isinstance(body, str):
+            body = body.strip()
+            if not body.endswith(("?", "？")):
+                question = "\n\n你更认同哪一种判断？"
+                body = f"{body[:2200-len(question)].rstrip()}{question}"
+            xhs_item["body"] = body[:2200]
         hashtags = xhs_item.get("hashtags")
         if isinstance(hashtags, str):
             xhs_item["hashtags"] = [item for item in hashtags.replace("#", " ").split() if item][:8]
@@ -253,7 +310,18 @@ def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict
 
     carousel = normalized.get("carousel")
     if isinstance(carousel, list):
-        normalized["carousel"] = carousel[:8]
+        normalized_carousel: list[object] = []
+        for slide in carousel[:8]:
+            if not isinstance(slide, dict):
+                normalized_carousel.append(slide)
+                continue
+            item = dict(slide)
+            if isinstance(item.get("title"), str):
+                item["title"] = item["title"].strip()[:60]
+            if isinstance(item.get("body"), str):
+                item["body"] = item["body"].strip()[:240]
+            normalized_carousel.append(item)
+        normalized["carousel"] = normalized_carousel
     screenshots = normalized.get("screenshots")
     if isinstance(screenshots, list):
         normalized_screenshots: list[object] = []
@@ -287,21 +355,33 @@ class ScoutAgent:
     def select(self, candidates: list[ProductCandidate]) -> list[ProductCandidate]:
         if not candidates:
             return []
+        scoped_candidates = candidates
+        if self.config.application_product_only:
+            scoped_candidates = [item for item in candidates if not is_clear_non_application(item)]
+        if not scoped_candidates:
+            return []
         candidate_window = self.config.max_candidates
         payload = {
-            "candidates": [item.model_dump(mode="json") for item in candidates[:candidate_window]],
+            "candidates": [item.model_dump(mode="json") for item in scoped_candidates[:candidate_window]],
             "max_selected": self.config.select_count,
+            "selection_policy": {
+                "application_product_only": self.config.application_product_only,
+                "allowed_categories": self.config.application_categories,
+            },
         }
         raw_selection = self.llm.generate_json(SCOUT_SYSTEM, _json(payload))
         selection = CandidateSelection.model_validate(normalize_scout_response(raw_selection))
         scores = {item.candidate_id: item.score for item in selection.assessments}
+        application_fit = {item.candidate_id: item.application_fit for item in selection.assessments}
         for candidate in candidates:
             if candidate.candidate_id in scores:
                 candidate.score = scores[candidate.candidate_id]
         eligible = [
             item
-            for item in candidates
-            if item.score and item.score.total >= self.config.min_score
+            for item in scoped_candidates
+            if item.score
+            and item.score.total >= self.config.min_score
+            and (not self.config.application_product_only or application_fit.get(item.candidate_id, False))
         ]
         eligible.sort(key=lambda item: item.score.total if item.score else 0, reverse=True)
 

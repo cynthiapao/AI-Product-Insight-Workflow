@@ -78,7 +78,7 @@ class OfflineDemoLLM:
             for index, candidate in enumerate(data["candidates"]):
                 dims = {"relevance": 5 if index == 0 else 3, "novelty": 4, "product_depth": 4, "evidence": 4}
                 total = round(dims["relevance"] * .35 + dims["novelty"] * .25 + dims["product_depth"] * .25 + dims["evidence"] * .15, 2)
-                assessments.append({"candidate_id": candidate["candidate_id"], "score": {**dims, "total": total, "reason": "产品机制清晰，具备近期讨论度和可验证的公开信息。"}})
+                assessments.append({"candidate_id": candidate["candidate_id"], "application_fit": True, "application_category": "productivity", "score": {**dims, "total": total, "reason": "产品机制清晰，具备近期讨论度和可验证的公开信息。"}})
             return {"assessments": assessments, "selected_ids": [data["candidates"][0]["candidate_id"]]}
         if "[RESEARCH]" in system:
             return {

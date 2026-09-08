@@ -15,6 +15,8 @@ class FixedScoutLLM:
             assessments.append(
                 {
                     "candidate_id": candidate["candidate_id"],
+                    "application_fit": True,
+                    "application_category": "productivity",
                     "score": {
                         "relevance": 4,
                         "novelty": 4,
@@ -55,6 +57,69 @@ class ScoutResponseTests(unittest.TestCase):
 
         self.assertEqual(len(selected), 5)
         self.assertEqual([item.name for item in selected[:3]], ["Product 1", "Product 2", "Product 3"])
+
+    def test_excludes_clear_technical_artifact_before_model_selection(self):
+        class RecordingScoutLLM(FixedScoutLLM):
+            seen_names: list[str]
+
+            def generate_json(self, system: str, user: str):
+                import json
+
+                self.seen_names = [item["name"] for item in json.loads(user)["candidates"]]
+                return super().generate_json(system, user)
+
+        llm = RecordingScoutLLM()
+        candidates = [
+            ProductCandidate(
+                name="TERMy",
+                url="https://github.com/example/termy",
+                source="fixture",
+                summary="A fast terminal assistant and command-line tool for developers.",
+            ),
+            ProductCandidate(
+                name="Care Coach AI",
+                url="https://example.com/care-coach",
+                source="fixture",
+                summary="A patient-facing health coaching app with a guided mobile workflow.",
+            ),
+        ]
+
+        selected = ScoutAgent(llm, WorkflowConfig(sources=[])).select(candidates)
+
+        self.assertEqual(llm.seen_names, ["Care Coach AI"])
+        self.assertEqual([item.name for item in selected], ["Care Coach AI"])
+
+    def test_rejects_high_scoring_candidate_when_model_marks_non_application(self):
+        class NonApplicationLLM(FixedScoutLLM):
+            def generate_json(self, system: str, user: str):
+                result = super().generate_json(system, user)
+                result["assessments"][0]["application_fit"] = False
+                result["assessments"][0]["application_category"] = "non_application"
+                return result
+
+        candidate = ProductCandidate(
+            name="Ambiguous AI Project",
+            url="https://example.com/project",
+            source="fixture",
+            summary="A newly released AI project with public documentation.",
+        )
+
+        selected = ScoutAgent(NonApplicationLLM(), WorkflowConfig(sources=[])).select([candidate])
+
+        self.assertEqual(selected, [])
+
+    def test_manual_candidate_bypasses_deterministic_scope_guard(self):
+        candidate = ProductCandidate(
+            name="Explicit terminal review",
+            url="https://example.com/terminal",
+            source="manual",
+            summary="A terminal assistant selected directly by the editor.",
+            manual=True,
+        )
+
+        selected = ScoutAgent(FixedScoutLLM(), WorkflowConfig(sources=[])).select([candidate])
+
+        self.assertEqual([item.name for item in selected], ["Explicit terminal review"])
 
     def test_normalizes_flat_deepseek_score_layout(self):
         raw = {
