@@ -1,0 +1,23 @@
+{
+  "run_id": "20260908T135714Z-6f394f95",
+  "mode": "manual",
+  "status": "completed",
+  "candidate_count": 1,
+  "selected_count": 1,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/google-ai-mode-travel-planning-trust.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/google-ai-mode-travel-planning-trust.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/google-ai-mode-travel-planning-trust.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/google-ai-mode-travel-planning-trust/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/google-ai-mode-travel-planning-trust/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/google-ai-mode-travel-planning-trust/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/google-ai-mode-travel-planning-trust/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/google-ai-mode-travel-planning-trust/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/google-ai-mode-travel-planning-trust/social-cards.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/google-ai-mode-travel-planning-trust/social-cards.css",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/google-ai-mode-travel-planning-trust/README.md"
+  ],
+  "errors": [],
+  "started_at": "2026-09-08T13:57:14.525218Z",
+  "finished_at": "2026-09-08T13:58:20.320744Z"
+}

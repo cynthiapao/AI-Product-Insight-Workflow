@@ -1,0 +1,12 @@
+article_slug: "google-ai-mode-travel-planning-trust"
+screenshots:
+  - screenshot_id: "ai-mode-travel"
+    filename: "01-ai-mode-travel.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Google AI Mode 的旅行规划界面，作为文章核心体验的证据。"
+    capture: "截取 AI Mode 中显示航班价格追踪和酒店预订选项的界面，确保关键功能可见。"
+    annotation: "可标注价格追踪和预订按钮的位置。"
+    used_for:
+      - x
+      - xiaohongshu

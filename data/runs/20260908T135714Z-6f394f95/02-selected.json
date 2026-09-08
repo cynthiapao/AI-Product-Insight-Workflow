@@ -1,0 +1,20 @@
+[
+  {
+    "candidate_id": "b6f451c10265d7a6",
+    "name": "Google Search AI Mode travel planning",
+    "url": "https://blog.google/products-and-platforms/products/search/book-travel-ai-mode",
+    "source": "manual",
+    "summary": "这是一项面向普通消费者的应用层 AI 功能：Google 把旅行灵感、行程规划、价格信息与预订入口放进 Search 的 AI Mode。请重点分析它是否真正减少了用户在多个旅行网站之间反复搜索和比较的成本，以及当搜索、推荐和交易越来越接近时，平台如何处理信任、商业排序与用户决策权。文章需要比较传统旅行搜索或 OTA 的使用方式，避免只复述功能；同时生成待人工审核的小红书 6–8 页轮播草稿和英文 X Thread，不自动发布。",
+    "published_at": null,
+    "discovered_at": "2026-09-08T13:57:14.525093Z",
+    "manual": true,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.2,
+      "reason": "面向消费者的应用层AI功能，直接解决旅行规划中的搜索比较痛点，与AI产品经理高度相关。功能新颖，但需深入分析其对用户决策和平台信任的影响。产品机制可拆解，但公开证据有限，需进一步调研。"
+    }
+  }
+]
