@@ -283,6 +283,42 @@ def normalize_social_response(raw: dict[str, object], article_slug: str) -> dict
                 lead_text = normalized_thread[0].get("text")
                 if isinstance(lead_text, str):
                     x_item["text"] = lead_text
+
+        # DeepSeek can correctly identify an official account while forgetting
+        # to place its handle in the copy. Keep the relationship-chain rule
+        # reliable by adding any missing handles to the lead post before final
+        # length fitting. Prefixing preserves the handle even when long copy is
+        # shortened to X's conservative 280-character budget.
+        official_mentions = x_item.get("official_mentions")
+        if isinstance(official_mentions, list):
+            handles = [
+                str(item.get("handle", "")).strip()
+                for item in official_mentions
+                if isinstance(item, dict) and str(item.get("handle", "")).strip()
+            ]
+            thread = x_item.get("thread")
+            content_parts = [str(x_item.get("text", ""))]
+            if isinstance(thread, list):
+                content_parts.extend(
+                    str(item.get("text", "")) for item in thread if isinstance(item, dict)
+                )
+            content = "\n".join(content_parts).casefold()
+            missing_handles = [handle for handle in handles if handle.casefold() not in content]
+            if missing_handles:
+                mention_line = f"With {', '.join(missing_handles)}:"
+                if isinstance(thread, list) and thread and isinstance(thread[0], dict):
+                    lead = dict(thread[0])
+                    lead["text"] = _fit_x_text(
+                        f"{mention_line}\n\n{str(lead.get('text', '')).strip()}",
+                        prefix=f"1/{len(thread)}\n",
+                    )
+                    thread[0] = lead
+                    x_item["thread"] = thread
+                    x_item["text"] = lead["text"]
+                else:
+                    x_item["text"] = _fit_x_text(
+                        f"{mention_line}\n\n{str(x_item.get('text', '')).strip()}"
+                    )
         text = x_item.get("text")
         if isinstance(text, str):
             x_item["text"] = _fit_x_text(text)
