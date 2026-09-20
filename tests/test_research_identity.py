@@ -69,6 +69,27 @@ class ResearchIdentityTests(unittest.TestCase):
         self.assertTrue(has_required_evidence_mix(result.items))
         self.assertIn(fetcher.official, fetcher.calls)
 
+    def test_blocked_outbound_uses_producthunt_visit_website_fallback(self):
+        fetcher = IdentityFetcher()
+        website = "https://omlx.ai/"
+        fetcher.hits = []
+        fetcher.pages[fetcher.launch] = FetchedPage(
+            fetcher.launch,
+            f'<title>oMLX on Product Hunt</title><a href="{website}">Visit website</a>',
+        )
+        fetcher.pages[website] = FetchedPage(
+            website,
+            f"<title>oMLX</title><p>oMLX: {fetcher.summary}. Built for local inference with explicit user controls.</p>",
+        )
+
+        result = collect_research_evidence(fetcher.candidate(), fetcher)
+
+        self.assertIn(fetcher.outbound, fetcher.calls)
+        self.assertIn(fetcher.launch, fetcher.calls)
+        self.assertIn(website, fetcher.calls)
+        self.assertTrue(any(str(item.url) == website and item.source_type == "official"
+                            for item in result.items))
+
     def test_maritime_does_not_match_starlink_maritime(self):
         fetcher = IdentityFetcher("Maritime", "Dedicated computers for AI agents starting at one dollar per month")
         fetcher.hits = [{"objectID": "1", "title": "Starlink Maritime", "url": "https://starlink.com/maritime", "num_comments": 508}]
