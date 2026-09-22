@@ -7,14 +7,14 @@ from dataclasses import dataclass
 import ipaddress
 import time
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html import unescape
 from html.parser import HTMLParser
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import HTTPRedirectHandler, Request, build_opener
-from urllib.parse import urlsplit
+from urllib.parse import urlencode, urlsplit
 
 from .config import SourceConfig
 from .models import EvidenceItem, ProductCandidate
@@ -195,11 +195,72 @@ def fetch_hackernews(source: SourceConfig, fetcher: HttpFetcher) -> list[Product
     return candidates
 
 
+def fetch_hackernews_search(source: SourceConfig, fetcher: HttpFetcher) -> list[ProductCandidate]:
+    """Find recent AI Show HN launches with a direct product link and discussion."""
+    cutoff = int((datetime.now(timezone.utc) - timedelta(days=21)).timestamp())
+    hits: dict[str, dict[str, Any]] = {}
+    query_errors: list[str] = []
+    for query in ("AI", "agent", "assistant"):
+        params = urlencode({
+            "query": query,
+            "tags": "show_hn",
+            "numericFilters": f"created_at_i>{cutoff},num_comments>=5",
+            "hitsPerPage": 50,
+        })
+        try:
+            payload = fetcher.fetch_json(f"{source.url}?{params}")
+        except (FetchError, OSError, ValueError) as exc:
+            query_errors.append(f"{query}: {exc}")
+            continue
+        if not isinstance(payload, dict) or not isinstance(payload.get("hits"), list):
+            query_errors.append(f"{query}: invalid search response")
+            continue
+        for hit in payload.get("hits", []):
+            if isinstance(hit, dict) and str(hit.get("objectID", "")).isdigit():
+                hits[str(hit["objectID"])] = hit
+    if len(query_errors) == 3:
+        raise FetchError("Hacker News search unavailable: " + "; ".join(query_errors))
+
+    candidates: list[ProductCandidate] = []
+    ranked = sorted(hits.values(), key=lambda hit: (hit.get("num_comments") or 0, hit.get("points") or 0), reverse=True)
+    for hit in ranked:
+        title = str(hit.get("title") or "")
+        url = str(hit.get("url") or "")
+        if (not title.lower().startswith("show hn:") or not is_safe_public_url(url)
+                or classify_source_type(url) != "official"
+                or (urlsplit(url).hostname or "").lower() == "hn.algolia.com"):
+            continue
+        name_and_pitch = re.sub(r"^show hn:\s*", "", title, flags=re.I)
+        name = re.split(r"\s+[–—-]\s+|,\s+", name_and_pitch, maxsplit=1)[0].strip()
+        if not name or len(name) > 160:
+            continue
+        pitch = _plain_hn_text(str(hit.get("story_text") or ""))
+        summary = f"{name_and_pitch}. {pitch}".strip()[:1200]
+        created_at = hit.get("created_at_i")
+        candidates.append(ProductCandidate(
+            name=name,
+            url=url,
+            source=source.name,
+            summary=summary,
+            hn_story_id=int(hit["objectID"]),
+            published_at=datetime.fromtimestamp(created_at, timezone.utc) if isinstance(created_at, int) else None,
+        ))
+        if len(candidates) >= source.limit:
+            break
+    return candidates
+
+
+def _plain_hn_text(value: str) -> str:
+    return " ".join(re.sub(r"<[^>]+>", " ", unescape(value)).split())
+
+
 def fetch_source(source: SourceConfig, fetcher: HttpFetcher) -> list[ProductCandidate]:
     if source.kind == "rss":
         return parse_feed(fetcher.fetch_text(str(source.url)), source)
     if source.kind == "hackernews":
         return fetch_hackernews(source, fetcher)
+    if source.kind == "hackernews_search":
+        return fetch_hackernews_search(source, fetcher)
     raise ValueError(f"Unsupported source kind: {source.kind}")
 
 
