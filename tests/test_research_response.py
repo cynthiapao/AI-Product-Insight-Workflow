@@ -31,6 +31,20 @@ class ResearchResponseTests(unittest.TestCase):
         self.assertEqual(analysis.quality, EvidenceQuality.strong)
         self.assertNotIn("evidence_quality", normalized)
 
+    def test_trims_generated_lists_to_schema_limits(self):
+        raw = {
+            "verified_facts": [f"Verified fact {index}" for index in range(14)],
+            "open_questions": [f"Open question {index}" for index in range(10)],
+            "quality": "usable",
+        }
+
+        analysis = ResearchAnalysis.model_validate(normalize_research_response(raw))
+
+        self.assertEqual(len(analysis.verified_facts), 12)
+        self.assertEqual(analysis.verified_facts[-1], "Verified fact 11")
+        self.assertEqual(len(analysis.open_questions), 8)
+        self.assertEqual(analysis.open_questions[-1], "Open question 7")
+
 
 if __name__ == "__main__":
     unittest.main()

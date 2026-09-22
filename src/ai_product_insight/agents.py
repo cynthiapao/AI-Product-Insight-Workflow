@@ -139,6 +139,11 @@ def normalize_research_response(raw: dict[str, object]) -> dict[str, object]:
     evidence_quality = normalized.pop("evidence_quality", None)
     if "quality" not in normalized and evidence_quality is not None:
         normalized["quality"] = evidence_quality
+
+    for field, max_items in (("verified_facts", 12), ("open_questions", 8)):
+        items = normalized.get(field)
+        if isinstance(items, list):
+            normalized[field] = items[:max_items]
     return normalized
 
 

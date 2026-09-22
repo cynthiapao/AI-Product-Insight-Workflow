@@ -281,6 +281,25 @@ def _verified_linked_pages(candidate: ProductCandidate, page: FetchedPage, hits:
     return verified
 
 
+def _verified_product_destination(candidate: ProductCandidate, fetcher: HttpFetcher,
+                                  url: str, errors: list[str]) -> FetchedPage | None:
+    try:
+        page = _product_page(fetcher, url)
+        if page.url != url and urlsplit(page.url).hostname == "github.com":
+            page = _product_page(fetcher, page.url)
+        content = _plain_text(page.text)
+        if not _official_destination(page.url):
+            errors.append("outbound link did not resolve to a product-owned page")
+            return None
+        if not _name_mentioned(candidate.name, content) or not _purpose_matches(candidate, content):
+            errors.append(f"identity not corroborated on destination: {page.url}")
+            return None
+        return page
+    except FETCH_ERRORS as exc:
+        errors.append(f"official destination fetch failed ({url}): {exc}")
+        return None
+
+
 def _resolve_product_page(candidate: ProductCandidate, fetcher: HttpFetcher,
                           hits: list[dict[str, object]], errors: list[str]) -> FetchedPage | None:
     original = str(candidate.url)
@@ -312,21 +331,29 @@ def _resolve_product_page(candidate: ProductCandidate, fetcher: HttpFetcher,
         if url in seen:
             continue
         seen.add(url)
-        try:
-            page = _product_page(fetcher, url)
-            if page.url != url and urlsplit(page.url).hostname == "github.com":
-                page = _product_page(fetcher, page.url)
-            content = _plain_text(page.text)
-            if not _official_destination(page.url):
-                errors.append("outbound link did not resolve to a product-owned page")
-                continue
-            if not _name_mentioned(candidate.name, content) or not _purpose_matches(candidate, content):
-                errors.append(f"identity not corroborated on destination: {page.url}")
-                continue
+        page = _verified_product_destination(candidate, fetcher, url, errors)
+        if page is not None:
             # Keep evidence URL as the verified destination, not the blocked listing.
             return page
-        except FETCH_ERRORS as exc:
-            errors.append(f"official destination fetch failed ({url}): {exc}")
+
+    # Product Hunt's outbound /r/p redirect is intermittently blocked on hosted
+    # runners. Its product page exposes the same destination as a normal
+    # "Visit website" link, so use that only as a discovery fallback. The
+    # destination must still pass the normal identity and ownership checks.
+    try:
+        listing = _fetch_page(fetcher, original)
+        for anchor, href in _parse_page(listing.text).links:
+            if anchor.strip().casefold() not in {"visit", "website", "visit website"}:
+                continue
+            url = urljoin(listing.url, href)
+            if url in seen or not _official_destination(url):
+                continue
+            seen.add(url)
+            page = _verified_product_destination(candidate, fetcher, url, errors)
+            if page is not None:
+                return page
+    except FETCH_ERRORS as exc:
+        errors.append(f"listing page fallback failed: {exc}")
     errors.append("official URL unresolved: discovery listing is not official evidence")
     return None
 
