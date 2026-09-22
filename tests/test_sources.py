@@ -1,8 +1,12 @@
 import unittest
+from datetime import datetime, timezone
 from urllib.request import Request
 from unittest.mock import patch
 
-from ai_product_insight.sources import FetchError, SafeRedirectHandler, is_safe_public_url, _validate_fetch_target
+from ai_product_insight.config import SourceConfig
+from ai_product_insight.sources import (
+    FetchError, SafeRedirectHandler, fetch_hackernews_search, is_safe_public_url, _validate_fetch_target,
+)
 
 
 class SourceSafetyTests(unittest.TestCase):
@@ -27,6 +31,31 @@ class SourceSafetyTests(unittest.TestCase):
             request = SafeRedirectHandler().redirect_request(Request("https://www.producthunt.com/r/p/1"),
                 None, 302, "Found", {}, "https://product.example/")
             self.assertEqual(request.full_url, "https://product.example/")
+
+    def test_recent_show_hn_source_keeps_direct_link_and_story_identity(self):
+        requested_urls = []
+
+        class Fetcher:
+            def fetch_json(self, url):
+                requested_urls.append(url)
+                return {"hits": [
+                    {"objectID": "123", "title": "Show HN: Demo AI – Research with citations",
+                     "url": "https://demo.ai/", "story_text": "A research app with source review.",
+                     "created_at_i": 1789500000, "num_comments": 8, "points": 15},
+                    {"objectID": "124", "title": "Show HN: Missing website", "url": None,
+                     "num_comments": 20},
+                ]}
+
+        source = SourceConfig(name="Hacker News Show", kind="hackernews_search",
+                              url="https://hn.algolia.com/api/v1/search_by_date", limit=10)
+        candidates = fetch_hackernews_search(source, Fetcher())
+        self.assertEqual(len(requested_urls), 3)
+        self.assertTrue(all(url.startswith("https://hn.algolia.com/api/v1/search_by_date?") for url in requested_urls))
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual(candidates[0].name, "Demo AI")
+        self.assertEqual(candidates[0].hn_story_id, 123)
+        self.assertEqual(str(candidates[0].url), "https://demo.ai/")
+        self.assertEqual(candidates[0].published_at, datetime.fromtimestamp(1789500000, timezone.utc))
 
 
 if __name__ == "__main__":
