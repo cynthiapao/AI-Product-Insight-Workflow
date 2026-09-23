@@ -2,15 +2,16 @@
   "sources": [
     {
       "name": "Hacker News Show",
-      "kind": "hackernews",
-      "url": "https://hacker-news.firebaseio.com/v0/showstories.json",
-      "limit": 12
+      "kind": "hackernews_search",
+      "url": "https://hn.algolia.com/api/v1/search_by_date",
+      "limit": 24
     },
     {
       "name": "Product Hunt",
       "kind": "rss",
       "url": "https://www.producthunt.com/feed",
-      "limit": 12
+      "limit": 12,
+      "enabled": false
     },
     {
       "name": "Hugging Face Blog",
@@ -25,9 +26,9 @@
       "limit": 8
     }
   ],
-  "max_candidates": 25,
+  "max_candidates": 35,
   "select_count": 3,
-  "research_candidate_limit": 8,
+  "research_candidate_limit": 12,
   "min_score": 3.1,
   "min_evidence_items": 2,
   "application_product_only": true,

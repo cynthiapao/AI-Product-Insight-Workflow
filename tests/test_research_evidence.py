@@ -70,6 +70,27 @@ class FakeFetcher:
 
 
 class ResearchEvidenceTests(unittest.TestCase):
+    def test_show_hn_uses_original_story_and_checks_destination(self):
+        candidate = ProductCandidate(
+            name="Demo AI", url="https://demo.ai/", source="Hacker News Show",
+            summary="Demo AI is a research app with citations.", hn_story_id=123,
+        )
+        fetcher = FakeFetcher()
+        fetcher.fetch_json = lambda url: {
+            "id": 123, "title": "Show HN: Demo AI – Research with citations",
+            "url": "https://demo.ai/", "author": "maker",
+            "children": [{"author": "reader", "text": "I used this research app and its citations helped me inspect the claims before sharing the result."}],
+        } if url == "https://hn.algolia.com/api/v1/items/123" else self.fail(f"Unexpected JSON URL: {url}")
+        result = collect_research_evidence(candidate, fetcher)
+        self.assertTrue(has_required_evidence_mix(result.items))
+        self.assertTrue(any(item.source_type == "community" for item in result.items))
+
+        original_fetch_json = fetcher.fetch_json
+        fetcher.fetch_json = lambda url: {**original_fetch_json(url), "url": "https://different.example/"}
+        result = collect_research_evidence(candidate, fetcher)
+        self.assertFalse(has_required_evidence_mix(result.items))
+        self.assertTrue(any("does not corroborate" in error for error in result.errors))
+
     def test_collects_official_release_and_independent_evidence(self):
         candidate = ProductCandidate(
             name="Demo AI",

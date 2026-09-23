@@ -57,6 +57,7 @@ class ProductCandidate(StrictModel):
     url: HttpUrl
     source: str = Field(min_length=1, max_length=80)
     summary: str = Field(default="", max_length=1200)
+    hn_story_id: int | None = Field(default=None, ge=1)
     published_at: datetime | None = None
     discovered_at: datetime = Field(default_factory=utc_now)
     manual: bool = False

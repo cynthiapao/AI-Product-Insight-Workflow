@@ -374,6 +374,15 @@ def _fetch_hackernews_evidence(candidate: ProductCandidate, fetcher: HttpFetcher
             continue
         if not isinstance(details, dict):
             continue
+        if candidate.hn_story_id == int(object_id):
+            # A discovery hit is only a lead. Verify the original discussion
+            # still points to the same product before treating comments as evidence.
+            discussion_url = str(details.get("url") or "")
+            discussion_title = str(details.get("title") or "")
+            if (not official_url or not _same_product_site(official_url, discussion_url)
+                    or not _name_mentioned(candidate.name, discussion_title)):
+                errors.append(f"HN discussion {object_id}: original story does not corroborate product identity")
+                continue
         author = details.get("author") or hit.get("author")
         queue = list(details.get("children") or [])
         comments: list[str] = []
@@ -458,10 +467,13 @@ def collect_research_evidence(
     candidate_url = str(candidate.url)
     primary_parser: _ResearchPageParser | None = None
     hits: list[dict[str, object]] = []
-    try:
-        hits = _search_hackernews(candidate, fetcher)
-    except FETCH_ERRORS as exc:
-        errors.append(f"Hacker News research failed: {exc}")
+    if candidate.hn_story_id is not None and candidate.source == "Hacker News Show":
+        hits = [{"objectID": str(candidate.hn_story_id), "title": candidate.name, "url": candidate_url}]
+    else:
+        try:
+            hits = _search_hackernews(candidate, fetcher)
+        except FETCH_ERRORS as exc:
+            errors.append(f"Hacker News research failed: {exc}")
 
     page = _resolve_product_page(candidate, fetcher, hits, errors)
     official_url: str | None = None
