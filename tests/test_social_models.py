@@ -60,6 +60,14 @@ class SocialModelTests(unittest.TestCase):
         self.assertLessEqual(len(bundle.x_post.text), 280)
         self.assertEqual(bundle.screenshots[0].filename, "01-website-home.png")
 
+    def test_accepts_concise_chinese_comparison_phrases(self):
+        payload = social_payload()
+        payload["carousel"][2]["comparison_rows"][0].update(  # type: ignore[index]
+            {"strength": "开源", "gap": "非开源"}
+        )
+        bundle = SocialBundle.model_validate(payload)
+        self.assertEqual(bundle.carousel[2].comparison_rows[0].gap, "非开源")
+
     def test_rejects_x_post_over_280_characters(self):
         payload = social_payload()
         payload["x_post"]["text"] = "x" * 281  # type: ignore[index]
