@@ -1,0 +1,153 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "pizza-bot-inbox-for-ai-agents",
+  "key_takeaway": "Pizza Bot 用收件箱范式管理异步 AI agent，把完成与待审批分开，但桌面形态限制了真正的后台运行。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @pizzabotapp:\n\nPizza Bot turns long-running AI agents into an inbox you can actually manage.\n\nFinished work lands in Unread. Decisions waiting for you land in Action.\n\nIt's a simple shift from chat to queue — and it changes how you think about agent workflows.",
+    "headline": "An inbox for long-running AI work",
+    "image_recommended": true,
+    "image_brief": "Use the official Pizza Bot inbox screenshot showing Unread and Action queues, with a clear view of the approval request and completed launch brief.",
+    "alt_text": "Pizza Bot inbox interface with Unread and Action queues, showing an approval request and a completed launch brief",
+    "visual_caption": "Finished work in Unread. Decisions in Action.",
+    "comparison_rows": [
+      {
+        "label": "Pizza Bot",
+        "strength": "Inbox metaphor for agent output",
+        "gap": "Desktop app limits true async"
+      },
+      {
+        "label": "Linear Agents",
+        "strength": "Integrated with existing ticket tracker",
+        "gap": "Not local-first or model-agnostic"
+      },
+      {
+        "label": "File monitor",
+        "strength": "Simple and transparent",
+        "gap": "No approval queue or agent management"
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @pizzabotapp:\n\nPizza Bot turns long-running AI agents into an inbox you can actually manage.\n\nFinished work lands in Unread. Decisions waiting for you land in Action.\n\nIt's a simple shift from chat to queue — and it changes how you think about agent workflows.",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview of Pizza Bot's inbox interface with Unread and Action queues"
+      },
+      {
+        "text": "The core loop: start or schedule a task, walk away, and come back to finished work.\n\nAgents keep running when you navigate away or disconnect. Checkpointed runs survive client disconnects, and cron or webhook triggers can start work without an open conversation.",
+        "image_kind": "screenshot",
+        "screenshot_id": "pizza-bot-inbox",
+        "alt_text": "Screenshot of Pizza Bot inbox showing unread work, an approval request, a completed launch brief, and delegated agent activity"
+      },
+      {
+        "text": "But the desktop app shape limits true async: if your computer is off, tasks don't run unless you deploy a standalone backend.\n\nAnd compared to Linear or a simple file monitor, the differentiation is still unclear.\n\nWhat would make you switch from your current ticket tracker?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Pizza Bot",
+        "handle": "@pizzabotapp",
+        "profile_url": "https://x.com/pizzabotapp",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "AI agent 收件箱",
+    "body": "最近看到一个叫 Pizza Bot 的开源项目，它把后台运行的 AI agent 任务映射到一个类似电子邮件的收件箱界面。完成的工作进入 Unread，等待审批的操作进入 Action。这个设计解决了一个关键问题：当 AI agent 从同步对话转向异步执行时，用户如何管理多个并发任务而不被实时打断。\n\n传统聊天界面要求用户保持会话活跃，而长时间任务会占用注意力并造成上下文断裂。Pizza Bot 用收件箱隐喻重新组织工作状态：Unread 和 Action 队列提供了清晰的优先级和决策点，降低了管理多个并发 agent 任务的认知负担。\n\n人工审批机制将高风险操作的控制权保留给用户，同时允许低风险任务自动完成，平衡了效率与安全。支持多种模型提供商和本地模型降低了使用门槛，而显式的文件访问授权增强了信任。\n\n但桌面应用的形态限制了真正的异步性：计算机关闭时任务无法运行，除非部署独立后端。与现有工单系统（如 Linear）或简单文件监控方案相比，Pizza Bot 的差异化价值尚不明确。\n\n你觉得 AI agent 的工作管理，是应该融入现有工单系统，还是需要独立的收件箱范式？",
+    "hashtags": [
+      "AI产品",
+      "异步工作流",
+      "收件箱范式",
+      "人机协作"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "AI agent 的收件箱",
+      "body": "Pizza Bot 把后台运行的 AI agent 任务映射到类似电子邮件的收件箱界面。完成的工作进入 Unread，等待审批的操作进入 Action。这个设计让异步工作变得可管理。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "收件箱界面",
+      "body": "截图展示了 Unread 和 Action 两个队列，以及一个审批请求和一个已完成的启动简报。这证明了收件箱范式如何将 agent 输出与用户注意力解耦。",
+      "comparison_rows": [],
+      "screenshot_id": "pizza-bot-inbox"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "与现有方案对比",
+      "body": "Pizza Bot 用收件箱管理 agent 输出，但桌面形态限制了真正的后台运行。Linear 集成现有工单系统，文件监控简单透明但缺少审批队列。",
+      "comparison_rows": [
+        {
+          "label": "Pizza Bot",
+          "strength": "收件箱范式管理 agent 输出",
+          "gap": "桌面应用限制真正异步"
+        },
+        {
+          "label": "Linear Agents",
+          "strength": "与现有工单系统集成",
+          "gap": "非本地优先或模型无关"
+        },
+        {
+          "label": "文件监控",
+          "strength": "简单透明",
+          "gap": "缺少审批队列和 agent 管理"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "体验变化",
+      "body": "用户不必盯着聊天窗口等待输出，而是像处理邮件一样在方便时批量查看和决策。人工审批机制将高风险操作的控制权保留给用户，同时允许低风险任务自动完成。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "问题与边界",
+      "body": "计算机关闭时任务无法运行，除非部署独立后端。与现有工单系统相比，差异化价值尚不明确。产品缺乏对结构化输出的强制机制，长期记忆的具体实现未公开。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "将 agent 工作流映射到用户熟悉的交互范式可以显著降低管理成本。但产品必须解决部署灵活性和与现有工具链的集成，才能真正融入用户的工作流。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "pizza-bot-inbox",
+      "filename": "01-pizza-bot-inbox.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 Pizza Bot 的收件箱界面，证明 Unread 和 Action 队列如何组织 agent 输出。",
+      "capture": "截取 Pizza Bot 应用的主界面，包含 Unread 和 Action 队列，以及一个审批请求和一个已完成的启动简报。",
+      "annotation": "Unread 队列显示完成的工作，Action 队列显示待审批操作。",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}
