@@ -183,8 +183,8 @@ class ArticleContent(StrictModel):
 
 class ComparisonRow(StrictModel):
     label: str = Field(min_length=1, max_length=40)
-    strength: str = Field(min_length=4, max_length=140)
-    gap: str = Field(min_length=4, max_length=140)
+    strength: str = Field(min_length=2, max_length=140)
+    gap: str = Field(min_length=2, max_length=140)
 
 
 def x_preflight_length(text: str) -> int:
