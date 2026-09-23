@@ -1,0 +1,12 @@
+article_slug: "pizza-bot-inbox-for-ai-agents"
+screenshots:
+  - screenshot_id: "pizza-bot-inbox"
+    filename: "01-pizza-bot-inbox.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Pizza Bot 的收件箱界面，证明 Unread 和 Action 队列如何组织 agent 输出。"
+    capture: "截取 Pizza Bot 应用的主界面，包含 Unread 和 Action 队列，以及一个审批请求和一个已完成的启动简报。"
+    annotation: "Unread 队列显示完成的工作，Action 队列显示待审批操作。"
+    used_for:
+      - x
+      - xiaohongshu

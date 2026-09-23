@@ -1,0 +1,63 @@
+{
+  "candidate": {
+    "candidate_id": "5f516ad189d423f8",
+    "name": "Pizza Bot",
+    "url": "https://github.com/pizza-bot-app/pizza-bot",
+    "source": "Hacker News Show",
+    "summary": "Pizza Bot – An inbox for AI agents that work in the background. Hi HN - long-time lurker (since 2012!), first time poster. Pizza Bot is a self-hosted desktop app for Mac, Windows, and Linux that runs AI agents in the background and exposes them through an email-like UI. Finished work shows up in Unread, and anything waiting on your approval shows up in Action. It's Apache 2.0-licensed, there's no signup and no telemetry, and you bring your own model provider: Anthropic, Amazon Bedrock, Google Gemini, OpenAI, OpenRouter, or a local model through Ollama. There are builds on the releases page, or you can run it from source. Pizza Bot started as an internal passion project I worked on with a small team at Amazon. The whole thing came out of my frustration at having to manually log CRM activities through a browser form. I built a simple REST API called \"JoeBot\" that connected to my authenticated browser session over CDP and filled out the form for me using Playwright. Then I hacked up a quick Obsidian plugin so I could trigger it from my local notes (no AI and no MCP servers involved). This caught on quickly. My fellow AWS Solutions Architect Igor Fil joined up with me, and we rebranded",
+    "hn_story_id": 49713894,
+    "published_at": "2026-09-15T15:20:26Z",
+    "discovered_at": "2026-09-23T15:09:04.062157Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.35,
+      "reason": "Pizza Bot 是自托管桌面应用，用类邮箱 UI（Unread/Action）管理后台 AI agent，支持多模型提供商、本地模型和审批流，有可下载构建和开源仓库。它把 agent 工作流产品化为收件箱范式，对 AI PM 有很强的机制拆解价值，证据充分，值得优先研究。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "pizza-bot",
+      "url": "https://github.com/pizza-bot-app/pizza-bot",
+      "excerpt": "<p align=\"center\"> <img src=\"assets/icons/icon.png\" alt=\"Pizza Bot\" width=\"160\" /> </p> <h1 align=\"center\">Pizza Bot</h1> <p align=\"center\"> <strong>An inbox for long-running AI work.</strong><br /> Start or schedule a task, walk away, and come back to finished work in <b>Unread</b> and decisions waiting for you in <b>Action</b>. </p> <p align=\"center\"> <a href=\"https://github.com/pizza-bot-app/pizza-bot/actions/workflows/ci.yml\"><img src=\"https://github.com/pizza-bot-app/pizza-bot/actions/workflows/ci.yml/badge.svg\" alt=\"CI status\" /></a> <a href=\"https://github.com/pizza-bot-app/pizza-bot/releases/latest\"><img src=\"https://img.shields.io/github/v/release/pizza-bot-app/pizza-bot\" alt=\"Latest release\" /></a> <a href=\"LICENSE\"><img src=\"https://img.shields.io/github/license/pizza-bot-app/pizza-bot\" alt=\"Apache 2.0 license\" /></a> <a href=\"https://github.com/pizza-bot-app/pizza-bot/releases/latest\"><img src=\"https://img.shields.io/badge/platforms-macOS%20%7C%20Windows%20%7C%20Linux-blue\" alt=\"Runs on macOS, Windows, and Linux\" /></a> <a href=\"docs/RUNNING.md\"><img src=\"https://img.shields.io/badge/node-%3E%3D%2024-339933?logo=node.js&logoColor=white\" alt=\"Requires Node.js 24 or newer\" /></a> <a href=\"https://github.com/pizza-bot-app/pizza-bot/discussions\"><img src=\"https://img.shields.io/badge/GitHub-Discussions-8250df?logo=github\" alt=\"GitHub Discussions\" /></a> </p> <p align=\"center\"> <a href=\"#download\">Download</a> · <a href=\"#quick-start\">Quick start</a> · <a href=\"#why-pizza-bot\">Why Pizza Bot</a> · <a href=\"#extend-it\">Extend</a> · <a href=\"docs/ARCHITECTURE.md\">Architecture</a> · <a href=\"CONTRIBUTING.md\">Contributing</a> · <a href=\"ROADMAP.md\">Roadmap</a> · <a href=\"https://github.com/pizza-bot-app/pizza-bot/discussions\">Discussions</a> </p> ![Pizza Bot inbox showing unread work, an approval request, a completed launch brief, and delegated agent activity](docs/assets/pizza-bot-inbox.png) Agents keep working when you navigate away or disconnect; only the api-server process must remain running. A stateful DeepAgents/LangGraph runtime serves the same React experience in Electron and the browser, and the desktop app, web app, and terminal CLI all talk to the api-server over HTTP/SSE. Pizza Bot was developed at Amazon and is released under the Apache 2.0 license. ## Why Pizza Bot? - **Work asynchronously.** Switch conversations without stopping their runs. - **Return to the right queue.** Completed work lands in Unread; durable approval requests land in Action. - **Organize conversations.** Group threads into folders without hiding matching work from the global Unread and Action queues. - **Resume real work.** Checkpointed runs survive client disconnects, and cron or webhook triggers can start work without an open conversation. - **Delegate to specialists.** Skills become tool-scoped subagents whose progress appears in the Activity panel. - **Bring your model provider.** Amazon Bedrock, Anthropic, Google Gemini, OpenAI, OpenRouter, and Ollama are supported. - **Keep control of consequential actions.** Human-in-the-loop approvals, long-term memory, file attachments, and desktop notifications are built into the workflow. - **Grant local access explicitly.** Add individual read-only or writable folders under **Settings > Files**; Pizza Bot receives no default home-directory access. ## Download Installers are attached to every [release](https://github.com/pizza-bot-app/pizza-bot/releases/latest), with a `SHA256SUMS` to check a download against. | Platform | Packages | Notes | | --- | --- | --- | | macOS (Apple silicon, Intel) | `.dmg`, `.zip` | Signed and notarized | | Windows (x64) | `-setup.exe` | | | Linux (x64, arm64) | `.deb`, `.rpm` | Not signed; verify against `SHA256SUMS` | ## Quick start Node.js 24 or newer is required. ```bash npm install npm run build npm run dev ``` `npm run dev` starts the Vite frontend and Electron desktop shell. The shell forks and supervises its own api-server, matching the packaged application's process model. Configure a model under **Settings > Providers** before starting a live run. See [Running from source](docs/RUNNING.md) for isolated data roots, browser and CLI development, desktop packages, and remote backends. ## Ways to run | Experience | Best for | Start here | | --- | --- | --- | | Electron desktop | Local inbox with an embedded backend | `npm run dev` | | Browser | Web development or static deployment | [Browser development](docs/RUNNING.md#browser-development) | | Terminal CLI | Scripts, terminals, and remote backends | [CLI](docs/RUNNING.md#cli) | | Standalone backend | Remote Electron, browsers, containers, or Linux services | [Backend guide](docs/STANDALONE_BACKEND.md) | A running api-server needs access to at least one model provider; HTTP clients do not. Configure Amazon Bedrock, Anthropic, Google Gemini, OpenAI, OpenRouter, or Ollama in **Settings > Providers**. Bedrock accepts an AWS profile, AWS access keys, or a Bedrock API key, with an optional region ",
+      "source_type": "official",
+      "retrieved_at": "2026-09-23T15:09:19.115277Z"
+    },
+    {
+      "title": "Pizza Bot",
+      "url": "https://news.ycombinator.com/item?id=49713894",
+      "excerpt": "congrats on the public launch! it's been clear to me for a while now that agents will need their own ways to communicate and an asynchronous inbox/task system is a necessity already. will point my agents at the repo to see how we can leverage\nI have a more basic question; I am trying to understand its purpose. How does this compare with connecting your agent to your ticket tracker? Linear can dispatch the agents: https://linear.app/agents https://linear.app/docs/coding-sessions If it is about local work, how does it compare with simply having your agent monitor a directory for ticket files?\nWhy does it have to be a desktop app vs a self hostable web app? That way it can truly run asynchronously, even with the computer switched off.\nThis looks great. I've been playing around with GrokBot, and like a lot of what it does, but would much, much prefer an open source project to manage various asynchronous tasks. What I like about GrokBot is the combination of freeform agent discussions, scheduled jobs, agent-to-agent communication, per-agent memory, and the fact that they all get a sandboxed instance with a browser. It's very well implemented. I think they have a very similar vision to yours.\nDo you have a list of a few mcp servers or other tools you would add to help with the pizza-bot specific workflow? For example, how would you enforce structured output, should that be an mcp server, a plugin, already in the box?",
+      "source_type": "community",
+      "retrieved_at": "2026-09-23T15:09:19.615451Z"
+    }
+  ],
+  "verified_facts": [
+    "Pizza Bot 是一个自托管的桌面应用，支持 macOS、Windows 和 Linux。",
+    "Pizza Bot 采用 Apache 2.0 许可证发布。",
+    "Pizza Bot 使用类似电子邮件的 UI，完成的工作出现在 Unread，等待审批的事项出现在 Action。",
+    "Pizza Bot 支持多种模型提供商：Amazon Bedrock、Anthropic、Google Gemini、OpenAI、OpenRouter 以及通过 Ollama 的本地模型。",
+    "Pizza Bot 需要 Node.js 24 或更高版本。",
+    "Pizza Bot 的安装包附带在每个 release 中，并提供 SHA256SUMS 用于校验下载。",
+    "Pizza Bot 的 macOS 包已签名并公证；Linux 包未签名。",
+    "Pizza Bot 使用有状态的 DeepAgents/LangGraph 运行时，桌面应用、Web 应用和终端 CLI 都通过 HTTP/SSE 与 api-server 通信。",
+    "Pizza Bot 支持人工审批（human-in-the-loop）、长期记忆、文件附件和桌面通知。",
+    "Pizza Bot 默认不授予主目录访问权限，用户需在 Settings > Files 中显式添加只读或可写文件夹。",
+    "Pizza Bot 支持 cron 或 webhook 触发器启动任务，且 checkpointed runs 可在客户端断开后继续。",
+    "Pizza Bot 在 Amazon 开发，最初源于作者手动记录 CRM 活动的痛点，最初版本名为 JoeBot，通过 CDP 连接已认证的浏览器会话并使用 Playwright 填写表单。"
+  ],
+  "open_questions": [
+    "Pizza Bot 与 Linear 等工单系统派发 agent 的方式相比，具体差异和优势是什么？",
+    "Pizza Bot 与让 agent 监控目录中的工单文件相比，有何不同？",
+    "为什么选择桌面应用而非可自托管的 Web 应用，从而在计算机关闭时也能异步运行？",
+    "Pizza Bot 与 GrokBot 在功能（如自由形式 agent 讨论、定时任务、agent 间通信、每 agent 记忆、沙箱浏览器实例）上的具体对比如何？",
+    "Pizza Bot 推荐搭配哪些 MCP 服务器或工具来支持其特定工作流？",
+    "Pizza Bot 如何强制结构化输出——是通过 MCP 服务器、插件还是内置功能？",
+    "Pizza Bot 的独立后端（standalone backend）在容器或 Linux 服务中的部署细节和限制是什么？",
+    "Pizza Bot 的长期记忆机制具体如何实现和存储？"
+  ],
+  "quality": "usable",
+  "collection_diagnostics": []
+}

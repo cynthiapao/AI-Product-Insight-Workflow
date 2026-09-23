@@ -1,0 +1,59 @@
+[
+  {
+    "candidate_id": "5f516ad189d423f8",
+    "name": "Pizza Bot",
+    "url": "https://github.com/pizza-bot-app/pizza-bot",
+    "source": "Hacker News Show",
+    "summary": "Pizza Bot – An inbox for AI agents that work in the background. Hi HN - long-time lurker (since 2012!), first time poster. Pizza Bot is a self-hosted desktop app for Mac, Windows, and Linux that runs AI agents in the background and exposes them through an email-like UI. Finished work shows up in Unread, and anything waiting on your approval shows up in Action. It's Apache 2.0-licensed, there's no signup and no telemetry, and you bring your own model provider: Anthropic, Amazon Bedrock, Google Gemini, OpenAI, OpenRouter, or a local model through Ollama. There are builds on the releases page, or you can run it from source. Pizza Bot started as an internal passion project I worked on with a small team at Amazon. The whole thing came out of my frustration at having to manually log CRM activities through a browser form. I built a simple REST API called \"JoeBot\" that connected to my authenticated browser session over CDP and filled out the form for me using Playwright. Then I hacked up a quick Obsidian plugin so I could trigger it from my local notes (no AI and no MCP servers involved). This caught on quickly. My fellow AWS Solutions Architect Igor Fil joined up with me, and we rebranded",
+    "hn_story_id": 49713894,
+    "published_at": "2026-09-15T15:20:26Z",
+    "discovered_at": "2026-09-23T15:09:04.062157Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.35,
+      "reason": "Pizza Bot 是自托管桌面应用，用类邮箱 UI（Unread/Action）管理后台 AI agent，支持多模型提供商、本地模型和审批流，有可下载构建和开源仓库。它把 agent 工作流产品化为收件箱范式，对 AI PM 有很强的机制拆解价值，证据充分，值得优先研究。"
+    }
+  },
+  {
+    "candidate_id": "faef5a7277690d38",
+    "name": "Ax-check.com",
+    "url": "https://www.ax-check.com/",
+    "source": "Hacker News Show",
+    "summary": "Ax-check.com – Can agents use your product?. I'm the co-founder of Gauge, and I built ax-check.com to quickly test how well coding agents can onboard to your product. You'll get a scorecard, specific suggested fixes, and three full coding sessions that show how agents read your site and use your product. I built this because similar checks were too noisy. Most suggested obscure technical changes that don't actually make a difference in agent experience (or AX, hence ax-check.com). This check starts by using DeepSeek 4.1 Flash to try to find key information about your product, starting from the homepage. In actual agent traffic data, we've seen that the key pages are the homepage, llms.txt, pricing, and the docs site (by traffic volume, and by influence), so we focus on those and ignore the rest. We also find that content negotiation for Markdown is legitimately helpful for agents to complete tasks faster and find what they're looking for, so the scan tests that your key pages can serve Markdown. The other key piece is that we run actual coding agents in sandboxes, and have them try to onboard to your product. You can see the full trace and watch it happen live (we kick it off fresh",
+    "hn_story_id": 49744416,
+    "published_at": "2026-09-17T18:08:02Z",
+    "discovered_at": "2026-09-23T15:09:04.062013Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Ax-check 是可直接体验的网页工具，为产品团队评估 coding agent 能否顺利上手其产品，输出评分卡、修复建议和完整 agent 会话回放。它切中 AI 时代产品可发现性（AX）这一新问题，机制清晰、有可拆解的产品设计，适合 AI PM 作品集；但公开证据以自述为主，需进一步验证。"
+    }
+  },
+  {
+    "candidate_id": "56906b0df6273f2b",
+    "name": "Capsule",
+    "url": "https://withcapsule.app/",
+    "source": "Hacker News Show",
+    "summary": "Capsule – Single-file web apps that save their data into SQLite. Hey HN, I always had the problem that building HTML pages is really simple now, but trying to save data required hosting it somewhere, and sharing it afterwards was not easy. Over the last few months, I've been building an app called Capsule (it’s also the file extension name) written in Rust with Tauri 2.0 that allows packing an HTML app and its data into a single SQLite file. The HTML file and any related assets are directly embedded in the database. User data can either be saved as a localStorage key/value store or via a MongoDB-inspired collections API as documents, saved in a table in the file. You can also save other assets, like PDF files or images, directly in the database to keep different documents together. All data can be easily exported to CSV or JSON if needed. Privacy and security were a big priority for me, so documents cannot do anything out of the box. They don’t have direct access to the file system and they require permission to access the internet. The permission model is still something I’m working to improve. Capsule documents can also use local or remote AI models for document specific AI featu",
+    "hn_story_id": 49712278,
+    "published_at": "2026-09-15T13:31:40Z",
+    "discovered_at": "2026-09-23T15:09:04.060856Z",
+    "manual": false,
+    "score": {
+      "relevance": 3,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.25,
+      "reason": "Capsule 是单文件 Web 应用打包工具，把 HTML 应用与数据存进 SQLite，并支持本地/远程 AI 模型做文档级 AI 功能。它有可体验的桌面应用和明确的数据本地化/隐私机制，但更偏开发工具与文件格式，AI PM 相关性中等，可作为备选。"
+    }
+  }
+]
