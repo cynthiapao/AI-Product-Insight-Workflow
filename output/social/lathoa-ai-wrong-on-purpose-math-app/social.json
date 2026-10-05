@@ -1,0 +1,155 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "lathoa-ai-wrong-on-purpose-math-app",
+  "key_takeaway": "Lathoa 把 AI 的不可靠性变成教学资产，通过让孩子找出机器人 Errol 解题步骤中的故意错误来练习批判性思维，但难点在于稳定制造恰到好处的错误。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @LathoaAI:\n\nA useful AI tutor should read the learning process, not just check the final answer.\n\nLathoa flips the script: kids catch a robot's deliberate math mistakes to build critical thinking.",
+    "headline": "Catching AI's Mistakes to Learn",
+    "image_recommended": true,
+    "image_brief": "Use a real screenshot of Lathoa's homepage demo case showing Errol's step-by-step solution with a deliberately wrong step. The screenshot should be the main visual, with the headline and visual caption overlaid on the left side.",
+    "alt_text": "Screenshot of Lathoa's homepage demo case showing Errol's step-by-step solution with a deliberately wrong step and the instruction to tap the wrong step.",
+    "visual_caption": "Kids catch a robot's deliberate math mistakes to build critical thinking.",
+    "comparison_rows": [
+      {
+        "label": "Lathoa",
+        "strength": "Turns AI's unreliability into a controlled learning tool via verified deliberate errors",
+        "gap": "Verification may fail for complex math; speed rewards may undermine deep thinking"
+      },
+      {
+        "label": "Traditional math apps",
+        "strength": "Focus on getting the right answer",
+        "gap": "Don't teach error detection or critical thinking"
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @LathoaAI:\n\nA useful AI tutor should read the learning process, not just check the final answer.\n\nLathoa flips the script: kids catch a robot's deliberate math mistakes to build critical thinking.",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview card showing Lathoa's concept: kids catch deliberate AI math mistakes to build critical thinking, with the challenge of calibrating error difficulty."
+      },
+      {
+        "text": "The core loop: Errol shows a step-by-step solution with one wrong step. Kids tap the bad step and explain why it breaks.\n\nNo open chat—just structured cases. That's a deliberate design choice to keep AI safe for ages 10–14.",
+        "image_kind": "screenshot",
+        "screenshot_id": "lathoa-homepage-case",
+        "alt_text": "Screenshot of Lathoa's homepage demo case showing Errol's step-by-step solution with a deliberately wrong step and the instruction to tap the wrong step."
+      },
+      {
+        "text": "Every problem is verified before kids see it: a deterministic arithmetic check plus a second model cross-check.\n\nIf the 'wrong' answer isn't actually wrong, it's discarded. That's how they turn AI's unreliability into a controlled feature.",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      },
+      {
+        "text": "But the verification has limits: the second model could make the same mistake, and arithmetic checks don't cover all math.\n\nPlus, speed bonuses might push kids to guess instead of think deeply. The product's long-term value hinges on managing these trade-offs.",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      },
+      {
+        "text": "The real innovation isn't the AI—it's designing mechanisms to exploit and constrain AI's imperfection.\n\nWhat other product categories could use 'deliberate wrongness' as a learning tool?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Lathoa",
+        "handle": "@LathoaAI",
+        "profile_url": "https://x.com/LathoaAI",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "AI故意算错，孩子找错才能得分",
+    "body": "最近看到一个叫 Lathoa 的数学应用，专门给 10 到 14 岁孩子用。它的玩法很特别：一个叫 Errol 的机器人会分步解数学题，但其中一步故意出错。孩子要找出错误步骤，还要用自己的话解释为什么错。如果题目没有错，孩子必须判断“没有错误”才能得分。\n\n这个产品最让我感兴趣的不是它用了 AI，而是它把 AI 的不可靠性变成了教学资产。我们总想让 AI 更准确，但 Lathoa 反着来：故意让 AI 犯错，让孩子来抓错。这其实是在训练批判性思维，而不是死记硬背正确答案。\n\n不过，难点在于怎么稳定地制造“恰到好处的错误”。Lathoa 的做法是每个案例都经过验证：先用确定性算术检查，再用第二个模型独立求解，如果两者和 Errol 的答案不一致，案例就丢弃。这样确保故意错误是真实且可解释的。\n\n但验证也有局限：第二个模型可能犯同样的错，算术检查覆盖不了所有数学题。而且速度奖励可能让孩子为了 XP 快速猜答案，而不是深入思考。\n\n我觉得 Lathoa 的真正创新不在于 AI 技术，而在于把 AI 的不可靠性变成可控的教学工具。它没有开放聊天，而是用结构化案例来规避风险。\n\n如果你给孩子选学习工具，你会更看重它教孩子找正确答案，还是教孩子识别错误推理？",
+    "hashtags": [
+      "AI教育",
+      "批判性思维",
+      "产品设计",
+      "教育科技"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "AI 故意算错，孩子找错才能得分",
+      "body": "Lathoa 让机器人 Errol 分步解题，其中一步故意出错。孩子要找出错误并解释原因。这个设计把 AI 的不可靠性变成了教学资产，但难点在于稳定制造恰到好处的错误。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "首页案例：找出错误步骤",
+      "body": "截图展示了 Lathoa 首页的演示案例。Errol 展示了一道时间计算题的分步解答，其中一步明显错误。孩子需要点击错误步骤。这个界面没有开放聊天，只有结构化交互，确保安全。",
+      "comparison_rows": [],
+      "screenshot_id": "lathoa-homepage-case"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "与传统数学应用对比",
+      "body": "Lathoa 与传统数学应用的核心区别在于学习目标：前者训练错误识别，后者追求正确答案。",
+      "comparison_rows": [
+        {
+          "label": "Lathoa",
+          "strength": "通过故意错误训练批判性思维",
+          "gap": "验证机制可能失效，速度奖励可能鼓励猜测"
+        },
+        {
+          "label": "传统数学应用",
+          "strength": "高效练习正确答案",
+          "gap": "不培养错误检测能力"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "验证闭环如何工作",
+      "body": "每个案例在呈现给孩子之前都会经过检查：先用确定性算术检查重新计算，再用第二个模型独立求解。如果两者与 Errol 的答案不一致，案例就会被丢弃。这确保了故意错误是真实且可解释的，避免了“AI 假装错误但实际正确”的尴尬。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "问题与边界",
+      "body": "验证机制有一个明显弱点：第二模型可能与第一模型犯同样的错误，导致验证失效。算术检查只能覆盖部分问题类型，对于更复杂的数学推理，验证的可靠性会下降。此外，速度奖励可能鼓励孩子快速猜测而非深入思考，与培养批判性思维的目标存在潜在冲突。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "AI 产品经理可以从 Lathoa 学到：不要试图让 AI 变得完美，而是设计机制来利用或约束其不完美。通过验证闭环和结构化交互，可以将 AI 的不可靠性转化为可控的产品特性。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "lathoa-homepage-case",
+      "filename": "01-lathoa-homepage-case.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 Lathoa 的核心交互：孩子需要找出 Errol 解题步骤中的故意错误。这张截图用于 X 的案例帖和小红书正文，证明产品确实通过结构化界面呈现错误步骤，而不是开放聊天。",
+      "capture": "截取 Lathoa 官网首页的演示案例区域，包括题目、Errol 的分步解答、被标记的可疑步骤，以及“点击错误步骤”的提示。确保截图清晰显示错误步骤和交互按钮。",
+      "annotation": "可标注“故意错误步骤”和“点击找出错误”",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}
