@@ -1,0 +1,230 @@
+[
+  {
+    "candidate_id": "e3f6e397cedf5952",
+    "name": "Lathoa",
+    "url": "https://lathoa.ai/en",
+    "source": "Hacker News Show",
+    "summary": "Lathoa, a math app for kids where the AI is wrong on purpose. I made this for kids around 10 to 14. A robot called Errol solves a math problem step by step and one of the steps is wrong. The kid has to find it and say what's wrong with it. Sometimes nothing is wrong, so just saying \"there's a mistake\" every time doesn't work. The user needs to enter an explanation if she finds an error to gain more XP; speed matters also for more points. There is no direct interaction or chatting with an LLM. Lathoa's harness is stable and has many evaluation steps to catch inconsistencies and prompt injections. You can play one on the homepage without signing up. The part that surprised me: it's hard to get an LLM to be wrong on purpose. Half the time it gives you the right answer and calls it wrong, or a \"mistake\" that's actually correct. So every case gets checked before a kid sees it. Where it can, a plain arithmetic check redoes the math exactly. A second model also solves the problem without seeing Errol's work. If anything disagrees, the case is thrown away. The weak spot is that the second model can make the same mistake as the first. The arithmetic check is there for that, but it only work",
+    "hn_story_id": 49909648,
+    "published_at": "2026-09-30T14:38:57Z",
+    "discovered_at": "2026-10-05T07:11:24.682607Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.85,
+      "reason": "面向 10-14 岁儿童的数学应用，AI 故意出错让孩子找错，产品机制独特且可拆解（双模型校验、算术复核、防注入 harness、XP 与速度激励），无需注册即可体验，是极佳的 AI PM 选题。"
+    }
+  },
+  {
+    "candidate_id": "2d48ece46a89feaf",
+    "name": "HN.watch",
+    "url": "https://hn.watch/",
+    "source": "Hacker News Show",
+    "summary": "HN.watch – Videos of all Hacker News posts. Hi HN, I’m Per, founder of Scrimba (YC S20). We’ve spent the last decade teaching people how to code with an HTML-based video format. We’ve now plugged an LLM into it, so that people can create explainer videos about anything. It’s called “Scrimba Explain”. To demo this technology for Hacker News, we built HN.watch. It’s like HN, but with explainer videos instead of articles. We create them on-the-fly the first time someone clicks on a link. While there are obvious visual drawbacks of using HTML instead of diffusion models, there are three big benefits: - Speed: Much faster to generate than pixel-based videos (just a few seconds from click to playback) - Cost: Our cost per video is ~$0.04. (Excluding image generation, which some videos utilize. Quickly blows up the cost) - Easy editing: the above benefits also make AI-assisted editing cheap & fast Our hypothesis is that if video creation goes from “dollars and minutes” to “cents and seconds”, a bunch of new use cases will be unlocked. Here are some we see already: - A video explanation of every single Pull Request (we do this internally) - Give every page in your internal/extrernal docs a",
+    "hn_story_id": 49879401,
+    "published_at": "2026-09-28T15:16:13Z",
+    "discovered_at": "2026-10-05T07:11:24.681855Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "基于 HTML 视频格式 + LLM 的即时解说视频生成，HN.watch 作为演示将 HN 帖子转为视频，成本约 $0.04、秒级生成，机制清晰且可延展到 PR/文档解说，是 AIGC 应用的好案例。"
+    }
+  },
+  {
+    "candidate_id": "5f516ad189d423f8",
+    "name": "Pizza Bot",
+    "url": "https://github.com/pizza-bot-app/pizza-bot",
+    "source": "Hacker News Show",
+    "summary": "Pizza Bot – An inbox for AI agents that work in the background. Hi HN - long-time lurker (since 2012!), first time poster. Pizza Bot is a self-hosted desktop app for Mac, Windows, and Linux that runs AI agents in the background and exposes them through an email-like UI. Finished work shows up in Unread, and anything waiting on your approval shows up in Action. It's Apache 2.0-licensed, there's no signup and no telemetry, and you bring your own model provider: Anthropic, Amazon Bedrock, Google Gemini, OpenAI, OpenRouter, or a local model through Ollama. There are builds on the releases page, or you can run it from source. Pizza Bot started as an internal passion project I worked on with a small team at Amazon. The whole thing came out of my frustration at having to manually log CRM activities through a browser form. I built a simple REST API called \"JoeBot\" that connected to my authenticated browser session over CDP and filled out the form for me using Playwright. Then I hacked up a quick Obsidian plugin so I could trigger it from my local notes (no AI and no MCP servers involved). This caught on quickly. My fellow AWS Solutions Architect Igor Fil joined up with me, and we rebranded",
+    "hn_story_id": 49713894,
+    "published_at": "2026-09-15T15:20:26Z",
+    "discovered_at": "2026-10-05T07:11:24.683332Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "自托管桌面应用，用类邮箱 UI 管理后台 AI agent，Unread/Action 分流与审批机制明确，支持多模型 BYOK，适合分析 agent 工作流产品设计；但开源项目证据深度一般。"
+    }
+  },
+  {
+    "candidate_id": "44eae9340ff5d254",
+    "name": "Made an open-source Lego AI generator",
+    "url": "https://github.com/anteloc/ldraw-nova",
+    "source": "Hacker News Show",
+    "summary": "Made an open-source Lego AI generator. Hi there :-) New on HN, first time posting. Past year, around December, I started experimenting with making ChatGPT and Claude generate source code in LDraw language. This LDraw is literally an \"assembly\" language, a low-level programming language that describes how to assemble LEGO pieces together into models, one placement instruction at a time. When executed by specific tools, like e.g. LDView, LeoCAD, Studio... these instructions become LEGO CAD models, that can be interacted with, modified, etc. Or, in other words: one LDraw source file in .mpd or .ldr format is equivalent to one LEGO CAD model. So, the idea I had was: if I manage for maybe ChatGPT or Claude to generate high-quality LDraw source files... then, they would actually be generating high-quality LEGO CAD models, right? Then, after months of iterations and trying one thing after the other... it worked!!! Long story short: using GPT-6 Astra and Opus 5.5, I've managed to create a python toolset, instructions, and docs for agents in general. Now, these can be used by them to generate LDraw models. I've packed it all as a dockerized web app for others to try and experiment, with sev",
+    "hn_story_id": 49937916,
+    "published_at": "2026-10-02T20:00:15Z",
+    "discovered_at": "2026-10-05T07:11:24.682711Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "将 LLM 生成 LDraw 装配语言转化为可交互乐高 CAD 模型的 dockerized Web 应用，有明确创作流程和可拆机制（agent 工具集、指令、文档），适合 AI PM 分析生成式设计工作流；但证据以个人项目为主，成熟度有限。"
+    }
+  },
+  {
+    "candidate_id": "faef5a7277690d38",
+    "name": "Ax-check.com",
+    "url": "https://www.ax-check.com/",
+    "source": "Hacker News Show",
+    "summary": "Ax-check.com – Can agents use your product?. I'm the co-founder of Gauge, and I built ax-check.com to quickly test how well coding agents can onboard to your product. You'll get a scorecard, specific suggested fixes, and three full coding sessions that show how agents read your site and use your product. I built this because similar checks were too noisy. Most suggested obscure technical changes that don't actually make a difference in agent experience (or AX, hence ax-check.com). This check starts by using DeepSeek 4.1 Flash to try to find key information about your product, starting from the homepage. In actual agent traffic data, we've seen that the key pages are the homepage, llms.txt, pricing, and the docs site (by traffic volume, and by influence), so we focus on those and ignore the rest. We also find that content negotiation for Markdown is legitimately helpful for agents to complete tasks faster and find what they're looking for, so the scan tests that your key pages can serve Markdown. The other key piece is that we run actual coding agents in sandboxes, and have them try to onboard to your product. You can see the full trace and watch it happen live (we kick it off fresh",
+    "hn_story_id": 49744416,
+    "published_at": "2026-09-17T18:08:02Z",
+    "discovered_at": "2026-10-05T07:11:24.683046Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "测试 coding agent 能否顺利接入产品的评分卡工具，输出具体修复建议和完整 agent 会话轨迹，属于面向 B 端产品/开发者的 AX 诊断应用，机制清晰可拆；但受众偏窄，证据以自述为主。"
+    }
+  },
+  {
+    "candidate_id": "01521e1e6e9b62a8",
+    "name": "Whiteboard (YC W26)",
+    "url": "https://github.com/devdotfast/whiteboard",
+    "source": "Hacker News Show",
+    "summary": "Whiteboard (YC W26) – An open-source IDE for thoughtful software design. Hello! We’re Sid, Alex, Ketan, and Milan. We’re building Whiteboard ( https://whiteboard.dev.fast/ ), an open-source desktop app where humans and agents can architect software together in a common workspace. Here’s our repo: https://github.com/devdotfast/whiteboard . We were missing the feeling of a “whiteboard session” with another dev where you leave with a deep understanding of a system, so we built this app for ourselves. Whiteboard plugs into the tools you already use - e.g. Claude Code, Codex, etc. – and gives your agent an SDK to draw on an in-app canvas to describe its work. We began with an MVP based on HTML artifacts and started rethinking the app as we ran into limitations: 1. Built on top of CodeOSS: We found that in pure HTML tools it was hard to connect a spec or diagram to code. In Whiteboard, when you click on visualizations like a sequence diagram, an entity relationship diagram, or a quote from the agent’s trace, you can jump to the underlying code directly. When navigating code, you get keybindings and LSP support from VSCode out of the box. We’ve found this is especially valuable because tr",
+    "hn_story_id": 49833867,
+    "published_at": "2026-09-24T17:21:36Z",
+    "discovered_at": "2026-10-05T07:11:24.681474Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "开源桌面 IDE，让人类与 agent 在共享画布上共同架构软件，可从图表跳转到代码，基于 CodeOSS 提供 LSP 等能力，属于设计与编程应用；但产品仍在早期，公开证据有限。"
+    }
+  },
+  {
+    "candidate_id": "d9ac3f721c94a3b4",
+    "name": "Reladraw",
+    "url": "https://github.com/reladraw/reladraw",
+    "source": "Hacker News Show",
+    "summary": "Reladraw – A diagram language where you decide where to place things. I love making diagrams to help understand, plan, etc. However, the options are (A) auto-placement languages like Mermaid or Graphviz (which don't let me decide how the diagram looks), or (B) software like Draw.io which are powerful but are very time consuming (and inefficient for agents to manipulate). I wanted to have the benefits of both, where you can define a diagram in a diagram language, but also retain a high degree of control over what the diagram looks like. I also wanted this to work well for humans and agents. On the Github link, there's a playground where you can try it out without installation. There's also instructions for a simple npm install and for installing a skill you can use with Claude or other agents.",
+    "hn_story_id": 49858513,
+    "published_at": "2026-09-26T17:10:40Z",
+    "discovered_at": "2026-10-05T07:11:24.681700Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "允许人工控制布局的图表语言，兼顾 Mermaid 式声明与 Draw.io 式控制，并提供 playground 与 agent skill，适合设计与编程应用分析；但更偏语言/工具，产品化程度中等。"
+    }
+  },
+  {
+    "candidate_id": "73836426d541932f",
+    "name": "Panda",
+    "url": "https://pandax1.com/",
+    "source": "Hacker News Show",
+    "summary": "Panda, the world's first personal AI computer. We're building an AI computer for consumers, most of whom are quite hesitant with existing services due to privacy concerns and because of costs that add up when using various AI tools.",
+    "hn_story_id": 49872550,
+    "published_at": "2026-09-28T01:35:14Z",
+    "discovered_at": "2026-10-05T07:11:24.682434Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "面向消费者的个人 AI 计算机，主打隐私与成本，属于消费硬件产品，符合应用层标准；但公开信息较少，机制细节不足。"
+    }
+  },
+  {
+    "candidate_id": "c9b786d769685aa1",
+    "name": "AI search for every photo and every frame of video on macOS",
+    "url": "https://github.com/allenv0/SCM",
+    "source": "Hacker News Show",
+    "summary": "AI search for every photo and every frame of video on macOS.",
+    "hn_story_id": 49952111,
+    "published_at": "2026-10-04T09:24:52Z",
+    "discovered_at": "2026-10-05T07:11:24.682061Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "macOS 上对每张照片和每帧视频进行 AI 搜索，面向普通用户的本地媒体检索应用，任务明确、可体验；但摘要极简，证据不足。"
+    }
+  },
+  {
+    "candidate_id": "10ae88889c51616c",
+    "name": "Lossless-memory",
+    "url": "https://github.com/aru-labs/lossless-memory",
+    "source": "Hacker News Show",
+    "summary": "Lossless-memory – a personal AI memory that never summarizes.",
+    "hn_story_id": 49786419,
+    "published_at": "2026-09-21T12:28:17Z",
+    "discovered_at": "2026-10-05T07:11:24.683453Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "永不摘要的个人 AI 记忆，针对记忆压缩丢失信息的痛点，概念清晰且有产品机制；但仅一句话摘要，证据不足。"
+    }
+  },
+  {
+    "candidate_id": "25d047518382af86",
+    "name": "Offrun",
+    "url": "https://offrun.dev/",
+    "source": "Hacker News Show",
+    "summary": "Offrun – manage every coding agent from one workspace. Run Claude Code, Codex, AGY, and Grok Build side by side. See who is working, who needs you, and what every account has left.",
+    "hn_story_id": 49942434,
+    "published_at": "2026-10-03T08:40:17Z",
+    "discovered_at": "2026-10-05T07:11:24.682278Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.2,
+      "reason": "统一工作台管理 Claude Code、Codex、AGY、Grok Build 等编码 agent，显示谁在工作、谁需要你、账户余额，属于开发者工作流应用；但摘要简短，证据有限。"
+    }
+  },
+  {
+    "candidate_id": "cdbc3e91ada46d78",
+    "name": "Ordewell",
+    "url": "https://github.com/ordewell/ordewell",
+    "source": "Hacker News Show",
+    "summary": "Ordewell – turn one goal into an ordered plan of coding-agent tasks.",
+    "hn_story_id": 49712276,
+    "published_at": "2026-09-15T13:31:37Z",
+    "discovered_at": "2026-10-05T07:11:24.683394Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.2,
+      "reason": "将一个目标转化为有序的 coding-agent 任务计划，属于 agent 编排/开发工作流应用，机制可拆；但公开信息少，产品成熟度不明。"
+    }
+  }
+]

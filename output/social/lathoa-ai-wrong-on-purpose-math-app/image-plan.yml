@@ -1,0 +1,12 @@
+article_slug: "lathoa-ai-wrong-on-purpose-math-app"
+screenshots:
+  - screenshot_id: "lathoa-homepage-case"
+    filename: "01-lathoa-homepage-case.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Lathoa 的核心交互：孩子需要找出 Errol 解题步骤中的故意错误。这张截图用于 X 的案例帖和小红书正文，证明产品确实通过结构化界面呈现错误步骤，而不是开放聊天。"
+    capture: "截取 Lathoa 官网首页的演示案例区域，包括题目、Errol 的分步解答、被标记的可疑步骤，以及“点击错误步骤”的提示。确保截图清晰显示错误步骤和交互按钮。"
+    annotation: "可标注“故意错误步骤”和“点击找出错误”"
+    used_for:
+      - x
+      - xiaohongshu
