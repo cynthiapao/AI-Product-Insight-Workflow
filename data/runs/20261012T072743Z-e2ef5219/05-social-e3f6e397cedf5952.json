@@ -1,0 +1,165 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "lathoa-ai-wrong-on-purpose-math-learning",
+  "key_takeaway": "Lathoa 把 AI 的不可靠性变成教学资产，但让 AI 稳定地犯可验证的错，比让它做对更难。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @LathoaAI:\n\nA useful AI tutor should read the learning process, not just check the final answer.\n\nLathoa flips AI's unreliability into a teaching asset: kids catch a robot's deliberate math mistakes.\n\nBut making an AI reliably wrong is harder than making it right.",
+    "headline": "When AI's mistakes become the lesson",
+    "image_recommended": true,
+    "image_brief": "Use a real screenshot of the Lathoa homepage showing a sample case with Errol's step-by-step solution and the prompt to tap the wrong step. This provides concrete evidence of the product's core interaction.",
+    "alt_text": "Screenshot of Lathoa homepage showing a sample math case with Errol's step-by-step solution and a prompt to tap the wrong step.",
+    "visual_caption": "Kids catch deliberate AI mistakes to build critical thinking.",
+    "comparison_rows": [
+      {
+        "label": "Lathoa",
+        "strength": "Turns AI errors into a structured detective game for kids.",
+        "gap": "Explanation depth is not yet assessed, only error detection and speed."
+      },
+      {
+        "label": "Khan Academy",
+        "strength": "Teaches correct answers with proven curriculum.",
+        "gap": "Does not train kids to spot AI mistakes."
+      },
+      {
+        "label": "QAMA Calculator",
+        "strength": "Requires an estimate before revealing the precise answer.",
+        "gap": "Lacks the narrative and emotional engagement of a character-driven game."
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @LathoaAI:\n\nA useful AI tutor should read the learning process, not just check the final answer.\n\nLathoa flips AI's unreliability into a teaching asset: kids catch a robot's deliberate math mistakes.\n\nBut making an AI reliably wrong is harder than making it right.",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview card showing Lathoa's concept: kids catch deliberate AI math mistakes to build critical thinking."
+      },
+      {
+        "text": "The core loop is a detective game: Errol solves a problem step by step, one step is wrong, and the child must spot it and explain why.\n\nSometimes there's no error, so kids can't just cry wolf.",
+        "image_kind": "screenshot",
+        "screenshot_id": "lathoa-homepage-case",
+        "alt_text": "Screenshot of Lathoa homepage showing a sample case with Errol's step-by-step solution and a prompt to tap the wrong step."
+      },
+      {
+        "text": "The hard part: making LLMs deliberately wrong is surprisingly difficult.\n\nHalf the time, the model gives a correct answer but labels it wrong, or the 'error' is actually right.\n\nSo every case is verified twice: arithmetic rechecking and a second model solving independently.",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      },
+      {
+        "text": "The product works because it uses error-detection learning and self-explanation.\n\nKids actively analyze reasoning, not just answers.\n\nBut the explanation quality isn't deeply assessed yet—only finding the error and speed are rewarded.",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      },
+      {
+        "text": "For AI product managers, the lesson is clear: don't try to make AI perfect—use its flaws to create value.\n\nBut for kids or high-stakes products, independent verification is non-negotiable.\n\nWhat other AI flaws could become learning tools?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Lathoa",
+        "handle": "@LathoaAI",
+        "profile_url": "https://x.com/LathoaAI",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "AI故意犯错，孩子反而学得更深",
+    "body": "最近看到一个叫 Lathoa 的数学应用，它让 AI 机器人 Errol 故意在解题步骤里犯错，孩子要找出错误并解释为什么错。这个设计把 AI 的不可靠性变成了教学工具，挺有意思的。\n\n它的核心是个侦探游戏：孩子检查 Errol 的分步解答，找出错误步骤，用自己的话解释。有时候题目里根本没有错误，所以不能每次都喊“有错”。这种设计把学习目标从“得到正确答案”转向“识别和解释错误”。\n\n但真正难的地方在于：让 AI 稳定地犯可验证的错，比让它做对更难。开发者说，一半的情况下模型会给出正确答案却标记为错误，或者给出的“错误”实际上是对的。所以每个案例都要经过双重验证：算术检查和第二个模型独立解题。\n\n我觉得这个产品聪明的地方在于，它把 AI 定位成“会犯错的伙伴”而不是“权威答案源”，这本身就教会孩子对 AI 输出保持怀疑。不过，它目前只奖励找到错误和速度，没有充分评估孩子解释的深度。如果孩子只是说“这一步错了”而没有真正理解为什么，学习效果会打折扣。\n\n你会让孩子用这种“找错”的方式学数学，还是更倾向传统的“做对题”教学？",
+    "hashtags": [
+      "AI教育",
+      "错误检测学习",
+      "批判性思维",
+      "产品设计"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "当 AI 的错误成为教材",
+      "body": "Lathoa 让 AI 机器人 Errol 故意在数学解题中犯错，孩子通过找错和解释来学习。但让 AI 稳定地犯可验证的错，比让它做对更难。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "核心体验：侦探游戏",
+      "body": "首页展示了一个案例：Errol 分步解答，其中一步是错的，孩子需要点击错误步骤。这个截图证明了产品如何把错误检测变成结构化互动。",
+      "comparison_rows": [],
+      "screenshot_id": "lathoa-homepage-case"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "与同类产品对比",
+      "body": "Lathoa 把 AI 错误变成游戏，Khan Academy 教正确答案，QAMA 计算器要求先估算。三者都促进思考，但 Lathoa 更直接训练对 AI 的怀疑。",
+      "comparison_rows": [
+        {
+          "label": "Lathoa",
+          "strength": "把 AI 错误变成结构化侦探游戏",
+          "gap": "解释深度未被评估"
+        },
+        {
+          "label": "Khan Academy",
+          "strength": "教正确答案，课程成熟",
+          "gap": "不训练识别 AI 错误"
+        },
+        {
+          "label": "QAMA Calculator",
+          "strength": "要求先估算再给精确答案",
+          "gap": "缺少角色驱动的情感参与"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "为什么有效",
+      "body": "利用错误检测学习和自我解释效应，孩子主动分析推理过程，而不是被动接受答案。游戏化元素和 Errol 的情绪反应保持参与度。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "问题与边界",
+      "body": "验证机制有漏洞：第二个模型可能犯同样的错误。算术检查只适用于可精确计算的数学题。解释环节的评估深度不足，可能只奖励找到错误和速度。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "AI 产品经理不应试图让 AI 完美，而应思考如何利用 AI 的缺陷创造用户价值。对于儿童或高准确性产品，必须设计独立的验证机制。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "lathoa-homepage-case",
+      "filename": "01-lathoa-homepage-case.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 Lathoa 的核心交互：孩子看到 Errol 的分步解答，并需要点击错误步骤。这为文章和社媒内容提供具体证据。",
+      "capture": "截取 Lathoa 官网首页的示例案例区域，包括题目、Errol 的分步解答和“点击错误步骤”的提示。",
+      "annotation": "可标注“Errol 的解答中有一处故意错误”",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

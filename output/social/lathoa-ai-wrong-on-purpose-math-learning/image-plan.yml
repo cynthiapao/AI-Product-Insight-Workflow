@@ -1,0 +1,12 @@
+article_slug: "lathoa-ai-wrong-on-purpose-math-learning"
+screenshots:
+  - screenshot_id: "lathoa-homepage-case"
+    filename: "01-lathoa-homepage-case.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Lathoa 的核心交互：孩子看到 Errol 的分步解答，并需要点击错误步骤。这为文章和社媒内容提供具体证据。"
+    capture: "截取 Lathoa 官网首页的示例案例区域，包括题目、Errol 的分步解答和“点击错误步骤”的提示。"
+    annotation: "可标注“Errol 的解答中有一处故意错误”"
+    used_for:
+      - x
+      - xiaohongshu
