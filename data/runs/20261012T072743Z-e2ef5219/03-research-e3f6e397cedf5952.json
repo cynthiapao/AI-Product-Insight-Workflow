@@ -1,0 +1,70 @@
+{
+  "candidate": {
+    "candidate_id": "e3f6e397cedf5952",
+    "name": "Lathoa",
+    "url": "https://lathoa.ai/en",
+    "source": "Hacker News Show",
+    "summary": "Lathoa, a math app for kids where the AI is wrong on purpose. I made this for kids around 10 to 14. A robot called Errol solves a math problem step by step and one of the steps is wrong. The kid has to find it and say what's wrong with it. Sometimes nothing is wrong, so just saying \"there's a mistake\" every time doesn't work. The user needs to enter an explanation if she finds an error to gain more XP; speed matters also for more points. There is no direct interaction or chatting with an LLM. Lathoa's harness is stable and has many evaluation steps to catch inconsistencies and prompt injections. You can play one on the homepage without signing up. The part that surprised me: it's hard to get an LLM to be wrong on purpose. Half the time it gives you the right answer and calls it wrong, or a \"mistake\" that's actually correct. So every case gets checked before a kid sees it. Where it can, a plain arithmetic check redoes the math exactly. A second model also solves the problem without seeing Errol's work. If anything disagrees, the case is thrown away. The weak spot is that the second model can make the same mistake as the first. The arithmetic check is there for that, but it only work",
+    "hn_story_id": 49909648,
+    "published_at": "2026-09-30T14:38:57Z",
+    "discovered_at": "2026-10-12T07:27:44.767722Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.85,
+      "reason": "面向 10-14 岁儿童的数学教育产品，核心机制是让 AI 故意犯错、由孩子找错并解释，且设计了算术校验与第二模型交叉验证来保证题目质量，产品机制清晰、反直觉且有教育价值，非常适合 AI PM 作品集拆解。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Lathoa | Critical thinking for kids 10–14 in the age of AI",
+      "url": "https://lathoa.ai/en",
+      "excerpt": "Lathoa | Critical thinking for kids 10–14 in the age of AI\nYour kid stops taking answers on trust. Errol is a math companion for ages 10 to 14, and he's\n: find his bad step, explain why it breaks, earn detective rank. It's the one skill AI can't hand them.\nCatch Errol's mistake\nObvious · Arithmetic\nA movie starts at 3:45 and lasts 90 minutes. When does it end?\nErrol's solution, step by step\nErrol: “Start time plus running time. Easy.”\nErrol: “90 minutes is 0.90 of an hour, so…”\n= 3.45 + 0.90 = 4.35\nErrol: “So the movie ends at 4:35. Done!”\n↑ one step is wrong. Tap it.\nFive steps. One detective. One sneaky robot.\nEvery challenge follows the same beat. Errol works the problem out loud, your kid watches for slip-ups, then breaks down what went wrong in their own words.\nStep-by-step working, but one step is sneakily wrong.\nReads each step like a case file. No timer. No pressure.\nHighlight the bad step. Confidence drops on Errol's face.\nExplain what Errol got confused about, in their own words.\nErrol reacts. Real solution shown side by side. Rank up.\nIn a world flooded with AI, the rare skill is knowing when it's lying.\nMost learning apps reward the right answer. We reward the right\n. Because your kid will hear a hundred plausible answers a day, from chatbots, classmates, and confident strangers. Spotting the broken one is the superpower.\nCalibrated wrongness\nErrors come in three tiers (Obvious, Sneaky, Expert) matched to age and skill. The sneakier the catch, the bigger the rank-up.\nAlways show the work\nEvery solution Errol attempts is shown step-by-step. Kids learn pattern-matching for bad reasoning, not just bad answers.\nExplain in their own words\nSubmitting the catch isn't enough. Kids type a short explanation: the act that builds real understanding.\nNo grades. No leaderboard unless you switch it on.\nJust rank. Rookie → Inspector → Detective → Master Detective → Sherlock. Earned by catches, not speed.\nMade for the homework table. Not the algorithm.\nOne Errol. Many moods.\nErrol's confidence drops in real time. When your kid catches him, his face crumples. When they miss, he beams. Emotion is the hook.\nThe case file system\nEvery solve becomes evidence. Past catches are replayable, annotatable, and shareable: proof your kid is building a real skill.\nNo ads. No data harvesting.\nWe don't sell to your kid. We don't profile your kid. One subscription, no dark patterns, COPPA-respecting from day one.\nFree for three cases a day. Honest from there.\nThree cases a day, free. New accounts get the Parent plan free for 7 days, no card needed. Cancel anytime.\nSave 50% the first year: only 50 founding family spots\nHalf price on yearly for the first 50 families. Lock it in before the seats are gone.\nTry Errol with one kid.\nFor one kid who's hooked.\nAll three difficulty tiers\nOne kid + you in the loop.\nEverything in Learner\nWeekly progress digest\nUp to 4 kids, one dashboard.\nEverything in Parent\nUp to 4 kid profiles\nSiblings' progress side by side\nPer-child progress tracking\nFree plan forever · 7 days of Parent free, no card · Cancel anytime\nEvery problem is verified before your kid sees it\nflat-rate licensing for classrooms of 10+.\nThings parents actually ask.\nEverything parents want to know before getting started.\nWhat age is Lathoa for?\nBuilt for kids 10–14. The case difficulty adapts: younger kids get one-step number checks, older kids get multi-step word problems where Errol's mistake is buried three lines down. It works equally well at the homework table or on a tablet in the back seat.\nHow is this different from a tutor or Khan Academy?\nTutors and Khan teach kids to get the right answer. Lathoa teaches kids to spot a wrong one: the skill they'll need every time they ask an AI for help. They're complementary, not competing.\nIs this safe for my kid? What about AI safety?\nErrol is powered by AI, but every problem goes through a separate verification step before your kid sees it. If the AI tries to claim 2+2=5, verification catches it; if Errol's 'wrong answer' isn't actually wrong, we discard it and try again. So you get the variety of generated content with the safety of verified math. There's no open-ended chat. Kids interact with structured cases; they don't talk to a model.\nWhat subjects are covered?\nMath today: arithmetic, fractions, ratios, pre-algebra, early geometry, all aligned to Common Core 4–8. Reading comprehension and basic logic are next on the roadmap, with science to follow.\nCan I cancel anytime?\nYes. Cancel anytime from the billing portal, no phone call or email gauntlet. The 7-day trial every new account gets needs no card, so there is nothing to cancel when it ends. Monthly plans cancel at the end of the cycle and you keep access until then.\nDoes my kid need their own device?\nNo. Lathoa runs in any browser, on iOS, and on Android. The Family plan supports up to 4 profiles on one account, so siblings can share an iPad and the app remembers who's who from a 4-digit PIN.\nPractical articles for parents on r",
+      "source_type": "official",
+      "retrieved_at": "2026-10-12T07:28:04.355582Z"
+    },
+    {
+      "title": "Lathoa",
+      "url": "https://news.ycombinator.com/item?id=49909648",
+      "excerpt": "It helps us practice critical thinking. What it doesn’t do is help us practice knowing WHEN to use critical thinking.\n> if she finds an error to gain more XP What does this mean?\nI think speed would be irrelevant, or perhaps would discourage deep engagement with the problems. I think presenting it as AI can be wrong is not as valuable as presenting it as developing the ability to question what one is told. (e.g. Verizon Math)\nThis is an interesting idea, but I need more than one sample to get a feel for it. I did the example on the homepage, and then one more that it linked to, and both had extremely basic errors my kid would have no problem with (currently doing Math Academy prealgebra, approx year 9/8th grade level). I'd suggest allowing people to try more than one very basic error.\nhttps://en.wikipedia.org/wiki/QAMA_Calculator - a calculator that won't reveal the precise answer until you supply an estimate (physical hardware in 2014, I think the current version is an app.) The website makes claims about the pedagogic value, but I didn't see any actual citations at https://qama.world/the-science/ just \"everyone knows\" kind of things... but if they research supporting it that would probably inform your approach?",
+      "source_type": "community",
+      "retrieved_at": "2026-10-12T07:28:04.677201Z"
+    },
+    {
+      "title": "About Us | Lathoa",
+      "url": "https://lathoa.ai/en/about",
+      "excerpt": "Every AI tutor races to be correct. Lathoa is the opposite: a critical-thinking gym where kids practice catching AI's mistakes. The one skill no AI can fake for them.\nIn a world drowning in AI-generated content, critical thinking is the skill that matters most: knowing when an answer doesn't add up, when to push back, when to verify. Lathoa builds this skill in kids ages 10–14 the only honest way: by having them catch a real AI making real, verifiable mistakes. We start with math because math is the only subject where wrong is provably wrong: a deterministic solver checks every problem so Errol's mistakes are never accidentally correct. Reading comprehension and basic logic launch in summer 2026.\nWhy \"Deliberately Wrong\"?\nResearch in cognitive science shows that error-detection is one of the most effective ways to learn. When students actively search for mistakes, they engage more deeply with the material than when passively receiving correct answers. Lathoa turns this insight into a game: kids become \"Error Detectives\" who help a well-meaning robot learn from his mistakes.\nThe Science Behind Lathoa\nOur approach is grounded in research on productive failure, error-detection learning, and self-explanation. Studies show that students who analyze incorrect solutions develop stronger conceptual understanding than those who only study correct ones. By asking kids to explain WHY something is wrong, Lathoa builds the kind of deep understanding that transfers to new problems.\nLathoa was founded by educators and engineers who believe that the best way to learn isn't to memorize answers: it's to question everything. We're building the tools that help the next generation think critically in an AI-powered world.\nQuestions, feedback, or partnership inquiries? We'd love to hear from you:\nLathoa™ is a trademark of ZeroEx Tsitsipas Labs. The Lathoa name, logo, and the Errol character are the property of ZeroEx Tsitsipas Labs and may not be used without permission.\nTeaching kids to think critically by catching AI mistakes.\n© 2026 Lathoa. All rights reserved.\nLathoa™ is a trademark of ZeroEx Tsitsipas Labs.",
+      "source_type": "official",
+      "retrieved_at": "2026-10-12T07:28:05.685269Z"
+    }
+  ],
+  "verified_facts": [
+    "Lathoa is a math app for kids around 10 to 14 years old.",
+    "The app features a robot called Errol who solves math problems step by step, with one step intentionally wrong.",
+    "Kids must find the wrong step and explain what's wrong with it.",
+    "Sometimes nothing is wrong, so simply saying 'there's a mistake' every time doesn't work.",
+    "Users need to enter an explanation if they find an error to gain more XP; speed also matters for more points.",
+    "There is no direct interaction or chatting with an LLM.",
+    "Lathoa's harness is stable and has many evaluation steps to catch inconsistencies and prompt injections.",
+    "You can play one case on the homepage without signing up.",
+    "It's hard to get an LLM to be wrong on purpose; half the time it gives the right answer and calls it wrong, or a 'mistake' that's actually correct.",
+    "Every case gets checked before a kid sees it.",
+    "Where possible, a plain arithmetic check redoes the math exactly.",
+    "A second model also solves the problem without seeing Errol's work; if anything disagrees, the case is thrown away."
+  ],
+  "open_questions": [
+    "What is the exact mechanism of the verification process, including the arithmetic check and second model?",
+    "How does the app ensure the second model doesn't make the same mistake as the first?",
+    "What is the success rate of the verification process in catching errors?",
+    "How does the app handle cases where the arithmetic check cannot be applied?",
+    "What is the pricing for the subscription after the free trial?",
+    "How does the app adapt difficulty for different ages within 10-14?",
+    "What specific research supports the error-detection learning approach?",
+    "How does the app prevent prompt injections or other AI safety issues?"
+  ],
+  "quality": "usable",
+  "collection_diagnostics": []
+}

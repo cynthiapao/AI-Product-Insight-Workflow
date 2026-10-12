@@ -1,0 +1,23 @@
+{
+  "run_id": "20261012T072743Z-e2ef5219",
+  "mode": "scheduled",
+  "status": "completed",
+  "candidate_count": 35,
+  "selected_count": 12,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/lathoa-ai-wrong-on-purpose-math-learning.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/lathoa-ai-wrong-on-purpose-math-learning.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/lathoa-ai-wrong-on-purpose-math-learning.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/lathoa-ai-wrong-on-purpose-math-learning/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/lathoa-ai-wrong-on-purpose-math-learning/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/lathoa-ai-wrong-on-purpose-math-learning/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/lathoa-ai-wrong-on-purpose-math-learning/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/lathoa-ai-wrong-on-purpose-math-learning/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/lathoa-ai-wrong-on-purpose-math-learning/social-cards.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/lathoa-ai-wrong-on-purpose-math-learning/social-cards.css",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/lathoa-ai-wrong-on-purpose-math-learning/README.md"
+  ],
+  "errors": [],
+  "started_at": "2026-10-12T07:27:43.793712Z",
+  "finished_at": "2026-10-12T07:29:24.390013Z"
+}
