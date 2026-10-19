@@ -1,0 +1,12 @@
+article_slug: "atticus-hold-to-talk-macos-assistant"
+screenshots:
+  - screenshot_id: "github-readme"
+    filename: "01-github-readme.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Atticus 的快捷方式学习机制和性能数据，作为核心体验的证据。"
+    capture: "截取 GitHub README 中“Fast”部分，包含“Open Calculator and Chess”从 5.5s 到 0.4s 的示例和 0.08s 的本地执行说明。"
+    annotation: "可标注“Record once, replay many”以突出机制。"
+    used_for:
+      - x
+      - xiaohongshu

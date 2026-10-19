@@ -1,0 +1,39 @@
+{
+  "candidate": {
+    "candidate_id": "922cdaec69bddda6",
+    "name": "Pulse Local",
+    "url": "https://pulseos.finance/",
+    "source": "Hacker News Show",
+    "summary": "Pulse Local, a Mac budgeting app whose AI models run on your machine. Hi HN, I'm Niz. Pulse Local is a budgeting app for Mac (Apple Silicon, beta) that answers questions about your spending with models that run on your machine. Local mode needs no account. The ledger and your questions stay on the machine, and the app sends no analytics or crash logs. I felt there are not enough consumer apps that run locally with no calls to the outside world that help us manage sensitive corners of our lives. This app in its local variant only downloads a couple of models and occasional updates, it does not send any analytics nor data. Features-wise, Pulse local is a complete budgeting app that offers an assistant built on top of a fine-tuned model and thousands of rules embedded in the code itself. I'm sharing it for free with options to help me continue experimenting with fine-tuning and expanding along this direction. How it works: you import a CSV from any bank, in any currency. When you ask a question, a tuned Qwen3 0.6B model reads it into a structured query, and code, not the model, does the money math against the ledger. A 4B checker model double-checks each money answer; when the two rea",
+    "hn_story_id": 50080275,
+    "published_at": "2026-10-13T23:13:23Z",
+    "discovered_at": "2026-10-19T06:18:29.646244Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.6,
+      "reason": "本地运行的 Mac 预算应用，用微调 Qwen3 0.6B 将自然语言转结构化查询、代码做金额计算、4B 模型复核，是隐私优先消费 AI 产品的优秀案例，机制可拆解且面向普通用户，适合 AI PM 作品集。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Pulse Local - discovery note",
+      "url": "https://pulseos.finance/",
+      "excerpt": "Pulse Local, a Mac budgeting app whose AI models run on your machine. Hi HN, I'm Niz. Pulse Local is a budgeting app for Mac (Apple Silicon, beta) that answers questions about your spending with models that run on your machine. Local mode needs no account. The ledger and your questions stay on the machine, and the app sends no analytics or crash logs. I felt there are not enough consumer apps that run locally with no calls to the outside world that help us manage sensitive corners of our lives. This app in its local variant only downloads a couple of models and occasional updates, it does not send any analytics nor data. Features-wise, Pulse local is a complete budgeting app that offers an assistant built on top of a fine-tuned model and thousands of rules embedded in the code itself. I'm sharing it for free with options to help me continue experimenting with fine-tuning and expanding along this direction. How it works: you import a CSV from any bank, in any currency. When you ask a question, a tuned Qwen3 0.6B model reads it into a structured query, and code, not the model, does the money math against the ledger. A 4B checker model double-checks each money answer; when the two rea",
+      "source_type": "feed",
+      "retrieved_at": "2026-10-19T06:18:45.226887Z"
+    }
+  ],
+  "verified_facts": [],
+  "open_questions": [
+    "requires at least 2 evidence items; collected 1",
+    "primary product page fetch failed: Unable to fetch https://pulseos.finance/: HTTP Error 403: Forbidden"
+  ],
+  "quality": "insufficient",
+  "collection_diagnostics": [
+    "primary product page fetch failed: Unable to fetch https://pulseos.finance/: HTTP Error 403: Forbidden"
+  ]
+}
