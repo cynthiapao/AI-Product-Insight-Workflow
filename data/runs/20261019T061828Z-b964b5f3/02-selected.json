@@ -1,0 +1,192 @@
+[
+  {
+    "candidate_id": "922cdaec69bddda6",
+    "name": "Pulse Local",
+    "url": "https://pulseos.finance/",
+    "source": "Hacker News Show",
+    "summary": "Pulse Local, a Mac budgeting app whose AI models run on your machine. Hi HN, I'm Niz. Pulse Local is a budgeting app for Mac (Apple Silicon, beta) that answers questions about your spending with models that run on your machine. Local mode needs no account. The ledger and your questions stay on the machine, and the app sends no analytics or crash logs. I felt there are not enough consumer apps that run locally with no calls to the outside world that help us manage sensitive corners of our lives. This app in its local variant only downloads a couple of models and occasional updates, it does not send any analytics nor data. Features-wise, Pulse local is a complete budgeting app that offers an assistant built on top of a fine-tuned model and thousands of rules embedded in the code itself. I'm sharing it for free with options to help me continue experimenting with fine-tuning and expanding along this direction. How it works: you import a CSV from any bank, in any currency. When you ask a question, a tuned Qwen3 0.6B model reads it into a structured query, and code, not the model, does the money math against the ledger. A 4B checker model double-checks each money answer; when the two rea",
+    "hn_story_id": 50080275,
+    "published_at": "2026-10-13T23:13:23Z",
+    "discovered_at": "2026-10-19T06:18:29.646244Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.6,
+      "reason": "本地运行的 Mac 预算应用，用微调 Qwen3 0.6B 将自然语言转结构化查询、代码做金额计算、4B 模型复核，是隐私优先消费 AI 产品的优秀案例，机制可拆解且面向普通用户，适合 AI PM 作品集。"
+    }
+  },
+  {
+    "candidate_id": "e17e2ebf9d7e9588",
+    "name": "Atticus",
+    "url": "https://github.com/SaarthurR/atticus-mac",
+    "source": "Hacker News Show",
+    "summary": "Atticus – Hold-to-talk voice assistant for macOS that runs on Claude -p. Hi HN! I'm Saarth. I'm in 9th grade, and I built Atticus. Atticus is a fast and cheap Mac assistant that can do tasks for you. You hold down Control-Option-Space, speak or type your task, be it complex or a simple browser search, and Atticus will get on it. The interesting part is that simple tasks, like opening apps, playing a Spotify playlist, or web queries, don't touch AI, and instead are processed locally and typically finish in under a second. For example, prompting Atticus to open apps takes around 0.08 seconds, sometimes even finishing before you finish your sentence, sort of like Jev. Any tasks that are more complicated will be sent to Claude via claude -p, meaning you never need an API key and Atticus will run on your existing Claude Pro or Max plan. By using this approach, costs are also cut down immensely, with, on average, tasks costing a fraction of a cent. To achieve Atticus' speed, it remembers shortcuts from each task it completes. When it does a task right for the first time, it saves its steps and replays them the next time without AI. For example, a workflow of creating a new meeting took a",
+    "hn_story_id": 50049588,
+    "published_at": "2026-10-12T00:15:12Z",
+    "discovered_at": "2026-10-19T06:18:29.647071Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "macOS 按住说话助手，简单任务本地处理（0.08 秒）、复杂任务走 claude -p、并记忆步骤复用，是混合本地/云端与成本优化的典型 AI 助手设计，机制非常适合拆解；证据为作者自述，需验证。"
+    }
+  },
+  {
+    "candidate_id": "03b1fbb592b190b7",
+    "name": "Agent.reviews",
+    "url": "https://agent.reviews/",
+    "source": "Hacker News Show",
+    "summary": "Agent.reviews – Where AI agents read and write reviews on tools. Hi HN! I’m Louis, Co-Founder of Armature (YC P26), where we help teams make their product discoverable and usable by coding agents. We already measured 50k+ agent sessions and realized that over and over agents would encounter the exact same limitations on different tasks using the same tool. So we wondered why these weren’t fixed. And the answer is simple: the feedback loop just doesn’t exist between agents and software vendors but also between different agents. Humans can share their experience on platforms like https://g2.com and https://trustpilot.com , but agents have nowhere to. So we created: https://agent.reviews : the G2 for agents. It works with a set of skills and an npm CLI (@armature-tech/agent-reviews) connecting agents to our API endpoints. Anyone can ask their agent (Claude Code, Codex, Cursor, etc.) to install it, and agents will naturally check reviews before picking a tool and post their own after using one. As usual, privacy was our main concern, so we added 3 layers before a review gets posted: Deterministic rules filtering secrets, PII, URLs, etc. A Jev classifier trained to detect any leak after",
+    "hn_story_id": 49995539,
+    "published_at": "2026-10-07T16:59:11Z",
+    "discovered_at": "2026-10-19T06:18:29.646468Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.1,
+      "reason": "面向 AI agent 的评论平台（G2 for agents），通过 skills 和 npm CLI 让 agent 读写工具评价，概念新颖且切中 agent 生态反馈闭环；但主要面向开发者/agent，普通用户体验弱，证据以自述为主。"
+    }
+  },
+  {
+    "candidate_id": "44eae9340ff5d254",
+    "name": "Made an open-source Lego AI generator",
+    "url": "https://github.com/anteloc/ldraw-nova",
+    "source": "Hacker News Show",
+    "summary": "Made an open-source Lego AI generator. Hi there :-) New on HN, first time posting. Past year, around December, I started experimenting with making ChatGPT and Claude generate source code in LDraw language. This LDraw is literally an \"assembly\" language, a low-level programming language that describes how to assemble LEGO pieces together into models, one placement instruction at a time. When executed by specific tools, like e.g. LDView, LeoCAD, Studio... these instructions become LEGO CAD models, that can be interacted with, modified, etc. Or, in other words: one LDraw source file in .mpd or .ldr format is equivalent to one LEGO CAD model. So, the idea I had was: if I manage for maybe ChatGPT or Claude to generate high-quality LDraw source files... then, they would actually be generating high-quality LEGO CAD models, right? Then, after months of iterations and trying one thing after the other... it worked!!! Long story short: using GPT-6 Astra and Opus 5.5, I've managed to create a python toolset, instructions, and docs for agents in general. Now, these can be used by them to generate LDraw models. I've packed it all as a dockerized web app for others to try and experiment, with sev",
+    "hn_story_id": 49937916,
+    "published_at": "2026-10-02T20:00:15Z",
+    "discovered_at": "2026-10-19T06:18:29.646379Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "将 LLM 生成 LDraw 装配语言并打包为 dockerized Web 应用，用户可生成可编辑的乐高 CAD 模型，机制清晰（agent 工具集+指令+文档），适合拆解 AI 生成结构化 3D 资产的流程；但证据主要是作者自述，产品成熟度与可体验性需验证。"
+    }
+  },
+  {
+    "candidate_id": "2d48ece46a89feaf",
+    "name": "HN.watch",
+    "url": "https://hn.watch/",
+    "source": "Hacker News Show",
+    "summary": "HN.watch – Videos of all Hacker News posts. Hi HN, I’m Per, founder of Scrimba (YC S20). We’ve spent the last decade teaching people how to code with an HTML-based video format. We’ve now plugged an LLM into it, so that people can create explainer videos about anything. It’s called “Scrimba Explain”. To demo this technology for Hacker News, we built HN.watch. It’s like HN, but with explainer videos instead of articles. We create them on-the-fly the first time someone clicks on a link. While there are obvious visual drawbacks of using HTML instead of diffusion models, there are three big benefits: - Speed: Much faster to generate than pixel-based videos (just a few seconds from click to playback) - Cost: Our cost per video is ~$0.04. (Excluding image generation, which some videos utilize. Quickly blows up the cost) - Easy editing: the above benefits also make AI-assisted editing cheap & fast Our hypothesis is that if video creation goes from “dollars and minutes” to “cents and seconds”, a bunch of new use cases will be unlocked. Here are some we see already: - A video explanation of every single Pull Request (we do this internally) - Give every page in your internal/extrernal docs a",
+    "hn_story_id": 49879401,
+    "published_at": "2026-09-28T15:16:13Z",
+    "discovered_at": "2026-10-19T06:18:29.645894Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Scrimba Explain 用 LLM 生成 HTML 解释视频，HN.watch 作为演示，成本约 0.04 美元/条、秒级生成，机制（HTML 视频格式+LLM）有拆解价值；但 HN.watch 本身是演示站，产品化程度有限。"
+    }
+  },
+  {
+    "candidate_id": "75bd6efd3e198a1b",
+    "name": "Fakeipedia",
+    "url": "https://fakeipedia.org/",
+    "source": "Hacker News Show",
+    "summary": "Fakeipedia – Wikipedia for worlds that don't exist. Hi HN! Fakeipedia is an automatic world-building platform which takes an imagined world and makes a whole wiki that you can endlessly explore by clicking red links. I came up with this idea a few months ago after playing around with worldbuilding in Gemini, but I didn't want to release it until a powerful enough model could do it justice, and I decided that Argon is creative enough to write articles that are worth reading. I was surprised how well it turned out and how engaging some of the writing actually is. If you want to generate an article there is a nominal charge attached ($0.90), which helps cover AI/Stripe costs, and I think I just about break even. You can also steer the generation ala choose-your-own-adventure books when generating a new article. Everything generated is free and public for everyone to see. I hope you like it and I'm very much open to hearing about new world ideas/features that would make this project better.",
+    "hn_story_id": 50126334,
+    "published_at": "2026-10-16T23:52:04Z",
+    "discovered_at": "2026-10-19T06:18:29.647245Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "自动世界构建平台，生成可无限点击红链探索的虚构维基，付费生成与选择式引导机制清晰，是 AIGC 内容产品的有趣案例；证据以作者自述为主。"
+    }
+  },
+  {
+    "candidate_id": "09e34753695ea020",
+    "name": "AstroHelm",
+    "url": "https://astrohelm.app/",
+    "source": "Hacker News Show",
+    "summary": "AstroHelm – Use your phone camera to aim a telescope or telephoto lens. Hello HN! As an amateur astronomer living in New York City, finding objects in the night sky has always been a huge challenge. I thought about using the smartphone's gyroscope and magnetometer, but the accuracy left a lot to be desired. Then I learned about plate solving: given a picture of the sky, we can determine exactly where in the sky the camera was pointing by identifying the star pattern. This was a much better fit - as long as the phone and the optics are rigidly connected, we can repeatedly photograph the sky and determine the pointing direction with very high accuracy. A lot of work was done to design an algorithm that works reliably with smartphone cameras, which have limited light sensitivity and wider field of view which includes buildings and trees. I experimented a lot with machine learning, and to my surprise, traditional CV methods actually performed better at extracting stars from the image. The result is AstroHelm, an iOS and Android app that helps figure out where your telescope or camera is pointing, and guides you to the object of your choice. Just follow an arrow on screen, and the objec",
+    "hn_story_id": 49954015,
+    "published_at": "2026-10-04T14:01:09Z",
+    "discovered_at": "2026-10-19T06:18:29.646990Z",
+    "manual": false,
+    "score": {
+      "relevance": 3,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.5,
+      "reason": "用手机相机 plate solving 辅助对准望远镜的 iOS/Android 应用，技术方案（传统 CV 优于 ML）有拆解价值，但 AI 属性偏弱，更接近计算机视觉工具。"
+    }
+  },
+  {
+    "candidate_id": "f1406dfb0a8da086",
+    "name": "Sphinx",
+    "url": "https://sphinx-six-theta.vercel.app/",
+    "source": "Hacker News Show",
+    "summary": "Sphinx – A hook that quizzes you on your AI's code before shipping. FOSS, Basically it plugs into your existing coding agent workflow and every time you push to prod it'll throw up a questionnaire that checks if you understand how the code you're pushing works.",
+    "hn_story_id": 50137950,
+    "published_at": "2026-10-18T04:33:49Z",
+    "discovered_at": "2026-10-19T06:18:29.646100Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "在推送生产前用问卷检验开发者是否理解 AI 生成代码，切中 AI 编程信任问题，概念有洞察；但产品形态轻、证据少。"
+    }
+  },
+  {
+    "candidate_id": "47f0135519954ba5",
+    "name": "Indigene",
+    "url": "https://indigene.app/",
+    "source": "Hacker News Show",
+    "summary": "Indigene – Native plants for where you stand. Back when I lived in Central Florida, it took me years to learn what native plants could benefit wildlife and the local ecosystem as I slowly replaced parts of my yard to make it more resilient to drought. After moving to Seattle a few years ago, I had to start all of that from scratch. LLMs made the process a bit easier but I still had to routinely ask the same kinds of questions over and over, despite being far more familiar with native plants these days and leaning more on native plant societies and botany resources like Doug Tallamy and Joey Santore whose excellent Crime Pays But Botany Doesn't site was recently posted here[1]. A good friend was visiting from Orlando over the summer and told me she was struggling to decide what to plant in her own yard despite her landlord being ok with it. That was enough of an excuse for me to kick off work on Indigene, which is aimed at giving folks just-in-time knowledge about what to plant based on their locale, sun exposure, soil conditions, and their own ecosystem support goals. Candidly, as many of us have, I've also leaned heavily on LLMs (mostly Claude here) to bring this to life. Largely ",
+    "hn_story_id": 50064470,
+    "published_at": "2026-10-12T23:25:20Z",
+    "discovered_at": "2026-10-19T06:18:29.646574Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.35,
+      "reason": "根据位置、光照、土壤与生态目标推荐本地原生植物的应用，场景明确、面向普通用户，AI 作为即时知识助手；机制可拆但新颖度中等。"
+    }
+  },
+  {
+    "candidate_id": "8d38deac67f42f81",
+    "name": "A modern low-poly SimCity 2000 clone",
+    "url": "https://dator.dev/city2026",
+    "source": "Hacker News Show",
+    "summary": "A modern low-poly SimCity 2000 clone, built by Opus 5.5. This is a clone of simcity 2000 I (using Opus 5.5) built over a few days. It started with a single prompt \"create a typescript webgl low-poly version (full replica of game logic) of simcity 2000. the original is available here for inspection [...].zip\". It then decompiled it using Ghidra and started translating the old native PowerPC code function-by-function. After about 2 hours, using 27 subagents, i had a running version in my browser. After a follow up prompt (make sure all aspects of the game is implemented correctly and accurately), Opus decided to use a PowerPC emulator (Unicorn) and write a harness with faked Mac system calls in Python for verification, running 10,000 game days generating an identical game state. After that it has basically just been polishing, and adding a few subtle modernizations like, smog, depth-of-field and environmental sounds to make it a bit more immersive without killing the original nostalgic vibe. All 3D and vector assets are generated with code by Opus, and the bitmap image assets are generated by GPT Image 2. The music and sounds are not genai because all AI audio models i've tried sound",
+    "hn_story_id": 49977886,
+    "published_at": "2026-10-06T13:09:27Z",
+    "discovered_at": "2026-10-19T06:18:29.646921Z",
+    "manual": false,
+    "score": {
+      "relevance": 3,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.25,
+      "reason": "用 Opus 5.5 复刻 SimCity 2000 的浏览器游戏，展示 agent 长任务与验证方法（PowerPC 模拟器对拍），作为 AI 辅助开发案例有趣，但产品本身是游戏复刻，AI 产品机制较弱。"
+    }
+  }
+]

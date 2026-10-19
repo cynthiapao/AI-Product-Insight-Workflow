@@ -1,0 +1,63 @@
+{
+  "candidate": {
+    "candidate_id": "e17e2ebf9d7e9588",
+    "name": "Atticus",
+    "url": "https://github.com/SaarthurR/atticus-mac",
+    "source": "Hacker News Show",
+    "summary": "Atticus – Hold-to-talk voice assistant for macOS that runs on Claude -p. Hi HN! I'm Saarth. I'm in 9th grade, and I built Atticus. Atticus is a fast and cheap Mac assistant that can do tasks for you. You hold down Control-Option-Space, speak or type your task, be it complex or a simple browser search, and Atticus will get on it. The interesting part is that simple tasks, like opening apps, playing a Spotify playlist, or web queries, don't touch AI, and instead are processed locally and typically finish in under a second. For example, prompting Atticus to open apps takes around 0.08 seconds, sometimes even finishing before you finish your sentence, sort of like Jev. Any tasks that are more complicated will be sent to Claude via claude -p, meaning you never need an API key and Atticus will run on your existing Claude Pro or Max plan. By using this approach, costs are also cut down immensely, with, on average, tasks costing a fraction of a cent. To achieve Atticus' speed, it remembers shortcuts from each task it completes. When it does a task right for the first time, it saves its steps and replays them the next time without AI. For example, a workflow of creating a new meeting took a",
+    "hn_story_id": 50049588,
+    "published_at": "2026-10-12T00:15:12Z",
+    "discovered_at": "2026-10-19T06:18:29.647071Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "macOS 按住说话助手，简单任务本地处理（0.08 秒）、复杂任务走 claude -p、并记忆步骤复用，是混合本地/云端与成本优化的典型 AI 助手设计，机制非常适合拆解；证据为作者自述，需验证。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "atticus-mac",
+      "url": "https://github.com/SaarthurR/atticus-mac",
+      "excerpt": "<p align=\"center\"><img src=\"docs/banner.png\" alt=\"Atticus. Your whole Mac, one sentence away.\" width=\"100%\"></p> <p align=\"center\"> Hold <kbd>⌃ control</kbd> <kbd>⌥ option</kbd> <kbd>space</kbd>, say what you need, let go.<br> Atticus moves your windows, finds your files, reads your screen and gets it done. </p> <p align=\"center\"> <b>⚡ Fast</b> &nbsp;·&nbsp; <b>🔑 No API key</b> &nbsp;·&nbsp; <b>🧠 Remembers you</b> &nbsp;·&nbsp; <b>Free and open source</b> </p> - **Fast.** Simple asks skip the AI: an app opens in 0.08 s. Ask for an action once and Atticus learns it, so next time it runs in a blink, with no AI and for free. - **No API key.** It runs on the Claude Pro or Max plan you already have, through Claude Code — or on your Devin plan through the Devin CLI (Settings → AI client). Nothing to sign up for, no key to paste, no extra bill. - **Remembers you.** Say \"remember…\" and every ask after that knows it. It picks up who you are (your name, your apps) and fixes its own mistakes when you correct it. > **On Windows?** [@FindlayHi](https://github.com/FindlayHi) built **[Atticus for Windows](https://github.com/FindlayHi/atticus-windows)**, with integrations for Home Assistant, Jellyfin, Immich and more. <p align=\"center\"> <img alt=\"macOS\" src=\"https://img.shields.io/badge/macOS-1d1d1f?style=for-the-badge&logo=apple&logoColor=white\"> <img alt=\"Swift\" src=\"https://img.shields.io/badge/Swift-1d1d1f?style=for-the-badge&logo=swift&logoColor=white\"> <img alt=\"Claude\" src=\"https://img.shields.io/badge/Claude_Haiku-1d1d1f?style=for-the-badge&logo=anthropic&logoColor=white\"> <img alt=\"Cost\" src=\"https://img.shields.io/badge/~0.18%C2%A2_per_ask-1d1d1f?style=for-the-badge\"> <a href=\"https://ko-fi.com/saarthr\"><img alt=\"Support on Ko-fi\" src=\"https://img.shields.io/badge/Support_on_Ko--fi-1d1d1f?style=for-the-badge&logo=kofi&logoColor=white\"></a> </p> <br> https://github.com/user-attachments/assets/26822ad2-6281-477d-b676-2f490a4a207b <br> ## Just ask | You say | Atticus | |---|---| | *\"Code on my big screen, Chrome and Terminal on the laptop.\"* | Arranges three windows across two displays. | | *\"Open Spotify.\"* · *\"Terminal on the left.\"* | Runs instantly, with no AI at all. | | *\"Find my notes about the Tokyo trip.\"* | Searches your files by what's inside them, opens the match on your other screen. | | *\"What's wrong with this code?\"* | Looks at your screen and answers in a line. | | *\"Reply to this. Thursday works, send me a time.\"* | Reads the email on screen and writes the reply. Insert puts it at your cursor. It never sends. | | *\"Find me a desk lamp under $30 on Amazon.\"* | Works in Chrome behind your apps; a live mini screen shows it. | | *\"Where do I turn on Night Shift?\"* | A ring lights up the exact spot on your screen (Show me where). | | *\"Summarize this article in three bullets.\"* | Reads the page for you. | | *\"Play my late night coding playlist on Spotify.\"* | Plays it in a second, no clicks. Any song, artist or playlist. | | *\"When I say focus mode, close Slack and open my to-do list.\"* | Remembers it. Next time, two words do it all. | <p align=\"center\"><img src=\"docs/demo.gif\" alt=\"Atticus arranging windows across two screens\" width=\"820\"></p> ## Why Atticus <table> <tr> <td width=\"33%\" valign=\"top\"><h3>Fast</h3>Opening apps and sites, moving windows, web searches and music skip the AI entirely (an app opens in 0.08 s). Actions you ask for once (opening apps, moving windows, playing music) become learned shortcuts: \"Open Calculator and Chess\" went from 5.5 s to 0.4 s, with no AI.</td> <td width=\"33%\" valign=\"top\"><h3>No API key</h3>Runs on the Claude plan you already have, through <code>claude -p</code>. About 0.18¢ of plan usage per ask (~550 asks for $1 at API list rates). Atticus itself is free.</td> <td width=\"33%\" valign=\"top\"><h3>Remembers you</h3>\"Remember: open means bring it to the front.\" Saved rules go with every ask. It learns lasting facts about you (name, city, favorite apps), and when you correct it, it saves a rule so it gets it right next time. Edit all of it in Settings.</td> </tr> <tr> <td valign=\"top\"><h3>Private ears</h3>Apple's on-device speech turns your voice into text. Audio never leaves your Mac.</td> <td valign=\"top\"><h3>Your whole Mac</h3>Apps, windows, files, settings, the web and the screen, with native Accessibility controls for clicking, scrolling and typing inside apps.</td> <td valign=\"top\"><h3>Safe by default</h3>Safe mode runs the AI's commands in Claude Code's sandbox: they can only write to a scratch folder. Before anything deletes, sends, buys or changes a file, Atticus asks you first. <code>rm</code>, <code>sudo</code>, disk tools and shutdown are always blocked. Every exact command is in the ask log.</td> </tr> </table> <details> <summary><b>How the shortcut and the box work</b></summary> <br> Choose **Hold to talk** or **Press to toggle** in Settings → General → Shortcut behavior. Hold mode sends when you release. Toggle mode starts on the first press and sends",
+      "source_type": "official",
+      "retrieved_at": "2026-10-19T06:18:45.574520Z"
+    },
+    {
+      "title": "Atticus",
+      "url": "https://news.ycombinator.com/item?id=50049588",
+      "excerpt": "Will this work on the Windows as well or just for mac users. by the way really like it from what I can see it from the demo video. If it works as it shown and also I dont thinks so that it is for windows would love if you can clear this out.\nThis slaps, I burned some credits on a fork that works for windows https://github.com/FindlayHi/atticus-windows\nI have been looking for this kind of thing on Linux. Any one have anything that works well?\nThis looks and works great, super impressed. This is what Siri/Apple AI should be like. One concern I have is about sending private info to Anthropic. So it would be great to have the option to use local AI. Local options should support the OpenAI API that seemingly is the standard for these connections, as provided by Llama.app and Unsloth Studio for example. That way one could run against a local model and keep personal information private. That of course begs the question if a local model is smart enough for the tasks at hand. I'm also trying out OOMU, a similar but closed source personal assistant app for MacOS. It emphasizes privacy with local models, and even has an 'Airplane' mode. The app has a built in llama.cpp server and uses Gemma-4-4B, their own router model plus a vision model.\nClever to record-once and replay without AI. How do you notice when a saved shortcut has gone stale? If app update moves button or change other UI elements, maybe some new alert dialog? Does it detect failure and put it back to claude to record it again?",
+      "source_type": "community",
+      "retrieved_at": "2026-10-19T06:18:45.905985Z"
+    }
+  ],
+  "verified_facts": [
+    "Atticus 是一个面向 macOS 的按住说话（hold-to-talk）语音助手，默认快捷键为 Control-Option-Space。",
+    "简单任务（打开应用、移动窗口、网页搜索、播放音乐）不调用 AI，由本地处理；打开应用约 0.08 秒。",
+    "复杂任务通过 claude -p 发送给 Claude 处理，用户无需自备 API key，可使用已有的 Claude Pro 或 Max 计划。",
+    "Atticus 会记录首次完成任务的步骤，之后作为快捷方式重放，无需 AI；示例中“Open Calculator and Chess”从 5.5 秒降至 0.4 秒。",
+    "官方 README 标注每次请求约 0.18¢ 的计划用量（按 API 列表价约 550 次/1 美元），Atticus 本身免费且开源。",
+    "语音转文字使用 Apple 的设备端语音识别，音频不离开 Mac。",
+    "安全模式在 Claude Code 沙箱中执行 AI 命令，仅可写入临时文件夹；删除、发送、购买或修改文件前会先询问用户。",
+    "rm、sudo、磁盘工具和关机命令被永久阻止，每条具体命令都记录在请求日志中。",
+    "支持通过 Settings → AI client 选择 Claude Code 或 Devin CLI 作为 AI 客户端。",
+    "存在第三方开发者 @FindlayHi 构建的 Windows 版本 Atticus for Windows。",
+    "社区评论提到希望支持本地 AI（如兼容 OpenAI API 的本地模型）以保护隐私，并询问如何检测已保存快捷方式失效。",
+    "作者自述为九年级学生 Saarth，产品在 Hacker News Show 发布。"
+  ],
+  "open_questions": [
+    "0.08 秒、5.5 秒到 0.4 秒、0.18¢ 等性能与成本数据均为作者自述，缺少独立复现或第三方基准验证。",
+    "已保存的快捷方式在应用更新导致 UI 元素变化时如何检测失效并回退到 AI 重新记录，证据未说明。",
+    "是否支持或计划支持本地模型/OpenAI 兼容 API，目前仅有社区请求，无官方确认。",
+    "除 macOS 外，Windows 版本由第三方维护，其功能与官方版本的一致性和维护状态不明。",
+    "发送给 Claude 的屏幕内容、文件内容等数据的具体隐私边界与保留策略未在证据中详述。",
+    "项目实际代码成熟度、测试覆盖、发布版本与更新频率未在证据中体现。",
+    "Devin CLI 集成的实际可用性与限制未说明。",
+    "在 Claude Pro/Max 计划下大量使用是否触及速率限制或服务条款边界，证据未涉及。"
+  ],
+  "quality": "usable",
+  "collection_diagnostics": []
+}
