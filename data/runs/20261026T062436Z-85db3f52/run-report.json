@@ -1,0 +1,23 @@
+{
+  "run_id": "20261026T062436Z-85db3f52",
+  "mode": "scheduled",
+  "status": "completed",
+  "candidate_count": 35,
+  "selected_count": 11,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/pulse-local-budget-ai-local-verification.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/pulse-local-budget-ai-local-verification.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/pulse-local-budget-ai-local-verification.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/pulse-local-budget-ai-local-verification/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/pulse-local-budget-ai-local-verification/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/pulse-local-budget-ai-local-verification/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/pulse-local-budget-ai-local-verification/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/pulse-local-budget-ai-local-verification/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/pulse-local-budget-ai-local-verification/social-cards.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/pulse-local-budget-ai-local-verification/social-cards.css",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/pulse-local-budget-ai-local-verification/README.md"
+  ],
+  "errors": [],
+  "started_at": "2026-10-26T06:24:36.856336Z",
+  "finished_at": "2026-10-26T06:26:09.493882Z"
+}

@@ -1,0 +1,211 @@
+[
+  {
+    "candidate_id": "922cdaec69bddda6",
+    "name": "Pulse Local",
+    "url": "https://pulseos.finance/",
+    "source": "Hacker News Show",
+    "summary": "Pulse Local, a Mac budgeting app whose AI models run on your machine. Hi HN, I'm Niz. Pulse Local is a budgeting app for Mac (Apple Silicon, beta) that answers questions about your spending with models that run on your machine. Local mode needs no account. The ledger and your questions stay on the machine, and the app sends no analytics or crash logs. I felt there are not enough consumer apps that run locally with no calls to the outside world that help us manage sensitive corners of our lives. This app in its local variant only downloads a couple of models and occasional updates, it does not send any analytics nor data. Features-wise, Pulse local is a complete budgeting app that offers an assistant built on top of a fine-tuned model and thousands of rules embedded in the code itself. I'm sharing it for free with options to help me continue experimenting with fine-tuning and expanding along this direction. How it works: you import a CSV from any bank, in any currency. When you ask a question, a tuned Qwen3 0.6B model reads it into a structured query, and code, not the model, does the money math against the ledger. A 4B checker model double-checks each money answer; when the two rea",
+    "hn_story_id": 50080275,
+    "published_at": "2026-10-13T23:13:23Z",
+    "discovered_at": "2026-10-26T06:24:37.952003Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.6,
+      "reason": "本地运行的 Mac 预算应用，有清晰的产品机制：小模型把问题转成结构化查询、代码做金额计算、第二个模型复核，隐私与本地化是明确取舍，非常适合 AI PM 拆解产品决策。"
+    }
+  },
+  {
+    "candidate_id": "e17e2ebf9d7e9588",
+    "name": "Atticus",
+    "url": "https://github.com/SaarthurR/atticus-mac",
+    "source": "Hacker News Show",
+    "summary": "Atticus – Hold-to-talk voice assistant for macOS that runs on Claude -p. Hi HN! I'm Saarth. I'm in 9th grade, and I built Atticus. Atticus is a fast and cheap Mac assistant that can do tasks for you. You hold down Control-Option-Space, speak or type your task, be it complex or a simple browser search, and Atticus will get on it. The interesting part is that simple tasks, like opening apps, playing a Spotify playlist, or web queries, don't touch AI, and instead are processed locally and typically finish in under a second. For example, prompting Atticus to open apps takes around 0.08 seconds, sometimes even finishing before you finish your sentence, sort of like Jev. Any tasks that are more complicated will be sent to Claude via claude -p, meaning you never need an API key and Atticus will run on your existing Claude Pro or Max plan. By using this approach, costs are also cut down immensely, with, on average, tasks costing a fraction of a cent. To achieve Atticus' speed, it remembers shortcuts from each task it completes. When it does a task right for the first time, it saves its steps and replays them the next time without AI. For example, a workflow of creating a new meeting took a",
+    "hn_story_id": 50049588,
+    "published_at": "2026-10-12T00:15:12Z",
+    "discovered_at": "2026-10-26T06:24:37.952972Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "macOS 按住说话助手，机制清晰：简单任务本地规则秒回、复杂任务走 Claude、成功步骤记忆复用，是很好的 AI PM 产品拆解素材，但证据主要来自作者自述。"
+    }
+  },
+  {
+    "candidate_id": "4761630b1f2460e6",
+    "name": "We had AI write a wiki from 45k Enron emails",
+    "url": "https://www.thisandthat.chat/enron",
+    "source": "Hacker News Show",
+    "summary": "We had AI write a wiki from 45k Enron emails, every fact cited.",
+    "hn_story_id": 50207620,
+    "published_at": "2026-10-23T12:02:53Z",
+    "discovered_at": "2026-10-26T06:24:37.952043Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "用 AI 从 4.5 万封 Enron 邮件生成每条事实可引用的 wiki，机制与证据链设计值得拆解。"
+    }
+  },
+  {
+    "candidate_id": "8ddbf06cabcd61e0",
+    "name": "I wrote an email app that accepts only one sender per inbox",
+    "url": "https://clova.email/",
+    "source": "Hacker News Show",
+    "summary": "I wrote an email app that accepts only one sender per inbox. Infinite inboxes, including prefixes where you don't have to create inboxes before you use them -- they self create when you add a suffix. Three types of inboxes: - One sender. Locks to the first domain to send email (except gmail, outlook, etc where it locks to an email account for obivous reasons. It bounces everyone else. - Temporary. Lasts for a while (24h, 7days, etc) then bounces. Received messages stay or go as per your choice. - Prefix. The most powerful. Declare a prefix like \"service\" and then invent any suffix, like \"service-netflix\" or \"service$bank\" and it creates a new one-sender inbox locked to whoever wrote first. Bring you own domain. Bring your own AI (MCP server ready). Forwarding. Please help me test it.",
+    "hn_story_id": 50090932,
+    "published_at": "2026-10-14T17:00:59Z",
+    "discovered_at": "2026-10-26T06:24:37.951578Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "单发件人邮箱与无限前缀收件箱，产品机制有巧思，AI 只是 MCP 接入，作为 AI PM 选题相关性中等。"
+    }
+  },
+  {
+    "candidate_id": "d228a5ebe01b2d07",
+    "name": "Wonderhop",
+    "url": "https://wonderhop.io/en",
+    "source": "Hacker News Show",
+    "summary": "Wonderhop – A daily game: guess what most people say, or what none do. Hello HN! Wonderhop is a small browser game with no account needed to play, everyday there are 4 rounds of 7 quesitons like \"Name a food that a lot of people hate\" The goal depends on the mode: Either gives the answer most people would give, the one no one would give, the oldest answer or the most recent one and there's a leaderboard for the day. The most interesting part of the project was understanding answers that are typed freely and in 10 languages, there was some typos, plurals, nickname, or even duplicate way of sayign the same thing. We needed AI judge that checks it really existes conencted to some API like wikipedia to judge the veracity of each answer really quickly (less than 1s on average) The percentage starts from an estimate but move really fast with the answers of real players. If the list missed a good answer, it gets added as soon as a few different players give it. (There are also a lot of secrets and pop culture references added in the game :) ) A large part of the code was written with AI tools, but the artistic direction the concept and every choice design are human-made We'd love to know ",
+    "hn_story_id": 50080246,
+    "published_at": "2026-10-13T23:10:04Z",
+    "discovered_at": "2026-10-26T06:24:37.951656Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "每日猜答案浏览器游戏，AI 判定自由文本答案与多语言归一化是核心机制，可拆解，但 AI 深度有限。"
+    }
+  },
+  {
+    "candidate_id": "12186bd813fc04b4",
+    "name": "OnKey",
+    "url": "https://github.com/dsmurrell/onkey",
+    "source": "Hacker News Show",
+    "summary": "OnKey – I'm a bad singer, so I built an app to show where I'm off-key. Hi all I was pretty terrible at singing, now I’d say I’m bad but not terrible. This is because I’ve been using a singing app (won’t name it here) that scores me on my pitch and timing throughout the song so that I can improve. Lately however, the app I’ve been using has flooded their song list with songs that aren’t originals. I didn’t like this at all as for me, it’s easier to try to improve when you’re singing along to the original. So, I asked an agent (Claude Code) if it could write some code to listen to Spotify and also listen to me and see if it could detect both pitches and score me. It impressed me by writing some Python and showing me my pitch in the terminal! It couldn’t go all the way though and detect the singer’s pitch in real time. So I found the next best setup and built OnKey, a Mac app that needs to listen to the song once (it doesn’t save it) and then when it’s learnt the song (takes a couple of minutes), you can sing along to the pitch track that it’s learnt. OnKey is free to use and open source under the MIT license. It can listen to Spotify, Apple Music, and YouTube playing in your browser ",
+    "hn_story_id": 50195488,
+    "published_at": "2026-10-22T14:04:44Z",
+    "discovered_at": "2026-10-26T06:24:37.951761Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Mac 唱歌音准应用，先听一遍歌学习音高轨迹再实时评分，产品机制具体可体验，AI PM 相关性中等。"
+    }
+  },
+  {
+    "candidate_id": "47f0135519954ba5",
+    "name": "Indigene",
+    "url": "https://indigene.app/",
+    "source": "Hacker News Show",
+    "summary": "Indigene – Native plants for where you stand. Back when I lived in Central Florida, it took me years to learn what native plants could benefit wildlife and the local ecosystem as I slowly replaced parts of my yard to make it more resilient to drought. After moving to Seattle a few years ago, I had to start all of that from scratch. LLMs made the process a bit easier but I still had to routinely ask the same kinds of questions over and over, despite being far more familiar with native plants these days and leaning more on native plant societies and botany resources like Doug Tallamy and Joey Santore whose excellent Crime Pays But Botany Doesn't site was recently posted here[1]. A good friend was visiting from Orlando over the summer and told me she was struggling to decide what to plant in her own yard despite her landlord being ok with it. That was enough of an excuse for me to kick off work on Indigene, which is aimed at giving folks just-in-time knowledge about what to plant based on their locale, sun exposure, soil conditions, and their own ecosystem support goals. Candidly, as many of us have, I've also leaned heavily on LLMs (mostly Claude here) to bring this to life. Largely ",
+    "hn_story_id": 50064470,
+    "published_at": "2026-10-12T23:25:20Z",
+    "discovered_at": "2026-10-26T06:24:37.952361Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "按位置、光照、土壤推荐本地原生植物的应用，场景明确、机制可拆，AI 作为知识助手，适合作为消费类 AI 产品案例。"
+    }
+  },
+  {
+    "candidate_id": "03521d5839be1110",
+    "name": "I built a task system to handle the drudgery so I could focus on tasks",
+    "url": "https://3anddoneapp.com/try",
+    "source": "Hacker News Show",
+    "summary": "I built a task system to handle the drudgery so I could focus on tasks. I'm a software engineer from the east coast (who has lived in Boston, NY, the bay area, UK, France), and I built a task system called 3 & Done. It's the place you trust to store everything you need to do. It accepts voice input for rapid entry, as well as text (it stores the audio locally so you can listen to jog your memory) and emails you every morning with the three most important things for you to do that day, and why, based on what you've said about the task: deadlines, urgency, sitting too long. I've been at software engineering for about 44 years now... Grew up with it, which was unusual when I started, and I was always good about getting into the zone and doing things. The career started small, small company, then back office, the dot com startups, then smaller companies again after the bust, a non-profit, and eventually YouTube (Google at the time, but just barely) and Meta (just Facebook when I was there). When I hit the startups, and later big tech, it was no longer enough to just be an engineer, to have drive, to be good, you had to be organized, you had to follow through, get stuff done, and that's",
+    "hn_story_id": 50151980,
+    "published_at": "2026-10-19T13:07:07Z",
+    "discovered_at": "2026-10-26T06:24:37.952171Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.6,
+      "reason": "语音录入任务系统，每天邮件推送三件最重要的事并解释原因，产品机制清晰，AI 成分中等。"
+    }
+  },
+  {
+    "candidate_id": "f1406dfb0a8da086",
+    "name": "Sphinx",
+    "url": "https://sphinx-six-theta.vercel.app/",
+    "source": "Hacker News Show",
+    "summary": "Sphinx – A hook that quizzes you on your AI's code before shipping. FOSS, Basically it plugs into your existing coding agent workflow and every time you push to prod it'll throw up a questionnaire that checks if you understand how the code you're pushing works.",
+    "hn_story_id": 50137950,
+    "published_at": "2026-10-18T04:33:49Z",
+    "discovered_at": "2026-10-26T06:24:37.951851Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "上线前用问卷检验你是否理解 AI 写的代码，概念有趣，但更像开发流程钩子，产品深度与证据有限。"
+    }
+  },
+  {
+    "candidate_id": "d97c6e250b02cd60",
+    "name": "Petal",
+    "url": "https://petal.live/",
+    "source": "Hacker News Show",
+    "summary": "Petal, open-source CoScreen/ScreenHero finally free. Hi HN! I’m Jason Thomas, one of the founders of CoScreen. As some of you may know, Datadog sunset the CoScreen service on July 31st. Four of us from the original CoScreen team have spent the last couple months building a free and open source pair programming tool inspired by those that came before us: It’s called Petal ( https://github.com/kiruna-labs/petal ) Some history first, because when we started CoScreen we had hoped to break the sad and established pattern of this industry. Screenhero was an exceptional tool that a lot of us loved for pairing. Multiple cursors, low latency, you could click your partner’s editor, and just start typing. It felt like magic while we had it. Then Slack bought it in 2015, and shut down the standalone app in December 2017. When Till, Max, and I started CoScreen, we were aware of this history, and wanted to build an even more magical collaboration and screen sharing experience: the entire concept was “throw a window from your laptop up on someone else’s screen, and start collaborating with zero friction.” Datadog acquired us in 2022, and thus began the great adventure of adapting our real-time te",
+    "hn_story_id": 50092470,
+    "published_at": "2026-10-14T18:23:14Z",
+    "discovered_at": "2026-10-26T06:24:37.952648Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.35,
+      "reason": "开源结对编程与屏幕共享工具，有可体验产品，但 AI 成分弱，更偏协作工具，作为 AI PM 选题相关性一般。"
+    }
+  },
+  {
+    "candidate_id": "509752a6737fb368",
+    "name": "Use your OpenAI subscription to create audiobooks",
+    "url": "https://pdftomp3.com/connect-ai",
+    "source": "Hacker News Show",
+    "summary": "Use your OpenAI subscription to create audiobooks.",
+    "hn_story_id": 50069337,
+    "published_at": "2026-10-13T10:08:34Z",
+    "discovered_at": "2026-10-26T06:24:37.951802Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.2,
+      "reason": "用 OpenAI 订阅把 PDF 转有声书，有可体验网页与明确任务，但机制较薄、证据少。"
+    }
+  }
+]
