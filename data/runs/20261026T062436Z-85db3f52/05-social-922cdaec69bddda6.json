@@ -1,0 +1,162 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "pulse-local-budget-ai-local-verification",
+  "key_takeaway": "Pulse Local 把 AI 问答的可靠性问题转化为架构问题：模型只解析意图，代码负责计算，第二个模型独立复核，只有两者一致才显示数字。这种生成与验证分离的思路，比单纯依赖更大的模型更可控，适合财务等对错误零容忍的场景，但用户要承担模型体积和手动导入的摩擦。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @pulseos:\n\nA useful AI budget app should read the learning process, not just check the final answer.\n\nPulse Local splits AI money questions into three parts: a small model parses intent, code does the math, and a second model double-checks every figure before it's shown.",
+    "headline": "Pulse Local: AI that verifies before it answers",
+    "image_recommended": true,
+    "image_brief": "Use a real screenshot of Pulse Local's answer interface showing the labels for month and category, plus the verification indicator. This proves the double-check mechanism visually.",
+    "alt_text": "Pulse Local answer with labels showing counted month and category, and a note that the answer was double-checked",
+    "visual_caption": "Model parses, code calculates, second model verifies",
+    "comparison_rows": [
+      {
+        "label": "Pulse Local",
+        "strength": "Separates intent parsing from calculation and adds independent verification",
+        "gap": "Manual import and 830 MB model download create friction"
+      },
+      {
+        "label": "Typical AI budget app",
+        "strength": "Cloud-based, easy setup",
+        "gap": "Model generates answers directly, risking hallucinated figures"
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @pulseos:\n\nA useful AI budget app should read the learning process, not just check the final answer.\n\nPulse Local splits AI money questions into three parts: a small model parses intent, code does the math, and a second model double-checks every figure before it's shown.",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview card showing Pulse Local's three-part architecture: model parses intent, code calculates, second model verifies"
+      },
+      {
+        "text": "The app runs entirely on your Mac. No account, no cloud AI. Your ledger and questions stay local.\n\nFirst launch downloads ~830 MB of models. That's the price of privacy.\n\nBut importing is manual: you export CSV from your bank, then Pulse reads it locally.",
+        "image_kind": "screenshot",
+        "screenshot_id": "pulse-local-import",
+        "alt_text": "Screenshot of Pulse Local import screen showing CSV file preview and column mapping"
+      },
+      {
+        "text": "The verification model is on by default. If it disagrees with the first model, Pulse withholds the answer instead of guessing.\n\nLabels above each answer show which month and category were counted. Click to correct a misread.",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      },
+      {
+        "text": "The tradeoff is clear: local privacy means a big model download and manual imports. Some users won't accept that.\n\nBut for high-stakes questions, separating generation from verification is a pattern worth stealing.\n\nWould you trade convenience for verifiable answers?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Pulse Local",
+        "handle": "@pulseos",
+        "profile_url": "https://x.com/pulseos",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "AI算钱，别让模型直接给答案",
+    "body": "最近看到一款 Mac 预算应用 Pulse Local，它处理 AI 问答的方式让我眼前一亮。很多 AI 产品让模型直接生成答案，然后靠提示词降低错误，但 Pulse 把可靠性问题变成了架构问题。\n\n它让一个微调的小模型只负责理解问题，把计算交给代码，再用第二个模型独立复核。只有两个模型结果一致时，才显示数字。官方在 387 段未见过的对话上测试，开启复核时错误数字答案的比例更低。答案上方还有标签，显示它统计了哪个月、哪个类别，点一下就能改。\n\n这个机制很聪明，因为财务场景最怕模型编造金额。模型不直接生成数字，错误就只能来自理解偏差或代码 bug，而复核模型进一步降低了理解错误的概率。\n\n但代价也很实在：首次要下载约 830 MB 模型，导入得手动从银行导出文件。社区里有人直言“我绝对不下载 3 GB 的预算应用”。本地隐私虽好，但多来源数据整合成本高，可能劝退普通用户。\n\n如果是你，会为了本地隐私和可验证的答案，接受模型体积和手动导入的麻烦吗？",
+    "hashtags": [
+      "AI产品设计",
+      "本地AI",
+      "预算应用",
+      "生成与验证分离"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "AI 算钱，别让模型直接给答案",
+      "body": "Pulse Local 把 AI 问答拆成三步：模型解析意图、代码计算、第二个模型复核。只有两个模型一致才显示数字。这种架构让错误变得可定位、可修正，而不是靠更大的模型碰运气。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "答案上的标签，让理解偏差可见",
+      "body": "截图显示 Pulse Local 的回答上方有月份和类别标签。用户一眼就能看出模型统计了哪个月、哪个类别，点一下就能改。这比重新组织语言高效得多。",
+      "comparison_rows": [],
+      "screenshot_id": "pulse-local-answer-labels"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "Pulse Local vs 典型 AI 预算应用",
+      "body": "Pulse 把生成和验证分离，用代码兜底；典型应用让模型直接生成答案，错误风险更高。",
+      "comparison_rows": [
+        {
+          "label": "Pulse Local",
+          "strength": "模型只解析意图，代码计算，第二个模型独立复核",
+          "gap": "手动导入和 830 MB 模型下载带来摩擦"
+        },
+        {
+          "label": "典型 AI 预算应用",
+          "strength": "云端设置简单，上手快",
+          "gap": "模型直接生成答案，可能编造金额"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "为什么有效：错误被结构性隔离",
+      "body": "模型不直接生成数字，金额错误只能来自查询理解错误或代码 bug。第二个模型复核进一步降低理解错误概率。官方在 387 段未见过的对话上测试，开启复核时错误数字答案比例更低。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "问题与边界：隐私的代价",
+      "body": "首次下载约 830 MB 模型，手动导入多来源数据成本高。社区有人直言不愿为预算应用下载数 GB 数据。本地模型在非英语提问下准确率未经验证，聊天以英语效果最佳。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示：生成与验证分离",
+      "body": "当 AI 输出涉及精确计算或事实核查时，把生成和验证分离，用确定性组件兜底，而不是让模型包办一切。Pulse Local 提供了一个值得借鉴的思路。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "pulse-local-import",
+      "filename": "01-pulse-local-import.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示手动导入流程和文件预览，证明本地读取和用户需要手动导出银行文件。",
+      "capture": "Pulse Local 的导入界面，显示文件选择、预览表格和列映射选项。",
+      "annotation": "Import screen showing CSV preview and column mapping",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    },
+    {
+      "screenshot_id": "pulse-local-answer-labels",
+      "filename": "02-pulse-local-answer-labels.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示答案上方的月份和类别标签，证明用户可以直接修改理解偏差。",
+      "capture": "Pulse Local 的聊天界面，显示一个金额答案，上方有月份和类别标签，以及复核状态。",
+      "annotation": "Answer with labels showing counted month and category",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

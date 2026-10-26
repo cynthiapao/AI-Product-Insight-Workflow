@@ -1,0 +1,22 @@
+article_slug: "pulse-local-budget-ai-local-verification"
+screenshots:
+  - screenshot_id: "pulse-local-import"
+    filename: "01-pulse-local-import.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示手动导入流程和文件预览，证明本地读取和用户需要手动导出银行文件。"
+    capture: "Pulse Local 的导入界面，显示文件选择、预览表格和列映射选项。"
+    annotation: "Import screen showing CSV preview and column mapping"
+    used_for:
+      - x
+      - xiaohongshu
+  - screenshot_id: "pulse-local-answer-labels"
+    filename: "02-pulse-local-answer-labels.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示答案上方的月份和类别标签，证明用户可以直接修改理解偏差。"
+    capture: "Pulse Local 的聊天界面，显示一个金额答案，上方有月份和类别标签，以及复核状态。"
+    annotation: "Answer with labels showing counted month and category"
+    used_for:
+      - x
+      - xiaohongshu
