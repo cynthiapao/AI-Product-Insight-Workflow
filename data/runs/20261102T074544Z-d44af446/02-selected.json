@@ -1,0 +1,173 @@
+[
+  {
+    "candidate_id": "922cdaec69bddda6",
+    "name": "Pulse Local",
+    "url": "https://pulseos.finance/",
+    "source": "Hacker News Show",
+    "summary": "Pulse Local, a Mac budgeting app whose AI models run on your machine. Hi HN, I'm Niz. Pulse Local is a budgeting app for Mac (Apple Silicon, beta) that answers questions about your spending with models that run on your machine. Local mode needs no account. The ledger and your questions stay on the machine, and the app sends no analytics or crash logs. I felt there are not enough consumer apps that run locally with no calls to the outside world that help us manage sensitive corners of our lives. This app in its local variant only downloads a couple of models and occasional updates, it does not send any analytics nor data. Features-wise, Pulse local is a complete budgeting app that offers an assistant built on top of a fine-tuned model and thousands of rules embedded in the code itself. I'm sharing it for free with options to help me continue experimenting with fine-tuning and expanding along this direction. How it works: you import a CSV from any bank, in any currency. When you ask a question, a tuned Qwen3 0.6B model reads it into a structured query, and code, not the model, does the money math against the ledger. A 4B checker model double-checks each money answer; when the two rea",
+    "hn_story_id": 50080275,
+    "published_at": "2026-10-13T23:13:23Z",
+    "discovered_at": "2026-11-02T07:45:44.964543Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.6,
+      "reason": "本地运行的 Mac 预算应用，有完整可体验产品：CSV 导入、自然语言提问、小模型转结构化查询、代码算账、4B 校验模型复核。机制清晰可拆（本地隐私、模型分工、规则+微调），适合 AI PM 分析消费级隐私 AI 的产品设计。"
+    }
+  },
+  {
+    "candidate_id": "32252e014e2f0d3c",
+    "name": "Hob",
+    "url": "https://github.com/FrigadeHQ/hob",
+    "source": "Hacker News Show",
+    "summary": "Hob - Open-source, on device alternative to Claude Cowork and ChatGPT. Hey HN, I'm Christian and this is a new OSS project I've been noodling on for the last couple of weeks. Hob is a free, MIT-licensed desktop app for Mac, Windows and Linux that works on your files the way the Claude and ChatGPT desktop apps do, except the model runs on your own computer. It uses open-weight models (currently Gemma 4 and gpt-oss). All your chats and files never leave your system. The only things that go online are web search (can be turned off in settings) and any MCP connectors you add yourself. Main features: - Automatically finds the best open-weight model for your hardware on first install (Mac/Linux/Windows) - Writes sandboxed Python code for ad hoc tools (data processing, document conversion, graphs etc.) - Built-in web search (powered by SearXNG) - MCP support - Image recognition - CRUD to your local filesystem - Works fully offline with no internet Before building this I tried every local AI app I could find, but it seemed each one had different problems. The main thing I noticed is that none of them could do what the ChatGPT and Claude apps do with your files, e.g. read and change files i",
+    "hn_story_id": 50246238,
+    "published_at": "2026-10-26T16:12:29Z",
+    "discovered_at": "2026-11-02T07:45:44.965369Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.6,
+      "reason": "开源本地桌面 AI 文件助手，对标 Claude/ChatGPT 桌面端，有沙箱 Python、MCP、离线、硬件自适应选模型等完整机制，可体验且可拆解，适合作为本地优先 AI 办公产品的案例。"
+    }
+  },
+  {
+    "candidate_id": "d676ccbf8fb4eca7",
+    "name": "Point your camera at a landscape to learn about its geology",
+    "url": "https://outcrop.rocks/",
+    "source": "Hacker News Show",
+    "summary": "Point your camera at a landscape to learn about its geology. I've been working on a fun little app that paints geologic maps over landscapes using augmented reality. You can use it to identify what the mapped rocks are, read descriptions about them, and view the earth as it looked when they formed by turning back the continent positions. It spun out of some augmented reality work I was doing on my other side project app - Flyover Country, which tells you about the view from the airplane window. I'm in Minnesota, so i haven't had a chance to test it on a huge amount of terrain (the best I've found is the Mississippi River gorge in the twin cities... I need a trip up north), so anyone that's somewhere with some more bumps: please help!). It's stuck in the Apple review queue, but it's up on testflight for anyone interested. Google approved it quickly and it's fully out on android (links to both on the marketing site). edit: got a report that testflight was asking for an install code. Seems like a testflight app issue, but dismissing it and installing as normal seems to work!",
+    "hn_story_id": 50290533,
+    "published_at": "2026-10-29T15:22:41Z",
+    "discovered_at": "2026-11-02T07:45:44.965713Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.1,
+      "reason": "用 AR 相机对准地貌叠加地质图、可回溯大陆位置，教育属性强、体验独特、机制可拆，适合作为 AI+教育消费产品案例。"
+    }
+  },
+  {
+    "candidate_id": "12186bd813fc04b4",
+    "name": "OnKey",
+    "url": "https://github.com/dsmurrell/onkey",
+    "source": "Hacker News Show",
+    "summary": "OnKey – I'm a bad singer, so I built an app to show where I'm off-key. Hi all I was pretty terrible at singing, now I’d say I’m bad but not terrible. This is because I’ve been using a singing app (won’t name it here) that scores me on my pitch and timing throughout the song so that I can improve. Lately however, the app I’ve been using has flooded their song list with songs that aren’t originals. I didn’t like this at all as for me, it’s easier to try to improve when you’re singing along to the original. So, I asked an agent (Claude Code) if it could write some code to listen to Spotify and also listen to me and see if it could detect both pitches and score me. It impressed me by writing some Python and showing me my pitch in the terminal! It couldn’t go all the way though and detect the singer’s pitch in real time. So I found the next best setup and built OnKey, a Mac app that needs to listen to the song once (it doesn’t save it) and then when it’s learnt the song (takes a couple of minutes), you can sing along to the pitch track that it’s learnt. OnKey is free to use and open source under the MIT license. It can listen to Spotify, Apple Music, and YouTube playing in your browser ",
+    "hn_story_id": 50195488,
+    "published_at": "2026-10-22T14:04:44Z",
+    "discovered_at": "2026-11-02T07:45:44.964134Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Mac 唱歌音准训练应用，先学习歌曲音高轨再实时评分，机制具体可拆，面向普通消费者，适合消费级 AI 音频产品分析。"
+    }
+  },
+  {
+    "candidate_id": "75bd6efd3e198a1b",
+    "name": "Fakeipedia",
+    "url": "https://fakeipedia.org/",
+    "source": "Hacker News Show",
+    "summary": "Fakeipedia – Wikipedia for worlds that don't exist. Hi HN! Fakeipedia is an automatic world-building platform which takes an imagined world and makes a whole wiki that you can endlessly explore by clicking red links. I came up with this idea a few months ago after playing around with worldbuilding in Gemini, but I didn't want to release it until a powerful enough model could do it justice, and I decided that Argon is creative enough to write articles that are worth reading. I was surprised how well it turned out and how engaging some of the writing actually is. If you want to generate an article there is a nominal charge attached ($0.90), which helps cover AI/Stripe costs, and I think I just about break even. You can also steer the generation ala choose-your-own-adventure books when generating a new article. Everything generated is free and public for everyone to see. I hope you like it and I'm very much open to hearing about new world ideas/features that would make this project better.",
+    "hn_story_id": 50126334,
+    "published_at": "2026-10-16T23:52:04Z",
+    "discovered_at": "2026-11-02T07:45:44.966449Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "自动生成虚构世界维基、可点红链无限探索，创作流程完整可体验，AIGC 机制清晰，适合作为生成式创作产品分析。"
+    }
+  },
+  {
+    "candidate_id": "4761630b1f2460e6",
+    "name": "We had AI write a wiki from 45k Enron emails",
+    "url": "https://www.thisandthat.chat/enron",
+    "source": "Hacker News Show",
+    "summary": "We had AI write a wiki from 45k Enron emails, every fact cited.",
+    "hn_story_id": 50207620,
+    "published_at": "2026-10-23T12:02:53Z",
+    "discovered_at": "2026-11-02T07:45:44.964709Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.6,
+      "reason": "用 AI 从 4.5 万封 Enron 邮件生成逐条引用来源的维基，展示可溯源生成机制，适合作为 AIGC 证据链设计案例。"
+    }
+  },
+  {
+    "candidate_id": "03521d5839be1110",
+    "name": "I built a task system to handle the drudgery so I could focus on tasks",
+    "url": "https://3anddoneapp.com/try",
+    "source": "Hacker News Show",
+    "summary": "I built a task system to handle the drudgery so I could focus on tasks. I'm a software engineer from the east coast (who has lived in Boston, NY, the bay area, UK, France), and I built a task system called 3 & Done. It's the place you trust to store everything you need to do. It accepts voice input for rapid entry, as well as text (it stores the audio locally so you can listen to jog your memory) and emails you every morning with the three most important things for you to do that day, and why, based on what you've said about the task: deadlines, urgency, sitting too long. I've been at software engineering for about 44 years now... Grew up with it, which was unusual when I started, and I was always good about getting into the zone and doing things. The career started small, small company, then back office, the dot com startups, then smaller companies again after the bust, a non-profit, and eventually YouTube (Google at the time, but just barely) and Meta (just Facebook when I was there). When I hit the startups, and later big tech, it was no longer enough to just be an engineer, to have drive, to be good, you had to be organized, you had to follow through, get stuff done, and that's",
+    "hn_story_id": 50151980,
+    "published_at": "2026-10-19T13:07:07Z",
+    "discovered_at": "2026-11-02T07:45:44.964888Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.6,
+      "reason": "任务系统含语音录入、本地音频存储、每日邮件推送三件最重要事项及理由，机制具体，适合 AI 个人生产力产品分析。"
+    }
+  },
+  {
+    "candidate_id": "f1406dfb0a8da086",
+    "name": "Sphinx",
+    "url": "https://sphinx-six-theta.vercel.app/",
+    "source": "Hacker News Show",
+    "summary": "Sphinx – A hook that quizzes you on your AI's code before shipping. FOSS, Basically it plugs into your existing coding agent workflow and every time you push to prod it'll throw up a questionnaire that checks if you understand how the code you're pushing works.",
+    "hn_story_id": 50137950,
+    "published_at": "2026-10-18T04:33:49Z",
+    "discovered_at": "2026-11-02T07:45:44.964316Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "在推送前用问卷检验开发者是否理解 AI 生成代码，机制新颖且切中 AI 编程监督痛点，但证据较少、产品较薄。"
+    }
+  },
+  {
+    "candidate_id": "979d96b2439d1564",
+    "name": "Our newest AI Quest: Mapping the human brain",
+    "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
+    "source": "Google AI Blog",
+    "summary": "An illustration of a planet rotating to show various cartoon figures waving. At the top is the text \"AI Quests\"",
+    "hn_story_id": null,
+    "published_at": "2026-10-26T16:00:00Z",
+    "discovered_at": "2026-11-02T07:45:45.291863Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.35,
+      "reason": "Google AI Quests 教育产品，面向学习者的互动任务，属应用层教育产品，但摘要信息有限、机制细节不足。"
+    }
+  }
+]

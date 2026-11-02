@@ -1,0 +1,149 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "pulse-local-local-ai-budgeting-architecture",
+  "key_takeaway": "Pulse Local 用模型解析、代码算账、第二模型复核的架构，把 AI 问答的不可靠性兜住了，但 CSV 导入和 830MB 模型下载又把门槛推给了用户。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @PulseLocal:\n\nA useful AI budgeting app should read the learning process, not just check the final answer.\n\nPulse Local runs a small model to parse your question, code to do the math, and a second model to verify. If they disagree, it asks you instead of guessing.",
+    "headline": "Local AI budgeting that verifies before it answers",
+    "image_recommended": true,
+    "image_brief": "Use a real screenshot of Pulse Local showing a spending answer with the month and category labels, to illustrate the verification mechanism.",
+    "alt_text": "Pulse Local interface showing a spending answer with labels indicating the month and category used",
+    "visual_caption": "Model parses, code calculates, second model verifies",
+    "comparison_rows": [
+      {
+        "label": "Pulse Local",
+        "strength": "Architecture ensures accuracy and privacy",
+        "gap": "High onboarding friction with CSV import and large model download"
+      },
+      {
+        "label": "Typical AI budgeting apps",
+        "strength": "Easy cloud sync and setup",
+        "gap": "Answers may be unreliable and data leaves the device"
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @PulseLocal:\n\nA useful AI budgeting app should read the learning process, not just check the final answer.\n\nPulse Local runs a small model to parse your question, code to do the math, and a second model to verify. If they disagree, it asks you instead of guessing.",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview of Pulse Local's architecture: model parsing, code execution, and second model verification"
+      },
+      {
+        "text": "I imported a CSV and asked, \"How much did I spend on restaurants last month?\"\n\nInstead of letting the LLM generate a number, Pulse Local parsed the question into a structured query, ran the calculation in code, and had a second model independently parse it.",
+        "image_kind": "screenshot",
+        "screenshot_id": "pulse-local-answer",
+        "alt_text": "Screenshot of Pulse Local showing a spending answer with labels for month and category"
+      },
+      {
+        "text": "The real friction: you have to manually export CSVs from each bank, and the first download is about 830MB.\n\nFor privacy-focused budgeting users, that's a high upfront cost before they feel the benefit of data staying local.",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      },
+      {
+        "text": "The takeaway for AI product managers: don't rely on model capability alone for high-stakes answers.\n\nSplit the task into intent parsing, deterministic execution, and independent verification. Show a result only when they agree.\n\nWhat other domains need this pattern?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Pulse Local",
+        "handle": "@PulseLocal",
+        "profile_url": "https://x.com/PulseLocal",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "本地AI预算问答，准确靠架构兜底",
+    "body": "最近看到一款 Mac 上的本地预算应用 Pulse Local，它把 AI 问答的不可靠性用产品架构兜住了。\n\n它的做法是：一个微调的小模型把问题解析成结构化查询，代码负责算钱，另一个模型独立复核。只有当两次解析一致时才显示金额，不一致就反问用户。比如问“我上个月在餐厅花了多少钱”，它不会让模型直接生成答案，而是先解析、再计算、再验证。\n\n这个机制有效，是因为它把隐私和准确性用架构分开了。本地运行意味着没有服务器可以收集数据，用户不需要信任隐私政策；金额计算由代码完成，模型只负责理解问题，避免了 LLM 在算术上的不可靠。\n\n但它的局限也很明显：CSV 导入需要手动从每个银行导出文件，多账户用户维护成本高；首次下载约 830MB 模型对很多用户来说门槛过高。更根本的问题是，隐私的价值需要用户主动感知，而 Pulse Local 的隐私优势在第一次使用时并不直观，用户需要先经历导入和下载的麻烦，才能体会到“数据不出机器”的好处。\n\n你觉得，对于关心隐私的预算用户来说，愿意为本地 AI 付出多少操作成本？",
+    "hashtags": [
+      "本地AI",
+      "隐私设计",
+      "财务应用",
+      "产品经理"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "本地AI预算问答，准确靠架构兜底",
+      "body": "Pulse Local 用模型解析、代码算账、第二模型复核，把 AI 问答的不可靠性兜住了。但 CSV 导入和 830MB 模型下载又把门槛推给了用户。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "答案背后的验证机制",
+      "body": "截图显示 Pulse Local 回答“我上个月在餐厅花了多少钱”时，上方标签标明了月份和类别。这证明金额不是模型直接生成的，而是经过解析和计算后展示的。",
+      "comparison_rows": [],
+      "screenshot_id": "pulse-local-answer"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "与典型 AI 预算应用对比",
+      "body": "Pulse Local 用架构保证准确和隐私，但 onboarding 摩擦高；典型 AI 预算应用设置简单，但答案可能不可靠且数据离开设备。",
+      "comparison_rows": [
+        {
+          "label": "Pulse Local",
+          "strength": "架构确保准确性和隐私",
+          "gap": "CSV 导入和模型下载门槛高"
+        },
+        {
+          "label": "典型 AI 预算应用",
+          "strength": "云同步和设置简单",
+          "gap": "答案可能不可靠，数据离开设备"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "体验中的变化",
+      "body": "从“模型直接给答案”变成“模型解析、代码执行、第二模型复核”，用户看到金额前已经过了两道关卡。这种设计把错误从“给出错误数字”变成了“要求澄清”。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "问题与边界",
+      "body": "CSV 导入需要手动从每个银行导出文件，多账户用户维护成本高；首次下载约 830MB 模型对很多用户来说门槛过高。隐私优势在第一次使用时并不直观，用户需要先经历导入和下载的麻烦。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "AI 产品经理在设计高准确性场景时，不应只依赖模型能力，而应通过架构分工来兜底错误；同时，隐私优势需要通过低门槛的 onboarding 让用户快速感知，否则可能只是卖点而非留存理由。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "pulse-local-answer",
+      "filename": "01-pulse-local-answer.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 Pulse Local 回答预算问题时的界面，证明金额不是模型直接生成的，而是经过解析和计算后展示的。",
+      "capture": "截取 Pulse Local 应用内回答“我上个月在餐厅花了多少钱”的界面，包含上方标签显示月份和类别。",
+      "annotation": "可标注“模型解析、代码算账、第二模型复核”的流程。",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

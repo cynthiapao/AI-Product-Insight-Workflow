@@ -1,0 +1,12 @@
+article_slug: "pulse-local-local-ai-budgeting-architecture"
+screenshots:
+  - screenshot_id: "pulse-local-answer"
+    filename: "01-pulse-local-answer.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Pulse Local 回答预算问题时的界面，证明金额不是模型直接生成的，而是经过解析和计算后展示的。"
+    capture: "截取 Pulse Local 应用内回答“我上个月在餐厅花了多少钱”的界面，包含上方标签显示月份和类别。"
+    annotation: "可标注“模型解析、代码算账、第二模型复核”的流程。"
+    used_for:
+      - x
+      - xiaohongshu
