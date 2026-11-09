@@ -1,0 +1,47 @@
+{
+  "slug": "uncracked-city-llm-lying-game",
+  "title": "Uncracked City：让 AI 嫌疑人说谎，把幻觉变成玩法",
+  "summary": "Uncracked City 将 LLM 的不可靠性转化为侦探游戏的核心机制，玩家在真实城市背景中审问会说谎的 AI 嫌疑人，通过线索比对找出矛盾。",
+  "read_minutes": 5,
+  "tags": [
+    "AI游戏",
+    "LLM幻觉",
+    "游戏化设计"
+  ],
+  "opening": "Uncracked City 最有趣的地方，是它没有试图让 AI 变得更可靠，反而把 LLM 的幻觉和不可靠性变成了游戏的核心。玩家在真实城市背景的案件中审问四名 AI 嫌疑人，其中至少一人说谎，而玩家必须通过自由提问、搜索地点、比对线索来找出矛盾。这个设计把 AI 的缺陷转化为玩法，但推理深度和内容可持续性仍然存疑。",
+  "core_experience": "游戏的核心体验是审问。每个案件有四个嫌疑人，玩家可以用打字或语音提出自己的问题，嫌疑人以各自的口吻回答，部分嫌疑人会说谎。玩家需要搜索真实城市中的地点，找到线索，然后对比嫌疑人的陈述与线索，找出矛盾。最后，玩家有三次机会撰写报告，指出谁在说谎。\n\n游戏包含五个训练关卡，分别设在巴黎、里约热内卢、马拉喀什、东京和悉尼，难度依次递增。每个案件会显示已破解该案的调查者人数，官网称大多数案件尚无人破解。游戏无需账号即可游玩，并提供数据擦除选项。",
+  "why_it_works": "这个机制有效的原因在于它利用了 LLM 的两个特性：一是生成自然语言对话的能力，使嫌疑人回答具有个性化和不可预测性；二是模型可能产生与事实不符的内容，这恰好成为游戏中的“谎言”。玩家必须主动提问、交叉验证，而不是被动接收信息。真实城市背景和地点搜索增加了沉浸感，而“三次尝试”和“无人破解”的统计则制造了挑战性和社交证明。此外，多语言支持和无需账号降低了进入门槛。",
+  "boundaries": "推理深度可能受限于 LLM 的生成质量，谎言可能过于明显或不合逻辑，影响挑战性。免费模式下的推理成本可持续性存疑，可能限制案件数量或对话轮次。内容依赖人工设计案件和线索，长期更新成本高，难以快速扩展。语音提问的准确性和多语言支持在不同平台上的体验可能不一致。",
+  "personal_judgment": "Uncracked City 是一个聪明的概念验证，它把 AI 的缺陷转化为游戏机制，但能否成为长期产品取决于内容质量和成本控制。目前它更像一个技术演示，而非深度推理游戏。如果 LLM 生成的谎言缺乏精心设计的逻辑链，玩家可能很快感到重复或挫败。创始人提到的每周案件、团队建设和 MCP 等愿景很有野心，但需要先解决基础体验和可持续性。我认为这个产品对 AI 产品经理的启示是：有时不必追求模型的完美，反而可以利用其特性创造新的交互模式。",
+  "transferable_methods": [
+    {
+      "name": "缺陷转化为玩法",
+      "principle": "识别 AI 模型的固有缺陷（如幻觉、不确定性），将其设计为用户需要主动应对的游戏元素，而不是试图隐藏或修复。",
+      "applies_when": "适用于娱乐、教育或训练场景，其中用户的参与感和挑战性比输出的绝对正确更重要。"
+    },
+    {
+      "name": "开放对话与结构化验证结合",
+      "principle": "允许用户自由提问以探索可能性，但通过预设的线索和比对规则来验证回答，平衡开放性与可控性。",
+      "applies_when": "适用于需要用户主动推理、但结果需要客观判定的产品，如侦探游戏、模拟谈判或事实核查工具。"
+    }
+  ],
+  "product_takeaway": "AI 产品经理可以思考：哪些模型特性被视为缺陷，却能在特定场景中成为用户价值？Uncracked City 展示了将 LLM 幻觉转化为游戏机制的可能性，但需要平衡开放生成与结构化验证，并解决内容可持续性问题。",
+  "sources": [
+    {
+      "title": "Uncracked City · A detective game in real cities",
+      "url": "https://uncracked.city/",
+      "excerpt": "Uncracked City · A detective game in real cities\nThe cases nobody has cracked.\nA detective game set in real cities. Search the places, question the suspects, catch the lie, and write the report nobody has managed to write yet.\nPlay in your browser\nFree · No download · Phone or computer\nDownload on the App Store\nGet it on Google Play\nWatch with sound on YouTube\nPlay in your browser\nFree · No download · Phone or computer\nSalem, the morning after Halloween. Meg Ashcombe, the last of her family, lies at the foot of her grand staircase, one slipper on the thirteenth step, the front door bolted from the inside. Half the town says the Gray Captain finally took her.\nFour suspects. One of them lies.\nNobody has cracked it yet\nPlay in your browser\nWatch the teaser on YouTube\nEvery case happens in a real neighborhood. Find the clues, open what is locked.\nQuestion the suspects\nAsk your own questions, typed or spoken, in any of the game's six languages. Each suspect answers in their own voice. Some of them lie.\nCatch the lie, then file your report\nPut a clue up against a suspect's statement. When the lie cracks, write your report: three tries, not one more.\nA world tour to learn the ropes. Then the real cases.\nParis, Rio de Janeiro, Marrakech, Tokyo, Sydney: five training levels, each harder than the last. Then come the real cases, harder still. Each one shows how many investigators have solved it. For most of them: nobody. Not yet.\nNobody has cracked it yet\nOne city, one secret\nThe first time you open a case, you fly there across the map. Solve it, and its city is stamped in your passport.\nA question, a bug, a suspect's reply that goes wrong: write to us. In the game, tap “Flag” under a suspect's reply to send that reply straight to us.\nhello@uncracked.city\nThe game is played without an account. To erase everything, tap your portrait in the game, then “My data” → “Start over” → “Erase everything”. If you no longer have the phone that created your player, write to us.\n© 2026 BNT TECHNOLOGIES\nPlay in your browser\nFree · No download · Phone or computer",
+      "source_type": "official",
+      "retrieved_at": "2026-11-09T08:06:39.580102Z"
+    },
+    {
+      "title": "Uncracked City",
+      "url": "https://news.ycombinator.com/item?id=50358352",
+      "excerpt": "Talking to lying LLMs is what I do all day for work. Can’t imagine I’d want to do the same in my free time.\nWhen I was growing up there was a wonderfully made interactive “novel” game on early Macintosh called Sherlock Holmes. I’ve always wondered when we’ll get to a point where this can be done ad-hoc with any potential crime thriller. LA Noir introduced nuanced facial movements and dialog chains but I keep going back to that 1990s era Sherlock Holmes Consulting Detective.\nYou should probably put some better examples of writing in the first trailer, especially if the game involves a lot of reading. Asides from just sounding horribly bland, there's only two sentences of dialogue shown and the character says \"honestly\" in BOTH of them.\nCool concept! It reminds me of the 1985 videogame Where in the World Is Carmen Sandiego. What a blast!\nhaha very neat! Just curious how are you planning to make it free with the inference cost? Even with a luna or haiku its still a non zero cost to run per session.",
+      "source_type": "community",
+      "retrieved_at": "2026-11-09T08:06:39.874351Z"
+    }
+  ],
+  "review_status": "draft",
+  "generated_at": "2026-11-09T08:07:15.512847Z"
+}

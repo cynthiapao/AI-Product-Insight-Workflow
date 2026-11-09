@@ -1,0 +1,192 @@
+[
+  {
+    "candidate_id": "bd27dee57000ccea",
+    "name": "Uncracked City",
+    "url": "https://uncracked.city/",
+    "source": "Hacker News Show",
+    "summary": "Uncracked City, detective game where you question LLM suspects that lie. To give you some context on the project. I'm a solo founder and I use AI heavily in my work. The idea came from wanting players to discover cities. Each city has its own history, so every case is set in a real city with real public places. The crime and the people are on other hand invented. The part that I care most is the playable aspect of the game, a model plays the detective and must solve the case before it goes live. As of today: it's free on Android, the iOS version is still waiting to be reviewed by Apple. It's available in six popular languages, but adding more languages is just a matter of time and demand.My long term vision if it takes off: weekly cases, private parties like a team-building escape game, an MCP so a game master can build their own scenario from ChatGPT or Claude, and maybe tourism offices since players travel the world.",
+    "hn_story_id": 50358352,
+    "published_at": "2026-11-03T21:20:03Z",
+    "discovered_at": "2026-11-09T08:06:23.210729Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.85,
+      "reason": "LLM 嫌疑人会撒谎的侦探游戏，机制清晰可拆（审讯、谎言、真实城市背景），已有 Android 免费版和六语言，适合作为 AI 产品经理分析'AI 角色可信度与游戏化'的案例。"
+    }
+  },
+  {
+    "candidate_id": "d676ccbf8fb4eca7",
+    "name": "Point your camera at a landscape to learn about its geology",
+    "url": "https://outcrop.rocks/",
+    "source": "Hacker News Show",
+    "summary": "Point your camera at a landscape to learn about its geology. I've been working on a fun little app that paints geologic maps over landscapes using augmented reality. You can use it to identify what the mapped rocks are, read descriptions about them, and view the earth as it looked when they formed by turning back the continent positions. It spun out of some augmented reality work I was doing on my other side project app - Flyover Country, which tells you about the view from the airplane window. I'm in Minnesota, so i haven't had a chance to test it on a huge amount of terrain (the best I've found is the Mississippi River gorge in the twin cities... I need a trip up north), so anyone that's somewhere with some more bumps: please help!). It's stuck in the Apple review queue, but it's up on testflight for anyone interested. Google approved it quickly and it's fully out on android (links to both on the marketing site). edit: got a report that testflight was asking for an install code. Seems like a testflight app issue, but dismissing it and installing as normal seems to work!",
+    "hn_story_id": 50290533,
+    "published_at": "2026-10-29T15:22:41Z",
+    "discovered_at": "2026-11-09T08:06:23.210940Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.1,
+      "reason": "用相机对准地貌叠加地质图并回溯大陆位置，AR+教育机制新颖，Android 已上线，适合作为 AI 教育产品案例。"
+    }
+  },
+  {
+    "candidate_id": "32252e014e2f0d3c",
+    "name": "Hob",
+    "url": "https://github.com/FrigadeHQ/hob",
+    "source": "Hacker News Show",
+    "summary": "Hob - Open-source, on device alternative to Claude Cowork and ChatGPT. Hey HN, I'm Christian and this is a new OSS project I've been noodling on for the last couple of weeks. Hob is a free, MIT-licensed desktop app for Mac, Windows and Linux that works on your files the way the Claude and ChatGPT desktop apps do, except the model runs on your own computer. It uses open-weight models (currently Gemma 4 and gpt-oss). All your chats and files never leave your system. The only things that go online are web search (can be turned off in settings) and any MCP connectors you add yourself. Main features: - Automatically finds the best open-weight model for your hardware on first install (Mac/Linux/Windows) - Writes sandboxed Python code for ad hoc tools (data processing, document conversion, graphs etc.) - Built-in web search (powered by SearXNG) - MCP support - Image recognition - CRUD to your local filesystem - Works fully offline with no internet Before building this I tried every local AI app I could find, but it seemed each one had different problems. The main thing I noticed is that none of them could do what the ChatGPT and Claude apps do with your files, e.g. read and change files i",
+    "hn_story_id": 50246238,
+    "published_at": "2026-10-26T16:12:29Z",
+    "discovered_at": "2026-11-09T08:06:23.211181Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "本地离线文件助手桌面应用，对标 Claude/ChatGPT 桌面端，有沙箱代码、MCP、搜索等可拆机制；但开源早期、证据偏薄。"
+    }
+  },
+  {
+    "candidate_id": "12186bd813fc04b4",
+    "name": "OnKey",
+    "url": "https://github.com/dsmurrell/onkey",
+    "source": "Hacker News Show",
+    "summary": "OnKey – I'm a bad singer, so I built an app to show where I'm off-key. Hi all I was pretty terrible at singing, now I’d say I’m bad but not terrible. This is because I’ve been using a singing app (won’t name it here) that scores me on my pitch and timing throughout the song so that I can improve. Lately however, the app I’ve been using has flooded their song list with songs that aren’t originals. I didn’t like this at all as for me, it’s easier to try to improve when you’re singing along to the original. So, I asked an agent (Claude Code) if it could write some code to listen to Spotify and also listen to me and see if it could detect both pitches and score me. It impressed me by writing some Python and showing me my pitch in the terminal! It couldn’t go all the way though and detect the singer’s pitch in real time. So I found the next best setup and built OnKey, a Mac app that needs to listen to the song once (it doesn’t save it) and then when it’s learnt the song (takes a couple of minutes), you can sing along to the pitch track that it’s learnt. OnKey is free to use and open source under the MIT license. It can listen to Spotify, Apple Music, and YouTube playing in your browser ",
+    "hn_story_id": 50195488,
+    "published_at": "2026-10-22T14:04:44Z",
+    "discovered_at": "2026-11-09T08:06:23.210555Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Mac 唱歌音准评分应用，先学习歌曲音高再实时对比，机制清晰、个人痛点明确，适合分析 AI 辅助技能训练产品。"
+    }
+  },
+  {
+    "candidate_id": "4761630b1f2460e6",
+    "name": "We had AI write a wiki from 45k Enron emails",
+    "url": "https://www.thisandthat.chat/enron",
+    "source": "Hacker News Show",
+    "summary": "We had AI write a wiki from 45k Enron emails, every fact cited.",
+    "hn_story_id": 50207620,
+    "published_at": "2026-10-23T12:02:53Z",
+    "discovered_at": "2026-11-09T08:06:23.210805Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "用 AI 从 4.5 万封邮件生成每条事实可引用的 wiki，展示可溯源生成机制，适合分析 AI 知识整理产品。"
+    }
+  },
+  {
+    "candidate_id": "a9c9b95412e93f7a",
+    "name": "I built a tool that prices a pre-built PC part by part",
+    "url": "https://pcdealcheck.com/",
+    "source": "Hacker News Show",
+    "summary": "I built a tool that prices a pre-built PC part by part. I've missed out on an awesome computer that I could use for a project because figuring out value took too long. Users paste a listing and receive a value grade, dated component estimates and a shareable report. AI reads the listing but my custom built price engine determines the grade (updated every day). Self financed and working now. Looking for feedback re: scoring, interface, and if its helpful. https://www.youtube.com/watch?v=Tpft--x3WlI",
+    "hn_story_id": 50366929,
+    "published_at": "2026-11-04T15:25:33Z",
+    "discovered_at": "2026-11-09T08:06:23.210695Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.6,
+      "reason": "粘贴整机配置即可获得逐件估价与价值评级，AI 读列表+自建价格引擎，机制可拆，适合电商/消费决策类分析。"
+    }
+  },
+  {
+    "candidate_id": "03521d5839be1110",
+    "name": "I built a task system to handle the drudgery so I could focus on tasks",
+    "url": "https://3anddoneapp.com/try",
+    "source": "Hacker News Show",
+    "summary": "I built a task system to handle the drudgery so I could focus on tasks. I'm a software engineer from the east coast (who has lived in Boston, NY, the bay area, UK, France), and I built a task system called 3 & Done. It's the place you trust to store everything you need to do. It accepts voice input for rapid entry, as well as text (it stores the audio locally so you can listen to jog your memory) and emails you every morning with the three most important things for you to do that day, and why, based on what you've said about the task: deadlines, urgency, sitting too long. I've been at software engineering for about 44 years now... Grew up with it, which was unusual when I started, and I was always good about getting into the zone and doing things. The career started small, small company, then back office, the dot com startups, then smaller companies again after the bust, a non-profit, and eventually YouTube (Google at the time, but just barely) and Meta (just Facebook when I was there). When I hit the startups, and later big tech, it was no longer enough to just be an engineer, to have drive, to be good, you had to be organized, you had to follow through, get stuff done, and that's",
+    "hn_story_id": 50151980,
+    "published_at": "2026-10-19T13:07:07Z",
+    "discovered_at": "2026-11-09T08:06:23.210901Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.6,
+      "reason": "语音录入+每日三件要事的任务系统，AI 排序逻辑可拆，适合生产力类产品分析。"
+    }
+  },
+  {
+    "candidate_id": "c2fb4c1f9bfeb774",
+    "name": "Kairos",
+    "url": "https://github.com/finic-ai/kairos",
+    "source": "Hacker News Show",
+    "summary": "Kairos – Open-source risk and fraud decisioning platform. Hey HN, Ayan here from Finic. We’re launching Kairos, an open source alternative to Sift, Sardine, and other real-time fraud decisioning platforms. Kairos addresses two of the biggest problems facing traditional decisioning tools: a lack of labeled data to train on and dealing with fraudsters that are constantly changing their tactics. 1. Traditional fraud solutions use ML models such as XGBoost to detect fraud, but these models are dependent on quality labeled data which many businesses do not have. We address this by using “System One” decision models in additional to traditional models such as XGBoost and logistic regression. This allows you to incorporate plain language questions such as “Is this a throwaway email” into your decisioning, bypassing the need for large amounts of labeled data. This also allows you to capture aspects of fraud that are more unstructured, which is something that XGBoost models struggle with. 2. Fraud teams are facing off with live players that are constantly changing their behavior to bypass the detection logic they have in place. You can train a detection model or define a ruleset once, but i",
+    "hn_story_id": 50358314,
+    "published_at": "2026-11-03T21:16:48Z",
+    "discovered_at": "2026-11-09T08:06:23.211312Z",
+    "manual": false,
+    "score": {
+      "relevance": 3,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.25,
+      "reason": "开源实时反欺诈决策平台，有自然语言规则等机制，但偏 B 端基础设施且开源早期，作为 AI PM 案例价值中等。"
+    }
+  },
+  {
+    "candidate_id": "af8c8782abae1dba",
+    "name": "Uberblok",
+    "url": "https://uberblok.storagebits.workers.dev/",
+    "source": "Hacker News Show",
+    "summary": "Uberblok – an interactive museum of ZFS internals. I've worked for a long time in the storage field during my career and ZFS is the piece of engineering I admire most in that space. I wanted a way to pay homage to it and to explore and better understand its internals. So I built Uberblok: a museum of ZFS. A deep dive into copy-on-write, txgs, vdevs, RAID-Z, snapshots, the ARC, metaslabs, the ZIL, send/receive with explanations and animated diagrams. I'm sure people here know these internals better than I do, so corrections are very welcome. I built it with my agent swarm organization, Algotitan. I hope you'll enjoy the deep dive into Uberblok as much as I do. Museum: https://uberblok.storagebits.workers.dev Repo: https://github.com/algotitanhq/uberblok",
+    "hn_story_id": 50180257,
+    "published_at": "2026-10-21T13:04:25Z",
+    "discovered_at": "2026-11-09T08:06:23.211246Z",
+    "manual": false,
+    "score": {
+      "relevance": 3,
+      "novelty": 3,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.25,
+      "reason": "ZFS 内部机制的交互式博物馆，有动画图解，教育性强但技术受众窄，AI 相关性弱。"
+    }
+  },
+  {
+    "candidate_id": "979d96b2439d1564",
+    "name": "Our newest AI Quest: Mapping the human brain",
+    "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks",
+    "source": "Google AI Blog",
+    "summary": "An illustration of a planet rotating to show various cartoon figures waving. At the top is the text \"AI Quests\"",
+    "hn_story_id": null,
+    "published_at": "2026-10-26T16:00:00Z",
+    "discovered_at": "2026-11-09T08:06:23.825854Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.2,
+      "reason": "Google 教育类 AI Quests 新主题，面向学习者的互动任务，但摘要信息极少，证据不足。"
+    }
+  }
+]

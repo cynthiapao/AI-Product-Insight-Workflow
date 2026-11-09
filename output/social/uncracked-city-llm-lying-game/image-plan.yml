@@ -1,0 +1,12 @@
+article_slug: "uncracked-city-llm-lying-game"
+screenshots:
+  - screenshot_id: "website-home"
+    filename: "01-website-home.png"
+    required: true
+    source_kind: "personal"
+    purpose: "展示 Uncracked City 官网的核心玩法和界面，作为文章和社媒内容的视觉证据。"
+    capture: "截取 Uncracked City 官网首页，包含游戏标题、核心机制描述（审问嫌疑人、搜索地点、撰写报告）和城市背景元素。"
+    annotation: "可标注“AI suspects lie”等关键文字。"
+    used_for:
+      - x
+      - xiaohongshu

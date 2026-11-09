@@ -1,0 +1,23 @@
+{
+  "run_id": "20261109T080622Z-2c3904f6",
+  "mode": "scheduled",
+  "status": "completed",
+  "candidate_count": 35,
+  "selected_count": 10,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/uncracked-city-llm-lying-game.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/uncracked-city-llm-lying-game.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/uncracked-city-llm-lying-game.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-lying-game/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-lying-game/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-lying-game/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-lying-game/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-lying-game/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-lying-game/social-cards.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-lying-game/social-cards.css",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/uncracked-city-llm-lying-game/README.md"
+  ],
+  "errors": [],
+  "started_at": "2026-11-09T08:06:22.141555Z",
+  "finished_at": "2026-11-09T08:07:46.366518Z"
+}
