@@ -1,0 +1,143 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "uncracked-city-llm-lying-game",
+  "key_takeaway": "Uncracked City 把 LLM 幻觉变成侦探游戏的核心机制，让玩家通过自由提问和线索比对找出说谎的 AI 嫌疑人。这个设计聪明地利用了模型缺陷，但推理深度和内容可持续性仍是长期挑战。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @uncrackedcity:\n\nWhat if an AI's tendency to hallucinate wasn't a bug, but the core mechanic of a detective game?\n\nUncracked City does exactly that: you interrogate AI suspects in real cities, and at least one of them lies.\n\nA clever inversion of LLM flaws into gameplay.",
+    "headline": "Turning AI Hallucinations into Gameplay",
+    "image_recommended": true,
+    "image_brief": "Use a real screenshot of the Uncracked City website homepage showing the game's premise and key features, such as the interrogation interface or city map.",
+    "alt_text": "Screenshot of Uncracked City's official website highlighting the detective game where AI suspects lie",
+    "visual_caption": "AI flaws become the core mechanic",
+    "comparison_rows": [
+      {
+        "label": "Uncracked City",
+        "strength": "Turns LLM hallucinations into a core gameplay loop",
+        "gap": "Unclear if lies are consistently logical and challenging"
+      },
+      {
+        "label": "Traditional detective games",
+        "strength": "Hand-crafted narratives with controlled difficulty",
+        "gap": "Limited replayability and high content creation cost"
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @uncrackedcity:\n\nWhat if an AI's tendency to hallucinate wasn't a bug, but the core mechanic of a detective game?\n\nUncracked City does exactly that: you interrogate AI suspects in real cities, and at least one of them lies.\n\nA clever inversion of LLM flaws into gameplay.",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview of Uncracked City's concept: interrogating lying AI suspects in real cities"
+      },
+      {
+        "text": "The game lets you ask suspects your own questions, typed or spoken, in six languages. Each suspect answers in their own voice, and some lie.\n\nYou search real locations for clues, then compare statements against evidence to catch contradictions.",
+        "image_kind": "screenshot",
+        "screenshot_id": "website-home",
+        "alt_text": "Screenshot of Uncracked City's official website showing the detective game interface and key features"
+      },
+      {
+        "text": "The real question is depth: can LLM-generated lies be consistently challenging and logical, or will they feel random and repetitive?\n\nAnd with free play, how sustainable are inference costs?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Uncracked City",
+        "handle": "@uncrackedcity",
+        "profile_url": "https://x.com/uncrackedcity",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "让AI说谎，反而成了好游戏",
+    "body": "最近看到一个叫 Uncracked City 的侦探游戏，它没有试图让 AI 变得更可靠，反而把大模型的幻觉变成了核心玩法。玩家在真实城市背景的案件里审问四个 AI 嫌疑人，其中至少一个会说谎。你可以用打字或语音自由提问，嫌疑人用各自的口吻回答，然后你搜索真实地点找线索，比对陈述和证据，找出矛盾。最后有三次机会写报告，指出谁在说谎。\n\n这个设计聪明在利用了 LLM 的两个特性：能生成自然对话，让嫌疑人有个性；也可能产生与事实不符的内容，正好变成游戏里的谎言。玩家必须主动提问、交叉验证，而不是被动接收信息。真实城市背景和地点搜索增加了沉浸感，而“三次尝试”和“大多数案件无人破解”的统计制造了挑战性。\n\n但我也看到一些边界。推理深度可能受限于 LLM 生成质量，谎言可能太明显或不合逻辑，影响挑战性。免费模式下的推理成本可持续性存疑，可能限制案件数量或对话轮次。内容依赖人工设计案件和线索，长期更新成本高。\n\n这个产品让我想到：有时不必追求模型的完美，反而可以利用其特性创造新的交互模式。你觉得把 AI 缺陷变成玩法，是聪明的产品设计，还是只是技术演示？",
+    "hashtags": [
+      "AI游戏",
+      "LLM幻觉",
+      "游戏化设计",
+      "产品经理"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "把AI幻觉变成游戏机制",
+      "body": "Uncracked City 没有试图让 AI 更可靠，反而把 LLM 的幻觉和不可靠性变成了侦探游戏的核心。玩家在真实城市背景中审问会说谎的 AI 嫌疑人，通过线索比对找出矛盾。这个设计把缺陷转化为玩法，但推理深度和内容可持续性仍然存疑。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "官网展示的核心玩法",
+      "body": "截图来自 Uncracked City 官网，展示了游戏的核心机制：在真实城市中搜索地点、审问嫌疑人、比对线索并撰写报告。玩家可以自由提问，嫌疑人以各自口吻回答，部分会说谎。",
+      "comparison_rows": [],
+      "screenshot_id": "website-home"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "与传统侦探游戏的差异",
+      "body": "Uncracked City 利用 LLM 生成动态对话和谎言，而传统侦探游戏依赖手工编写的叙事。前者可能提供更高的重玩性和个性化，但谎言质量不稳定；后者叙事可控但内容成本高。",
+      "comparison_rows": [
+        {
+          "label": "Uncracked City",
+          "strength": "动态生成对话和谎言，降低内容成本",
+          "gap": "谎言可能不合逻辑，影响挑战性"
+        },
+        {
+          "label": "传统侦探游戏",
+          "strength": "精心设计的叙事和谜题，质量稳定",
+          "gap": "内容制作成本高，重玩性有限"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "体验中的变化",
+      "body": "玩家从被动接收信息变为主动提问和验证。自由提问让每次审问都不同，但 LLM 生成的回答可能过于明显或随机，导致推理深度不足。真实城市背景和“无人破解”的统计增加了沉浸感和挑战性。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "问题与边界",
+      "body": "推理深度受限于 LLM 生成质量，谎言可能缺乏精心设计的逻辑链。免费模式下的推理成本可持续性存疑，可能限制案件数量或对话轮次。内容依赖人工设计案件和线索，长期更新成本高。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "AI 产品经理可以思考：哪些模型特性被视为缺陷，却能在特定场景中成为用户价值？Uncracked City 展示了将 LLM 幻觉转化为游戏机制的可能性，但需要平衡开放生成与结构化验证，并解决内容可持续性问题。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "website-home",
+      "filename": "01-website-home.png",
+      "required": true,
+      "source_kind": "personal",
+      "purpose": "展示 Uncracked City 官网的核心玩法和界面，作为文章和社媒内容的视觉证据。",
+      "capture": "截取 Uncracked City 官网首页，包含游戏标题、核心机制描述（审问嫌疑人、搜索地点、撰写报告）和城市背景元素。",
+      "annotation": "可标注“AI suspects lie”等关键文字。",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

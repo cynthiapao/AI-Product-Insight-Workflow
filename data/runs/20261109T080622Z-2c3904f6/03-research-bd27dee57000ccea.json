@@ -1,0 +1,63 @@
+{
+  "candidate": {
+    "candidate_id": "bd27dee57000ccea",
+    "name": "Uncracked City",
+    "url": "https://uncracked.city/",
+    "source": "Hacker News Show",
+    "summary": "Uncracked City, detective game where you question LLM suspects that lie. To give you some context on the project. I'm a solo founder and I use AI heavily in my work. The idea came from wanting players to discover cities. Each city has its own history, so every case is set in a real city with real public places. The crime and the people are on other hand invented. The part that I care most is the playable aspect of the game, a model plays the detective and must solve the case before it goes live. As of today: it's free on Android, the iOS version is still waiting to be reviewed by Apple. It's available in six popular languages, but adding more languages is just a matter of time and demand.My long term vision if it takes off: weekly cases, private parties like a team-building escape game, an MCP so a game master can build their own scenario from ChatGPT or Claude, and maybe tourism offices since players travel the world.",
+    "hn_story_id": 50358352,
+    "published_at": "2026-11-03T21:20:03Z",
+    "discovered_at": "2026-11-09T08:06:23.210729Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 5,
+      "evidence": 4,
+      "total": 4.85,
+      "reason": "LLM 嫌疑人会撒谎的侦探游戏，机制清晰可拆（审讯、谎言、真实城市背景），已有 Android 免费版和六语言，适合作为 AI 产品经理分析'AI 角色可信度与游戏化'的案例。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Uncracked City · A detective game in real cities",
+      "url": "https://uncracked.city/",
+      "excerpt": "Uncracked City · A detective game in real cities\nThe cases nobody has cracked.\nA detective game set in real cities. Search the places, question the suspects, catch the lie, and write the report nobody has managed to write yet.\nPlay in your browser\nFree · No download · Phone or computer\nDownload on the App Store\nGet it on Google Play\nWatch with sound on YouTube\nPlay in your browser\nFree · No download · Phone or computer\nSalem, the morning after Halloween. Meg Ashcombe, the last of her family, lies at the foot of her grand staircase, one slipper on the thirteenth step, the front door bolted from the inside. Half the town says the Gray Captain finally took her.\nFour suspects. One of them lies.\nNobody has cracked it yet\nPlay in your browser\nWatch the teaser on YouTube\nEvery case happens in a real neighborhood. Find the clues, open what is locked.\nQuestion the suspects\nAsk your own questions, typed or spoken, in any of the game's six languages. Each suspect answers in their own voice. Some of them lie.\nCatch the lie, then file your report\nPut a clue up against a suspect's statement. When the lie cracks, write your report: three tries, not one more.\nA world tour to learn the ropes. Then the real cases.\nParis, Rio de Janeiro, Marrakech, Tokyo, Sydney: five training levels, each harder than the last. Then come the real cases, harder still. Each one shows how many investigators have solved it. For most of them: nobody. Not yet.\nNobody has cracked it yet\nOne city, one secret\nThe first time you open a case, you fly there across the map. Solve it, and its city is stamped in your passport.\nA question, a bug, a suspect's reply that goes wrong: write to us. In the game, tap “Flag” under a suspect's reply to send that reply straight to us.\nhello@uncracked.city\nThe game is played without an account. To erase everything, tap your portrait in the game, then “My data” → “Start over” → “Erase everything”. If you no longer have the phone that created your player, write to us.\n© 2026 BNT TECHNOLOGIES\nPlay in your browser\nFree · No download · Phone or computer",
+      "source_type": "official",
+      "retrieved_at": "2026-11-09T08:06:39.580102Z"
+    },
+    {
+      "title": "Uncracked City",
+      "url": "https://news.ycombinator.com/item?id=50358352",
+      "excerpt": "Talking to lying LLMs is what I do all day for work. Can’t imagine I’d want to do the same in my free time.\nWhen I was growing up there was a wonderfully made interactive “novel” game on early Macintosh called Sherlock Holmes. I’ve always wondered when we’ll get to a point where this can be done ad-hoc with any potential crime thriller. LA Noir introduced nuanced facial movements and dialog chains but I keep going back to that 1990s era Sherlock Holmes Consulting Detective.\nYou should probably put some better examples of writing in the first trailer, especially if the game involves a lot of reading. Asides from just sounding horribly bland, there's only two sentences of dialogue shown and the character says \"honestly\" in BOTH of them.\nCool concept! It reminds me of the 1985 videogame Where in the World Is Carmen Sandiego. What a blast!\nhaha very neat! Just curious how are you planning to make it free with the inference cost? Even with a luna or haiku its still a non zero cost to run per session.",
+      "source_type": "community",
+      "retrieved_at": "2026-11-09T08:06:39.874351Z"
+    }
+  ],
+  "verified_facts": [
+    "Uncracked City 是一款侦探游戏，背景设定在真实城市，玩家需要搜索地点、审问嫌疑人、找出谎言并撰写报告。",
+    "游戏官网提供浏览器版本，标注为免费、无需下载、手机或电脑均可游玩。",
+    "官网提供 App Store 和 Google Play 下载入口。",
+    "游戏包含六个嫌疑人？不，官网写明每个案件有四个嫌疑人，其中一人说谎。",
+    "玩家可以用打字或语音提出自己的问题，嫌疑人以各自的口吻回答，部分嫌疑人会说谎。",
+    "游戏支持六种语言。",
+    "游戏包含五个训练关卡，分别设在巴黎、里约热内卢、马拉喀什、东京和悉尼，难度依次递增。",
+    "每个案件会显示已破解该案的调查者人数，官网称大多数案件尚无人破解。",
+    "玩家撰写报告有三次尝试机会。",
+    "游戏无需账号即可游玩，并提供数据擦除选项。",
+    "官网版权归属为 BNT TECHNOLOGIES，年份为 2026。",
+    "创始人自述为独立开发者，Android 版免费，iOS 版仍在等待 Apple 审核。"
+  ],
+  "open_questions": [
+    "iOS 版本是否已通过 Apple 审核并上线？",
+    "游戏实际使用的 LLM 模型、推理成本与免费运营的可持续性如何？",
+    "嫌疑人回答的准确性与“说谎”机制在多大程度上由模型生成、多大程度由预设脚本控制？",
+    "六种语言具体是哪些语言？",
+    "游戏当前的实际用户量、留存与案件破解率数据如何？",
+    "官网所称“大多数案件无人破解”是否有独立数据支持？",
+    "语音提问功能支持哪些平台与语言？",
+    "长期规划中的每周案件、团队建设、MCP 与旅游局合作是否有时间表或已落地？"
+  ],
+  "quality": "usable",
+  "collection_diagnostics": []
+}
