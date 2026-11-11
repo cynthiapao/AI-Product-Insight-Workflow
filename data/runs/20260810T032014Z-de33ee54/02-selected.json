@@ -1,0 +1,56 @@
+[
+  {
+    "candidate_id": "ad469b68eae7974c",
+    "name": "VoiceOS App Store",
+    "url": "https://www.producthunt.com/products/voiceos",
+    "source": "Product Hunt",
+    "summary": "<p> The app store for voice native apps that lives in your notch </p> <p> <a href=\"https://www.producthunt.com/products/voiceos?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1218300?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-08T15:42:33-07:00",
+    "discovered_at": "2026-08-10T03:20:15.969470Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.1,
+      "reason": "Voice-native app store in notch is highly novel and relevant, with good depth, but evidence is moderate."
+    }
+  },
+  {
+    "candidate_id": "a96b00a48d7079cf",
+    "name": "Argos",
+    "url": "https://www.producthunt.com/products/argos-2",
+    "source": "Product Hunt",
+    "summary": "<p> The AI that acts as you, right in your browser </p> <p> <a href=\"https://www.producthunt.com/products/argos-2?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1218316?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-08T16:41:16-07:00",
+    "discovered_at": "2026-08-10T03:20:15.969692Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.2,
+      "reason": "AI acting as user in browser is highly relevant and novel, with good depth, but evidence is moderate."
+    }
+  },
+  {
+    "candidate_id": "88405da456e7c9d8",
+    "name": "Omniwork",
+    "url": "https://www.producthunt.com/products/omniwork-2",
+    "source": "Product Hunt",
+    "summary": "<p> The Creative Agent OS, create better with desktop AI agents </p> <p> <a href=\"https://www.producthunt.com/products/omniwork-2?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1196035?app_id=339\">Link</a> </p>",
+    "published_at": "2026-07-14T01:08:56-07:00",
+    "discovered_at": "2026-08-10T03:20:15.969548Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Creative Agent OS with desktop AI agents is novel and relevant, but evidence is moderate and depth is not fully clear."
+    }
+  }
+]
