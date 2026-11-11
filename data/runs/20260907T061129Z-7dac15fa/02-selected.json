@@ -1,0 +1,146 @@
+[
+  {
+    "candidate_id": "3602becab610d5f5",
+    "name": "Show HN: TERMy – A fast terminal assistant that does not use LLMs",
+    "url": "https://github.com/gioblu/NPC-Forge/blob/main/docs/development.md",
+    "source": "Hacker News Show",
+    "summary": "Hacker News discussion score: 210",
+    "published_at": "2026-09-04T09:03:00",
+    "discovered_at": "2026-09-07T06:11:31.082934Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.0,
+      "reason": "Terminal assistant without LLMs, innovative and well-discussed."
+    }
+  },
+  {
+    "candidate_id": "1a10eec3345dd344",
+    "name": "Training a coding model to paint watercolours with TRL and OpenEnv",
+    "url": "https://huggingface.co/blog/train-to-paint-with-code",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-09-03T00:00:00Z",
+    "discovered_at": "2026-09-07T06:11:31.785152Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Training coding model for creative tasks, novel and relevant."
+    }
+  },
+  {
+    "candidate_id": "38db25cb208df341",
+    "name": "Show HN: Engrim – A universal, local-first SQLite memory engine for AI CLIs",
+    "url": "https://github.com/timgordontg/engrim",
+    "source": "Hacker News Show",
+    "summary": "Hacker News discussion score: 6",
+    "published_at": "2026-09-07T04:49:36",
+    "discovered_at": "2026-09-07T06:11:30.224684Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Local-first memory engine for AI CLIs, practical and relevant."
+    }
+  },
+  {
+    "candidate_id": "1084e5d888280cb8",
+    "name": "Agentic Video Understanding in Gemini",
+    "url": "https://www.producthunt.com/products/google",
+    "source": "Product Hunt",
+    "summary": "<p> Agentic video analysis for faster, smarter Gemini insights </p> <p> <a href=\"https://www.producthunt.com/products/google?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1239740?app_id=339\">Link</a> </p>",
+    "published_at": "2026-09-02T12:44:06-07:00",
+    "discovered_at": "2026-09-07T06:11:31.545511Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Agentic video understanding in Gemini shows advanced AI capability, relevant for AI PM."
+    }
+  },
+  {
+    "candidate_id": "f26b75741de4aecb",
+    "name": "Kit by Speakeasy",
+    "url": "https://www.producthunt.com/products/speakeasydev",
+    "source": "Product Hunt",
+    "summary": "<p> Your coding agent runtime. Claude but fast, cheap, concise. </p> <p> <a href=\"https://www.producthunt.com/products/speakeasydev?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1239501?app_id=339\">Link</a> </p>",
+    "published_at": "2026-09-02T07:23:38-07:00",
+    "discovered_at": "2026-09-07T06:11:31.545598Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Coding agent runtime with performance focus, interesting for AI PM."
+    }
+  },
+  {
+    "candidate_id": "5063a3860bc23f05",
+    "name": "Hyperprobe",
+    "url": "https://www.producthunt.com/products/hyperprobe",
+    "source": "Product Hunt",
+    "summary": "<p> Lets your AI agents debug production without redeploying </p> <p> <a href=\"https://www.producthunt.com/products/hyperprobe?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1237032?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-30T20:39:25-07:00",
+    "discovered_at": "2026-09-07T06:11:31.545636Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "AI agents debugging production, novel and practical for AI PM."
+    }
+  },
+  {
+    "candidate_id": "303ea2e849ad56b2",
+    "name": "Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+    "url": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-09-03T00:00:00Z",
+    "discovered_at": "2026-09-07T06:11:31.785104Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Fine-tuning for structured outputs, relevant and technical."
+    }
+  },
+  {
+    "candidate_id": "b7679df464641366",
+    "name": "Give Your Coding Agents a Memory You Own",
+    "url": "https://huggingface.co/blog/funes",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-09-03T00:00:00Z",
+    "discovered_at": "2026-09-07T06:11:31.785132Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Memory for coding agents, relevant and forward-looking."
+    }
+  }
+]
