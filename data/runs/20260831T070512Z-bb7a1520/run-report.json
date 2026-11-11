@@ -1,0 +1,29 @@
+{
+  "run_id": "20260831T070512Z-bb7a1520",
+  "mode": "scheduled",
+  "status": "partial",
+  "candidate_count": 25,
+  "selected_count": 8,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/kveritas-go-verifiable-computation-trust-root.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/kveritas-go-verifiable-computation-trust-root.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/kveritas-go-verifiable-computation-trust-root.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/kveritas-go-verifiable-computation-trust-root/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/kveritas-go-verifiable-computation-trust-root/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/kveritas-go-verifiable-computation-trust-root/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/kveritas-go-verifiable-computation-trust-root/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/kveritas-go-verifiable-computation-trust-root/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/kveritas-go-verifiable-computation-trust-root/README.md"
+  ],
+  "errors": [
+    "Insufficient evidence for Interactive Sessions: requires at least 2 evidence items; collected 1; identity mismatch: ignored HN result 27825773; identity mismatch: ignored HN result 38108397",
+    "Insufficient evidence for Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original: missing independent community or report evidence",
+    "Insufficient evidence for Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers: requires at least 2 evidence items; collected 1",
+    "Insufficient evidence for Granite 4.2 LLMs: How They're Built: missing independent community or report evidence",
+    "Insufficient evidence for BrandJet: requires at least 2 evidence items; collected 1; identity mismatch: ignored HN result 46023147; identity mismatch: ignored HN result 47486534",
+    "Insufficient evidence for Orato: requires at least 2 evidence items; collected 1; identity mismatch: ignored HN result 43187281; official destination fetch failed (https://www.producthunt.com/r/p/1235917?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1235917?app_id=339: HTTP Error 403: Forbidden",
+    "Insufficient evidence for Topview Motion Studio: requires at least 2 evidence items; collected 1; official destination fetch failed (https://www.producthunt.com/r/p/1233737?app_id=339): Unable to fetch https://www.producthunt.com/r/p/1233737?app_id=339: HTTP Error 403: Forbidden; official URL unresolved: discovery listing is not official evidence"
+  ],
+  "started_at": "2026-08-31T07:05:12.833820Z",
+  "finished_at": "2026-08-31T07:06:56.141582Z"
+}

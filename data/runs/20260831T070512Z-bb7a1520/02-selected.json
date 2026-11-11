@@ -1,0 +1,146 @@
+[
+  {
+    "candidate_id": "5b2487cec120be7c",
+    "name": "Interactive Sessions",
+    "url": "https://www.producthunt.com/products/revolte",
+    "source": "Product Hunt",
+    "summary": "<p> Drive the full SDLC with AI agents, step by step </p> <p> <a href=\"https://www.producthunt.com/products/revolte?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1225427?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-17T16:17:20-07:00",
+    "discovered_at": "2026-08-31T07:05:14.987522Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.2,
+      "reason": "AI agents driving SDLC is highly relevant for AI PMs, with clear product depth and moderate novelty."
+    }
+  },
+  {
+    "candidate_id": "904590cd0d04842e",
+    "name": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
+    "url": "https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-25T11:39:24Z",
+    "discovered_at": "2026-08-31T07:05:15.172122Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.25,
+      "reason": "Quantization-aware healing is novel and technically deep, highly relevant for AI PMs."
+    }
+  },
+  {
+    "candidate_id": "0affc227278667c4",
+    "name": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+    "url": "https://huggingface.co/blog/train-multi-vector-encoder",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-26T00:00:00Z",
+    "discovered_at": "2026-08-31T07:05:15.172026Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.0,
+      "reason": "Technical blog on multi-vector embeddings is relevant for AI PMs, with good depth and evidence."
+    }
+  },
+  {
+    "candidate_id": "72c7625e9f9bc49f",
+    "name": "Granite 4.2 LLMs: How They're Built",
+    "url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "published_at": "2026-08-25T15:14:14Z",
+    "discovered_at": "2026-08-31T07:05:15.172076Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.0,
+      "reason": "Granite 4.2 LLM technical blog is relevant and detailed, with strong evidence."
+    }
+  },
+  {
+    "candidate_id": "1b1d3ee75826cbf3",
+    "name": "BrandJet",
+    "url": "https://www.producthunt.com/products/brandjet-ai",
+    "source": "Product Hunt",
+    "summary": "<p> Turn public buying signals into sales pipeline </p> <p> <a href=\"https://www.producthunt.com/products/brandjet-ai?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1226002?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-18T07:52:07-07:00",
+    "discovered_at": "2026-08-31T07:05:14.987567Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Turning buying signals into pipeline is relevant for AI sales tools, with good novelty and depth."
+    }
+  },
+  {
+    "candidate_id": "20a9d2c799c638a8",
+    "name": "Orato",
+    "url": "https://www.producthunt.com/products/orato-speech-coach",
+    "source": "Product Hunt",
+    "summary": "<p> Practice speaking. Your voice never leaves your phone. </p> <p> <a href=\"https://www.producthunt.com/products/orato-speech-coach?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1235917?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-29T10:02:44-07:00",
+    "discovered_at": "2026-08-31T07:05:14.987854Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "On-device speech coaching is relevant for AI PMs, with privacy angle and clear depth."
+    }
+  },
+  {
+    "candidate_id": "370583e96b6f0fea",
+    "name": "Topview Motion Studio",
+    "url": "https://www.producthunt.com/products/topview-ai",
+    "source": "Product Hunt",
+    "summary": "<p> Create launch videos without touching After Effects </p> <p> <a href=\"https://www.producthunt.com/products/topview-ai?utm_campaign=producthunt-atom-posts-feed&utm_medium=rss-feed&utm_source=producthunt-atom-posts-feed\">Discussion</a> | <a href=\"https://www.producthunt.com/r/p/1233737?app_id=339\">Link</a> </p>",
+    "published_at": "2026-08-26T23:32:36-07:00",
+    "discovered_at": "2026-08-31T07:05:14.987936Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "AI video creation for launches is relevant and novel, with good depth."
+    }
+  },
+  {
+    "candidate_id": "4d09a932af07e839",
+    "name": "Show HN: Prove your code produced your claims without making reviewers rerun it",
+    "url": "https://github.com/27-GROUP/kveritas-go",
+    "source": "Hacker News Show",
+    "summary": "Hacker News discussion score: 9",
+    "published_at": "2026-08-31T02:44:56",
+    "discovered_at": "2026-08-31T07:05:13.437989Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "Proving code claims without rerunning is novel and relevant for AI PMs, with good depth."
+    }
+  }
+]
