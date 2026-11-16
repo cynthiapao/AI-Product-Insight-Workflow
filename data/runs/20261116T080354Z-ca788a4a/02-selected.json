@@ -1,0 +1,192 @@
+[
+  {
+    "candidate_id": "bd27dee57000ccea",
+    "name": "Uncracked City",
+    "url": "https://uncracked.city/",
+    "source": "Hacker News Show",
+    "summary": "Uncracked City, detective game where you question LLM suspects that lie. To give you some context on the project. I'm a solo founder and I use AI heavily in my work. The idea came from wanting players to discover cities. Each city has its own history, so every case is set in a real city with real public places. The crime and the people are on other hand invented. The part that I care most is the playable aspect of the game, a model plays the detective and must solve the case before it goes live. As of today: it's free on Android, the iOS version is still waiting to be reviewed by Apple. It's available in six popular languages, but adding more languages is just a matter of time and demand.My long term vision if it takes off: weekly cases, private parties like a team-building escape game, an MCP so a game master can build their own scenario from ChatGPT or Claude, and maybe tourism offices since players travel the world.",
+    "hn_story_id": 50358352,
+    "published_at": "2026-11-03T21:20:03Z",
+    "discovered_at": "2026-11-16T08:03:55.837861Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "LLM嫌疑人会撒谎的侦探游戏，玩法机制新颖，可拆解AI角色可信度与叙事设计，但证据以自述为主。"
+    }
+  },
+  {
+    "candidate_id": "ee7718e33cff9b4b",
+    "name": "Klad",
+    "url": "https://github.com/klad-app/klad",
+    "source": "Hacker News Show",
+    "summary": "Klad, a paint app your coding agent can drive (source-available). I've been developing applications for a long time and have turned to game development as well lately. One of the things that frustrated me the most was that using AI agents for game development is very annoying in the art department. Your only options right now are to either use an image genAI model and roll the dice every time you want to make an edit, or have your agent draw with something like vectors. I was looking for an application that would allow me to ask an agent to make a first draft of whatever art I needed with actual brushes, and then be able to go in myself and edit every last stroke or layer that it created. Klad is that application. Written in Rust, it can be fully controlled by an agent through the CLI, and every function is available in a nice UI as well: a brush engine, frame-by-frame animation (and bones/IK), vectors, text layers, colours, layer effects, infinite undo (even after re-opening the file!),… Why I think it's useful for a wider audience: Adobe showed agents editing Photoshop files at MAX this week, with a private beta planned for early 2027. Klad is built on the same core idea, with ed",
+    "hn_story_id": 50454951,
+    "published_at": "2026-11-11T16:00:50Z",
+    "discovered_at": "2026-11-16T08:03:55.838750Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "可由编码代理驱动的绘画应用，代理生成初稿后人工逐笔编辑，机制新颖且直击AI美术工作流痛点。"
+    }
+  },
+  {
+    "candidate_id": "15bc0d54c2e06b2d",
+    "name": "Aircad",
+    "url": "https://aircad.com/",
+    "source": "Hacker News Show",
+    "summary": "Aircad – Professional drafting and 3D modeling in the browser. Aircad is a professional CAD system running in the browser with deep AI integration. It includes professional grade drafting and documentation tools, NURBS-based solid modeling, and a lot more. You can make professional quality design documents with it. It is all integrated behind a scripting API that can do anything you can do in the interface and also perform complex modeling operations efficiently. It reads and writes file formats like DXF, DWG, STEP, and 3DM. I built Aircad because I was frustrated with what was out there. Current CAD tools are expensive and slow to improve. New features barely move the needle. With Aircad, you have fast, powerful geometry tools for just about anything, from conceptual models to your final design. The newer generation of web-based CAD isn’t comprehensive enough to complete a project or is slower than existing desktop products because it sends performance-sensitive work to a server (OnShape), or isn’t designed to scale to real work in a collaborative setting (many \"toy\" CAD tools). Current CAD collaboration workflows are fragile, costly, and complex. They’re file-based and separate t",
+    "hn_story_id": 50441350,
+    "published_at": "2026-11-10T15:01:19Z",
+    "discovered_at": "2026-11-16T08:03:55.838129Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 5,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "浏览器内专业CAD加深度AI集成，产品机制丰富，可讨论AI在专业设计工作流中的定位，但公开证据偏自述。"
+    }
+  },
+  {
+    "candidate_id": "8666dd459a7f5a9f",
+    "name": "Yogurt",
+    "url": "https://github.com/FrigadeHQ/yogurt",
+    "source": "Hacker News Show",
+    "summary": "Yogurt – Free, private, open-source alternative to Granola. Hey HN, I’m Eric and I want to share an OSS project that I’ve been building in my free time. Yogurt is a free, MIT licensed desktop app that uses on-device AI models to transcribe, summarize, and chat with your meetings. Here's a quick demo video: https://www.youtube.com/watch?v=BFfbXAwRq98 Similar to Granola, Yogurt runs in the background and does not join your calls. But unlike Granola, Yogurt is open-source, free to use, and private. Your meeting transcripts, call recordings, and summaries never leave your computer. As small OSS models have gotten faster and more powerful, Yogurt seemed like a pretty obvious win for privacy and cost conscious folks. You do not need a frontier model to summarize meeting notes or answer questions about them. And if you want to make your notes available to a frontier model, you can just share it with Anthropic, OpenAI, etc. directly via Yogurt’s local MCP server. There’s no need to use a paid cloud service as a middleman. I tried some of the most popular OSS note taking tools, and most were missing features like calendar integration, MCP server, etc. or required you to connect or create an",
+    "hn_story_id": 50454625,
+    "published_at": "2026-11-11T15:33:06Z",
+    "discovered_at": "2026-11-16T08:03:55.837582Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.35,
+      "reason": "本地端侧AI会议记录桌面应用，有完整产品形态、日历集成与MCP，隐私与成本取舍清晰，适合拆解产品机制。"
+    }
+  },
+  {
+    "candidate_id": "32252e014e2f0d3c",
+    "name": "Hob",
+    "url": "https://github.com/FrigadeHQ/hob",
+    "source": "Hacker News Show",
+    "summary": "Hob - Open-source, on device alternative to Claude Cowork and ChatGPT. Hey HN, I'm Christian and this is a new OSS project I've been noodling on for the last couple of weeks. Hob is a free, MIT-licensed desktop app for Mac, Windows and Linux that works on your files the way the Claude and ChatGPT desktop apps do, except the model runs on your own computer. It uses open-weight models (currently Gemma 4 and gpt-oss). All your chats and files never leave your system. The only things that go online are web search (can be turned off in settings) and any MCP connectors you add yourself. Main features: - Automatically finds the best open-weight model for your hardware on first install (Mac/Linux/Windows) - Writes sandboxed Python code for ad hoc tools (data processing, document conversion, graphs etc.) - Built-in web search (powered by SearXNG) - MCP support - Image recognition - CRUD to your local filesystem - Works fully offline with no internet Before building this I tried every local AI app I could find, but it seemed each one had different problems. The main thing I noticed is that none of them could do what the ChatGPT and Claude apps do with your files, e.g. read and change files i",
+    "hn_story_id": 50246238,
+    "published_at": "2026-10-26T16:12:29Z",
+    "discovered_at": "2026-11-16T08:03:55.838234Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 4,
+      "total": 4.35,
+      "reason": "本地开源桌面AI助手，能读写文件、沙箱执行代码、MCP与离线运行，产品机制完整，适合与云端助手对比。"
+    }
+  },
+  {
+    "candidate_id": "c2fb4c1f9bfeb774",
+    "name": "Kairos",
+    "url": "https://github.com/finic-ai/kairos",
+    "source": "Hacker News Show",
+    "summary": "Kairos – Open-source risk and fraud decisioning platform. Hey HN, Ayan here from Finic. We’re launching Kairos, an open source alternative to Sift, Sardine, and other real-time fraud decisioning platforms. Kairos addresses two of the biggest problems facing traditional decisioning tools: a lack of labeled data to train on and dealing with fraudsters that are constantly changing their tactics. 1. Traditional fraud solutions use ML models such as XGBoost to detect fraud, but these models are dependent on quality labeled data which many businesses do not have. We address this by using “System One” decision models in additional to traditional models such as XGBoost and logistic regression. This allows you to incorporate plain language questions such as “Is this a throwaway email” into your decisioning, bypassing the need for large amounts of labeled data. This also allows you to capture aspects of fraud that are more unstructured, which is something that XGBoost models struggle with. 2. Fraud teams are facing off with live players that are constantly changing their behavior to bypass the detection logic they have in place. You can train a detection model or define a ruleset once, but i",
+    "hn_story_id": 50358314,
+    "published_at": "2026-11-03T21:16:48Z",
+    "discovered_at": "2026-11-16T08:03:55.838568Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 3.85,
+      "reason": "开源反欺诈决策平台，用自然语言问题补充传统模型，B端机制可拆，但体验门槛高。"
+    }
+  },
+  {
+    "candidate_id": "d676ccbf8fb4eca7",
+    "name": "Point your camera at a landscape to learn about its geology",
+    "url": "https://outcrop.rocks/",
+    "source": "Hacker News Show",
+    "summary": "Point your camera at a landscape to learn about its geology. I've been working on a fun little app that paints geologic maps over landscapes using augmented reality. You can use it to identify what the mapped rocks are, read descriptions about them, and view the earth as it looked when they formed by turning back the continent positions. It spun out of some augmented reality work I was doing on my other side project app - Flyover Country, which tells you about the view from the airplane window. I'm in Minnesota, so i haven't had a chance to test it on a huge amount of terrain (the best I've found is the Mississippi River gorge in the twin cities... I need a trip up north), so anyone that's somewhere with some more bumps: please help!). It's stuck in the Apple review queue, but it's up on testflight for anyone interested. Google approved it quickly and it's fully out on android (links to both on the marketing site). edit: got a report that testflight was asking for an install code. Seems like a testflight app issue, but dismissing it and installing as normal seems to work!",
+    "hn_story_id": 50290533,
+    "published_at": "2026-10-29T15:22:41Z",
+    "discovered_at": "2026-11-16T08:03:55.837929Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.6,
+      "reason": "AR相机识别地貌地质并叠加地质图，教育体验直观，产品机制可拆，但覆盖范围有限。"
+    }
+  },
+  {
+    "candidate_id": "e37f77ebde621072",
+    "name": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+    "url": "https://huggingface.co/blog/qvac/botpsy",
+    "source": "Hugging Face Blog",
+    "summary": "",
+    "hn_story_id": null,
+    "published_at": "2026-11-11T05:01:16Z",
+    "discovered_at": "2026-11-16T08:03:55.964700Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "端侧亚十亿参数个人助理，产品方向有趣，但摘要缺失、证据不足，难以形成扎实判断。"
+    }
+  },
+  {
+    "candidate_id": "0437973e5488bc51",
+    "name": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop",
+    "source": "Google AI Blog",
+    "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/labs_tabletop_blog_image_2784x1.max-600x600.format-webp.webp\">Tabletop is a new Google Labs experiment for group collaboration. Build interactive itineraries, polls, and brackets with your team. Join the waitlist.",
+    "hn_story_id": null,
+    "published_at": "2026-11-11T16:00:00Z",
+    "discovered_at": "2026-11-16T08:03:56.174307Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 4,
+      "product_depth": 3,
+      "evidence": 2,
+      "total": 3.45,
+      "reason": "Google Labs的群体协作空间实验，可建互动行程与投票，产品机制可拆但仍在等待名单、证据有限。"
+    }
+  },
+  {
+    "candidate_id": "a9c9b95412e93f7a",
+    "name": "I built a tool that prices a pre-built PC part by part",
+    "url": "https://pcdealcheck.com/",
+    "source": "Hacker News Show",
+    "summary": "I built a tool that prices a pre-built PC part by part. I've missed out on an awesome computer that I could use for a project because figuring out value took too long. Users paste a listing and receive a value grade, dated component estimates and a shareable report. AI reads the listing but my custom built price engine determines the grade (updated every day). Self financed and working now. Looking for feedback re: scoring, interface, and if its helpful. https://www.youtube.com/watch?v=Tpft--x3WlI",
+    "hn_story_id": 50366929,
+    "published_at": "2026-11-04T15:25:33Z",
+    "discovered_at": "2026-11-16T08:03:55.837803Z",
+    "manual": false,
+    "score": {
+      "relevance": 4,
+      "novelty": 3,
+      "product_depth": 3,
+      "evidence": 3,
+      "total": 3.35,
+      "reason": "整机按件估价的消费决策工具，AI读listing加自建价格引擎，机制清晰但深度一般。"
+    }
+  }
+]

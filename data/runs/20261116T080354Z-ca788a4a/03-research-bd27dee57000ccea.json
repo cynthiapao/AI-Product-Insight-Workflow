@@ -1,0 +1,63 @@
+{
+  "candidate": {
+    "candidate_id": "bd27dee57000ccea",
+    "name": "Uncracked City",
+    "url": "https://uncracked.city/",
+    "source": "Hacker News Show",
+    "summary": "Uncracked City, detective game where you question LLM suspects that lie. To give you some context on the project. I'm a solo founder and I use AI heavily in my work. The idea came from wanting players to discover cities. Each city has its own history, so every case is set in a real city with real public places. The crime and the people are on other hand invented. The part that I care most is the playable aspect of the game, a model plays the detective and must solve the case before it goes live. As of today: it's free on Android, the iOS version is still waiting to be reviewed by Apple. It's available in six popular languages, but adding more languages is just a matter of time and demand.My long term vision if it takes off: weekly cases, private parties like a team-building escape game, an MCP so a game master can build their own scenario from ChatGPT or Claude, and maybe tourism offices since players travel the world.",
+    "hn_story_id": 50358352,
+    "published_at": "2026-11-03T21:20:03Z",
+    "discovered_at": "2026-11-16T08:03:55.837861Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "LLM嫌疑人会撒谎的侦探游戏，玩法机制新颖，可拆解AI角色可信度与叙事设计，但证据以自述为主。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Uncracked City · A detective game in real cities",
+      "url": "https://uncracked.city/",
+      "excerpt": "Uncracked City · A detective game in real cities\nA new case every day\nThe cases nobody has cracked.\nA detective game set in real cities. Every day, a new file: search the places, question the suspects, catch the lie, write the report. And every week, a cold case nobody has cracked yet.\nPlay in your browser\nFree · No download · Phone or computer\nDownload on the App Store\nGet it on Google Play\nWatch with sound on YouTube\nPlay in your browser\nFree · No download · Phone or computer\nSalem, the morning after Halloween. Meg Ashcombe, the last of her family, lies at the foot of her grand staircase, one slipper on the thirteenth step, the front door bolted from the inside. Half the town says the Gray Captain finally took her.\nFour suspects. One of them lies.\nNobody has cracked it yet\nPlay in your browser\nWatch the teaser on YouTube\nEvery case happens in a real neighborhood. Find the clues, open what is locked.\nQuestion the suspects\nAsk your own questions, typed or spoken, in any of the game's six languages. Each suspect answers in their own voice. Some of them lie.\nCatch the lie, then file your report\nPut a clue up against a suspect's statement. When the lie cracks, write your report: three tries, not one more.\nA world tour to learn the ropes. Then the real cases.\nParis, Rio de Janeiro, Marrakech, Tokyo, Sydney: five training levels, each harder than the last. Then come the real cases, harder still. Each one shows how many investigators have solved it. For most of them: nobody. Not yet.\nNobody has cracked it yet\nOne city, one secret\nThe first time you open a case, you fly there across the map. Solve it, and its city is stamped in your passport.\nA question, a bug, a suspect's reply that goes wrong: write to us. In the game, tap “Flag” under a suspect's reply to send that reply straight to us.\nhello@uncracked.city\nThe game is played without an account. To start over, tap your portrait in the game, then “My data” → “Start over” → “Erase everything”: your progress is erased, and every device with your game starts again at level 1. To erase your player itself, write to us with the number “My data” shows.\n© 2026 BNT TECHNOLOGIES\nPlay in your browser\nFree · No download · Phone or computer",
+      "source_type": "official",
+      "retrieved_at": "2026-11-16T08:04:08.308534Z"
+    },
+    {
+      "title": "Uncracked City",
+      "url": "https://news.ycombinator.com/item?id=50358352",
+      "excerpt": "Talking to lying LLMs is what I do all day for work. Can’t imagine I’d want to do the same in my free time.\nWhen I was growing up there was a wonderfully made interactive “novel” game on early Macintosh called Sherlock Holmes. I’ve always wondered when we’ll get to a point where this can be done ad-hoc with any potential crime thriller. LA Noir introduced nuanced facial movements and dialog chains but I keep going back to that 1990s era Sherlock Holmes Consulting Detective.\nYou should probably put some better examples of writing in the first trailer, especially if the game involves a lot of reading. Asides from just sounding horribly bland, there's only two sentences of dialogue shown and the character says \"honestly\" in BOTH of them.\nCool concept! It reminds me of the 1985 videogame Where in the World Is Carmen Sandiego. What a blast!\nhaha very neat! Just curious how are you planning to make it free with the inference cost? Even with a luna or haiku its still a non zero cost to run per session.",
+      "source_type": "community",
+      "retrieved_at": "2026-11-16T08:04:09.674669Z"
+    }
+  ],
+  "verified_facts": [
+    "Uncracked City 是一款以真实城市为背景的侦探游戏，玩家需要搜索地点、询问嫌疑人、找出谎言并撰写报告。",
+    "游戏官网称每天推出一个新案件，每周推出一个尚未被破解的悬案。",
+    "游戏官网称玩家可以用游戏支持的六种语言中的任意一种，以打字或语音方式向嫌疑人提出自己的问题。",
+    "游戏官网称部分嫌疑人会说谎，玩家需要将线索与嫌疑人的陈述对照，以揭穿谎言。",
+    "游戏官网称玩家撰写报告有三次尝试机会。",
+    "游戏官网称游戏包含五个训练关卡，分别设在巴黎、里约热内卢、马拉喀什、东京和悉尼，难度依次递增。",
+    "游戏官网称游戏可在浏览器中免费游玩，无需下载，也可通过 App Store 和 Google Play 获取。",
+    "游戏官网称游戏无需账号即可游玩，并提供了在游戏内清除进度和数据的说明。",
+    "游戏官网标注版权方为 BNT TECHNOLOGIES，年份为 2026。",
+    "创始人自述称自己是独立创始人，iOS 版本仍在等待 Apple 审核，Android 版本已免费上线。",
+    "创始人自述称案件设定在真实城市和真实公共场所，但犯罪情节和人物均为虚构。",
+    "创始人自述称长期设想包括每周案件、团队建设类私人聚会、供游戏主持人构建场景的 MCP，以及可能与旅游局合作。"
+  ],
+  "open_questions": [
+    "游戏实际使用的 LLM 模型、推理成本以及免费模式如何持续，均未说明。",
+    "iOS 版本是否已通过 Apple 审核并上线，目前无法确认。",
+    "官网所称“每天新案件”“每周悬案”是否已稳定持续更新，缺乏独立验证。",
+    "嫌疑人说谎机制的具体实现方式与可靠性，没有技术细节或第三方评测。",
+    "游戏实际支持的语言种类，官网仅笼统称六种，未列出具体语言。",
+    "玩家规模、活跃度与案件破解率等数据仅有官网自述，无独立来源。",
+    "游戏内容质量与写作水平存在社区质疑，缺乏系统性评测证据。",
+    "MCP、私人聚会、旅游局合作等长期规划是否已进入开发或仅有设想，尚不明确。"
+  ],
+  "quality": "usable",
+  "collection_diagnostics": []
+}
