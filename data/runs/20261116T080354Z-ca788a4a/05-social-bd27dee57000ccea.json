@@ -1,0 +1,148 @@
+{
+  "social_standard": "v5",
+  "content_track": "deep_insight",
+  "article_slug": "uncracked-city-llm-liars-detective-game",
+  "key_takeaway": "Uncracked City 把 LLM 的幻觉变成侦探游戏的核心机制，让玩家通过自由提问和线索比对识破谎言，但免费模式下的推理成本与内容可持续性仍是未解难题。",
+  "x_post": {
+    "format": "thread",
+    "text": "With @uncrackedcity:\n\nUncracked City turns LLM hallucinations into the core of a detective game.\n\nYou interrogate AI suspects in real cities, ask your own questions, and catch lies by comparing statements with clues.\n\nBut can a free game survive the inference costs?",
+    "headline": "When LLM lies become the game",
+    "image_recommended": true,
+    "image_brief": "Use a real screenshot of the Uncracked City website homepage showing the detective game interface, with a real city case and suspect questioning. Overlay the headline and a short caption about turning hallucinations into gameplay.",
+    "alt_text": "Screenshot of Uncracked City website showing a detective game set in a real city, with suspects to question and clues to compare.",
+    "visual_caption": "LLM hallucinations as a feature, not a bug",
+    "comparison_rows": [
+      {
+        "label": "Uncracked City",
+        "strength": "Turns LLM unreliability into a core gameplay challenge",
+        "gap": "Free model may not cover inference costs at scale"
+      },
+      {
+        "label": "Traditional detective games",
+        "strength": "Scripted narratives ensure consistency and fairness",
+        "gap": "Limited replayability and no dynamic suspect responses"
+      }
+    ],
+    "thread": [
+      {
+        "text": "With @uncrackedcity:\n\nUncracked City turns LLM hallucinations into the core of a detective game.\n\nYou interrogate AI suspects in real cities, ask your own questions, and catch lies by comparing statements with clues.\n\nBut can a free game survive the inference costs?",
+        "image_kind": "cover",
+        "screenshot_id": null,
+        "alt_text": "Overview card showing Uncracked City concept: LLM suspects lie in real city cases, players question and catch lies, with a question mark on sustainability."
+      },
+      {
+        "text": "The game uses real city settings and fictional cases. Suspects are LLM-driven, so answers are generated on the fly.\n\nSome lie, and you have three tries to write the correct report.\n\nThis makes each playthrough different, but also unpredictable.",
+        "image_kind": "screenshot",
+        "screenshot_id": "website-home",
+        "alt_text": "Screenshot of Uncracked City website showing the detective game interface with real city case and suspect questioning."
+      },
+      {
+        "text": "The clever part: instead of fighting hallucinations, the game makes them the challenge.\n\nPlayers must actively probe for inconsistencies.\n\nBut free-to-play with LLM costs is a real question mark.",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      },
+      {
+        "text": "Community feedback points out the writing quality and the sustainability of free inference.\n\nFor AI product folks, this is a case study in turning model flaws into features.\n\nWould you play a game where the AI is designed to lie?",
+        "image_kind": "none",
+        "screenshot_id": null,
+        "alt_text": ""
+      }
+    ],
+    "mentions_applicable": true,
+    "official_mentions": [
+      {
+        "product_name": "Uncracked City",
+        "handle": "@uncrackedcity",
+        "profile_url": "https://x.com/uncrackedcity",
+        "verification_status": "needs_review"
+      }
+    ],
+    "unresolved_product_mentions": []
+  },
+  "xiaohongshu": {
+    "title": "让AI说谎的侦探游戏",
+    "body": "最近看到一款叫 Uncracked City 的侦探游戏，它把 LLM 的幻觉变成了核心玩法。玩家在真实城市背景的虚构案件里审问 AI 嫌疑人，可以自由提问，然后比对线索找出谎言。\n\n最吸引我的是，它没有试图让 AI 变得可靠，反而让嫌疑人故意说谎。每个案件有多个嫌疑人，至少一个会说谎，玩家得在三次尝试内写出报告。这种设计让每次对话都不同，重玩价值很高。\n\n但问题也很明显：免费模式下，每次对话都有推理成本，开发者没说明怎么持续。而且 LLM 回答可能前后矛盾，影响公平性。社区也有人吐槽写作质量一般。\n\n从产品角度看，把模型缺陷变成特色是个聪明思路，但成本和质量控制是绕不开的坎。你会愿意玩一个 AI 故意说谎的游戏吗？",
+    "hashtags": [
+      "AI游戏",
+      "LLM应用",
+      "侦探游戏"
+    ]
+  },
+  "carousel": [
+    {
+      "order": 1,
+      "kind": "cover",
+      "title": "让 LLM 说谎的侦探游戏",
+      "body": "Uncracked City 把 AI 幻觉变成核心玩法：玩家审问 LLM 嫌疑人，通过自由提问和线索比对识破谎言。但免费模式下的推理成本与内容可持续性仍是未解难题。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 2,
+      "kind": "screenshot",
+      "title": "真实城市里的虚构案件",
+      "body": "官网截图显示游戏界面：真实城市背景，玩家可以搜索地点、询问嫌疑人、比对线索并撰写报告。每个案件有多个嫌疑人，至少一个会说谎。",
+      "comparison_rows": [],
+      "screenshot_id": "website-home"
+    },
+    {
+      "order": 3,
+      "kind": "comparison",
+      "title": "与传统侦探游戏对比",
+      "body": "Uncracked City 用 LLM 生成动态回答，重玩价值高但可能不一致；传统侦探游戏脚本固定，公平但缺乏变化。",
+      "comparison_rows": [
+        {
+          "label": "Uncracked City",
+          "strength": "动态生成回答，每次体验不同",
+          "gap": "回答可能前后矛盾，影响公平性"
+        },
+        {
+          "label": "传统侦探游戏",
+          "strength": "脚本固定，逻辑一致",
+          "gap": "重玩价值低，缺乏动态互动"
+        }
+      ],
+      "screenshot_id": null
+    },
+    {
+      "order": 4,
+      "kind": "insight",
+      "title": "把缺陷变成特色",
+      "body": "游戏没有试图消除 LLM 幻觉，而是让嫌疑人故意说谎，玩家必须主动分析信息、寻找矛盾。这种设计提升了参与感和智力挑战性。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 5,
+      "kind": "insight",
+      "title": "成本与质量的边界",
+      "body": "免费模式下，每次对话都有推理成本，开发者未说明如何持续。LLM 生成内容的不可控性也可能导致逻辑漏洞，影响体验。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    },
+    {
+      "order": 6,
+      "kind": "closing",
+      "title": "产品启示",
+      "body": "AI 产品经理可以学到：不要总是试图让模型完美，有时模型的缺陷恰恰是创造独特体验的机会。关键在于设计一个让用户理解并接受这种不可靠性的框架，同时控制好成本和内容质量。",
+      "comparison_rows": [],
+      "screenshot_id": null
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshot_id": "website-home",
+      "filename": "01-website-home.png",
+      "required": true,
+      "source_kind": "product",
+      "purpose": "展示 Uncracked City 的游戏界面和核心机制，用于 X 案例帖和小红书配图。",
+      "capture": "截取 Uncracked City 官网首页，包含游戏标题、真实城市案件示例、嫌疑人提问区域和线索比对界面。",
+      "annotation": "可标注 'LLM suspects lie in real city cases'",
+      "used_for": [
+        "x",
+        "xiaohongshu"
+      ]
+    }
+  ]
+}

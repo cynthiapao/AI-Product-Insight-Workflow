@@ -1,0 +1,23 @@
+{
+  "run_id": "20261116T080354Z-ca788a4a",
+  "mode": "scheduled",
+  "status": "completed",
+  "candidate_count": 35,
+  "selected_count": 10,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/uncracked-city-llm-liars-detective-game.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/uncracked-city-llm-liars-detective-game.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/uncracked-city-llm-liars-detective-game.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-liars-detective-game/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-liars-detective-game/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-liars-detective-game/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-liars-detective-game/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-liars-detective-game/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-liars-detective-game/social-cards.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/uncracked-city-llm-liars-detective-game/social-cards.css",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/uncracked-city-llm-liars-detective-game/README.md"
+  ],
+  "errors": [],
+  "started_at": "2026-11-16T08:03:54.553600Z",
+  "finished_at": "2026-11-16T08:05:42.302766Z"
+}

@@ -1,0 +1,12 @@
+article_slug: "uncracked-city-llm-liars-detective-game"
+screenshots:
+  - screenshot_id: "website-home"
+    filename: "01-website-home.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Uncracked City 的游戏界面和核心机制，用于 X 案例帖和小红书配图。"
+    capture: "截取 Uncracked City 官网首页，包含游戏标题、真实城市案件示例、嫌疑人提问区域和线索比对界面。"
+    annotation: "可标注 'LLM suspects lie in real city cases'"
+    used_for:
+      - x
+      - xiaohongshu
