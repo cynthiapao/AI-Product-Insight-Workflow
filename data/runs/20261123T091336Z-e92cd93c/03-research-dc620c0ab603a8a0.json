@@ -1,0 +1,63 @@
+{
+  "candidate": {
+    "candidate_id": "dc620c0ab603a8a0",
+    "name": "Foolscap",
+    "url": "https://foolscap.works/",
+    "source": "Hacker News Show",
+    "summary": "Foolscap – a writing app that reads your book and never writes for you. People are scared of their ability to write and think atrophying, so I wondered: what if I built something that enhanced human creativity instead of destroying it by doing the thinking and writing for people? Foolscap is the result, or at least the first version of that idea that's fleshed out enough to share here. It reads as you write and picks out the structure: characters, ideas, threads, what's left hanging. You can respond to what it picks out, so there's a dialectic between the system and you as the writer. There's also an agent on the side, plugged into the same system, so you can ask about your book and fire off actions through conversation. It never writes into your work. The system can also follow theorems and proofs and string together their dependencies, but I haven't made that a focus yet. There's no Lean support, for example. If anyone's interested in that, I'd love to hear it. I want to build this by iterating with the people who use it: a tool that uses AI not to bypass the creative process, but to bring new tools to it. There's a free tier, and if you email hello@foolscap.works I'll send you a",
+    "hn_story_id": 50559749,
+    "published_at": "2026-11-19T13:21:20Z",
+    "discovered_at": "2026-11-23T09:13:37.046187Z",
+    "manual": false,
+    "score": {
+      "relevance": 5,
+      "novelty": 5,
+      "product_depth": 4,
+      "evidence": 3,
+      "total": 4.45,
+      "reason": "写作辅助产品明确'不代写'，以结构提取与对话式代理形成人机辩证机制，是很好的产品判断素材。"
+    }
+  },
+  "evidence": [
+    {
+      "title": "Foolscap — your book, alive as you write it",
+      "url": "https://foolscap.works/",
+      "excerpt": "Foolscap — your book, alive as you write it\nYour book, alive as you write it.\nA writing app that reads as you write and picks out your book's structure: its characters, ideas, threads, what's left hanging. It never writes a word for you. It is made to strengthen your writing and thinking, not to do them for you.\nYour writing is encrypted, and never used to train AI.",
+      "source_type": "official",
+      "retrieved_at": "2026-11-23T09:13:48.098968Z"
+    },
+    {
+      "title": "Foolscap",
+      "url": "https://news.ycombinator.com/item?id=50559749",
+      "excerpt": "I'm not writing a book right now, but I love this idea. In general, I think many AI tools treat writing (or designing, or coding, or...) as a necessary evil we should eliminate. So the AI tool does it for you. Now that we're realizing the writing, coding, designing process is actually important and many of us enjoy them, these kinds of tools are great. AI tools that work with you and augment your process, but don't replace it.\nAnother (vibed/pre-release) app in this space is Fleshnote[0]. It's a large install, but has a similar write first, note second approach. The pentimento feature ('git for prose') is likely something we'll start seeing more in other authoring environments going ahead. https://fleshnote.org/\nthis is great, love seeing apps like this! also Foolscap a great name. (Fleshnote not so much lol)\nIt looks interesting, but I can't pause the video/animation. I see a lot of mouse movement and things opening and closing, but it's too fast (for my old eyes, at least).\nI’m writing a book at the moment. But not a storybook, more a teach-yourself-the-basis-of… kind of book. Is this tool any good for these kinds of text?",
+      "source_type": "community",
+      "retrieved_at": "2026-11-23T09:13:48.686025Z"
+    }
+  ],
+  "verified_facts": [
+    "Foolscap 是一个写作应用，会在用户写作时阅读内容并提取书籍结构，包括角色、想法、线索和未收束的内容。",
+    "Foolscap 官方声明它不会替用户写任何文字，目标是增强而非替代用户的写作与思考。",
+    "官方声明用户的写作内容会被加密，且不会被用于训练 AI。",
+    "产品描述提到系统与作者之间存在辩证互动：用户可以回应系统提取出的内容。",
+    "产品描述提到有一个侧边代理接入同一系统，用户可以通过对话询问关于书的问题并触发操作。",
+    "该代理不会写入用户的作品。",
+    "系统可以跟踪定理与证明并串联其依赖关系，但作者表示这尚未成为重点。",
+    "作者明确表示目前不支持 Lean。",
+    "产品提供免费层级。",
+    "作者提供了联系邮箱 hello@foolscap.works。",
+    "该产品在 Hacker News 的 Show HN 板块发布，HN 讨论中有用户表达了对增强而非替代创作过程这类工具的正面看法。",
+    "HN 讨论中有用户提到同领域的另一个应用 Fleshnote，并称其为预发布版本。"
+  ],
+  "open_questions": [
+    "结构提取与对话代理的实际准确度和可用性如何，是否有独立评测或用户实测数据？",
+    "加密与“不用于训练 AI”的具体技术实现与隐私政策细节是什么？",
+    "免费层级的具体限制、付费方案与定价是什么？",
+    "该工具对非虚构、教学类书籍的效果如何？",
+    "定理与证明跟踪功能目前的具体能力边界是什么，未来是否会支持 Lean 等证明助手？",
+    "产品当前处于什么开发阶段（如 beta、正式版），用户规模与留存情况如何？",
+    "除官方页面与 HN 讨论外，是否有独立媒体或第三方评测交叉验证其功能？",
+    "HN 讨论中提到的 Fleshnote 与 Foolscap 在功能上的具体差异是什么？"
+  ],
+  "quality": "usable",
+  "collection_diagnostics": []
+}

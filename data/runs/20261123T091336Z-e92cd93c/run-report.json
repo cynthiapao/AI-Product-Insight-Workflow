@@ -1,0 +1,23 @@
+{
+  "run_id": "20261123T091336Z-e92cd93c",
+  "mode": "scheduled",
+  "status": "completed",
+  "candidate_count": 35,
+  "selected_count": 6,
+  "outputs": [
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/foolscap-ai-writing-tool-that-never-writes.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/foolscap-ai-writing-tool-that-never-writes.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/drafts/foolscap-ai-writing-tool-that-never-writes.card.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/foolscap-ai-writing-tool-that-never-writes/social.json",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/foolscap-ai-writing-tool-that-never-writes/x-post.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/foolscap-ai-writing-tool-that-never-writes/xiaohongshu.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/foolscap-ai-writing-tool-that-never-writes/image-plan.yml",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/foolscap-ai-writing-tool-that-never-writes/pr-body.md",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/foolscap-ai-writing-tool-that-never-writes/social-cards.html",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/output/social/foolscap-ai-writing-tool-that-never-writes/social-cards.css",
+    "/home/runner/work/AI-Product-Insight-Workflow/AI-Product-Insight-Workflow/inputs/assets/foolscap-ai-writing-tool-that-never-writes/README.md"
+  ],
+  "errors": [],
+  "started_at": "2026-11-23T09:13:36.061837Z",
+  "finished_at": "2026-11-23T09:14:42.074717Z"
+}
