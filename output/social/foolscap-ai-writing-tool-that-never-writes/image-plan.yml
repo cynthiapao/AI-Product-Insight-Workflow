@@ -1,0 +1,12 @@
+article_slug: "foolscap-ai-writing-tool-that-never-writes"
+screenshots:
+  - screenshot_id: "foolscap-home"
+    filename: "01-foolscap-home.png"
+    required: true
+    source_kind: "product"
+    purpose: "展示 Foolscap 官网的产品描述和“永不代写”承诺，作为文章核心论点的直接证据。"
+    capture: "截取 Foolscap 官网首页首屏，包含标题、产品描述和关键承诺文字。"
+    annotation: "突出显示“It never writes a word for you”这句话。"
+    used_for:
+      - x
+      - xiaohongshu
